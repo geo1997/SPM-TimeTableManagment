@@ -29,10 +29,6 @@
         private void InitializeComponent()
         {
             this.sideMenuPanel = new System.Windows.Forms.Panel();
-            this.titleBarPanel = new System.Windows.Forms.Panel();
-            this.lblTitle = new System.Windows.Forms.Label();
-            this.panelDekstopPane = new System.Windows.Forms.Panel();
-            this.btnClose = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
@@ -44,6 +40,10 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnWorkingDays = new System.Windows.Forms.Button();
+            this.titleBarPanel = new System.Windows.Forms.Panel();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.panelDekstopPane = new System.Windows.Forms.Panel();
             this.sideMenuPanel.SuspendLayout();
             this.titleBarPanel.SuspendLayout();
             this.SuspendLayout();
@@ -67,50 +67,6 @@
             this.sideMenuPanel.Name = "sideMenuPanel";
             this.sideMenuPanel.Size = new System.Drawing.Size(220, 673);
             this.sideMenuPanel.TabIndex = 0;
-            // 
-            // titleBarPanel
-            // 
-            this.titleBarPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            this.titleBarPanel.Controls.Add(this.btnClose);
-            this.titleBarPanel.Controls.Add(this.lblTitle);
-            this.titleBarPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.titleBarPanel.Location = new System.Drawing.Point(220, 0);
-            this.titleBarPanel.Name = "titleBarPanel";
-            this.titleBarPanel.Size = new System.Drawing.Size(875, 80);
-            this.titleBarPanel.TabIndex = 1;
-            // 
-            // lblTitle
-            // 
-            this.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Engravers MT", 15F);
-            this.lblTitle.ForeColor = System.Drawing.Color.White;
-            this.lblTitle.Location = new System.Drawing.Point(385, 31);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(111, 29);
-            this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "HOME";
-            // 
-            // panelDekstopPane
-            // 
-            this.panelDekstopPane.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelDekstopPane.Location = new System.Drawing.Point(220, 80);
-            this.panelDekstopPane.Name = "panelDekstopPane";
-            this.panelDekstopPane.Size = new System.Drawing.Size(875, 593);
-            this.panelDekstopPane.TabIndex = 2;
-            // 
-            // btnClose
-            // 
-            this.btnClose.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnClose.FlatAppearance.BorderSize = 0;
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Image = global::TimeTableManagment.Properties.Resources.icons8_macos_close_32;
-            this.btnClose.Location = new System.Drawing.Point(0, 0);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(75, 80);
-            this.btnClose.TabIndex = 1;
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnCloseChildForm_click);
             // 
             // button10
             // 
@@ -320,6 +276,50 @@
             this.btnWorkingDays.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnWorkingDays.UseVisualStyleBackColor = true;
             this.btnWorkingDays.Click += new System.EventHandler(this.workingDays_click);
+            // 
+            // titleBarPanel
+            // 
+            this.titleBarPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
+            this.titleBarPanel.Controls.Add(this.btnClose);
+            this.titleBarPanel.Controls.Add(this.lblTitle);
+            this.titleBarPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.titleBarPanel.Location = new System.Drawing.Point(220, 0);
+            this.titleBarPanel.Name = "titleBarPanel";
+            this.titleBarPanel.Size = new System.Drawing.Size(875, 80);
+            this.titleBarPanel.TabIndex = 1;
+            // 
+            // btnClose
+            // 
+            this.btnClose.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Image = global::TimeTableManagment.Properties.Resources.icons8_macos_close_32;
+            this.btnClose.Location = new System.Drawing.Point(0, 0);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(75, 80);
+            this.btnClose.TabIndex = 1;
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnCloseChildForm_click);
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Engravers MT", 15F);
+            this.lblTitle.ForeColor = System.Drawing.Color.White;
+            this.lblTitle.Location = new System.Drawing.Point(385, 31);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(111, 29);
+            this.lblTitle.TabIndex = 0;
+            this.lblTitle.Text = "HOME";
+            // 
+            // panelDekstopPane
+            // 
+            this.panelDekstopPane.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelDekstopPane.Location = new System.Drawing.Point(220, 80);
+            this.panelDekstopPane.Name = "panelDekstopPane";
+            this.panelDekstopPane.Size = new System.Drawing.Size(875, 593);
+            this.panelDekstopPane.TabIndex = 2;
             // 
             // Form1
             // 

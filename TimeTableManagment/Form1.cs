@@ -52,7 +52,7 @@ namespace TimeTableManagment
                     currentButton.BackColor = color;
                     currentButton.ForeColor = Color.White;
                     currentButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.5F);
-                    titleBarPanel.BackColor = color;
+                    //titleBarPanel.BackColor = color;
                     btnClose.Visible = true;
                 }
             }
