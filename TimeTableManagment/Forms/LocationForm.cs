@@ -11,9 +11,9 @@ using System.Data.SQLite;
 
 namespace TimeTableManagment.Forms
 {
-    public partial class Location : Form
+    public partial class LocationForm : Form
     {
-        public Location()
+        public LocationForm()
         {
             InitializeComponent();
         }
@@ -95,5 +95,7 @@ namespace TimeTableManagment.Forms
             ExecuteQuery(deleteQuery);
             LoadData();
         }
+
+      
     }
 }
