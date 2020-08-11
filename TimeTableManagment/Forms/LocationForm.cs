@@ -8,14 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SQLite;
+using System.Data.SqlClient;
 
 namespace TimeTableManagment.Forms
 {
-    public partial class Location : Form
+    public partial class LocationForm : Form
     {
-        public Location()
+        public LocationForm()
         {
             InitializeComponent();
+            
         }
 
         private SQLiteConnection sql_con;
@@ -23,17 +25,23 @@ namespace TimeTableManagment.Forms
         private SQLiteDataAdapter DB;
         private DataSet DS = new DataSet();
         private DataTable DT = new DataTable();
-
+        private int buildingID =0;
+        private int roomID = 0;
+     
+        //When form loads execute
         private void Location_Load(object sender, EventArgs e)
         {
-            LoadData();
+
+               LoadData();//loads the room details
+
+
         }
 
 
         //set connection
         private void SetConnection()
         {
-            sql_con = new SQLiteConnection("Data Source=TimeTable.db;version=3;New=False;Compress=True");
+            sql_con = new SQLiteConnection("Data Source=TimeTable.db;version=3;");
         }
 
         private void ExecuteQuery(string txtQuery)
@@ -46,13 +54,17 @@ namespace TimeTableManagment.Forms
             sql_con.Close();
         }
 
-        //load data
+        /*
+         **BUILDING TAB****
+         */
+
+        //load building data
         private void LoadData()
         {
             SetConnection();
             sql_con.Open();
             sql_cmd = sql_con.CreateCommand();
-            string queryText= "select * from Location ";
+            string queryText = "select * from Location ";
             DB = new SQLiteDataAdapter(queryText, sql_con);
             DS.Reset();
             DB.Fill(DS);
@@ -64,36 +76,221 @@ namespace TimeTableManagment.Forms
 
         }
 
+       //insert building data to db
         private void buildingAddBtn_Click(object sender, EventArgs e)
         {
             string insertLoc = "insert into Location (BuildingName)values('"+buildingNameTxtBx.Text+"')";
             ExecuteQuery(insertLoc);
             LoadData();
+          
             buildingNameTxtBx.Clear();
         }
 
+        //onlick datagrid view raw fill the textboxes with building details
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int index = e.RowIndex;
-            DataGridViewRow selectedRow = dataGridView1.Rows[index];
-            idTxtxBox.Text = selectedRow.Cells[0].Value.ToString();
-            buildingNameTxtBx.Text = selectedRow.Cells[1].Value.ToString();
+         
+            buildingID = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
+            buildingNameTxtBx.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
 
         }
 
+        //edit building data
         private void buildingEditBtn_Click(object sender, EventArgs e)
         {
-            String updateQuery = "update Location set BuildingName='" + buildingNameTxtBx.Text + "'" +
-                "where BuildingID='" + idTxtxBox.Text+ "'";
-            ExecuteQuery(updateQuery);
-            LoadData();
+            if(buildingID > 0)
+            {
+                String updateQuery = "update Location set BuildingName='" + buildingNameTxtBx.Text + "'" +
+               "where BuildingID='" + this.buildingID + "'";
+                ExecuteQuery(updateQuery);
+                MessageBox.Show("Building Information updated successfully", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LoadData();
+            }
+            else
+            {
+                MessageBox.Show("Please select a building to update ", "Select", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            buildingNameTxtBx.Clear();
+
         }
 
+        //delete bulding data
         private void buildingDeleteBtn_Click(object sender, EventArgs e)
         {
-            String deleteQuery = "delete from Location where BuildingID='" + idTxtxBox.Text + "'";
-            ExecuteQuery(deleteQuery);
-            LoadData();
+
+            if (buildingID > 0)
+            {
+                String deleteQuery = "delete from Location where BuildingID='" + this.buildingID + "'";
+                ExecuteQuery(deleteQuery);
+                MessageBox.Show("Building Information deleted successfully", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LoadData();
+            }
+            else
+            {
+                MessageBox.Show("Please select a building to delete ", "Select", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            buildingNameTxtBx.Clear();
+
+
+        }
+
+        /*
+         
+         *** ROOM TAB***
+         */
+
+        //load room data
+        private void RoomLoadData()
+        {
+            SetConnection();
+            sql_con.Open();
+            sql_cmd = sql_con.CreateCommand();
+            string queryText = "select r.id,r.RoomName,r.RoomType,r.RoomCapacity,r.BuildingName from Rooms r"; /*,Location l where r.BuildingID=l.BuildingID*/
+            DB = new SQLiteDataAdapter(queryText, sql_con);
+            DS.Reset();
+            DB.Fill(DS);
+            DT = DS.Tables[0];
+            dataGridView2.DataSource = DT;
+            sql_con.Close();
+        }
+
+        //fill the combobox with building names
+        private void buildingName_Fill_Combobox()
+        {
+            try
+            {
+                String getBuildings = "select * from Location";
+                sql_con.Open();
+                SQLiteCommand command = new SQLiteCommand(getBuildings, sql_con);
+
+                SQLiteDataReader reader = command.ExecuteReader();
+
+
+                while (reader.Read())
+                {
+                    string buildingName = reader.GetString(1);
+                   
+                    buildingNameComboBox.Items.Add(buildingName);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.Write(e+"no work");
+            }
+           
+        }
+
+      //method to clear data on inputs
+        private void clearData()
+        {
+           
+            roomNameTxtBox.Clear();
+            roomCapacityTxtBox.Clear();
+            buildingNameComboBox.SelectedItem = null;
+            roomTypeComboBox.SelectedItem = null;
+          
+        }
+
+        //add room data
+        private void detailsAddBtn_Click(object sender, EventArgs e)
+        {
+            try
+            { 
+
+                string insertRoom = "insert into Rooms (RoomName,RoomType,RoomCapacity,BuildingName)values('" + roomNameTxtBox.Text + "','" + roomTypeComboBox.Text + "','"
+                    + int.Parse(roomCapacityTxtBox.Text) + "','" +buildingNameComboBox.Text + "')";
+                ExecuteQuery(insertRoom);
+                RoomLoadData();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
+            clearData();
+           
+        }
+
+        //method to only allow enter digits to room capacity input
+        private void roomCapacityTxtBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        //depedning on the tab load the required data from db
+        private void metroTabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (metroTabControl1.SelectedTab == metroTabControl1.TabPages[0])
+            {
+                LoadData();
+            }
+            else
+            if (metroTabControl1.SelectedTab == metroTabControl1.TabPages[1])
+            {
+                RoomLoadData();
+                buildingNameComboBox.Items.Clear();
+                buildingName_Fill_Combobox();
+
+         
+            }
+
+            
+        }
+
+      //edit room data
+        private void detailsEditBtn_Click(object sender, EventArgs e)
+        {
+            if (roomID > 0)
+            {
+                String updateQuery = "update Rooms set RoomName='" + roomNameTxtBox.Text + "', " +
+                    "RoomType='"+roomTypeComboBox.Text+"',RoomCapacity='"+int.Parse(roomCapacityTxtBox.Text)+"',BuildingName='"+buildingNameComboBox.Text+"'"+ 
+               "where id='" + this.roomID + "'";
+                ExecuteQuery(updateQuery);
+                MessageBox.Show("Room Information updated successfully", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                RoomLoadData();
+            }
+            else
+            {
+                MessageBox.Show("Please select a Room to update ", "Select", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            clearData();
+        }
+
+        //datagridview data to inputs
+        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            roomID = Convert.ToInt32(dataGridView2.SelectedRows[0].Cells[0].Value);
+            roomNameTxtBox.Text = dataGridView2.SelectedRows[0].Cells[1].Value.ToString();
+            this.roomTypeComboBox.Text = dataGridView2.SelectedRows[0].Cells[2].Value.ToString();
+            roomCapacityTxtBox.Text = dataGridView2.SelectedRows[0].Cells[3].Value.ToString();
+            this.buildingNameComboBox.Text = dataGridView2.SelectedRows[0].Cells[4].Value.ToString();
+          
+         
+        }
+
+        private void clearDetailsBtn_Click(object sender, EventArgs e)
+        {
+            clearData();
+        }
+
+        //delete room data
+        private void detailDeleteBtn_Click(object sender, EventArgs e)
+        {
+            if (roomID > 0)
+            {
+                String deleteQuery = "delete from Rooms where id='" + this.roomID + "'";
+                ExecuteQuery(deleteQuery);
+                MessageBox.Show("Room Information deleted successfully", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                RoomLoadData();
+            }
+            else
+            {
+                MessageBox.Show("Please select a Room to delete ", "Select", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            clearData();
         }
     }
 }
