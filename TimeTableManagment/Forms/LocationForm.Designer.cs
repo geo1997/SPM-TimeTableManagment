@@ -40,12 +40,18 @@
             this.label1 = new System.Windows.Forms.Label();
             this.buildingNameTxtBx = new System.Windows.Forms.TextBox();
             this.metroTabPage2 = new MetroFramework.Controls.MetroTabPage();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.clearDetailsBtn = new System.Windows.Forms.Button();
+            this.detailDeleteBtn = new System.Windows.Forms.Button();
+            this.detailsEditBtn = new System.Windows.Forms.Button();
+            this.detailsAddBtn = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.roomTypeComboBox = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.buildingNameComboBox = new System.Windows.Forms.ComboBox();
+            this.roomCapacityTxtBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.roomNameTxtBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.metroTabControl1.SuspendLayout();
@@ -53,6 +59,8 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.metroTabPage2.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // metroTabControl1
@@ -62,10 +70,11 @@
             this.metroTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.metroTabControl1.Location = new System.Drawing.Point(0, 0);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 1;
-            this.metroTabControl1.Size = new System.Drawing.Size(975, 627);
+            this.metroTabControl1.SelectedIndex = 0;
+            this.metroTabControl1.Size = new System.Drawing.Size(982, 653);
             this.metroTabControl1.TabIndex = 0;
             this.metroTabControl1.UseSelectable = true;
+            this.metroTabControl1.SelectedIndexChanged += new System.EventHandler(this.metroTabControl1_SelectedIndexChanged);
             // 
             // metroTabPage1
             // 
@@ -82,7 +91,7 @@
             this.metroTabPage1.HorizontalScrollbarSize = 10;
             this.metroTabPage1.Location = new System.Drawing.Point(4, 38);
             this.metroTabPage1.Name = "metroTabPage1";
-            this.metroTabPage1.Size = new System.Drawing.Size(967, 585);
+            this.metroTabPage1.Size = new System.Drawing.Size(974, 611);
             this.metroTabPage1.TabIndex = 0;
             this.metroTabPage1.Text = "Building Details";
             this.metroTabPage1.VerticalScrollbarBarColor = true;
@@ -127,6 +136,7 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(547, 208);
             this.dataGridView1.TabIndex = 5;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
@@ -179,12 +189,17 @@
             // 
             // metroTabPage2
             // 
-            this.metroTabPage2.Controls.Add(this.comboBox2);
+            this.metroTabPage2.Controls.Add(this.clearDetailsBtn);
+            this.metroTabPage2.Controls.Add(this.detailDeleteBtn);
+            this.metroTabPage2.Controls.Add(this.detailsEditBtn);
+            this.metroTabPage2.Controls.Add(this.detailsAddBtn);
+            this.metroTabPage2.Controls.Add(this.panel2);
+            this.metroTabPage2.Controls.Add(this.roomTypeComboBox);
             this.metroTabPage2.Controls.Add(this.label6);
-            this.metroTabPage2.Controls.Add(this.comboBox1);
-            this.metroTabPage2.Controls.Add(this.textBox3);
+            this.metroTabPage2.Controls.Add(this.buildingNameComboBox);
+            this.metroTabPage2.Controls.Add(this.roomCapacityTxtBox);
             this.metroTabPage2.Controls.Add(this.label5);
-            this.metroTabPage2.Controls.Add(this.textBox2);
+            this.metroTabPage2.Controls.Add(this.roomNameTxtBox);
             this.metroTabPage2.Controls.Add(this.label4);
             this.metroTabPage2.Controls.Add(this.label3);
             this.metroTabPage2.HorizontalScrollbarBarColor = true;
@@ -192,84 +207,152 @@
             this.metroTabPage2.HorizontalScrollbarSize = 10;
             this.metroTabPage2.Location = new System.Drawing.Point(4, 38);
             this.metroTabPage2.Name = "metroTabPage2";
-            this.metroTabPage2.Size = new System.Drawing.Size(967, 585);
+            this.metroTabPage2.Size = new System.Drawing.Size(974, 611);
             this.metroTabPage2.TabIndex = 1;
             this.metroTabPage2.Text = "Room Details";
             this.metroTabPage2.VerticalScrollbarBarColor = true;
             this.metroTabPage2.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage2.VerticalScrollbarSize = 10;
             // 
-            // comboBox2
+            // clearDetailsBtn
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(137, 201);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(137, 24);
-            this.comboBox2.TabIndex = 10;
+            this.clearDetailsBtn.Location = new System.Drawing.Point(745, 240);
+            this.clearDetailsBtn.Name = "clearDetailsBtn";
+            this.clearDetailsBtn.Size = new System.Drawing.Size(125, 43);
+            this.clearDetailsBtn.TabIndex = 16;
+            this.clearDetailsBtn.Text = "Clear";
+            this.clearDetailsBtn.UseVisualStyleBackColor = true;
+            this.clearDetailsBtn.Click += new System.EventHandler(this.clearDetailsBtn_Click);
+            // 
+            // detailDeleteBtn
+            // 
+            this.detailDeleteBtn.Location = new System.Drawing.Point(614, 240);
+            this.detailDeleteBtn.Name = "detailDeleteBtn";
+            this.detailDeleteBtn.Size = new System.Drawing.Size(125, 43);
+            this.detailDeleteBtn.TabIndex = 15;
+            this.detailDeleteBtn.Text = "Delete";
+            this.detailDeleteBtn.UseVisualStyleBackColor = true;
+            this.detailDeleteBtn.Click += new System.EventHandler(this.detailDeleteBtn_Click);
+            // 
+            // detailsEditBtn
+            // 
+            this.detailsEditBtn.Location = new System.Drawing.Point(483, 240);
+            this.detailsEditBtn.Name = "detailsEditBtn";
+            this.detailsEditBtn.Size = new System.Drawing.Size(125, 43);
+            this.detailsEditBtn.TabIndex = 14;
+            this.detailsEditBtn.Text = "Edit";
+            this.detailsEditBtn.UseVisualStyleBackColor = true;
+            this.detailsEditBtn.Click += new System.EventHandler(this.detailsEditBtn_Click);
+            // 
+            // detailsAddBtn
+            // 
+            this.detailsAddBtn.Location = new System.Drawing.Point(352, 240);
+            this.detailsAddBtn.Name = "detailsAddBtn";
+            this.detailsAddBtn.Size = new System.Drawing.Size(125, 43);
+            this.detailsAddBtn.TabIndex = 13;
+            this.detailsAddBtn.Text = "Add";
+            this.detailsAddBtn.UseVisualStyleBackColor = true;
+            this.detailsAddBtn.Click += new System.EventHandler(this.detailsAddBtn_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.dataGridView2);
+            this.panel2.Location = new System.Drawing.Point(76, 327);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(838, 253);
+            this.panel2.TabIndex = 12;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AllowUserToDeleteRows = false;
+            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(31, 20);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
+            this.dataGridView2.RowHeadersWidth = 51;
+            this.dataGridView2.RowTemplate.Height = 24;
+            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView2.Size = new System.Drawing.Size(780, 217);
+            this.dataGridView2.TabIndex = 11;
+            this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
+            // 
+            // roomTypeComboBox
+            // 
+            this.roomTypeComboBox.FormattingEnabled = true;
+            this.roomTypeComboBox.Items.AddRange(new object[] {
+            "Lecture Hall",
+            "Laboratory"});
+            this.roomTypeComboBox.Location = new System.Drawing.Point(89, 201);
+            this.roomTypeComboBox.Name = "roomTypeComboBox";
+            this.roomTypeComboBox.Size = new System.Drawing.Size(137, 24);
+            this.roomTypeComboBox.TabIndex = 10;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(134, 181);
+            this.label6.Location = new System.Drawing.Point(86, 181);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(46, 17);
+            this.label6.Size = new System.Drawing.Size(81, 17);
             this.label6.TabIndex = 9;
-            this.label6.Text = "label6";
+            this.label6.Text = "Room Type";
             // 
-            // comboBox1
+            // buildingNameComboBox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(137, 62);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(137, 24);
-            this.comboBox1.TabIndex = 8;
+            this.buildingNameComboBox.FormattingEnabled = true;
+            this.buildingNameComboBox.Location = new System.Drawing.Point(89, 62);
+            this.buildingNameComboBox.Name = "buildingNameComboBox";
+            this.buildingNameComboBox.Size = new System.Drawing.Size(137, 24);
+            this.buildingNameComboBox.TabIndex = 8;
             // 
-            // textBox3
+            // roomCapacityTxtBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(137, 280);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 22);
-            this.textBox3.TabIndex = 7;
+            this.roomCapacityTxtBox.Location = new System.Drawing.Point(89, 273);
+            this.roomCapacityTxtBox.Name = "roomCapacityTxtBox";
+            this.roomCapacityTxtBox.Size = new System.Drawing.Size(137, 22);
+            this.roomCapacityTxtBox.TabIndex = 7;
+            this.roomCapacityTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.roomCapacityTxtBox_KeyPress);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(134, 237);
+            this.label5.Location = new System.Drawing.Point(86, 253);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(46, 17);
+            this.label5.Size = new System.Drawing.Size(103, 17);
             this.label5.TabIndex = 6;
-            this.label5.Text = "label5";
+            this.label5.Text = "Room Capacity";
             // 
-            // textBox2
+            // roomNameTxtBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(137, 142);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 22);
-            this.textBox2.TabIndex = 5;
+            this.roomNameTxtBox.Location = new System.Drawing.Point(89, 131);
+            this.roomNameTxtBox.Name = "roomNameTxtBox";
+            this.roomNameTxtBox.Size = new System.Drawing.Size(137, 22);
+            this.roomNameTxtBox.TabIndex = 5;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(134, 113);
+            this.label4.Location = new System.Drawing.Point(86, 111);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(46, 17);
+            this.label4.Size = new System.Drawing.Size(86, 17);
             this.label4.TabIndex = 4;
-            this.label4.Text = "label4";
+            this.label4.Text = "Room Name";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(134, 42);
+            this.label3.Location = new System.Drawing.Point(86, 42);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 17);
+            this.label3.Size = new System.Drawing.Size(103, 17);
             this.label3.TabIndex = 2;
-            this.label3.Text = "label3";
+            this.label3.Text = "Building Name:";
             // 
             // LocationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(975, 627);
+            this.ClientSize = new System.Drawing.Size(982, 653);
             this.Controls.Add(this.metroTabControl1);
             this.Name = "LocationForm";
             this.Text = "Location";
@@ -281,6 +364,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.metroTabPage2.ResumeLayout(false);
             this.metroTabPage2.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -299,13 +384,19 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox idTxtxBox;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox roomTypeComboBox;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.ComboBox buildingNameComboBox;
+        private System.Windows.Forms.TextBox roomCapacityTxtBox;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox roomNameTxtBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.Button clearDetailsBtn;
+        private System.Windows.Forms.Button detailDeleteBtn;
+        private System.Windows.Forms.Button detailsEditBtn;
+        private System.Windows.Forms.Button detailsAddBtn;
     }
 }
