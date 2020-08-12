@@ -109,7 +109,7 @@ namespace TimeTableManagment
 
         private void student_click(object sender, EventArgs e)
         {
-            ActivateButton(sender);
+            OpenChildForm(new Forms.StudentForm(), sender);
         }
 
         private void subject_click(object sender, EventArgs e)
@@ -119,7 +119,7 @@ namespace TimeTableManagment
 
         private void tag_click(object sender, EventArgs e)
         {
-            ActivateButton(sender);
+            OpenChildForm(new Forms.TagForm(), sender);
         }
 
         private void location_click(object sender, EventArgs e)

@@ -95,5 +95,10 @@ namespace TimeTableManagment.Forms
             ExecuteQuery(deleteQuery);
             LoadData();
         }
+
+        private void buildingNameTxtBx_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

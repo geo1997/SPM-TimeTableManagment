@@ -30,20 +30,20 @@
         {
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
             this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
+            this.label2 = new System.Windows.Forms.Label();
+            this.idTxtxBox = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.buildingDeleteBtn = new System.Windows.Forms.Button();
+            this.buildingEditBtn = new System.Windows.Forms.Button();
             this.buildingAddBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.buildingNameTxtBx = new System.Windows.Forms.TextBox();
             this.metroTabPage2 = new MetroFramework.Controls.MetroTabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.buildingEditBtn = new System.Windows.Forms.Button();
-            this.buildingDeleteBtn = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.idTxtxBox = new System.Windows.Forms.TextBox();
             this.metroTabControl1.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // metroTabControl1
@@ -80,6 +80,68 @@
             this.metroTabPage1.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage1.VerticalScrollbarSize = 10;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(166, 25);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(21, 17);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "ID";
+            // 
+            // idTxtxBox
+            // 
+            this.idTxtxBox.Enabled = false;
+            this.idTxtxBox.Location = new System.Drawing.Point(169, 54);
+            this.idTxtxBox.Name = "idTxtxBox";
+            this.idTxtxBox.Size = new System.Drawing.Size(181, 22);
+            this.idTxtxBox.TabIndex = 9;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Location = new System.Drawing.Point(169, 217);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(646, 263);
+            this.panel1.TabIndex = 8;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.dataGridView1.Location = new System.Drawing.Point(51, 27);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(547, 208);
+            this.dataGridView1.TabIndex = 5;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            // 
+            // buildingDeleteBtn
+            // 
+            this.buildingDeleteBtn.Location = new System.Drawing.Point(714, 499);
+            this.buildingDeleteBtn.Name = "buildingDeleteBtn";
+            this.buildingDeleteBtn.Size = new System.Drawing.Size(101, 46);
+            this.buildingDeleteBtn.TabIndex = 7;
+            this.buildingDeleteBtn.Text = "Delete";
+            this.buildingDeleteBtn.UseVisualStyleBackColor = true;
+            this.buildingDeleteBtn.Click += new System.EventHandler(this.buildingDeleteBtn_Click);
+            // 
+            // buildingEditBtn
+            // 
+            this.buildingEditBtn.Location = new System.Drawing.Point(607, 499);
+            this.buildingEditBtn.Name = "buildingEditBtn";
+            this.buildingEditBtn.Size = new System.Drawing.Size(101, 46);
+            this.buildingEditBtn.TabIndex = 6;
+            this.buildingEditBtn.Text = "Edit";
+            this.buildingEditBtn.UseVisualStyleBackColor = true;
+            this.buildingEditBtn.Click += new System.EventHandler(this.buildingEditBtn_Click);
+            // 
             // buildingAddBtn
             // 
             this.buildingAddBtn.Location = new System.Drawing.Point(170, 162);
@@ -105,6 +167,7 @@
             this.buildingNameTxtBx.Name = "buildingNameTxtBx";
             this.buildingNameTxtBx.Size = new System.Drawing.Size(181, 22);
             this.buildingNameTxtBx.TabIndex = 2;
+            this.buildingNameTxtBx.TextChanged += new System.EventHandler(this.buildingNameTxtBx_TextChanged);
             // 
             // metroTabPage2
             // 
@@ -120,68 +183,6 @@
             this.metroTabPage2.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage2.VerticalScrollbarSize = 10;
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dataGridView1.Location = new System.Drawing.Point(51, 27);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(547, 208);
-            this.dataGridView1.TabIndex = 5;
-            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            // 
-            // buildingEditBtn
-            // 
-            this.buildingEditBtn.Location = new System.Drawing.Point(607, 499);
-            this.buildingEditBtn.Name = "buildingEditBtn";
-            this.buildingEditBtn.Size = new System.Drawing.Size(101, 46);
-            this.buildingEditBtn.TabIndex = 6;
-            this.buildingEditBtn.Text = "Edit";
-            this.buildingEditBtn.UseVisualStyleBackColor = true;
-            this.buildingEditBtn.Click += new System.EventHandler(this.buildingEditBtn_Click);
-            // 
-            // buildingDeleteBtn
-            // 
-            this.buildingDeleteBtn.Location = new System.Drawing.Point(714, 499);
-            this.buildingDeleteBtn.Name = "buildingDeleteBtn";
-            this.buildingDeleteBtn.Size = new System.Drawing.Size(101, 46);
-            this.buildingDeleteBtn.TabIndex = 7;
-            this.buildingDeleteBtn.Text = "Delete";
-            this.buildingDeleteBtn.UseVisualStyleBackColor = true;
-            this.buildingDeleteBtn.Click += new System.EventHandler(this.buildingDeleteBtn_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.dataGridView1);
-            this.panel1.Location = new System.Drawing.Point(169, 217);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(646, 263);
-            this.panel1.TabIndex = 8;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(166, 25);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(21, 17);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "ID";
-            // 
-            // idTxtxBox
-            // 
-            this.idTxtxBox.Enabled = false;
-            this.idTxtxBox.Location = new System.Drawing.Point(169, 54);
-            this.idTxtxBox.Name = "idTxtxBox";
-            this.idTxtxBox.Size = new System.Drawing.Size(181, 22);
-            this.idTxtxBox.TabIndex = 9;
-            // 
             // Location
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -194,8 +195,8 @@
             this.metroTabControl1.ResumeLayout(false);
             this.metroTabPage1.ResumeLayout(false);
             this.metroTabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
