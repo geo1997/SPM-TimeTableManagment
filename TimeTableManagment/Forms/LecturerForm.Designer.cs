@@ -40,14 +40,15 @@
             this.label1.Size = new System.Drawing.Size(331, 91);
             this.label1.TabIndex = 0;
             this.label1.Text = "Lecturer";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // LecturerFormcs
+            // LecturerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label1);
-            this.Name = "LecturerFormcs";
+            this.Name = "LecturerForm";
             this.Text = "Lecturer";
             this.ResumeLayout(false);
             this.PerformLayout();

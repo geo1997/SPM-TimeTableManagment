@@ -124,7 +124,7 @@ namespace TimeTableManagment
 
         private void location_click(object sender, EventArgs e)
         {
-            OpenChildForm(new Forms.Location(), sender);
+            OpenChildForm(new Forms.LocationForm(), sender);
         }
 
         private void session_click(object sender, EventArgs e)
