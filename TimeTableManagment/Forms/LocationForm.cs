@@ -95,5 +95,10 @@ namespace TimeTableManagment.Forms
             ExecuteQuery(deleteQuery);
             LoadData();
         }
+
+        private void metroTabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
