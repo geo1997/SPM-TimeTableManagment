@@ -292,5 +292,10 @@ namespace TimeTableManagment.Forms
             }
             clearData();
         }
+
+        private void buildingNameTxtBx_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
