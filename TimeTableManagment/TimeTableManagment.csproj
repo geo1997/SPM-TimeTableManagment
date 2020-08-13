@@ -97,12 +97,7 @@
     <Compile Include="Forms\LocationForm.Designer.cs">
       <DependentUpon>LocationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\StatisticsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\StatisticsForm.Designer.cs">
-      <DependentUpon>StatisticsForm.cs</DependentUpon>
-    </Compile>
+    
     <Compile Include="Forms\SubjectForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +116,12 @@
     <Compile Include="Forms\WorkingHoursForm.Designer.cs">
       <DependentUpon>WorkingHoursForm.cs</DependentUpon>
     </Compile>
+	  <Compile Include="Forms\StatisticsForm.cs">
+		  <SubType>Form</SubType>
+	  </Compile>
+	  <Compile Include="Forms\StatisticsForm.Designer.cs">
+		  <DependentUpon>StatisticsForm.cs</DependentUpon>
+	  </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ThemeColor.cs" />
