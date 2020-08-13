@@ -71,21 +71,30 @@ namespace TimeTableManagment.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string insertStudent = "insert into Student (YearSem,Programme,Groups,SubGroups)values('" + buildingNameTxtBx.Text + "','" + textBox2.Text + "','" + textBox3.Text + "','" + textBox4.Text + "')";
-            ExecuteQuery(insertStudent);
-            LoadData();
-            buildingNameTxtBx.Clear();
-            textBox2.Clear();
-            textBox3.Clear();
-            textBox4.Clear();
+            string groupid = buildingNameTxtBx.Text + "." + textBox2.Text + "." + textBox3.Text;
+            string subgroupid = buildingNameTxtBx.Text + "." + textBox2.Text + "." + textBox3.Text + "." + textBox4.Text;
+
+            if (ValidateChildren(ValidationConstraints.Enabled))
+            {
+                string insertStudent = "insert into Student (YearSem,Programme,Groups,SubGroups,GroupID,SubGroupID)values('" + buildingNameTxtBx.Text + "','" + textBox2.Text + "','" + textBox3.Text + "','" + textBox4.Text + "','" + groupid + "','" + subgroupid + "')";
+                ExecuteQuery(insertStudent);
+                LoadData();
+                buildingNameTxtBx.Clear();
+                textBox2.Clear();
+                textBox3.Clear();
+                textBox4.Clear();
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             if (StudentID > 0)
             {
-                String updateQuery = "update Student set YearSem='" + buildingNameTxtBx.Text + "',Programme='" + textBox2.Text + "',Groups='" + textBox3.Text + "',SubGroups='" + textBox4.Text + "'" +
-               "where BuildingID='" + this.StudentID + "'";
+                string groupid = buildingNameTxtBx.Text + "." + textBox2.Text + "." + textBox3.Text;
+                string subgroupid = buildingNameTxtBx.Text + "." + textBox2.Text + "." + textBox3.Text + "." + textBox4.Text;
+
+                String updateQuery = "update Student set YearSem='" + buildingNameTxtBx.Text + "',Programme='" + textBox2.Text + "',Groups='" + textBox3.Text + "',SubGroups='" + textBox4.Text + "',GroupID='" + groupid + "',SubGroupID='" + subgroupid + "'" +
+               "where StudentID='" + this.StudentID + "'";
                 ExecuteQuery(updateQuery);
                 MessageBox.Show("Student Information updated successfully", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoadData();
@@ -95,10 +104,16 @@ namespace TimeTableManagment.Forms
                 MessageBox.Show("Please select a student to update ", "Select", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             buildingNameTxtBx.Clear();
+            textBox2.Clear();
+            textBox3.Clear();
+            textBox4.Clear();
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            string groupid = buildingNameTxtBx.Text + "." + textBox2.Text + "." + textBox3.Text;
+            string subgroupid = buildingNameTxtBx.Text + "." + textBox2.Text + "." + textBox3.Text + "." + textBox4.Text;
+
             StudentID = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
             buildingNameTxtBx.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
             textBox3.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
@@ -120,11 +135,87 @@ namespace TimeTableManagment.Forms
                 MessageBox.Show("Please select a student to delete ", "Select", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             buildingNameTxtBx.Clear();
+            textBox2.Clear();
+            textBox3.Clear();
+            textBox4.Clear();
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Year_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(buildingNameTxtBx.Text))
+            {
+                e.Cancel = true;
+                buildingNameTxtBx.Focus();
+                errorProvider1.SetError(buildingNameTxtBx, "This feild should not be left blank!");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(buildingNameTxtBx, "");
+            }
+        }
+
+        private void Program_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(textBox2.Text))
+            {
+                e.Cancel = true;
+                textBox2.Focus();
+                errorProvider1.SetError(textBox2, "This feild should not be left blank!");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(textBox2, "");
+            }
+        }
+
+        private void Group_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(textBox2.Text))
+            {
+                e.Cancel = true;
+                textBox3.Focus();
+                errorProvider1.SetError(textBox3, "This feild should not be left blank!");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(textBox2, "");
+            }
+        }
+
+        private void textBox3_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+
+            if(!Char.IsDigit(ch) && ch!=8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBox4_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+
+            if (!Char.IsDigit(ch) && ch != 8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            buildingNameTxtBx.Clear();
+            textBox2.Clear();
+            textBox3.Clear();
+            textBox4.Clear();
         }
     }
 }

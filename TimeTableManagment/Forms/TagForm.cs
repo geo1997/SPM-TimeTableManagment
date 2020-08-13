@@ -23,17 +23,19 @@ namespace TimeTableManagment.Forms
         private SQLiteDataAdapter DB;
         private DataSet DS = new DataSet();
         private DataTable DT = new DataTable();
-        private int TagID = 0;
+        private int tagID = 0;
 
-        private void TagForm_Load(object sender, EventArgs e)
+        //When form loads execute
+        private void Tag_Load(object sender, EventArgs e)
         {
             LoadData();
         }
 
+
         //set connection
         private void SetConnection()
         {
-            sql_con = new SQLiteConnection("Data Source=TimeTable.db;version=3;New=False;Compress=True");
+            sql_con = new SQLiteConnection("Data Source=TimeTable.db;version=3;");
         }
 
         private void ExecuteQuery(string txtQuery)
@@ -46,7 +48,11 @@ namespace TimeTableManagment.Forms
             sql_con.Close();
         }
 
-        //load data
+        /*
+         **BUILDING TAB****
+         */
+
+        //load building data
         private void LoadData()
         {
             SetConnection();
@@ -57,7 +63,7 @@ namespace TimeTableManagment.Forms
             DS.Reset();
             DB.Fill(DS);
             DT = DS.Tables[0];
-            dataGridView1.DataSource = DT;
+            dataGridView2.DataSource = DT;
             sql_con.Close();
 
 
@@ -66,28 +72,27 @@ namespace TimeTableManagment.Forms
 
         private void label1_Click(object sender, EventArgs e)
         {
-
+           
         }
 
         private void buildingAddBtn_Click(object sender, EventArgs e)
         {
-            string insertTag = "insert into Tag (TagName)values('" + buildingNameTxtBx.Text + "')";
-            ExecuteQuery(insertTag);
-            LoadData();
-        }
+            if (ValidateChildren(ValidationConstraints.Enabled))
+            {
+                string insertTag = "insert into Tag (TagName)values('" + textBox1.Text + "')";
+                ExecuteQuery(insertTag);
+                LoadData();
 
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            TagID = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
-            buildingNameTxtBx.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+                textBox1.Clear();
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (TagID > 0)
+            if (tagID > 0)
             {
-                String updateQuery = "update Tag set TagName='" + buildingNameTxtBx.Text + "'" +
-               "where TagID='" + this.TagID + "'";
+                String updateQuery = "update Tag set TagName='" + textBox1.Text + "'" +
+               "where TagID='" + this.tagID + "'";
                 ExecuteQuery(updateQuery);
                 MessageBox.Show("Tag Information updated successfully", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoadData();
@@ -96,14 +101,20 @@ namespace TimeTableManagment.Forms
             {
                 MessageBox.Show("Please select a tag to update ", "Select", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            buildingNameTxtBx.Clear();
+            textBox1.Clear();
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            tagID = Convert.ToInt32(dataGridView2.SelectedRows[0].Cells[0].Value);
+            textBox1.Text = dataGridView2.SelectedRows[0].Cells[1].Value.ToString();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (TagID > 0)
+            if (tagID > 0)
             {
-                String deleteQuery = "delete from Tag where TagID='" + this.TagID + "'";
+                String deleteQuery = "delete from Tag where TagID='" + this.tagID + "'";
                 ExecuteQuery(deleteQuery);
                 MessageBox.Show("Tag Information deleted successfully", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoadData();
@@ -112,7 +123,32 @@ namespace TimeTableManagment.Forms
             {
                 MessageBox.Show("Please select a tag to delete ", "Select", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            buildingNameTxtBx.Clear();
+            textBox1.Clear();
+        }
+
+        private void TagForm_Load(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+
+        private void Tag_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(textBox1.Text))
+            {
+                e.Cancel = true;
+                textBox1.Focus();
+                errorProvider1.SetError(textBox1, "This feild should not be left blank!");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(textBox1, "");
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            textBox1.Clear();
         }
     }
 }
