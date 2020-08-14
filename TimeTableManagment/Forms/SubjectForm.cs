@@ -68,7 +68,7 @@ namespace TimeTableManagment.Forms
             int tute = Convert.ToInt32(numTuteHr.Value);
             int evo = Convert.ToInt32(numEvoHr.Value);
 
-            if (ValidateChildren(ValidationConstraints.Enabled)&&
+            if (ValidateChildren(ValidationConstraints.Enabled) &&
                 subjectName == "" || subjectCode == "IT" || year == "" || sem == "" || lec == 0)
             {
 
@@ -121,7 +121,7 @@ namespace TimeTableManagment.Forms
         {
             clearField();
         }
-        
+
         //On click the data load to the fields
         private void tblLec_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -157,7 +157,7 @@ namespace TimeTableManagment.Forms
             int tute = Convert.ToInt32(numTuteHr.Value);
             int evo = Convert.ToInt32(numEvoHr.Value);
 
-            if (ValidateChildren(ValidationConstraints.Enabled)&&
+            if (ValidateChildren(ValidationConstraints.Enabled) &&
                 subjectName == "" || year == "" || sem == "" || lec == 0)
             {
 
@@ -190,7 +190,7 @@ namespace TimeTableManagment.Forms
 
 
         }
-       
+
         //Validating the form
         private void txtSubCode_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -309,7 +309,7 @@ namespace TimeTableManagment.Forms
                 errorProvider.SetError(cmbSem, null);
             }
         }
-       
-        
+
+
     }
 }
