@@ -293,7 +293,7 @@ namespace TimeTableManagment.Forms
             clearData();
         }
 
-        private void metroTabPage1_Click(object sender, EventArgs e)
+        private void buildingNameTxtBx_TextChanged(object sender, EventArgs e)
         {
 
         }
