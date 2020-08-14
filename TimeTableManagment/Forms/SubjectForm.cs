@@ -46,23 +46,6 @@ namespace TimeTableManagment.Forms
             tblSub.DataSource = DT;
             sql_con.Close();
 
-
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void SubjectForm_Load(object sender, EventArgs e)
@@ -84,46 +67,22 @@ namespace TimeTableManagment.Forms
             int lab = Convert.ToInt32(numLabHr.Value);
             int tute = Convert.ToInt32(numTuteHr.Value);
             int evo = Convert.ToInt32(numEvoHr.Value);
-           
-            if (subjectName == ""){
-               
+
+            if (ValidateChildren(ValidationConstraints.Enabled)&&
+                subjectName == "" || subjectCode == "IT" || year == "" || sem == "" || lec == 0)
+            {
+
                 MessageBox.Show("Subject Name Cannot be Empty",
                 "Unable to Submit", MessageBoxButtons.OK,
                                 MessageBoxIcon.Exclamation,
                                 MessageBoxDefaultButton.Button1);
-
-            } else if (subjectCode == "IT") {
-               
-                MessageBox.Show("Subject code Cannot be Empty",
-               "Unable to Submit", MessageBoxButtons.OK,
-                                MessageBoxIcon.Exclamation,
-                                MessageBoxDefaultButton.Button1);
-
-            }else if (year == "")
+            }
+            else
             {
-                MessageBox.Show("Offered Year Cannot be Empty",
-               "Unable to Submit", MessageBoxButtons.OK,
-                                MessageBoxIcon.Exclamation,
-                                MessageBoxDefaultButton.Button1);
-
-            }else if (sem == "")
-            {
-                MessageBox.Show("Offered Semester Cannot be Empty",
-               "Unable to Submit", MessageBoxButtons.OK,
-                                MessageBoxIcon.Exclamation,
-                                MessageBoxDefaultButton.Button1);
-
-            }else if (lec == 0)
-            {
-                MessageBox.Show("Number of Lecture Hours Cannot be Empty",
-               "Unable to Submit", MessageBoxButtons.OK,
-                                MessageBoxIcon.Exclamation,
-                                MessageBoxDefaultButton.Button1);
-
-            }else {
 
 
-                string insertSub = "insert into Subject(Code,Subject,Year,Sem,Lec,Lab,Tute,Evaluation)values('" + subjectCode + "','" + subjectName + "','" + year + "','" + sem + "','" + lec + "','" + lab + "','" + tute + "','" + evo + "')";
+                string insertSub = "insert into Subject(Code,Subject,Year,Sem,Lec,Lab,Tute,Evaluation)" +
+            "values('" + subjectCode + "','" + subjectName + "','" + year + "','" + sem + "','" + lec + "','" + lab + "','" + tute + "','" + evo + "')";
                 ExecuteQuery(insertSub);
                 LoadData();
 
@@ -136,9 +95,10 @@ namespace TimeTableManagment.Forms
                 numTuteHr.Value = 0;
                 numEvoHr.Value = 0;
             }
-           
+
 
         }
+
         //clear fields
         private void clearField()
         {
@@ -161,143 +121,8 @@ namespace TimeTableManagment.Forms
         {
             clearField();
         }
-        //edit
-        private void btnEdit_Click(object sender, EventArgs e)
-        {
-            string subjectName = txtSubName.Text;
-            string subjectCode = lblSub.Text;
-            string year = cmbYear.Text;
-            string sem = cmbSem.Text;
-            int lec = Convert.ToInt32(numLecHr.Value);
-            int lab = Convert.ToInt32(numLabHr.Value);
-            int tute = Convert.ToInt32(numTuteHr.Value);
-            int evo = Convert.ToInt32(numEvoHr.Value);
-            if (subjectName == "")
-            {
-
-                MessageBox.Show("Subject Name Cannot be Empty",
-                "Unable to Submit", MessageBoxButtons.OK,
-                                MessageBoxIcon.Exclamation,
-                                MessageBoxDefaultButton.Button1);
-
-            }
-            else if (subjectCode == "IT")
-            {
-
-                MessageBox.Show("Subject code Cannot be Empty",
-               "Unable to Submit", MessageBoxButtons.OK,
-                                MessageBoxIcon.Exclamation,
-                                MessageBoxDefaultButton.Button1);
-
-            }
-            else if (year == "")
-            {
-                MessageBox.Show("Offered Year Cannot be Empty",
-               "Unable to Submit", MessageBoxButtons.OK,
-                                MessageBoxIcon.Exclamation,
-                                MessageBoxDefaultButton.Button1);
-
-            }
-            else if (sem == "")
-            {
-                MessageBox.Show("Offered Semester Cannot be Empty",
-               "Unable to Submit", MessageBoxButtons.OK,
-                                MessageBoxIcon.Exclamation,
-                                MessageBoxDefaultButton.Button1);
-
-            }
-            else if (lec == 0)
-            {
-                MessageBox.Show("Number of Lecture Hours Cannot be Empty",
-               "Unable to Submit", MessageBoxButtons.OK,
-                                MessageBoxIcon.Exclamation,
-                                MessageBoxDefaultButton.Button1);
-
-            }
-            else
-            {
-                String updateQuery = "update Subject set Subject='" + subjectName + "',Year='" + year + "',Sem='" + sem + "',Lec='" + lec + "',Lab='" + lab + "',Tute='" + tute + "',Evaluation='" + evo + "' " +
-                "where Code='" + subjectCode + "'";
-                ExecuteQuery(updateQuery);
-                LoadData();
-                clearField();
-            }
-        }
-        //delete
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            string subjectCode = lblSub.Text;
-            
-                String deleteQuery = "delete from Subject where Code='" + subjectCode + "'";
-                ExecuteQuery(deleteQuery);
-                LoadData();
-                clearField();
-
-           
-
-        }
-       
-
-        private void txtSubName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtSubCode_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cmbYear_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cmbSem_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void numLecHr_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void numLecMn_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void numTuteHr_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void numTuteMn_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void numLabHr_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void numLabMn_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void numEvoHr_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void numEvoMn_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        
+        //On click the data load to the fields
         private void tblLec_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             labelSub.Text = "Edit/Delete Subject";
@@ -313,16 +138,178 @@ namespace TimeTableManagment.Forms
             cmbYear.Text = selectedRow.Cells[2].Value.ToString();
             cmbSem.Text = selectedRow.Cells[3].Value.ToString();
             numLecHr.Value = Int32.Parse(selectedRow.Cells[4].Value.ToString());
-            numLabHr.Value= Int32.Parse(selectedRow.Cells[5].Value.ToString());
+            numLabHr.Value = Int32.Parse(selectedRow.Cells[5].Value.ToString());
             numTuteHr.Value = Int32.Parse(selectedRow.Cells[6].Value.ToString());
             numEvoHr.Value = Int32.Parse(selectedRow.Cells[7].Value.ToString());
 
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        //edit
+        private void btnEdit_Click(object sender, EventArgs e)
         {
+            string subjectName = txtSubName.Text;
+            string subjectCode = lblSub.Text;
+            string year = cmbYear.Text;
+            string sem = cmbSem.Text;
+            int lec = Convert.ToInt32(numLecHr.Value);
+            int lab = Convert.ToInt32(numLabHr.Value);
+            int tute = Convert.ToInt32(numTuteHr.Value);
+            int evo = Convert.ToInt32(numEvoHr.Value);
+
+            if (ValidateChildren(ValidationConstraints.Enabled)&&
+                subjectName == "" || year == "" || sem == "" || lec == 0)
+            {
+
+                MessageBox.Show("All Fields are Compulsory!",
+                "Unable to Update", MessageBoxButtons.OK,
+                                MessageBoxIcon.Exclamation,
+                                MessageBoxDefaultButton.Button1);
+
+            }
+            else
+            {
+                String updateQuery = "update Subject set Subject='" + subjectName + "',Year='" + year + "',Sem='" + sem + "',Lec='" + lec + "',Lab='" + lab + "',Tute='" + tute + "',Evaluation='" + evo + "' " +
+                "where Code='" + subjectCode + "'";
+                ExecuteQuery(updateQuery);
+                LoadData();
+                clearField();
+            }
+        }
+
+        //delete
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            string subjectCode = lblSub.Text;
+
+            String deleteQuery = "delete from Subject where Code='" + subjectCode + "'";
+            ExecuteQuery(deleteQuery);
+            LoadData();
+            clearField();
+
+
 
         }
+       
+        //Validating the form
+        private void txtSubCode_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+            if (!Char.IsDigit(ch) && ch != 8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void cmbYear_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+            if (!Char.IsDigit(ch) && ch != 8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void cmbSem_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+            if (!Char.IsDigit(ch) && ch != 8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void numLecHr_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+            if (!Char.IsDigit(ch) && ch != 8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void numTuteHr_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+            if (!Char.IsDigit(ch) && ch != 8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void numLabHr_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+            if (!Char.IsDigit(ch) && ch != 8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void numEvoHr_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+            if (!Char.IsDigit(ch) && ch != 8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtSubName_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtSubName.Text))
+            {
+                e.Cancel = false;
+                errorProvider.SetError(txtSubName, "Please Enter the Subject!");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(txtSubName, null);
+            }
+        }
+        private void txtSubCode_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtSubCode.Text))
+            {
+                e.Cancel = false;
+                errorProvider.SetError(txtSubCode, "Please Enter the Subject Code!");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(txtSubCode, null);
+            }
+        }
+
+        private void cmbYear_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(cmbYear.Text))
+            {
+                e.Cancel = false;
+                errorProvider.SetError(cmbYear, "Please Select a year!");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(cmbYear, null);
+            }
+        }
+
+        private void cmbSem_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(cmbSem.Text))
+            {
+                e.Cancel = false;
+                errorProvider.SetError(cmbSem, "Please select a semester!");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(cmbSem, null);
+            }
+        }
+       
+        
     }
 }

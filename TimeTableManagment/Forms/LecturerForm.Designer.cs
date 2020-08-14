@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.txtLecName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -48,8 +49,14 @@
             this.txtDept = new System.Windows.Forms.TextBox();
             this.txtCenter = new System.Windows.Forms.TextBox();
             this.txtFac = new System.Windows.Forms.TextBox();
+            this.lblEmp = new System.Windows.Forms.Label();
+            this.labelRank = new System.Windows.Forms.Label();
+            this.lblRank = new System.Windows.Forms.Label();
+            this.labelLec = new System.Windows.Forms.Label();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblLec)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -57,9 +64,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(107, 58);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 17);
+            this.label1.Size = new System.Drawing.Size(75, 17);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Ful Name:";
+            this.label1.Text = "Full Name:";
             // 
             // txtLecName
             // 
@@ -67,21 +74,20 @@
             this.txtLecName.Name = "txtLecName";
             this.txtLecName.Size = new System.Drawing.Size(299, 22);
             this.txtLecName.TabIndex = 1;
+            this.txtLecName.Validating += new System.ComponentModel.CancelEventHandler(this.txtLecName_Validating);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(107, 120);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(57, 17);
+            this.label3.Size = new System.Drawing.Size(73, 17);
             this.label3.TabIndex = 3;
-            this.label3.Text = "Faculty:";
+            this.label3.Text = "Faculty of:";
             // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.btnDelete);
-            this.panel1.Controls.Add(this.btnEdit);
             this.panel1.Controls.Add(this.tblLec);
             this.panel1.Location = new System.Drawing.Point(-1, 351);
             this.panel1.Name = "panel1";
@@ -90,18 +96,19 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(813, 296);
+            this.btnDelete.Location = new System.Drawing.Point(823, 261);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(104, 38);
+            this.btnDelete.Size = new System.Drawing.Size(104, 41);
             this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(696, 295);
+            this.btnEdit.Location = new System.Drawing.Point(552, 261);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(100, 39);
+            this.btnEdit.Size = new System.Drawing.Size(119, 41);
             this.btnEdit.TabIndex = 1;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = true;
@@ -116,6 +123,7 @@
             this.tblLec.RowTemplate.Height = 24;
             this.tblLec.Size = new System.Drawing.Size(849, 246);
             this.tblLec.TabIndex = 0;
+            this.tblLec.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tblLec_CellContentClick);
             // 
             // label4
             // 
@@ -133,6 +141,7 @@
             this.cmbBuild.Name = "cmbBuild";
             this.cmbBuild.Size = new System.Drawing.Size(205, 24);
             this.cmbBuild.TabIndex = 7;
+            this.cmbBuild.Validating += new System.ComponentModel.CancelEventHandler(this.cmbBuild_Validating);
             // 
             // label5
             // 
@@ -146,10 +155,19 @@
             // cmbLevel
             // 
             this.cmbLevel.FormattingEnabled = true;
+            this.cmbLevel.Items.AddRange(new object[] {
+            "Professor",
+            "Assistant Professor",
+            "Senior Lecturer(HG)",
+            "Senior Lecturer",
+            "Lecturer",
+            "Assistant Lecturer",
+            "Instructors"});
             this.cmbLevel.Location = new System.Drawing.Point(110, 270);
             this.cmbLevel.Name = "cmbLevel";
             this.cmbLevel.Size = new System.Drawing.Size(205, 24);
             this.cmbLevel.TabIndex = 9;
+            this.cmbLevel.Validating += new System.ComponentModel.CancelEventHandler(this.cmbLevel_Validating);
             // 
             // label6
             // 
@@ -166,6 +184,8 @@
             this.txtEmpId.Name = "txtEmpId";
             this.txtEmpId.Size = new System.Drawing.Size(278, 22);
             this.txtEmpId.TabIndex = 11;
+            this.txtEmpId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEmpId_KeyPress);
+            this.txtEmpId.Validating += new System.ComponentModel.CancelEventHandler(this.txtEmpId_Validating);
             // 
             // label7
             // 
@@ -197,12 +217,13 @@
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(696, 261);
+            this.btnClear.Location = new System.Drawing.Point(689, 261);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(116, 41);
             this.btnClear.TabIndex = 17;
             this.btnClear.Text = "Clear Fields";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // txtDept
             // 
@@ -210,6 +231,7 @@
             this.txtDept.Name = "txtDept";
             this.txtDept.Size = new System.Drawing.Size(278, 22);
             this.txtDept.TabIndex = 18;
+            this.txtDept.Validating += new System.ComponentModel.CancelEventHandler(this.txtDept_Validating);
             // 
             // txtCenter
             // 
@@ -217,20 +239,74 @@
             this.txtCenter.Name = "txtCenter";
             this.txtCenter.Size = new System.Drawing.Size(278, 22);
             this.txtCenter.TabIndex = 19;
+            this.txtCenter.Validating += new System.ComponentModel.CancelEventHandler(this.txtCenter_Validating);
             // 
             // txtFac
             // 
+            this.txtFac.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txtFac.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.RecentlyUsedList;
             this.txtFac.Location = new System.Drawing.Point(110, 140);
             this.txtFac.Name = "txtFac";
             this.txtFac.Size = new System.Drawing.Size(299, 22);
             this.txtFac.TabIndex = 20;
+            this.txtFac.Validating += new System.ComponentModel.CancelEventHandler(this.txtFac_Validating);
+            // 
+            // lblEmp
+            // 
+            this.lblEmp.AutoSize = true;
+            this.lblEmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmp.Location = new System.Drawing.Point(641, 78);
+            this.lblEmp.Name = "lblEmp";
+            this.lblEmp.Size = new System.Drawing.Size(53, 24);
+            this.lblEmp.TabIndex = 21;
+            this.lblEmp.Text = "Emp";
+            // 
+            // labelRank
+            // 
+            this.labelRank.AutoSize = true;
+            this.labelRank.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelRank.Location = new System.Drawing.Point(107, 23);
+            this.labelRank.Name = "labelRank";
+            this.labelRank.Size = new System.Drawing.Size(57, 20);
+            this.labelRank.TabIndex = 22;
+            this.labelRank.Text = "Rank:";
+            // 
+            // lblRank
+            // 
+            this.lblRank.AutoSize = true;
+            this.lblRank.Font = new System.Drawing.Font("Lucida Sans Typewriter", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRank.Location = new System.Drawing.Point(170, 23);
+            this.lblRank.Name = "lblRank";
+            this.lblRank.Size = new System.Drawing.Size(49, 19);
+            this.lblRank.TabIndex = 23;
+            this.lblRank.Text = "Rank";
+            // 
+            // labelLec
+            // 
+            this.labelLec.AutoSize = true;
+            this.labelLec.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelLec.Location = new System.Drawing.Point(405, 9);
+            this.labelLec.Name = "labelLec";
+            this.labelLec.Size = new System.Drawing.Size(189, 32);
+            this.labelLec.TabIndex = 24;
+            this.labelLec.Text = "Add Lecturer";
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
             // 
             // LecturerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1136, 699);
+            this.Controls.Add(this.labelLec);
+            this.Controls.Add(this.lblRank);
+            this.Controls.Add(this.labelRank);
+            this.Controls.Add(this.lblEmp);
+            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.txtFac);
+            this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.txtCenter);
             this.Controls.Add(this.txtDept);
             this.Controls.Add(this.btnClear);
@@ -252,6 +328,7 @@
             this.Load += new System.EventHandler(this.LecturerForm_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tblLec)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -279,5 +356,10 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.TextBox txtFac;
+        private System.Windows.Forms.Label lblEmp;
+        private System.Windows.Forms.Label labelRank;
+        private System.Windows.Forms.Label lblRank;
+        private System.Windows.Forms.Label labelLec;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }
