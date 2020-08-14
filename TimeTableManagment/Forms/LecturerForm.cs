@@ -88,17 +88,17 @@ namespace TimeTableManagment.Forms
 //add
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            string lecturerName = txtLecName.Text;
-            string employeeID = txtEmpId.Text;
-            string faculty = txtFac.Text;
-            string department = txtDept.Text;
-            string building = cmbBuild.Text;
-            string center = txtCenter.Text;
-            string level = cmbLevel.Text;
+           // string lecturerName = txtLecName.Text;
+            //string employeeID = txtEmpId.Text;
+           // string faculty = txtFac.Text;
+            //string department = txtDept.Text;
+           // string building = cmbBuild.Text;
+           // string center = txtCenter.Text;
+           // string level = cmbLevel.Text;
 
-            string insertSub = "insert into Lecturer(Name,EmployeeID,)values('" + subjectCode + "','" + subjectName + "','" + year + "','" + sem + "','" + lec + "','" + lab + "','" + tute + "','" + evo + "')";
-            ExecuteQuery(insertSub);
-            LoadData();
+           // string insertSub = "insert into Lecturer(Name,EmployeeID,)values('" + subjectCode + "','" + subjectName + "','" + year + "','" + sem + "','" + lec + "','" + lab + "','" + tute + "','" + evo + "')";
+           // ExecuteQuery(insertSub);
+           // LoadData();
 
         }
     }
