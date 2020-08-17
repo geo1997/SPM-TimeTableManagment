@@ -228,10 +228,11 @@
             // 
             // panel1
             // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.tblSub);
             this.panel1.Location = new System.Drawing.Point(-1, 282);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1135, 301);
+            this.panel1.Size = new System.Drawing.Size(1045, 376);
             this.panel1.TabIndex = 25;
             // 
             // tblSub
@@ -239,7 +240,7 @@
             this.tblSub.AllowUserToAddRows = false;
             this.tblSub.AllowUserToDeleteRows = false;
             this.tblSub.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tblSub.Location = new System.Drawing.Point(77, 23);
+            this.tblSub.Location = new System.Drawing.Point(76, 57);
             this.tblSub.Name = "tblSub";
             this.tblSub.ReadOnly = true;
             this.tblSub.RowHeadersWidth = 51;
@@ -341,7 +342,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FloralWhite;
-            this.ClientSize = new System.Drawing.Size(1136, 699);
+            this.ClientSize = new System.Drawing.Size(1039, 630);
             this.Controls.Add(this.txtSubCode);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnClear);

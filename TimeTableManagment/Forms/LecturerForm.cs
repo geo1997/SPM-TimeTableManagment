@@ -40,7 +40,7 @@ namespace TimeTableManagment.Forms
             sql_con.Close();
         }
 
-        //load data
+        //load data from the Database
         private void LoadData()
         {
             SetConnection();
@@ -64,11 +64,13 @@ namespace TimeTableManagment.Forms
             txtEmpId.Text = r.PadLeft(6,'0');
 
         }
+
         private void LecturerForm_Load(object sender, EventArgs e)
         {
             FillCombo();
             EmployeeIdGenerator();
             LoadData();
+            radioProf.Checked = true;
             btnEdit.Visible = false;
             labelRank.Visible = false;
             lblRank.Visible = false;
@@ -214,12 +216,11 @@ namespace TimeTableManagment.Forms
 
         }
 
-        //add
+        //add method
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-
-            string lecturerName = txtLecName.Text;
             string title = TitleSelector();
+            string lecturerName = txtLecName.Text;
             string employeeID = txtEmpId.Text;
             string faculty = txtFac.Text;
             string department = txtDept.Text;
@@ -277,7 +278,7 @@ namespace TimeTableManagment.Forms
             cmbLevel.Text = tblLec.SelectedRows[0].Cells[9].Value.ToString();
         }
       
-        //edit
+        //edit method
         private void button3_Click(object sender, EventArgs e)
         {
             string title = TitleSelector();
@@ -315,7 +316,7 @@ namespace TimeTableManagment.Forms
             }
         }
 
-        //delete
+        //delete method
         private void btnDelete_Click(object sender, EventArgs e)
         {
             string employeeID = txtEmpId.Text;
@@ -338,7 +339,6 @@ namespace TimeTableManagment.Forms
         }
 
         //Validating the form
-
         private void txtEmpId_KeyPress(object sender, KeyPressEventArgs e)
         {
             char ch = e.KeyChar;

@@ -32,7 +32,7 @@ namespace TimeTableManagment.Forms
             sql_con.Close();
         }
 
-        //load data
+        //load data from the Database
         private void LoadData()
         {
             SetConnection();
@@ -61,7 +61,7 @@ namespace TimeTableManagment.Forms
             btnDelete.Visible = false;
         }
 
-        //add
+        //add method
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             string subjectName = txtSubName.Text;
@@ -143,7 +143,7 @@ namespace TimeTableManagment.Forms
         }
        
 
-        //edit
+        //edit method
         private void btnEdit_Click(object sender, EventArgs e)
         {
             string subjectName = txtSubName.Text;
@@ -175,7 +175,7 @@ namespace TimeTableManagment.Forms
             }
         }
 
-        //delete
+        //delete method
         private void btnDelete_Click(object sender, EventArgs e)
         {
             string subjectCode = txtSubCode.Text;
