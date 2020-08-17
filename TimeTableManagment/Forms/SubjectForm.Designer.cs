@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SubjectForm));
             this.label2 = new System.Windows.Forms.Label();
             this.txtSubName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -36,7 +37,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtSubCode = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.numTuteHr = new System.Windows.Forms.NumericUpDown();
@@ -51,9 +51,10 @@
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
-            this.lblSub = new System.Windows.Forms.Label();
             this.labelSub = new System.Windows.Forms.Label();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.txtSubCode = new System.Windows.Forms.TextBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.numTuteHr)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numLecHr)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numLabHr)).BeginInit();
@@ -132,16 +133,6 @@
             this.label6.Size = new System.Drawing.Size(96, 17);
             this.label6.TabIndex = 9;
             this.label6.Text = "Subject Code:";
-            // 
-            // txtSubCode
-            // 
-            this.txtSubCode.Location = new System.Drawing.Point(470, 79);
-            this.txtSubCode.MaxLength = 10000;
-            this.txtSubCode.Name = "txtSubCode";
-            this.txtSubCode.Size = new System.Drawing.Size(192, 22);
-            this.txtSubCode.TabIndex = 4;
-            this.txtSubCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSubCode_KeyPress);
-            this.txtSubCode.Validating += new System.ComponentModel.CancelEventHandler(this.txtSubCode_Validating);
             // 
             // label7
             // 
@@ -245,64 +236,83 @@
             // 
             // tblSub
             // 
+            this.tblSub.AllowUserToAddRows = false;
+            this.tblSub.AllowUserToDeleteRows = false;
             this.tblSub.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tblSub.Location = new System.Drawing.Point(77, 23);
             this.tblSub.Name = "tblSub";
+            this.tblSub.ReadOnly = true;
             this.tblSub.RowHeadersWidth = 51;
             this.tblSub.RowTemplate.Height = 24;
+            this.tblSub.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.tblSub.Size = new System.Drawing.Size(847, 222);
             this.tblSub.TabIndex = 0;
-            this.tblSub.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tblLec_CellContentClick);
+            this.tblSub.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tblSub_CellClick);
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(819, 182);
+            this.btnDelete.BackColor = System.Drawing.Color.IndianRed;
+            this.btnDelete.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
+            this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDelete.Location = new System.Drawing.Point(700, 179);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(104, 38);
+            this.btnDelete.Size = new System.Drawing.Size(120, 41);
             this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.btnDelete, "Delete the SSubject Details");
+            this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(819, 224);
+            this.btnEdit.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnEdit.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.btnEdit.Image = ((System.Drawing.Image)(resources.GetObject("btnEdit.Image")));
+            this.btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEdit.Location = new System.Drawing.Point(700, 223);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(104, 40);
+            this.btnEdit.Size = new System.Drawing.Size(130, 41);
             this.btnEdit.TabIndex = 1;
             this.btnEdit.Text = "Edit";
-            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.btnEdit, "Edit the Details");
+            this.btnEdit.UseVisualStyleBackColor = false;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(819, 224);
+            this.btnSubmit.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnSubmit.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.btnSubmit.Image = ((System.Drawing.Image)(resources.GetObject("btnSubmit.Image")));
+            this.btnSubmit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSubmit.Location = new System.Drawing.Point(701, 224);
             this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(104, 40);
+            this.btnSubmit.Size = new System.Drawing.Size(130, 41);
             this.btnSubmit.TabIndex = 26;
             this.btnSubmit.Text = "Submit";
-            this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.btnSubmit, "Submit the Subject Details");
+            this.btnSubmit.UseVisualStyleBackColor = false;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(703, 224);
+            this.btnClear.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnClear.Font = new System.Drawing.Font("Microsoft YaHei UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnClear.Image = ((System.Drawing.Image)(resources.GetObject("btnClear.Image")));
+            this.btnClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClear.Location = new System.Drawing.Point(836, 223);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(110, 40);
+            this.btnClear.Size = new System.Drawing.Size(116, 41);
             this.btnClear.TabIndex = 27;
             this.btnClear.Text = "Clear Fields";
-            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.btnClear, "To Clear all fields");
+            this.btnClear.UseVisualStyleBackColor = false;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
-            // lblSub
-            // 
-            this.lblSub.AutoSize = true;
-            this.lblSub.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSub.Location = new System.Drawing.Point(512, 81);
-            this.lblSub.Name = "lblSub";
-            this.lblSub.Size = new System.Drawing.Size(39, 20);
-            this.lblSub.TabIndex = 28;
-            this.lblSub.Text = "sub";
             // 
             // labelSub
             // 
@@ -318,13 +328,22 @@
             // 
             this.errorProvider.ContainerControl = this;
             // 
+            // txtSubCode
+            // 
+            this.txtSubCode.Location = new System.Drawing.Point(470, 79);
+            this.txtSubCode.Name = "txtSubCode";
+            this.txtSubCode.ReadOnly = true;
+            this.txtSubCode.Size = new System.Drawing.Size(192, 22);
+            this.txtSubCode.TabIndex = 28;
+            // 
             // SubjectForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FloralWhite;
             this.ClientSize = new System.Drawing.Size(1136, 699);
+            this.Controls.Add(this.txtSubCode);
             this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.lblSub);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnSubmit);
@@ -337,7 +356,6 @@
             this.Controls.Add(this.numTuteHr);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.txtSubCode);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -369,7 +387,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtSubCode;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.NumericUpDown numTuteHr;
@@ -384,8 +401,9 @@
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnEdit;
-        private System.Windows.Forms.Label lblSub;
         private System.Windows.Forms.Label labelSub;
         private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.TextBox txtSubCode;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
