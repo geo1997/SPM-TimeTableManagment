@@ -40,7 +40,7 @@ namespace TimeTableManagment.Forms
             sql_con.Close();
         }
 
-        //load data
+        //load data from the Database
         private void LoadData()
         {
             SetConnection();
@@ -53,13 +53,25 @@ namespace TimeTableManagment.Forms
             DT = DS.Tables[0];
             tblLec.DataSource = DT;
             sql_con.Close();
+           
         }
+        
+        //Auto generate employee Id
+        public void EmployeeIdGenerator()
+        {
+            Random empIdGen = new Random();
+            string r = empIdGen.Next(0, 8000).ToString();
+            txtEmpId.Text = r.PadLeft(6,'0');
+
+        }
+
         private void LecturerForm_Load(object sender, EventArgs e)
         {
             FillCombo();
+            EmployeeIdGenerator();
             LoadData();
+            radioProf.Checked = true;
             btnEdit.Visible = false;
-            lblEmp.Visible = false;
             labelRank.Visible = false;
             lblRank.Visible = false;
             btnDelete.Visible = false;
@@ -85,17 +97,68 @@ namespace TimeTableManagment.Forms
             }
             sql_con.Close();
         }
+        //title selection
+        public string TitleSelector() {
 
+            if (radioProf.Checked)
+            {
+                return radioProf.Text;
+            }
+            else if (radioDoc.Checked)
+            {
+                return radioDoc.Text;
+            }
+            else if (radioMister.Checked)
+            {
+                return radioMister.Text;
+            }
+            else if (radioMisis.Checked)
+            {
+                return radioMisis.Text;
+            }
+            else if (radioMiss.Checked)
+            {
+                return radioMiss.Text;
+            }
+            else
+            {
+                return "";
+            }
+
+        }
+        //radio button checker
+        public void RadioCheck(string rs)
+        {
+           
+            if(rs=="Prof.")
+            {
+                radioProf.Checked=true;
+            }
+            else if (rs == "Dr.")
+            {
+                radioDoc.Checked = true;
+            }
+            else if (rs == "Mr.")
+            {
+                radioMister.Checked = true;
+            }
+            else if (rs == "Mrs.")
+            {
+                radioMisis.Checked = true;
+            }
+            else if (rs == "Ms.")
+            {
+                radioMiss.Checked = true;
+            }
+        }
         //clear fields
         private void clearField()
         {
             labelLec.Text = "Add Subject";
+            radioProf.Checked = true;
             labelRank.Visible = false;
             lblRank.Visible = false;
-            lblEmp.Visible = false;
-            txtEmpId.Visible = true;
             txtLecName.Clear();
-            txtEmpId.Clear();
             txtCenter.Clear();
             txtDept.Clear();
             txtFac.Clear();
@@ -153,10 +216,10 @@ namespace TimeTableManagment.Forms
 
         }
 
-        //add
+        //add method
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-
+            string title = TitleSelector();
             string lecturerName = txtLecName.Text;
             string employeeID = txtEmpId.Text;
             string faculty = txtFac.Text;
@@ -167,7 +230,7 @@ namespace TimeTableManagment.Forms
             int lvl = LevelPass(level);
 
             if (ValidateChildren(ValidationConstraints.Enabled) &&
-                lecturerName == "" || employeeID == "" ||
+                lecturerName == "" || 
                 faculty == "" || department == ""
                 || building == "" || center == "" || level == "")
             {
@@ -178,48 +241,49 @@ namespace TimeTableManagment.Forms
             }
             else
             {
+               
+                    string rank = lvl + "." + employeeID;
 
-                string rank = lvl + "." + employeeID;
-
-                string insertLec = "insert into Lecturer(EmployeeID,Name,Faculty,Dept,Building,Center,Rank,Role)" +
-                    "values('" + employeeID + "','" + lecturerName + "','" + faculty + "','" + department + "','" + building + "','" + center + "','" + rank + "','" + level + "')";
-                ExecuteQuery(insertLec);
-                LoadData();
-                clearField();
+                    string insertLec = "insert into Lecturer(EmployeeID,Title,Name,Faculty,Dept,Building,Center,Rank,Role)" +
+                        "values('" + employeeID + "','" + title + "','" + lecturerName + "','" + faculty + "','" + department + "','" + building + "','" + center + "','" + rank + "','" + level + "')";
+                    ExecuteQuery(insertLec);
+                    LoadData();
+                    EmployeeIdGenerator();
+                    clearField();
             }
 
 
         }
 
         //Fill the form from selected row
-        private void tblLec_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void tblLec_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             labelLec.Text = "Edit/Delete Lecturer";
-            lblEmp.Visible = true;
             labelRank.Visible = true;
             lblRank.Visible = true;
-            txtEmpId.Visible = false;
             btnSubmit.Visible = false;
             btnEdit.Visible = true;
             btnDelete.Visible = true;
-            int index = e.RowIndex;
-            DataGridViewRow selectedRow = tblLec.Rows[index];
-            lblEmp.Text = selectedRow.Cells[0].Value.ToString();
-            txtLecName.Text = selectedRow.Cells[1].Value.ToString();
-            txtFac.Text = selectedRow.Cells[2].Value.ToString();
-            txtDept.Text = selectedRow.Cells[3].Value.ToString();
-            cmbBuild.Text = selectedRow.Cells[4].Value.ToString();
-            txtCenter.Text = selectedRow.Cells[5].Value.ToString();
-            lblRank.Text = selectedRow.Cells[6].Value.ToString();
-            cmbLevel.Text = selectedRow.Cells[7].Value.ToString();
-        }
 
-        //edit
+            string t = tblLec.SelectedRows[0].Cells[2].Value.ToString();
+            RadioCheck(t);
+
+            txtEmpId.Text = tblLec.SelectedRows[0].Cells[1].Value.ToString();
+            txtLecName.Text = tblLec.SelectedRows[0].Cells[3].Value.ToString();
+            txtFac.Text = tblLec.SelectedRows[0].Cells[4].Value.ToString();
+            txtDept.Text = tblLec.SelectedRows[0].Cells[5].Value.ToString();
+            cmbBuild.Text = tblLec.SelectedRows[0].Cells[6].Value.ToString();
+            txtCenter.Text = tblLec.SelectedRows[0].Cells[7].Value.ToString();
+            lblRank.Text = tblLec.SelectedRows[0].Cells[8].Value.ToString();
+            cmbLevel.Text = tblLec.SelectedRows[0].Cells[9].Value.ToString();
+        }
+      
+        //edit method
         private void button3_Click(object sender, EventArgs e)
         {
-
+            string title = TitleSelector();
             string lecturerName = txtLecName.Text;
-            string employeeID = lblEmp.Text;
+            string employeeID = txtEmpId.Text;
             string faculty = txtFac.Text;
             string department = txtDept.Text;
             string building = cmbBuild.Text;
@@ -243,22 +307,24 @@ namespace TimeTableManagment.Forms
 
                 string rank = lvl + "." + employeeID;
 
-                String updateQuery = "update Lecturer set Name='" + lecturerName + "',Faculty='" + faculty + "',Dept='" + department + "',Building='" + building + "',Center='" + center + "',Rank='" + rank + "',Role='" + levl + "' " +
+                String updateQuery = "update Lecturer set Title='" + title + "',Name='" + lecturerName + "',Faculty='" + faculty + "',Dept='" + department + "',Building='" + building + "',Center='" + center + "',Rank='" + rank + "',Role='" + levl + "' " +
                    "where EmployeeID='" + employeeID + "'";
                 ExecuteQuery(updateQuery);
                 LoadData();
+                EmployeeIdGenerator();
                 clearField();
             }
         }
 
-        //delete
+        //delete method
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            string employeeID = lblEmp.Text;
+            string employeeID = txtEmpId.Text;
 
             String deleteQuery = "delete from Lecturer where EmployeeID='" + employeeID + "'";
             ExecuteQuery(deleteQuery);
             LoadData();
+            EmployeeIdGenerator();
             clearField();
         }
 
@@ -273,7 +339,6 @@ namespace TimeTableManagment.Forms
         }
 
         //Validating the form
-
         private void txtEmpId_KeyPress(object sender, KeyPressEventArgs e)
         {
             char ch = e.KeyChar;
