@@ -31,6 +31,11 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.categoryComboBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -45,8 +50,10 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.reportGenerateBtn = new System.Windows.Forms.Button();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
             this.SuspendLayout();
             // 
             // categoryComboBox
@@ -103,10 +110,10 @@
             this.radioButton1Lec1.AutoSize = true;
             this.radioButton1Lec1.Location = new System.Drawing.Point(42, 77);
             this.radioButton1Lec1.Name = "radioButton1Lec1";
-            this.radioButton1Lec1.Size = new System.Drawing.Size(273, 21);
+            this.radioButton1Lec1.Size = new System.Drawing.Size(203, 21);
             this.radioButton1Lec1.TabIndex = 5;
             this.radioButton1Lec1.TabStop = true;
-            this.radioButton1Lec1.Text = "Lecturer Count From Each Department";
+            this.radioButton1Lec1.Text = "Staff Count Per Department";
             this.radioButton1Lec1.UseVisualStyleBackColor = true;
             this.radioButton1Lec1.CheckedChanged += new System.EventHandler(this.radioButton1Lec1_CheckedChanged);
             // 
@@ -115,10 +122,10 @@
             this.radioButton2Lec2.AutoSize = true;
             this.radioButton2Lec2.Location = new System.Drawing.Point(42, 105);
             this.radioButton2Lec2.Name = "radioButton2Lec2";
-            this.radioButton2Lec2.Size = new System.Drawing.Size(248, 21);
+            this.radioButton2Lec2.Size = new System.Drawing.Size(166, 21);
             this.radioButton2Lec2.TabIndex = 6;
             this.radioButton2Lec2.TabStop = true;
-            this.radioButton2Lec2.Text = "Lecturer Count According To Rank";
+            this.radioButton2Lec2.Text = "Total Staff Per Center";
             this.radioButton2Lec2.UseVisualStyleBackColor = true;
             this.radioButton2Lec2.CheckedChanged += new System.EventHandler(this.radioButton2Lec2_CheckedChanged);
             // 
@@ -127,11 +134,12 @@
             this.radioButton1Stu1.AutoSize = true;
             this.radioButton1Stu1.Location = new System.Drawing.Point(336, 77);
             this.radioButton1Stu1.Name = "radioButton1Stu1";
-            this.radioButton1Stu1.Size = new System.Drawing.Size(139, 21);
+            this.radioButton1Stu1.Size = new System.Drawing.Size(179, 21);
             this.radioButton1Stu1.TabIndex = 7;
             this.radioButton1Stu1.TabStop = true;
-            this.radioButton1Stu1.Text = "radioButton1Stu1";
+            this.radioButton1Stu1.Text = "Student Count Per Year";
             this.radioButton1Stu1.UseVisualStyleBackColor = true;
+            this.radioButton1Stu1.CheckedChanged += new System.EventHandler(this.radioButton1Stu1_CheckedChanged);
             // 
             // radioButton2Stu2
             // 
@@ -149,11 +157,12 @@
             this.radioButton1Sub1.AutoSize = true;
             this.radioButton1Sub1.Location = new System.Drawing.Point(607, 77);
             this.radioButton1Sub1.Name = "radioButton1Sub1";
-            this.radioButton1Sub1.Size = new System.Drawing.Size(143, 21);
+            this.radioButton1Sub1.Size = new System.Drawing.Size(153, 21);
             this.radioButton1Sub1.TabIndex = 9;
             this.radioButton1Sub1.TabStop = true;
-            this.radioButton1Sub1.Text = "radioButton1Sub1";
+            this.radioButton1Sub1.Text = "Number of Subjects";
             this.radioButton1Sub1.UseVisualStyleBackColor = true;
+            this.radioButton1Sub1.CheckedChanged += new System.EventHandler(this.radioButton1Sub1_CheckedChanged);
             // 
             // radioButton2Sub2
             // 
@@ -198,21 +207,52 @@
             this.chart1.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(287, 323);
+            this.chart1.Location = new System.Drawing.Point(313, 313);
             this.chart1.Name = "chart1";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "Faculty";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Sub Count";
             this.chart1.Series.Add(series1);
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(594, 300);
             this.chart1.TabIndex = 13;
             this.chart1.Text = "chart1";
+            this.chart1.Visible = false;
+            // 
+            // chart2
+            // 
+            chartArea2.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart2.Legends.Add(legend2);
+            this.chart2.Location = new System.Drawing.Point(313, 313);
+            this.chart2.Name = "chart2";
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series3.IsValueShownAsLabel = true;
+            series3.Legend = "Legend1";
+            series3.Name = "Center";
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series4.IsValueShownAsLabel = true;
+            series4.Legend = "Legend1";
+            series4.Name = "Student Count Year";
+            this.chart2.Series.Add(series3);
+            this.chart2.Series.Add(series4);
+            this.chart2.Size = new System.Drawing.Size(594, 300);
+            this.chart2.TabIndex = 14;
+            this.chart2.Text = "chart2";
+            this.chart2.Visible = false;
             // 
             // StatisticsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1090, 650);
+            this.Controls.Add(this.chart2);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.reportGenerateBtn);
             this.Controls.Add(this.panel1);
@@ -224,6 +264,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -245,5 +286,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button reportGenerateBtn;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
     }
 }

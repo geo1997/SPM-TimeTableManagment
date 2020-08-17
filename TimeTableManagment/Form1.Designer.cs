@@ -285,7 +285,7 @@
             this.titleBarPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.titleBarPanel.Location = new System.Drawing.Point(220, 0);
             this.titleBarPanel.Name = "titleBarPanel";
-            this.titleBarPanel.Size = new System.Drawing.Size(916, 80);
+            this.titleBarPanel.Size = new System.Drawing.Size(1062, 80);
             this.titleBarPanel.TabIndex = 1;
             // 
             // btnClose
@@ -307,7 +307,7 @@
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Engravers MT", 15F);
             this.lblTitle.ForeColor = System.Drawing.Color.White;
-            this.lblTitle.Location = new System.Drawing.Point(406, 31);
+            this.lblTitle.Location = new System.Drawing.Point(479, 31);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(111, 29);
             this.lblTitle.TabIndex = 0;
@@ -318,14 +318,14 @@
             this.panelDekstopPane.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDekstopPane.Location = new System.Drawing.Point(220, 80);
             this.panelDekstopPane.Name = "panelDekstopPane";
-            this.panelDekstopPane.Size = new System.Drawing.Size(916, 619);
+            this.panelDekstopPane.Size = new System.Drawing.Size(1062, 619);
             this.panelDekstopPane.TabIndex = 2;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1136, 699);
+            this.ClientSize = new System.Drawing.Size(1282, 699);
             this.Controls.Add(this.panelDekstopPane);
             this.Controls.Add(this.titleBarPanel);
             this.Controls.Add(this.sideMenuPanel);
