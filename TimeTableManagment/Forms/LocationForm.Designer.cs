@@ -32,9 +32,16 @@
             this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.buildingDeleteBtn = new System.Windows.Forms.Button();
+            this.buildingEditBtn = new System.Windows.Forms.Button();
+            this.buildingAddBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.buildingNameTxtBx = new System.Windows.Forms.TextBox();
             this.metroTabPage2 = new MetroFramework.Controls.MetroTabPage();
+            this.clearDetailsBtn = new System.Windows.Forms.Button();
+            this.detailDeleteBtn = new System.Windows.Forms.Button();
+            this.detailsEditBtn = new System.Windows.Forms.Button();
+            this.detailsAddBtn = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.roomTypeComboBox = new System.Windows.Forms.ComboBox();
@@ -45,13 +52,6 @@
             this.roomNameTxtBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.buildingDeleteBtn = new System.Windows.Forms.Button();
-            this.buildingEditBtn = new System.Windows.Forms.Button();
-            this.buildingAddBtn = new System.Windows.Forms.Button();
-            this.clearDetailsBtn = new System.Windows.Forms.Button();
-            this.detailDeleteBtn = new System.Windows.Forms.Button();
-            this.detailsEditBtn = new System.Windows.Forms.Button();
-            this.detailsAddBtn = new System.Windows.Forms.Button();
             this.metroTabControl1.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -121,6 +121,51 @@
             this.dataGridView1.TabIndex = 5;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
+            // buildingDeleteBtn
+            // 
+            this.buildingDeleteBtn.BackColor = System.Drawing.Color.IndianRed;
+            this.buildingDeleteBtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.buildingDeleteBtn.Image = global::TimeTableManagment.Properties.Resources.icons8_delete_64;
+            this.buildingDeleteBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buildingDeleteBtn.Location = new System.Drawing.Point(685, 499);
+            this.buildingDeleteBtn.Name = "buildingDeleteBtn";
+            this.buildingDeleteBtn.Size = new System.Drawing.Size(130, 41);
+            this.buildingDeleteBtn.TabIndex = 7;
+            this.buildingDeleteBtn.Text = "Delete";
+            this.buildingDeleteBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buildingDeleteBtn.UseVisualStyleBackColor = false;
+            this.buildingDeleteBtn.Click += new System.EventHandler(this.buildingDeleteBtn_Click);
+            // 
+            // buildingEditBtn
+            // 
+            this.buildingEditBtn.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.buildingEditBtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.buildingEditBtn.Image = global::TimeTableManagment.Properties.Resources.icons8_edit_property_641;
+            this.buildingEditBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buildingEditBtn.Location = new System.Drawing.Point(548, 499);
+            this.buildingEditBtn.Name = "buildingEditBtn";
+            this.buildingEditBtn.Size = new System.Drawing.Size(130, 41);
+            this.buildingEditBtn.TabIndex = 6;
+            this.buildingEditBtn.Text = "Edit";
+            this.buildingEditBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buildingEditBtn.UseVisualStyleBackColor = false;
+            this.buildingEditBtn.Click += new System.EventHandler(this.buildingEditBtn_Click);
+            // 
+            // buildingAddBtn
+            // 
+            this.buildingAddBtn.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.buildingAddBtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.buildingAddBtn.Image = global::TimeTableManagment.Properties.Resources.icons8_add_new_64;
+            this.buildingAddBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buildingAddBtn.Location = new System.Drawing.Point(170, 138);
+            this.buildingAddBtn.Name = "buildingAddBtn";
+            this.buildingAddBtn.Size = new System.Drawing.Size(130, 41);
+            this.buildingAddBtn.TabIndex = 4;
+            this.buildingAddBtn.Text = "Add";
+            this.buildingAddBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buildingAddBtn.UseVisualStyleBackColor = false;
+            this.buildingAddBtn.Click += new System.EventHandler(this.buildingAddBtn_Click);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -163,6 +208,66 @@
             this.metroTabPage2.VerticalScrollbarBarColor = true;
             this.metroTabPage2.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage2.VerticalScrollbarSize = 10;
+            // 
+            // clearDetailsBtn
+            // 
+            this.clearDetailsBtn.BackColor = System.Drawing.Color.SteelBlue;
+            this.clearDetailsBtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.clearDetailsBtn.Image = global::TimeTableManagment.Properties.Resources.icons8_erase_48;
+            this.clearDetailsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.clearDetailsBtn.Location = new System.Drawing.Point(752, 254);
+            this.clearDetailsBtn.Name = "clearDetailsBtn";
+            this.clearDetailsBtn.Size = new System.Drawing.Size(130, 41);
+            this.clearDetailsBtn.TabIndex = 16;
+            this.clearDetailsBtn.Text = "Clear";
+            this.clearDetailsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.clearDetailsBtn.UseVisualStyleBackColor = false;
+            this.clearDetailsBtn.Click += new System.EventHandler(this.clearDetailsBtn_Click);
+            // 
+            // detailDeleteBtn
+            // 
+            this.detailDeleteBtn.BackColor = System.Drawing.Color.IndianRed;
+            this.detailDeleteBtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.detailDeleteBtn.Image = global::TimeTableManagment.Properties.Resources.icons8_delete_64;
+            this.detailDeleteBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.detailDeleteBtn.Location = new System.Drawing.Point(621, 254);
+            this.detailDeleteBtn.Name = "detailDeleteBtn";
+            this.detailDeleteBtn.Size = new System.Drawing.Size(130, 41);
+            this.detailDeleteBtn.TabIndex = 15;
+            this.detailDeleteBtn.Text = "Delete";
+            this.detailDeleteBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.detailDeleteBtn.UseVisualStyleBackColor = false;
+            this.detailDeleteBtn.Click += new System.EventHandler(this.detailDeleteBtn_Click);
+            // 
+            // detailsEditBtn
+            // 
+            this.detailsEditBtn.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.detailsEditBtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.detailsEditBtn.Image = global::TimeTableManagment.Properties.Resources.icons8_edit_property_64;
+            this.detailsEditBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.detailsEditBtn.Location = new System.Drawing.Point(490, 254);
+            this.detailsEditBtn.Name = "detailsEditBtn";
+            this.detailsEditBtn.Size = new System.Drawing.Size(130, 41);
+            this.detailsEditBtn.TabIndex = 14;
+            this.detailsEditBtn.Text = "Edit";
+            this.detailsEditBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.detailsEditBtn.UseVisualStyleBackColor = false;
+            this.detailsEditBtn.Click += new System.EventHandler(this.detailsEditBtn_Click);
+            // 
+            // detailsAddBtn
+            // 
+            this.detailsAddBtn.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.detailsAddBtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.detailsAddBtn.Image = global::TimeTableManagment.Properties.Resources.icons8_add_new_64;
+            this.detailsAddBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.detailsAddBtn.Location = new System.Drawing.Point(359, 254);
+            this.detailsAddBtn.Name = "detailsAddBtn";
+            this.detailsAddBtn.Size = new System.Drawing.Size(130, 41);
+            this.detailsAddBtn.TabIndex = 13;
+            this.detailsAddBtn.Text = "Add";
+            this.detailsAddBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.detailsAddBtn.UseVisualStyleBackColor = false;
+            this.detailsAddBtn.Click += new System.EventHandler(this.detailsAddBtn_Click);
             // 
             // panel2
             // 
@@ -257,111 +362,6 @@
             this.label3.Size = new System.Drawing.Size(103, 17);
             this.label3.TabIndex = 2;
             this.label3.Text = "Building Name:";
-            // 
-            // buildingDeleteBtn
-            // 
-            this.buildingDeleteBtn.BackColor = System.Drawing.Color.IndianRed;
-            this.buildingDeleteBtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
-            this.buildingDeleteBtn.Image = global::TimeTableManagment.Properties.Resources.icons8_delete_64;
-            this.buildingDeleteBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buildingDeleteBtn.Location = new System.Drawing.Point(685, 499);
-            this.buildingDeleteBtn.Name = "buildingDeleteBtn";
-            this.buildingDeleteBtn.Size = new System.Drawing.Size(130, 41);
-            this.buildingDeleteBtn.TabIndex = 7;
-            this.buildingDeleteBtn.Text = "Delete";
-            this.buildingDeleteBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buildingDeleteBtn.UseVisualStyleBackColor = false;
-            this.buildingDeleteBtn.Click += new System.EventHandler(this.buildingDeleteBtn_Click);
-            // 
-            // buildingEditBtn
-            // 
-            this.buildingEditBtn.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.buildingEditBtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
-            this.buildingEditBtn.Image = global::TimeTableManagment.Properties.Resources.icons8_edit_property_641;
-            this.buildingEditBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buildingEditBtn.Location = new System.Drawing.Point(548, 499);
-            this.buildingEditBtn.Name = "buildingEditBtn";
-            this.buildingEditBtn.Size = new System.Drawing.Size(130, 41);
-            this.buildingEditBtn.TabIndex = 6;
-            this.buildingEditBtn.Text = "Edit";
-            this.buildingEditBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buildingEditBtn.UseVisualStyleBackColor = false;
-            this.buildingEditBtn.Click += new System.EventHandler(this.buildingEditBtn_Click);
-            // 
-            // buildingAddBtn
-            // 
-            this.buildingAddBtn.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.buildingAddBtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
-            this.buildingAddBtn.Image = global::TimeTableManagment.Properties.Resources.icons8_add_new_64;
-            this.buildingAddBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buildingAddBtn.Location = new System.Drawing.Point(170, 138);
-            this.buildingAddBtn.Name = "buildingAddBtn";
-            this.buildingAddBtn.Size = new System.Drawing.Size(130, 41);
-            this.buildingAddBtn.TabIndex = 4;
-            this.buildingAddBtn.Text = "Add";
-            this.buildingAddBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buildingAddBtn.UseVisualStyleBackColor = false;
-            this.buildingAddBtn.Click += new System.EventHandler(this.buildingAddBtn_Click);
-            // 
-            // clearDetailsBtn
-            // 
-            this.clearDetailsBtn.BackColor = System.Drawing.Color.SteelBlue;
-            this.clearDetailsBtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
-            this.clearDetailsBtn.Image = global::TimeTableManagment.Properties.Resources.icons8_erase_48;
-            this.clearDetailsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.clearDetailsBtn.Location = new System.Drawing.Point(752, 254);
-            this.clearDetailsBtn.Name = "clearDetailsBtn";
-            this.clearDetailsBtn.Size = new System.Drawing.Size(130, 41);
-            this.clearDetailsBtn.TabIndex = 16;
-            this.clearDetailsBtn.Text = "Clear";
-            this.clearDetailsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.clearDetailsBtn.UseVisualStyleBackColor = false;
-            this.clearDetailsBtn.Click += new System.EventHandler(this.clearDetailsBtn_Click);
-            // 
-            // detailDeleteBtn
-            // 
-            this.detailDeleteBtn.BackColor = System.Drawing.Color.IndianRed;
-            this.detailDeleteBtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
-            this.detailDeleteBtn.Image = global::TimeTableManagment.Properties.Resources.icons8_delete_64;
-            this.detailDeleteBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.detailDeleteBtn.Location = new System.Drawing.Point(621, 254);
-            this.detailDeleteBtn.Name = "detailDeleteBtn";
-            this.detailDeleteBtn.Size = new System.Drawing.Size(130, 41);
-            this.detailDeleteBtn.TabIndex = 15;
-            this.detailDeleteBtn.Text = "Delete";
-            this.detailDeleteBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.detailDeleteBtn.UseVisualStyleBackColor = false;
-            this.detailDeleteBtn.Click += new System.EventHandler(this.detailDeleteBtn_Click);
-            // 
-            // detailsEditBtn
-            // 
-            this.detailsEditBtn.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.detailsEditBtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
-            this.detailsEditBtn.Image = global::TimeTableManagment.Properties.Resources.icons8_edit_property_64;
-            this.detailsEditBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.detailsEditBtn.Location = new System.Drawing.Point(490, 254);
-            this.detailsEditBtn.Name = "detailsEditBtn";
-            this.detailsEditBtn.Size = new System.Drawing.Size(130, 41);
-            this.detailsEditBtn.TabIndex = 14;
-            this.detailsEditBtn.Text = "Edit";
-            this.detailsEditBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.detailsEditBtn.UseVisualStyleBackColor = false;
-            this.detailsEditBtn.Click += new System.EventHandler(this.detailsEditBtn_Click);
-            // 
-            // detailsAddBtn
-            // 
-            this.detailsAddBtn.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.detailsAddBtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
-            this.detailsAddBtn.Image = global::TimeTableManagment.Properties.Resources.icons8_add_new_64;
-            this.detailsAddBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.detailsAddBtn.Location = new System.Drawing.Point(359, 254);
-            this.detailsAddBtn.Name = "detailsAddBtn";
-            this.detailsAddBtn.Size = new System.Drawing.Size(130, 41);
-            this.detailsAddBtn.TabIndex = 13;
-            this.detailsAddBtn.Text = "Add";
-            this.detailsAddBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.detailsAddBtn.UseVisualStyleBackColor = false;
-            this.detailsAddBtn.Click += new System.EventHandler(this.detailsAddBtn_Click);
             // 
             // LocationForm
             // 

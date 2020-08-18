@@ -191,6 +191,7 @@
     <None Include="Resources\icons8_delete_64.png" />
     <None Include="Resources\icons8_edit_property_641.png" />
     <None Include="Resources\icons8_erase_48.png" />
+    <None Include="Resources\icons8_chart_60px.png" />
     <Content Include="TimeTable.db">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
