@@ -29,8 +29,8 @@ namespace TimeTableManagment.Forms
         private void workingHoursForm_Load(object sender, EventArgs e)
         {
             LoadData();
-            btn_delete.Visible = false;
-            btn_edit.Visible = false;
+            //btn_delete.Visible = false;
+            //btn_edit.Visible = false;
             //lbl_nohours.Visible = false;
         }
 
@@ -68,7 +68,7 @@ namespace TimeTableManagment.Forms
 
         private void btn_addHours(object sender, EventArgs e)
         {
-            string addHours = "insert into Hours (startTime,endTime, noOfHours)values('" + combo_startTime.Text + "','" + combo_endTime.Text + "','" + num_txt.Text + "')";
+            string addHours = "insert into Hours (startTime,endTime)values('" + combo_startTime.Text + "','" + combo_endTime.Text + "')";
             ExecuteQuery(addHours);
             LoadData();
             clearData();
@@ -76,15 +76,11 @@ namespace TimeTableManagment.Forms
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            btn_add.Visible = false;
-            btn_edit.Visible = true;
-            btn_delete.Visible = true;
-            int index = e.RowIndex;
-            DataGridViewRow selectedRow = dataGridView1.Rows[index];
+           
             hourId = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
-            combo_startTime.Text = selectedRow.Cells[1].Value.ToString();
-            combo_endTime.Text = selectedRow.Cells[2].Value.ToString();
-            //num_txt.Text = selectedRow.Cells[2].Value.ToString();
+            combo_startTime.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+            combo_endTime.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+            
         }
 
         private void click_editBtn(object sender, EventArgs e)
@@ -94,8 +90,10 @@ namespace TimeTableManagment.Forms
                 String updateQuery = "update Hours set startTime='" + combo_startTime.Text + "', " +
                     "endTime='" + combo_endTime.Text + "'" + "where id='" + this.hourId + "'";
                 ExecuteQuery(updateQuery);
-                MessageBox.Show("The time is updated successfully", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
+               
                 LoadData();
+                MessageBox.Show("The time is updated successfully", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                hourId = 0;
             }
             else
             {
@@ -116,8 +114,10 @@ namespace TimeTableManagment.Forms
             {
                 String deleteHour = "delete from Hours where id='" + this.hourId + "'";
                 ExecuteQuery(deleteHour);
-                MessageBox.Show("Time slot deleted successfully", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+               
                 LoadData();
+                MessageBox.Show("Time slot deleted successfully", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                hourId = 0;
             }
             else
             {
