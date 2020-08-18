@@ -79,11 +79,28 @@ namespace TimeTableManagment.Forms
        //insert building data to db
         private void buildingAddBtn_Click(object sender, EventArgs e)
         {
-            string insertLoc = "insert into Location (BuildingName)values('"+buildingNameTxtBx.Text+"')";
-            ExecuteQuery(insertLoc);
-            LoadData();
-          
-            buildingNameTxtBx.Clear();
+            String bName = buildingNameTxtBx.Text;
+
+            if (ValidateChildren(ValidationConstraints.Enabled) &&
+             bName == "" 
+              )
+            {
+                MessageBox.Show("Complete The Field!",
+               "Unable to Submit", MessageBoxButtons.OK,
+                               MessageBoxIcon.Exclamation,
+                               MessageBoxDefaultButton.Button1);
+            }
+            else
+            {
+                string insertLoc = "insert into Location (BuildingName)values('" + buildingNameTxtBx.Text + "')";
+                ExecuteQuery(insertLoc);
+                LoadData();
+                MessageBox.Show("Building Information added successfully", "Inserted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                buildingNameTxtBx.Clear();
+            }
+
+           
         }
 
         //onlick datagrid view raw fill the textboxes with building details
@@ -98,13 +115,32 @@ namespace TimeTableManagment.Forms
         //edit building data
         private void buildingEditBtn_Click(object sender, EventArgs e)
         {
+
             if(buildingID > 0)
             {
-                String updateQuery = "update Location set BuildingName='" + buildingNameTxtBx.Text + "'" +
-               "where BuildingID='" + this.buildingID + "'";
-                ExecuteQuery(updateQuery);
-                MessageBox.Show("Building Information updated successfully", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadData();
+
+                String bName = buildingNameTxtBx.Text;
+
+                if (ValidateChildren(ValidationConstraints.Enabled) &&
+                 bName == ""
+                  )
+                {
+                    MessageBox.Show("Complete The Field!",
+                   "Unable to Submit", MessageBoxButtons.OK,
+                                   MessageBoxIcon.Exclamation,
+                                   MessageBoxDefaultButton.Button1);
+                }
+                else
+                {
+                    String updateQuery = "update Location set BuildingName='" + buildingNameTxtBx.Text + "'" +
+              "where BuildingID='" + this.buildingID + "'";
+                    ExecuteQuery(updateQuery);
+                    LoadData();
+                    MessageBox.Show("Building Information updated successfully", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    
+                }
+
+               
             }
             else
             {
@@ -120,10 +156,16 @@ namespace TimeTableManagment.Forms
 
             if (buildingID > 0)
             {
-                String deleteQuery = "delete from Location where BuildingID='" + this.buildingID + "'";
-                ExecuteQuery(deleteQuery);
-                MessageBox.Show("Building Information deleted successfully", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadData();
+              
+                    String deleteQuery = "delete from Location where BuildingID='" + this.buildingID + "'";
+                    ExecuteQuery(deleteQuery);
+                    LoadData();
+                    MessageBox.Show("Building Information deleted successfully", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                   
+               
+
+
+               
             }
             else
             {
@@ -195,16 +237,35 @@ namespace TimeTableManagment.Forms
         private void detailsAddBtn_Click(object sender, EventArgs e)
         {
             try
-            { 
-
-                string insertRoom = "insert into Rooms (RoomName,RoomType,RoomCapacity,BuildingName)values('" + roomNameTxtBox.Text + "','" + roomTypeComboBox.Text + "','"
-                    + int.Parse(roomCapacityTxtBox.Text) + "','" +buildingNameComboBox.Text + "')";
-                ExecuteQuery(insertRoom);
-                RoomLoadData();
-            }
-            catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                String roomName = roomNameTxtBox.Text;
+                String roomType = roomTypeComboBox.Text;
+                String roomCap = roomCapacityTxtBox.Text;
+                String buildingName = buildingNameComboBox.Text;
+
+                if (ValidateChildren(ValidationConstraints.Enabled) &&
+                roomName == "" || roomType == "" || roomCap == "" || buildingName == ""
+                 )
+                {
+                    MessageBox.Show("Complete All The Fields!",
+                   "Unable to Submit", MessageBoxButtons.OK,
+                                   MessageBoxIcon.Exclamation,
+                                   MessageBoxDefaultButton.Button1);
+                }
+                else
+                {
+                    string insertRoom = "insert into Rooms (RoomName,RoomType,RoomCapacity,BuildingName)values('" + roomNameTxtBox.Text + "','" + roomTypeComboBox.Text + "','"
+                  + int.Parse(roomCapacityTxtBox.Text) + "','" + buildingNameComboBox.Text + "')";
+                    ExecuteQuery(insertRoom);
+                    RoomLoadData();
+                    MessageBox.Show("Room Information added successfully", "Inserted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+              
+            }
+            catch (Exception )
+            {
+                MessageBox.Show("Error", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             clearData();
@@ -245,12 +306,30 @@ namespace TimeTableManagment.Forms
         {
             if (roomID > 0)
             {
-                String updateQuery = "update Rooms set RoomName='" + roomNameTxtBox.Text + "', " +
-                    "RoomType='"+roomTypeComboBox.Text+"',RoomCapacity='"+int.Parse(roomCapacityTxtBox.Text)+"',BuildingName='"+buildingNameComboBox.Text+"'"+ 
-               "where id='" + this.roomID + "'";
-                ExecuteQuery(updateQuery);
-                MessageBox.Show("Room Information updated successfully", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                RoomLoadData();
+                String roomName = roomNameTxtBox.Text;
+                String roomType = roomTypeComboBox.Text;
+                String roomCap = roomCapacityTxtBox.Text;
+                String buildingName = buildingNameComboBox.Text;
+
+                if (ValidateChildren(ValidationConstraints.Enabled) &&
+                roomName == "" || roomType == "" || roomCap == "" || buildingName == ""
+                 )
+                {
+                    MessageBox.Show("Complete All The Fields!",
+                   "Unable to Submit", MessageBoxButtons.OK,
+                                   MessageBoxIcon.Exclamation,
+                                   MessageBoxDefaultButton.Button1);
+                }
+                else
+                {
+                    String updateQuery = "update Rooms set RoomName='" + roomNameTxtBox.Text + "', " +
+                                       "RoomType='" + roomTypeComboBox.Text + "',RoomCapacity='" + int.Parse(roomCapacityTxtBox.Text) + "',BuildingName='" + buildingNameComboBox.Text + "'" +
+                                  "where id='" + this.roomID + "'";
+                    ExecuteQuery(updateQuery);
+                    MessageBox.Show("Room Information updated successfully", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    RoomLoadData();
+                }
+               
             }
             else
             {

@@ -35,8 +35,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tblLec = new System.Windows.Forms.DataGridView();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnEdit = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.cmbBuild = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -45,8 +43,6 @@
             this.txtEmpId = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.btnSubmit = new System.Windows.Forms.Button();
-            this.btnClear = new System.Windows.Forms.Button();
             this.txtDept = new System.Windows.Forms.TextBox();
             this.txtCenter = new System.Windows.Forms.TextBox();
             this.txtFac = new System.Windows.Forms.TextBox();
@@ -60,7 +56,10 @@
             this.radioMiss = new System.Windows.Forms.RadioButton();
             this.radioProf = new System.Windows.Forms.RadioButton();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.sqLiteCommand1 = new System.Data.SQLite.SQLiteCommand();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.btnSubmit = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblLec)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
@@ -116,39 +115,6 @@
             this.tblLec.Size = new System.Drawing.Size(929, 246);
             this.tblLec.TabIndex = 5;
             this.tblLec.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tblLec_CellClick);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.BackColor = System.Drawing.Color.IndianRed;
-            this.btnDelete.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
-            this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
-            this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDelete.Location = new System.Drawing.Point(752, 261);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(120, 41);
-            this.btnDelete.TabIndex = 2;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolTip1.SetToolTip(this.btnDelete, "Delete the lecturer\'s details");
-            this.btnDelete.UseVisualStyleBackColor = false;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnEdit.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEdit.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnEdit.Image = ((System.Drawing.Image)(resources.GetObject("btnEdit.Image")));
-            this.btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEdit.Location = new System.Drawing.Point(494, 261);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(130, 41);
-            this.btnEdit.TabIndex = 1;
-            this.btnEdit.Text = "Edit";
-            this.btnEdit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolTip1.SetToolTip(this.btnEdit, "Edit the Details");
-            this.btnEdit.UseVisualStyleBackColor = false;
-            this.btnEdit.Click += new System.EventHandler(this.button3_Click);
             // 
             // label4
             // 
@@ -228,40 +194,6 @@
             this.label8.Size = new System.Drawing.Size(54, 17);
             this.label8.TabIndex = 14;
             this.label8.Text = "Center:";
-            // 
-            // btnSubmit
-            // 
-            this.btnSubmit.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnSubmit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnSubmit.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
-            this.btnSubmit.Image = ((System.Drawing.Image)(resources.GetObject("btnSubmit.Image")));
-            this.btnSubmit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSubmit.Location = new System.Drawing.Point(494, 260);
-            this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(130, 41);
-            this.btnSubmit.TabIndex = 16;
-            this.btnSubmit.Text = "Submit";
-            this.btnSubmit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolTip1.SetToolTip(this.btnSubmit, "Submit the Details");
-            this.btnSubmit.UseVisualStyleBackColor = false;
-            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
-            // 
-            // btnClear
-            // 
-            this.btnClear.BackColor = System.Drawing.Color.SteelBlue;
-            this.btnClear.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnClear.Image = ((System.Drawing.Image)(resources.GetObject("btnClear.Image")));
-            this.btnClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClear.Location = new System.Drawing.Point(630, 260);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(116, 41);
-            this.btnClear.TabIndex = 17;
-            this.btnClear.Text = "Clear Fields";
-            this.btnClear.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolTip1.SetToolTip(this.btnClear, "To clear all the fields");
-            this.btnClear.UseVisualStyleBackColor = false;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // txtDept
             // 
@@ -378,9 +310,72 @@
             this.radioProf.Text = "Prof.";
             this.radioProf.UseVisualStyleBackColor = true;
             // 
-            // sqLiteCommand1
+            // btnDelete
             // 
-            this.sqLiteCommand1.CommandText = null;
+            this.btnDelete.BackColor = System.Drawing.Color.IndianRed;
+            this.btnDelete.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
+            this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDelete.Location = new System.Drawing.Point(752, 261);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(120, 41);
+            this.btnDelete.TabIndex = 2;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.btnDelete, "Delete the lecturer\'s details");
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnEdit.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnEdit.Image = ((System.Drawing.Image)(resources.GetObject("btnEdit.Image")));
+            this.btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEdit.Location = new System.Drawing.Point(494, 261);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(130, 41);
+            this.btnEdit.TabIndex = 1;
+            this.btnEdit.Text = "Edit";
+            this.btnEdit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.btnEdit, "Edit the Details");
+            this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // btnClear
+            // 
+            this.btnClear.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnClear.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnClear.Image = ((System.Drawing.Image)(resources.GetObject("btnClear.Image")));
+            this.btnClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClear.Location = new System.Drawing.Point(630, 260);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(116, 41);
+            this.btnClear.TabIndex = 17;
+            this.btnClear.Text = "Clear Fields";
+            this.btnClear.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.btnClear, "To clear all the fields");
+            this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // btnSubmit
+            // 
+            this.btnSubmit.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnSubmit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnSubmit.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.btnSubmit.Image = ((System.Drawing.Image)(resources.GetObject("btnSubmit.Image")));
+            this.btnSubmit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSubmit.Location = new System.Drawing.Point(494, 260);
+            this.btnSubmit.Name = "btnSubmit";
+            this.btnSubmit.Size = new System.Drawing.Size(130, 41);
+            this.btnSubmit.TabIndex = 16;
+            this.btnSubmit.Text = "Submit";
+            this.btnSubmit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.btnSubmit, "Submit the Details");
+            this.btnSubmit.UseVisualStyleBackColor = false;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // LecturerForm
             // 
@@ -458,6 +453,5 @@
         private System.Windows.Forms.RadioButton radioDoc;
         private System.Windows.Forms.RadioButton radioProf;
         private System.Windows.Forms.ToolTip toolTip1;
-        private System.Data.SQLite.SQLiteCommand sqLiteCommand1;
     }
 }
