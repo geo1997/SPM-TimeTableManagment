@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Data.SQLite;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace TimeTableManagment.Forms
@@ -65,7 +66,7 @@ namespace TimeTableManagment.Forms
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             string subjectName = txtSubName.Text;
-            string subjectCode = "IT " + GenerateRandomNumber();
+            string subjectCode = txtDept.Text+" "+ GenerateRandomNumber();
             string year = cmbYear.Text;
             string sem = cmbSem.Text;
             int lec = Convert.ToInt32(numLecHr.Value);
@@ -74,10 +75,10 @@ namespace TimeTableManagment.Forms
             int evo = Convert.ToInt32(numEvoHr.Value);
 
             if (ValidateChildren(ValidationConstraints.Enabled) &&
-                subjectName == "" || subjectCode == "IT" || year == "" || sem == "" || lec == 0)
+                subjectName == "" || txtDept.Text=="IT/SE" || subjectCode == "IT" || year == "" || sem == "" || lec == 0)
             {
 
-                MessageBox.Show("Subject Name Cannot be Empty",
+                MessageBox.Show("Please fill the Empty Field(s)",
                 "Unable to Submit", MessageBoxButtons.OK,
                                 MessageBoxIcon.Exclamation,
                                 MessageBoxDefaultButton.Button1);
@@ -90,7 +91,8 @@ namespace TimeTableManagment.Forms
             "values('" + subjectCode + "','" + subjectName + "','" + year + "','" + sem + "','" + lec + "','" + lab + "','" + tute + "','" + evo + "')";
                 ExecuteQuery(insertSub);
                 LoadData();
-
+                txtDept.Text = "IT/SE";
+                txtDept.ForeColor = Color.DarkGray;
                 txtSubName.Clear();
                 cmbYear.ResetText();
                 cmbSem.ResetText();
@@ -107,6 +109,7 @@ namespace TimeTableManagment.Forms
         private void clearField()
         {
             labelSub.Text = "Add Subject";
+            txtDept.Visible = true;
             txtSubName.Clear();
             txtSubCode.Clear();
             cmbYear.ResetText();
@@ -131,6 +134,7 @@ namespace TimeTableManagment.Forms
             btnSubmit.Visible = false;
             btnEdit.Visible = true;
             btnDelete.Visible = true;
+            txtDept.Visible = false;
 
             txtSubCode.Text = tblSub.SelectedRows[0].Cells[0].Value.ToString();
             txtSubName.Text = tblSub.SelectedRows[0].Cells[1].Value.ToString();
@@ -283,6 +287,38 @@ namespace TimeTableManagment.Forms
             {
                 e.Cancel = false;
                 errorProvider.SetError(cmbSem, null);
+            }
+        }
+
+        private void txtDept_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (txtDept.Text == "IT/SE")
+            {
+                e.Cancel = false;
+                errorProvider.SetError(txtDept, "Please Enter Department Code!");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(txtDept, null);
+            }
+        }
+
+        private void txtDept_Leave(object sender, EventArgs e)
+        {
+            if (txtDept.Text == "")
+            {
+                txtDept.Text = "IT/SE";
+                txtDept.ForeColor = Color.DarkGray;
+            }
+        }
+
+        private void txtDept_Enter(object sender, EventArgs e)
+        {
+            if (txtDept.Text == "IT/SE")
+            {
+                txtDept.Text = null;
+                txtDept.ForeColor = Color.Black;
             }
         }
 
