@@ -32,7 +32,7 @@ namespace TimeTableManagment.Forms
             sql_con.Close();
         }
 
-        //load data
+        //load data from the Database
         private void LoadData()
         {
             SetConnection();
@@ -47,20 +47,25 @@ namespace TimeTableManagment.Forms
             sql_con.Close();
 
         }
+        //Randomly generate code for subject code
+        public int GenerateRandomNumber()
+        {
+            Random subjectId = new Random();
+            return subjectId.Next(1000,9999);
+        }
 
         private void SubjectForm_Load(object sender, EventArgs e)
         {
             LoadData();
             btnEdit.Visible = false;
-            lblSub.Visible = false;
             btnDelete.Visible = false;
         }
 
-        //add
+        //add method
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             string subjectName = txtSubName.Text;
-            string subjectCode = "IT" + txtSubCode.Text;
+            string subjectCode = "IT " + GenerateRandomNumber();
             string year = cmbYear.Text;
             string sem = cmbSem.Text;
             int lec = Convert.ToInt32(numLecHr.Value);
@@ -87,7 +92,6 @@ namespace TimeTableManagment.Forms
                 LoadData();
 
                 txtSubName.Clear();
-                txtSubCode.Clear();
                 cmbYear.ResetText();
                 cmbSem.ResetText();
                 numLecHr.Value = 0;
@@ -103,8 +107,6 @@ namespace TimeTableManagment.Forms
         private void clearField()
         {
             labelSub.Text = "Add Subject";
-            lblSub.Visible = false;
-            txtSubCode.Visible = true;
             txtSubName.Clear();
             txtSubCode.Clear();
             cmbYear.ResetText();
@@ -123,33 +125,29 @@ namespace TimeTableManagment.Forms
         }
 
         //On click the data load to the fields
-        private void tblLec_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void tblSub_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             labelSub.Text = "Edit/Delete Subject";
-            txtSubCode.Visible = false;
-            lblSub.Visible = true;
             btnSubmit.Visible = false;
             btnEdit.Visible = true;
             btnDelete.Visible = true;
-            int index = e.RowIndex;
-            DataGridViewRow selectedRow = tblSub.Rows[index];
-            lblSub.Text = selectedRow.Cells[0].Value.ToString();
-            txtSubName.Text = selectedRow.Cells[1].Value.ToString();
-            cmbYear.Text = selectedRow.Cells[2].Value.ToString();
-            cmbSem.Text = selectedRow.Cells[3].Value.ToString();
-            numLecHr.Value = Int32.Parse(selectedRow.Cells[4].Value.ToString());
-            numLabHr.Value = Int32.Parse(selectedRow.Cells[5].Value.ToString());
-            numTuteHr.Value = Int32.Parse(selectedRow.Cells[6].Value.ToString());
-            numEvoHr.Value = Int32.Parse(selectedRow.Cells[7].Value.ToString());
 
-
+            txtSubCode.Text = tblSub.SelectedRows[0].Cells[0].Value.ToString();
+            txtSubName.Text = tblSub.SelectedRows[0].Cells[1].Value.ToString();
+            cmbYear.Text = tblSub.SelectedRows[0].Cells[2].Value.ToString();
+            cmbSem.Text = tblSub.SelectedRows[0].Cells[3].Value.ToString();
+            numLecHr.Value =Convert.ToInt32(tblSub.SelectedRows[0].Cells[4].Value.ToString());
+            numLabHr.Value = Convert.ToInt32(tblSub.SelectedRows[0].Cells[5].Value.ToString());
+            numTuteHr.Value = Convert.ToInt32(tblSub.SelectedRows[0].Cells[6].Value.ToString());
+            numEvoHr.Value = Convert.ToInt32(tblSub.SelectedRows[0].Cells[7].Value.ToString());
         }
+       
 
-        //edit
+        //edit method
         private void btnEdit_Click(object sender, EventArgs e)
         {
             string subjectName = txtSubName.Text;
-            string subjectCode = lblSub.Text;
+            string subjectCode = txtSubCode.Text;
             string year = cmbYear.Text;
             string sem = cmbSem.Text;
             int lec = Convert.ToInt32(numLecHr.Value);
@@ -177,10 +175,10 @@ namespace TimeTableManagment.Forms
             }
         }
 
-        //delete
+        //delete method
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            string subjectCode = lblSub.Text;
+            string subjectCode = txtSubCode.Text;
 
             String deleteQuery = "delete from Subject where Code='" + subjectCode + "'";
             ExecuteQuery(deleteQuery);
@@ -192,15 +190,6 @@ namespace TimeTableManagment.Forms
         }
 
         //Validating the form
-        private void txtSubCode_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            char ch = e.KeyChar;
-            if (!Char.IsDigit(ch) && ch != 8)
-            {
-                e.Handled = true;
-            }
-        }
-
         private void cmbYear_KeyPress(object sender, KeyPressEventArgs e)
         {
             char ch = e.KeyChar;
@@ -268,19 +257,6 @@ namespace TimeTableManagment.Forms
                 errorProvider.SetError(txtSubName, null);
             }
         }
-        private void txtSubCode_Validating(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            if (string.IsNullOrEmpty(txtSubCode.Text))
-            {
-                e.Cancel = false;
-                errorProvider.SetError(txtSubCode, "Please Enter the Subject Code!");
-            }
-            else
-            {
-                e.Cancel = false;
-                errorProvider.SetError(txtSubCode, null);
-            }
-        }
 
         private void cmbYear_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
@@ -309,7 +285,6 @@ namespace TimeTableManagment.Forms
                 errorProvider.SetError(cmbSem, null);
             }
         }
-
 
     }
 }
