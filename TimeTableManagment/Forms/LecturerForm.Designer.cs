@@ -60,6 +60,7 @@
             this.radioMiss = new System.Windows.Forms.RadioButton();
             this.radioProf = new System.Windows.Forms.RadioButton();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.sqLiteCommand1 = new System.Data.SQLite.SQLiteCommand();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblLec)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
@@ -139,7 +140,7 @@
             this.btnEdit.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnEdit.Image = ((System.Drawing.Image)(resources.GetObject("btnEdit.Image")));
             this.btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEdit.Location = new System.Drawing.Point(494, 260);
+            this.btnEdit.Location = new System.Drawing.Point(494, 261);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(130, 41);
             this.btnEdit.TabIndex = 1;
@@ -377,6 +378,10 @@
             this.radioProf.Text = "Prof.";
             this.radioProf.UseVisualStyleBackColor = true;
             // 
+            // sqLiteCommand1
+            // 
+            this.sqLiteCommand1.CommandText = null;
+            // 
             // LecturerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -453,5 +458,6 @@
         private System.Windows.Forms.RadioButton radioDoc;
         private System.Windows.Forms.RadioButton radioProf;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Data.SQLite.SQLiteCommand sqLiteCommand1;
     }
 }
