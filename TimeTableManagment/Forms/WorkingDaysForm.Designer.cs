@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.check_mon = new System.Windows.Forms.CheckBox();
             this.check_tue = new System.Windows.Forms.CheckBox();
@@ -43,8 +42,13 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.numericUpDown1WorkingDays = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown1WorkingHours = new System.Windows.Forms.NumericUpDown();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1WorkingDays)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1WorkingHours)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -55,13 +59,6 @@
             this.label1.Size = new System.Drawing.Size(281, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Enter the number of working days per week";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(228, 54);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(278, 22);
-            this.textBox1.TabIndex = 1;
             // 
             // label2
             // 
@@ -154,22 +151,28 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(27, 36);
+            this.dataGridView1.Location = new System.Drawing.Point(18, 14);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(480, 171);
+            this.dataGridView1.Size = new System.Drawing.Size(904, 229);
             this.dataGridView1.TabIndex = 11;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.dataGridView1);
-            this.panel1.Location = new System.Drawing.Point(136, 314);
+            this.panel1.Location = new System.Drawing.Point(41, 314);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(537, 231);
+            this.panel1.Size = new System.Drawing.Size(938, 251);
             this.panel1.TabIndex = 12;
             // 
             // button2
@@ -180,6 +183,7 @@
             this.button2.TabIndex = 13;
             this.button2.Text = "Edit";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -189,12 +193,50 @@
             this.button3.TabIndex = 14;
             this.button3.Text = "Delete";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // numericUpDown1WorkingDays
+            // 
+            this.numericUpDown1WorkingDays.Location = new System.Drawing.Point(279, 53);
+            this.numericUpDown1WorkingDays.Maximum = new decimal(new int[] {
+            7,
+            0,
+            0,
+            0});
+            this.numericUpDown1WorkingDays.Name = "numericUpDown1WorkingDays";
+            this.numericUpDown1WorkingDays.Size = new System.Drawing.Size(120, 22);
+            this.numericUpDown1WorkingDays.TabIndex = 15;
+            // 
+            // numericUpDown1WorkingHours
+            // 
+            this.numericUpDown1WorkingHours.DecimalPlaces = 2;
+            this.numericUpDown1WorkingHours.Location = new System.Drawing.Point(690, 53);
+            this.numericUpDown1WorkingHours.Maximum = new decimal(new int[] {
+            24,
+            0,
+            0,
+            0});
+            this.numericUpDown1WorkingHours.Name = "numericUpDown1WorkingHours";
+            this.numericUpDown1WorkingHours.Size = new System.Drawing.Size(120, 22);
+            this.numericUpDown1WorkingHours.TabIndex = 16;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(618, 33);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(278, 17);
+            this.label3.TabIndex = 17;
+            this.label3.Text = "Enter the number of working hours per day";
             // 
             // WorkingDaysForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1015, 622);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.numericUpDown1WorkingHours);
+            this.Controls.Add(this.numericUpDown1WorkingDays);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.panel1);
@@ -207,13 +249,14 @@
             this.Controls.Add(this.check_tue);
             this.Controls.Add(this.check_mon);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Name = "WorkingDaysForm";
             this.Text = "Working Days";
             this.Load += new System.EventHandler(this.WorkingDaysForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1WorkingDays)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1WorkingHours)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -222,7 +265,6 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox check_mon;
         private System.Windows.Forms.CheckBox check_tue;
@@ -236,5 +278,8 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.NumericUpDown numericUpDown1WorkingDays;
+        private System.Windows.Forms.NumericUpDown numericUpDown1WorkingHours;
+        private System.Windows.Forms.Label label3;
     }
 }
