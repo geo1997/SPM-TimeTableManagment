@@ -55,6 +55,7 @@
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.txtSubCode = new System.Windows.Forms.TextBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.txtDept = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.numTuteHr)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numLecHr)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numLabHr)).BeginInit();
@@ -70,7 +71,7 @@
             this.label2.Location = new System.Drawing.Point(107, 58);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(100, 17);
-            this.label2.TabIndex = 1;
+            this.label2.TabIndex = 0;
             this.label2.Text = "Subject Name:";
             // 
             // txtSubName
@@ -78,7 +79,7 @@
             this.txtSubName.Location = new System.Drawing.Point(110, 79);
             this.txtSubName.Name = "txtSubName";
             this.txtSubName.Size = new System.Drawing.Size(228, 22);
-            this.txtSubName.TabIndex = 2;
+            this.txtSubName.TabIndex = 1;
             this.txtSubName.Validating += new System.ComponentModel.CancelEventHandler(this.txtSubName_Validating);
             // 
             // label3
@@ -103,7 +104,7 @@
             this.cmbYear.Location = new System.Drawing.Point(110, 141);
             this.cmbYear.Name = "cmbYear";
             this.cmbYear.Size = new System.Drawing.Size(156, 24);
-            this.cmbYear.TabIndex = 4;
+            this.cmbYear.TabIndex = 3;
             this.cmbYear.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbYear_KeyPress);
             this.cmbYear.Validating += new System.ComponentModel.CancelEventHandler(this.cmbYear_Validating);
             // 
@@ -162,7 +163,7 @@
             0});
             this.numTuteHr.Name = "numTuteHr";
             this.numTuteHr.Size = new System.Drawing.Size(60, 22);
-            this.numTuteHr.TabIndex = 15;
+            this.numTuteHr.TabIndex = 6;
             this.numTuteHr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numTuteHr_KeyPress);
             // 
             // numLecHr
@@ -175,7 +176,7 @@
             0});
             this.numLecHr.Name = "numLecHr";
             this.numLecHr.Size = new System.Drawing.Size(60, 22);
-            this.numLecHr.TabIndex = 17;
+            this.numLecHr.TabIndex = 5;
             this.numLecHr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numLecHr_KeyPress);
             // 
             // numLabHr
@@ -188,7 +189,7 @@
             0});
             this.numLabHr.Name = "numLabHr";
             this.numLabHr.Size = new System.Drawing.Size(60, 22);
-            this.numLabHr.TabIndex = 19;
+            this.numLabHr.TabIndex = 7;
             this.numLabHr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numLabHr_KeyPress);
             // 
             // numEvoHr
@@ -201,7 +202,7 @@
             0});
             this.numEvoHr.Name = "numEvoHr";
             this.numEvoHr.Size = new System.Drawing.Size(60, 22);
-            this.numEvoHr.TabIndex = 21;
+            this.numEvoHr.TabIndex = 8;
             this.numEvoHr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numEvoHr_KeyPress);
             // 
             // label9
@@ -222,7 +223,7 @@
             this.cmbSem.Location = new System.Drawing.Point(470, 141);
             this.cmbSem.Name = "cmbSem";
             this.cmbSem.Size = new System.Drawing.Size(192, 24);
-            this.cmbSem.TabIndex = 24;
+            this.cmbSem.TabIndex = 4;
             this.cmbSem.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbSem_KeyPress);
             this.cmbSem.Validating += new System.ComponentModel.CancelEventHandler(this.cmbSem_Validating);
             // 
@@ -334,8 +335,21 @@
             this.txtSubCode.Location = new System.Drawing.Point(470, 79);
             this.txtSubCode.Name = "txtSubCode";
             this.txtSubCode.ReadOnly = true;
-            this.txtSubCode.Size = new System.Drawing.Size(192, 22);
+            this.txtSubCode.Size = new System.Drawing.Size(98, 22);
             this.txtSubCode.TabIndex = 28;
+            // 
+            // txtDept
+            // 
+            this.txtDept.ForeColor = System.Drawing.Color.DarkGray;
+            this.txtDept.Location = new System.Drawing.Point(470, 79);
+            this.txtDept.Name = "txtDept";
+            this.txtDept.Size = new System.Drawing.Size(40, 22);
+            this.txtDept.TabIndex = 2;
+            this.txtDept.Text = "IT/SE";
+            this.toolTip1.SetToolTip(this.txtDept, "Enter Department Eg:- IT/IE/SE");
+            this.txtDept.Enter += new System.EventHandler(this.txtDept_Enter);
+            this.txtDept.Leave += new System.EventHandler(this.txtDept_Leave);
+            this.txtDept.Validating += new System.ComponentModel.CancelEventHandler(this.txtDept_Validating);
             // 
             // SubjectForm
             // 
@@ -343,6 +357,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FloralWhite;
             this.ClientSize = new System.Drawing.Size(1039, 630);
+            this.Controls.Add(this.txtDept);
             this.Controls.Add(this.txtSubCode);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnClear);
@@ -406,5 +421,6 @@
         private System.Windows.Forms.ErrorProvider errorProvider;
         private System.Windows.Forms.TextBox txtSubCode;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.TextBox txtDept;
     }
 }
