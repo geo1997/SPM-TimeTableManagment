@@ -250,6 +250,7 @@ namespace TimeTableManagment.Forms
                     LoadData();
                     EmployeeIdGenerator();
                     clearField();
+                    MessageBox.Show("Lecturer Information added succesfully", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
 
@@ -313,6 +314,7 @@ namespace TimeTableManagment.Forms
                 LoadData();
                 EmployeeIdGenerator();
                 clearField();
+                MessageBox.Show("Lecturer Information Updated!", "Update Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -326,6 +328,7 @@ namespace TimeTableManagment.Forms
             LoadData();
             EmployeeIdGenerator();
             clearField();
+            MessageBox.Show("Lecturer Information Deleted", " Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btnClear_Click(object sender, EventArgs e)

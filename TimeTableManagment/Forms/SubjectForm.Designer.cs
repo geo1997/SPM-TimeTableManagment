@@ -332,6 +332,7 @@
             // 
             // txtSubCode
             // 
+            this.txtSubCode.BackColor = System.Drawing.SystemColors.ControlDark;
             this.txtSubCode.Location = new System.Drawing.Point(470, 79);
             this.txtSubCode.Name = "txtSubCode";
             this.txtSubCode.ReadOnly = true;
@@ -348,6 +349,7 @@
             this.txtDept.Text = "IT/SE";
             this.toolTip1.SetToolTip(this.txtDept, "Enter Department Eg:- IT/IE/SE");
             this.txtDept.Enter += new System.EventHandler(this.txtDept_Enter);
+            this.txtDept.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDept_KeyPress);
             this.txtDept.Leave += new System.EventHandler(this.txtDept_Leave);
             this.txtDept.Validating += new System.ComponentModel.CancelEventHandler(this.txtDept_Validating);
             // 
