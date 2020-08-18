@@ -171,10 +171,11 @@
             // 
             // txtEmpId
             // 
+            this.txtEmpId.BackColor = System.Drawing.SystemColors.ControlDark;
             this.txtEmpId.Location = new System.Drawing.Point(494, 75);
             this.txtEmpId.Name = "txtEmpId";
             this.txtEmpId.ReadOnly = true;
-            this.txtEmpId.Size = new System.Drawing.Size(278, 22);
+            this.txtEmpId.Size = new System.Drawing.Size(130, 22);
             this.txtEmpId.TabIndex = 11;
             // 
             // label7

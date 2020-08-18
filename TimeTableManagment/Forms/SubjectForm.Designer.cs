@@ -332,6 +332,7 @@
             // 
             // txtSubCode
             // 
+            this.txtSubCode.BackColor = System.Drawing.SystemColors.ControlDark;
             this.txtSubCode.Location = new System.Drawing.Point(470, 79);
             this.txtSubCode.Name = "txtSubCode";
             this.txtSubCode.ReadOnly = true;
