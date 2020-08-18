@@ -28,42 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.num_txt = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.combo_startTime = new System.Windows.Forms.ComboBox();
             this.combo_endTime = new System.Windows.Forms.ComboBox();
             this.btn_add = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbl_hour = new System.Windows.Forms.Label();
+            this.lbl_nohours = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btn_edit = new System.Windows.Forms.Button();
             this.btn_delete = new System.Windows.Forms.Button();
-            this.lbl_nohours = new System.Windows.Forms.Label();
-            this.lbl_hour = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(420, 34);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(198, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Enter the no. of working hours";
-            // 
-            // num_txt
-            // 
-            this.num_txt.Location = new System.Drawing.Point(423, 55);
-            this.num_txt.Name = "num_txt";
-            this.num_txt.Size = new System.Drawing.Size(274, 22);
-            this.num_txt.TabIndex = 7;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(423, 113);
+            this.label2.Location = new System.Drawing.Point(423, 64);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(96, 17);
             this.label2.TabIndex = 2;
@@ -96,7 +78,7 @@
             "18.00",
             "18.30",
             "19.00"});
-            this.combo_startTime.Location = new System.Drawing.Point(426, 150);
+            this.combo_startTime.Location = new System.Drawing.Point(426, 114);
             this.combo_startTime.Name = "combo_startTime";
             this.combo_startTime.Size = new System.Drawing.Size(121, 24);
             this.combo_startTime.TabIndex = 3;
@@ -126,7 +108,7 @@
             "18.00",
             "18.30",
             "19.00"});
-            this.combo_endTime.Location = new System.Drawing.Point(576, 150);
+            this.combo_endTime.Location = new System.Drawing.Point(575, 114);
             this.combo_endTime.Name = "combo_endTime";
             this.combo_endTime.Size = new System.Drawing.Size(121, 24);
             this.combo_endTime.TabIndex = 4;
@@ -150,6 +132,26 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(705, 346);
             this.panel1.TabIndex = 6;
+            // 
+            // lbl_hour
+            // 
+            this.lbl_hour.AutoSize = true;
+            this.lbl_hour.Location = new System.Drawing.Point(378, 13);
+            this.lbl_hour.Name = "lbl_hour";
+            this.lbl_hour.Size = new System.Drawing.Size(46, 17);
+            this.lbl_hour.TabIndex = 2;
+            this.lbl_hour.Text = "Hours";
+            this.lbl_hour.Visible = false;
+            // 
+            // lbl_nohours
+            // 
+            this.lbl_nohours.AutoSize = true;
+            this.lbl_nohours.Location = new System.Drawing.Point(271, 13);
+            this.lbl_nohours.Name = "lbl_nohours";
+            this.lbl_nohours.Size = new System.Drawing.Size(100, 17);
+            this.lbl_nohours.TabIndex = 1;
+            this.lbl_nohours.Text = "No. of Hours : ";
+            this.lbl_nohours.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // dataGridView1
             // 
@@ -188,26 +190,6 @@
             this.btn_delete.UseVisualStyleBackColor = true;
             this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
             // 
-            // lbl_nohours
-            // 
-            this.lbl_nohours.AutoSize = true;
-            this.lbl_nohours.Location = new System.Drawing.Point(271, 13);
-            this.lbl_nohours.Name = "lbl_nohours";
-            this.lbl_nohours.Size = new System.Drawing.Size(100, 17);
-            this.lbl_nohours.TabIndex = 1;
-            this.lbl_nohours.Text = "No. of Hours : ";
-            this.lbl_nohours.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // lbl_hour
-            // 
-            this.lbl_hour.AutoSize = true;
-            this.lbl_hour.Location = new System.Drawing.Point(378, 13);
-            this.lbl_hour.Name = "lbl_hour";
-            this.lbl_hour.Size = new System.Drawing.Size(46, 17);
-            this.lbl_hour.TabIndex = 2;
-            this.lbl_hour.Text = "Hours";
-            this.lbl_hour.Visible = false;
-            // 
             // WorkingHoursForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -220,8 +202,6 @@
             this.Controls.Add(this.combo_endTime);
             this.Controls.Add(this.combo_startTime);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.num_txt);
-            this.Controls.Add(this.label1);
             this.Name = "WorkingHoursForm";
             this.Text = "Working Hours";
             this.Load += new System.EventHandler(this.workingHoursForm_Load);
@@ -234,9 +214,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox num_txt;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox combo_startTime;
         private System.Windows.Forms.ComboBox combo_endTime;
