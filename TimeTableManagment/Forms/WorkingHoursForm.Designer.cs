@@ -115,12 +115,17 @@
             // 
             // btn_add
             // 
-            this.btn_add.Location = new System.Drawing.Point(514, 206);
+            this.btn_add.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btn_add.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.btn_add.Image = global::TimeTableManagment.Properties.Resources.icons8_add_new_64;
+            this.btn_add.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_add.Location = new System.Drawing.Point(536, 206);
             this.btn_add.Name = "btn_add";
-            this.btn_add.Size = new System.Drawing.Size(104, 40);
+            this.btn_add.Size = new System.Drawing.Size(130, 41);
             this.btn_add.TabIndex = 5;
             this.btn_add.Text = "Submit";
-            this.btn_add.UseVisualStyleBackColor = true;
+            this.btn_add.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_add.UseVisualStyleBackColor = false;
             this.btn_add.Click += new System.EventHandler(this.btn_addHours);
             // 
             // panel1
@@ -172,22 +177,32 @@
             // 
             // btn_edit
             // 
-            this.btn_edit.Location = new System.Drawing.Point(426, 206);
+            this.btn_edit.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btn_edit.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.btn_edit.Image = global::TimeTableManagment.Properties.Resources.icons8_edit_property_64;
+            this.btn_edit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_edit.Location = new System.Drawing.Point(366, 206);
             this.btn_edit.Name = "btn_edit";
-            this.btn_edit.Size = new System.Drawing.Size(86, 40);
+            this.btn_edit.Size = new System.Drawing.Size(130, 41);
             this.btn_edit.TabIndex = 8;
             this.btn_edit.Text = "Edit";
-            this.btn_edit.UseVisualStyleBackColor = true;
+            this.btn_edit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_edit.UseVisualStyleBackColor = false;
             this.btn_edit.Click += new System.EventHandler(this.click_editBtn);
             // 
             // btn_delete
             // 
-            this.btn_delete.Location = new System.Drawing.Point(624, 206);
+            this.btn_delete.BackColor = System.Drawing.Color.IndianRed;
+            this.btn_delete.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.btn_delete.Image = global::TimeTableManagment.Properties.Resources.icons8_delete_64;
+            this.btn_delete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_delete.Location = new System.Drawing.Point(685, 206);
             this.btn_delete.Name = "btn_delete";
-            this.btn_delete.Size = new System.Drawing.Size(84, 40);
+            this.btn_delete.Size = new System.Drawing.Size(130, 41);
             this.btn_delete.TabIndex = 9;
             this.btn_delete.Text = "Delete";
-            this.btn_delete.UseVisualStyleBackColor = true;
+            this.btn_delete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_delete.UseVisualStyleBackColor = false;
             this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
             // 
             // WorkingHoursForm
