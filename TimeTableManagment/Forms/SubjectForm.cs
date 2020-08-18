@@ -66,7 +66,7 @@ namespace TimeTableManagment.Forms
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             string subjectName = txtSubName.Text;
-            string subjectCode = txtDept.Text+" "+ GenerateRandomNumber();
+            string subjectCode = txtDept.Text.ToUpper() +" "+ GenerateRandomNumber();
             string year = cmbYear.Text;
             string sem = cmbSem.Text;
             int lec = Convert.ToInt32(numLecHr.Value);
@@ -100,6 +100,7 @@ namespace TimeTableManagment.Forms
                 numLabHr.Value = 0;
                 numTuteHr.Value = 0;
                 numEvoHr.Value = 0;
+                MessageBox.Show("Subject Information Added successfully", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
 
@@ -176,6 +177,7 @@ namespace TimeTableManagment.Forms
                 ExecuteQuery(updateQuery);
                 LoadData();
                 clearField();
+                MessageBox.Show("Subject Information Has Updated", "Update Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -188,9 +190,7 @@ namespace TimeTableManagment.Forms
             ExecuteQuery(deleteQuery);
             LoadData();
             clearField();
-
-
-
+            MessageBox.Show("Subject Information Deleted successfully", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         //Validating the form
@@ -322,5 +322,13 @@ namespace TimeTableManagment.Forms
             }
         }
 
+        private void txtDept_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+            if (Char.IsDigit(ch) && ch != 8)
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

@@ -28,6 +28,9 @@ namespace TimeTableManagment.Forms
         private void StudentForm_Load(object sender, EventArgs e)
         {
             LoadData();
+            button3.Visible = false;
+            button4.Visible = false;
+            label2.Visible = false;
         }
 
         //set connection
@@ -90,6 +93,12 @@ namespace TimeTableManagment.Forms
         {
             if (StudentID > 0)
             {
+                button1.Visible = true;
+                button3.Visible = false;
+                button4.Visible = false;
+                labelLec.Visible = true;
+                label2.Visible = false;
+
                 string groupid = buildingNameTxtBx.Text + "." + textBox2.Text + "." + textBox3.Text;
                 string subgroupid = buildingNameTxtBx.Text + "." + textBox2.Text + "." + textBox3.Text + "." + textBox4.Text;
 
@@ -114,6 +123,12 @@ namespace TimeTableManagment.Forms
             string groupid = buildingNameTxtBx.Text + "." + textBox2.Text + "." + textBox3.Text;
             string subgroupid = buildingNameTxtBx.Text + "." + textBox2.Text + "." + textBox3.Text + "." + textBox4.Text;
 
+            button3.Visible = true;
+            button1.Visible = false;
+            button4.Visible = true;
+            label2.Visible = true;
+            labelLec.Visible = false;
+
             StudentID = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
             buildingNameTxtBx.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
             textBox3.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
@@ -125,6 +140,12 @@ namespace TimeTableManagment.Forms
         {
             if (StudentID > 0)
             {
+                button1.Visible = true;
+                button3.Visible = false;
+                button4.Visible = false;
+                labelLec.Visible = true;
+                label2.Visible = false;
+
                 String deleteQuery = "delete from Student where StudentID='" + this.StudentID + "'";
                 ExecuteQuery(deleteQuery);
                 MessageBox.Show("Student Information deleted successfully", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -212,10 +233,21 @@ namespace TimeTableManagment.Forms
 
         private void button2_Click(object sender, EventArgs e)
         {
+            button1.Visible = true;
+            button3.Visible = false;
+            button4.Visible = false;
+            labelLec.Visible = true;
+            label2.Visible = false;
+
             buildingNameTxtBx.Clear();
             textBox2.Clear();
             textBox3.Clear();
             textBox4.Clear();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
