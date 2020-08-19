@@ -252,7 +252,7 @@
             this.button1.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.button1.Size = new System.Drawing.Size(220, 60);
             this.button1.TabIndex = 2;
-            this.button1.Text = "  Working Hours";
+            this.button1.Text = "Time Slot";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button1.UseVisualStyleBackColor = true;
@@ -263,6 +263,7 @@
             this.btnWorkingDays.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnWorkingDays.FlatAppearance.BorderSize = 0;
             this.btnWorkingDays.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnWorkingDays.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnWorkingDays.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnWorkingDays.Image = global::TimeTableManagment.Properties.Resources.icons8_day_view_32__2_1;
             this.btnWorkingDays.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -271,7 +272,7 @@
             this.btnWorkingDays.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btnWorkingDays.Size = new System.Drawing.Size(220, 60);
             this.btnWorkingDays.TabIndex = 1;
-            this.btnWorkingDays.Text = "  Working Days ";
+            this.btnWorkingDays.Text = "  Working Days && Hours";
             this.btnWorkingDays.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnWorkingDays.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnWorkingDays.UseVisualStyleBackColor = true;

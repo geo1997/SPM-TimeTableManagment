@@ -154,7 +154,8 @@ namespace TimeTableManagment.Forms
         //clear fields
         private void clearField()
         {
-            labelLec.Text = "Add Subject";
+            EmployeeIdGenerator();
+            labelLec.Text = "Add Lecturer";
             radioProf.Checked = true;
             labelRank.Visible = false;
             lblRank.Visible = false;
@@ -248,7 +249,7 @@ namespace TimeTableManagment.Forms
                         "values('" + employeeID + "','" + title + "','" + lecturerName + "','" + faculty + "','" + department + "','" + building + "','" + center + "','" + rank + "','" + level + "')";
                     ExecuteQuery(insertLec);
                     LoadData();
-                    EmployeeIdGenerator();
+                   
                     clearField();
                     MessageBox.Show("Lecturer Information added succesfully", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
