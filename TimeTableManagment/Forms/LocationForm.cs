@@ -98,6 +98,7 @@ namespace TimeTableManagment.Forms
                 MessageBox.Show("Building Information added successfully", "Inserted", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 buildingNameTxtBx.Clear();
+
             }
 
            
@@ -109,6 +110,7 @@ namespace TimeTableManagment.Forms
          
             buildingID = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
             buildingNameTxtBx.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+            buildingAddBtn.Enabled = false;
 
         }
 
@@ -137,7 +139,7 @@ namespace TimeTableManagment.Forms
                     ExecuteQuery(updateQuery);
                     LoadData();
                     MessageBox.Show("Building Information updated successfully", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    
+                    buildingAddBtn.Enabled = true;
                 }
 
                
@@ -161,11 +163,11 @@ namespace TimeTableManagment.Forms
                     ExecuteQuery(deleteQuery);
                     LoadData();
                     MessageBox.Show("Building Information deleted successfully", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                   
-               
+
+                   buildingAddBtn.Enabled = true;
 
 
-               
+
             }
             else
             {
@@ -174,6 +176,12 @@ namespace TimeTableManagment.Forms
             buildingNameTxtBx.Clear();
 
 
+        }
+        private void button1buildingDataClear_Click(object sender, EventArgs e)
+        {
+            buildingID = 0;
+            buildingNameTxtBx.Clear();
+            buildingAddBtn.Enabled = true;
         }
 
         /*
@@ -328,6 +336,7 @@ namespace TimeTableManagment.Forms
                     ExecuteQuery(updateQuery);
                     MessageBox.Show("Room Information updated successfully", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     RoomLoadData();
+                    detailsAddBtn.Enabled = true;
                 }
                
             }
@@ -347,12 +356,13 @@ namespace TimeTableManagment.Forms
             roomCapacityTxtBox.Text = dataGridView2.SelectedRows[0].Cells[3].Value.ToString();
             this.buildingNameComboBox.Text = dataGridView2.SelectedRows[0].Cells[4].Value.ToString();
           
-         
+            detailsAddBtn.Enabled = false;
         }
 
         private void clearDetailsBtn_Click(object sender, EventArgs e)
         {
             clearData();
+            detailsAddBtn.Enabled = true;
         }
 
         //delete room data
@@ -364,6 +374,7 @@ namespace TimeTableManagment.Forms
                 ExecuteQuery(deleteQuery);
                 MessageBox.Show("Room Information deleted successfully", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 RoomLoadData();
+                detailsAddBtn.Enabled = true;
             }
             else
             {
@@ -372,9 +383,8 @@ namespace TimeTableManagment.Forms
             clearData();
         }
 
-        private void buildingNameTxtBx_TextChanged(object sender, EventArgs e)
-        {
+       
 
-        }
+       
     }
 }

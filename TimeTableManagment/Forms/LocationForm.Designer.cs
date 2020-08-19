@@ -52,6 +52,7 @@
             this.roomNameTxtBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.button1buildingDataClear = new System.Windows.Forms.Button();
             this.metroTabControl1.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -77,6 +78,7 @@
             // metroTabPage1
             // 
             this.metroTabPage1.BackColor = System.Drawing.SystemColors.Control;
+            this.metroTabPage1.Controls.Add(this.button1buildingDataClear);
             this.metroTabPage1.Controls.Add(this.panel1);
             this.metroTabPage1.Controls.Add(this.buildingDeleteBtn);
             this.metroTabPage1.Controls.Add(this.buildingEditBtn);
@@ -127,7 +129,7 @@
             this.buildingDeleteBtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.buildingDeleteBtn.Image = global::TimeTableManagment.Properties.Resources.icons8_delete_64;
             this.buildingDeleteBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buildingDeleteBtn.Location = new System.Drawing.Point(685, 499);
+            this.buildingDeleteBtn.Location = new System.Drawing.Point(542, 499);
             this.buildingDeleteBtn.Name = "buildingDeleteBtn";
             this.buildingDeleteBtn.Size = new System.Drawing.Size(130, 41);
             this.buildingDeleteBtn.TabIndex = 7;
@@ -142,7 +144,7 @@
             this.buildingEditBtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.buildingEditBtn.Image = global::TimeTableManagment.Properties.Resources.icons8_edit_property_641;
             this.buildingEditBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buildingEditBtn.Location = new System.Drawing.Point(548, 499);
+            this.buildingEditBtn.Location = new System.Drawing.Point(406, 499);
             this.buildingEditBtn.Name = "buildingEditBtn";
             this.buildingEditBtn.Size = new System.Drawing.Size(130, 41);
             this.buildingEditBtn.TabIndex = 6;
@@ -363,6 +365,21 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Building Name:";
             // 
+            // button1buildingDataClear
+            // 
+            this.button1buildingDataClear.BackColor = System.Drawing.Color.SteelBlue;
+            this.button1buildingDataClear.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.button1buildingDataClear.Image = global::TimeTableManagment.Properties.Resources.icons8_erase_48;
+            this.button1buildingDataClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1buildingDataClear.Location = new System.Drawing.Point(678, 499);
+            this.button1buildingDataClear.Name = "button1buildingDataClear";
+            this.button1buildingDataClear.Size = new System.Drawing.Size(130, 41);
+            this.button1buildingDataClear.TabIndex = 17;
+            this.button1buildingDataClear.Text = "Clear";
+            this.button1buildingDataClear.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1buildingDataClear.UseVisualStyleBackColor = false;
+            this.button1buildingDataClear.Click += new System.EventHandler(this.button1buildingDataClear_Click);
+            // 
             // LocationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -412,5 +429,6 @@
         private System.Windows.Forms.Button detailDeleteBtn;
         private System.Windows.Forms.Button detailsEditBtn;
         private System.Windows.Forms.Button detailsAddBtn;
+        private System.Windows.Forms.Button button1buildingDataClear;
     }
 }
