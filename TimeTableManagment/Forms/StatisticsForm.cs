@@ -41,6 +41,8 @@ namespace TimeTableManagment.Forms
                 radioButton2Sub2.Enabled = false;
                 radioButton1Lec1.Enabled = true;
                 radioButton2Lec2.Enabled = true;
+                radioButton3Lec3.Enabled = true;
+                radioButton1Department.Enabled = true;
                 //chart2.Visible = false;
                 //chart1.Visible = false;
                 chart2.Series["Series1"].Points.Clear();
@@ -55,8 +57,10 @@ namespace TimeTableManagment.Forms
                 radioButton2Lec2.Enabled = false;
                 radioButton1Stu1.Enabled = true;
                 radioButton2Stu2.Enabled = true;
+                radioButton3Lec3.Enabled = false;
+                radioButton1Department.Enabled = false;
                 //chart2.Visible = false;
-               
+
                 //chart1.Series["Faculty"].Points.Clear();
                 //chart1.Series["Sub Count"].Points.Clear();
                 chart2.Series["Series1"].Points.Clear();
@@ -72,9 +76,11 @@ namespace TimeTableManagment.Forms
                 radioButton2Stu2.Enabled = false;
                 radioButton1Sub1.Enabled = true;
                 radioButton2Sub2.Enabled = true;
+                radioButton3Lec3.Enabled = false;
+                radioButton1Department.Enabled = false;
                 //chart2.Visible = false;
-             
-            
+
+
                 //chart1.Series["Faculty"].Points.Clear();
                 chart2.Series["Series1"].Points.Clear();
                 chart2.Series["Series2"].Points.Clear();
@@ -91,6 +97,8 @@ namespace TimeTableManagment.Forms
             radioButton2Stu2.Enabled = false;
             radioButton1Sub1.Enabled = false;
             radioButton2Sub2.Enabled = false;
+            radioButton3Lec3.Enabled = false;
+            radioButton1Department.Enabled = false;
         }
 
         private void radioButton1Lec1_CheckedChanged(object sender, EventArgs e)
@@ -133,6 +141,21 @@ namespace TimeTableManagment.Forms
         private void radioButton2Sub2_CheckedChanged(object sender, EventArgs e)
         {
             this.radioButtonVal = 6;
+            chart2.Series["Series1"].Points.Clear();
+            chart2.Series["Series2"].Points.Clear();
+            chart2.Titles.Clear();
+        }
+
+        private void radioButton3Lec3_CheckedChanged(object sender, EventArgs e)
+        {
+            this.radioButtonVal = 7;
+            chart2.Series["Series1"].Points.Clear();
+            chart2.Series["Series2"].Points.Clear();
+            chart2.Titles.Clear();
+        }
+        private void radioButton1Department_CheckedChanged(object sender, EventArgs e)
+        {
+            this.radioButtonVal = 8;
             chart2.Series["Series1"].Points.Clear();
             chart2.Series["Series2"].Points.Clear();
             chart2.Titles.Clear();
@@ -294,6 +317,57 @@ namespace TimeTableManagment.Forms
                 }
 
             }
+                if(radioButtonVal == 7)
+            {
+                chart2.Visible = true;
+                //chart1.Visible = true;
+
+                String sql = "select Role,count(EmployeeID)as Ecount" +
+                                " from Lecturer" +
+                                " group by Role";
+
+
+                SQLiteCommand command = new SQLiteCommand(sql, sql_con);
+
+                SQLiteDataReader reader = command.ExecuteReader();
+
+
+                Title title = chart2.Titles.Add("Staff Acording To Role ");
+                title.Font = new System.Drawing.Font("Arial", 18, FontStyle.Bold);
+                title.ForeColor = System.Drawing.Color.FromArgb(0, 0, 205);
+
+
+                while (reader.Read())
+                {
+                    chart2.Series["Series1"].Points.AddXY(reader.GetString(0), reader.GetInt32(1));
+                }
+            }
+            if (this.radioButtonVal == 8)
+            {
+                chart2.Visible = true;
+                //chart1.Visible = true;
+
+                String sql = "select count(EmployeeID)as Ecount, Dept" +
+                                " from Lecturer" +
+                                " group by Dept";
+
+
+                SQLiteCommand command = new SQLiteCommand(sql, sql_con);
+
+                SQLiteDataReader reader = command.ExecuteReader();
+
+
+                Title title = chart2.Titles.Add("Staff Count Per Department");
+                title.Font = new System.Drawing.Font("Arial", 18, FontStyle.Bold);
+                title.ForeColor = System.Drawing.Color.FromArgb(0, 0, 205);
+
+
+                while (reader.Read())
+                {
+                    chart2.Series["Series1"].Points.AddXY(reader.GetString(1), reader.GetInt32(0));
+                }
+
+            }
             if (radioButtonVal == 0)
             {
                 MessageBox.Show("Please select an Option ", "Select", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -305,6 +379,8 @@ namespace TimeTableManagment.Forms
             sql_con.Close();
 
         }
+
+       
     }
 
 

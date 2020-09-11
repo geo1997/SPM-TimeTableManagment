@@ -252,7 +252,7 @@
             this.button1.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.button1.Size = new System.Drawing.Size(220, 60);
             this.button1.TabIndex = 2;
-            this.button1.Text = "Time Slot";
+            this.button1.Text = "  Time Slots";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button1.UseVisualStyleBackColor = true;

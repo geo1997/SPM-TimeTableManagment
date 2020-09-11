@@ -48,6 +48,8 @@
             this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.reportGenerateBtn = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.radioButton3Lec3 = new System.Windows.Forms.RadioButton();
+            this.radioButton1Department = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -110,7 +112,7 @@
             // 
             this.radioButton1Lec1.AutoSize = true;
             this.radioButton1Lec1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1Lec1.Location = new System.Drawing.Point(42, 77);
+            this.radioButton1Lec1.Location = new System.Drawing.Point(38, 62);
             this.radioButton1Lec1.Name = "radioButton1Lec1";
             this.radioButton1Lec1.Size = new System.Drawing.Size(204, 24);
             this.radioButton1Lec1.TabIndex = 5;
@@ -123,7 +125,7 @@
             // 
             this.radioButton2Lec2.AutoSize = true;
             this.radioButton2Lec2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton2Lec2.Location = new System.Drawing.Point(42, 105);
+            this.radioButton2Lec2.Location = new System.Drawing.Point(38, 122);
             this.radioButton2Lec2.Name = "radioButton2Lec2";
             this.radioButton2Lec2.Size = new System.Drawing.Size(193, 24);
             this.radioButton2Lec2.TabIndex = 6;
@@ -136,7 +138,7 @@
             // 
             this.radioButton1Stu1.AutoSize = true;
             this.radioButton1Stu1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1Stu1.Location = new System.Drawing.Point(386, 77);
+            this.radioButton1Stu1.Location = new System.Drawing.Point(388, 62);
             this.radioButton1Stu1.Name = "radioButton1Stu1";
             this.radioButton1Stu1.Size = new System.Drawing.Size(255, 24);
             this.radioButton1Stu1.TabIndex = 7;
@@ -149,7 +151,7 @@
             // 
             this.radioButton2Stu2.AutoSize = true;
             this.radioButton2Stu2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton2Stu2.Location = new System.Drawing.Point(386, 104);
+            this.radioButton2Stu2.Location = new System.Drawing.Point(388, 92);
             this.radioButton2Stu2.Name = "radioButton2Stu2";
             this.radioButton2Stu2.Size = new System.Drawing.Size(275, 24);
             this.radioButton2Stu2.TabIndex = 8;
@@ -162,7 +164,7 @@
             // 
             this.radioButton1Sub1.AutoSize = true;
             this.radioButton1Sub1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1Sub1.Location = new System.Drawing.Point(752, 77);
+            this.radioButton1Sub1.Location = new System.Drawing.Point(752, 62);
             this.radioButton1Sub1.Name = "radioButton1Sub1";
             this.radioButton1Sub1.Size = new System.Drawing.Size(248, 24);
             this.radioButton1Sub1.TabIndex = 9;
@@ -175,7 +177,7 @@
             // 
             this.radioButton2Sub2.AutoSize = true;
             this.radioButton2Sub2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton2Sub2.Location = new System.Drawing.Point(752, 104);
+            this.radioButton2Sub2.Location = new System.Drawing.Point(752, 92);
             this.radioButton2Sub2.Name = "radioButton2Sub2";
             this.radioButton2Sub2.Size = new System.Drawing.Size(285, 24);
             this.radioButton2Sub2.TabIndex = 10;
@@ -186,6 +188,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.radioButton1Department);
+            this.panel1.Controls.Add(this.radioButton3Lec3);
             this.panel1.Controls.Add(this.radioButton1Stu1);
             this.panel1.Controls.Add(this.radioButton2Sub2);
             this.panel1.Controls.Add(this.label2);
@@ -236,7 +240,7 @@
             // 
             this.reportGenerateBtn.BackColor = System.Drawing.Color.Aqua;
             this.reportGenerateBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.reportGenerateBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.reportGenerateBtn.ForeColor = System.Drawing.Color.PapayaWhip;
             this.reportGenerateBtn.Image = global::TimeTableManagment.Properties.Resources.icons8_chart_60px;
             this.reportGenerateBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.reportGenerateBtn.Location = new System.Drawing.Point(60, 384);
@@ -258,6 +262,32 @@
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Category Criteria";
+            // 
+            // radioButton3Lec3
+            // 
+            this.radioButton3Lec3.AutoSize = true;
+            this.radioButton3Lec3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton3Lec3.Location = new System.Drawing.Point(38, 152);
+            this.radioButton3Lec3.Name = "radioButton3Lec3";
+            this.radioButton3Lec3.Size = new System.Drawing.Size(208, 24);
+            this.radioButton3Lec3.TabIndex = 11;
+            this.radioButton3Lec3.TabStop = true;
+            this.radioButton3Lec3.Text = "Staff According To Role";
+            this.radioButton3Lec3.UseVisualStyleBackColor = true;
+            this.radioButton3Lec3.CheckedChanged += new System.EventHandler(this.radioButton3Lec3_CheckedChanged);
+            // 
+            // radioButton1Department
+            // 
+            this.radioButton1Department.AutoSize = true;
+            this.radioButton1Department.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton1Department.Location = new System.Drawing.Point(38, 92);
+            this.radioButton1Department.Name = "radioButton1Department";
+            this.radioButton1Department.Size = new System.Drawing.Size(238, 24);
+            this.radioButton1Department.TabIndex = 12;
+            this.radioButton1Department.TabStop = true;
+            this.radioButton1Department.Text = "Staff Count Per Department";
+            this.radioButton1Department.UseVisualStyleBackColor = true;
+            this.radioButton1Department.CheckedChanged += new System.EventHandler(this.radioButton1Department_CheckedChanged);
             // 
             // StatisticsForm
             // 
@@ -299,5 +329,7 @@
         private System.Windows.Forms.Button reportGenerateBtn;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton radioButton3Lec3;
+        private System.Windows.Forms.RadioButton radioButton1Department;
     }
 }
