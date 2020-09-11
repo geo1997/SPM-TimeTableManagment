@@ -43,9 +43,6 @@
             this.txtEmpId = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtDept = new System.Windows.Forms.TextBox();
-            this.txtCenter = new System.Windows.Forms.TextBox();
-            this.txtFac = new System.Windows.Forms.TextBox();
             this.labelRank = new System.Windows.Forms.Label();
             this.lblRank = new System.Windows.Forms.Label();
             this.labelLec = new System.Windows.Forms.Label();
@@ -60,6 +57,9 @@
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnSubmit = new System.Windows.Forms.Button();
+            this.cmbFac = new System.Windows.Forms.ComboBox();
+            this.cmbDept = new System.Windows.Forms.ComboBox();
+            this.cmbCenter = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblLec)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
@@ -104,7 +104,7 @@
             // 
             this.tblLec.AllowUserToAddRows = false;
             this.tblLec.AllowUserToDeleteRows = false;
-            this.tblLec.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.tblLec.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCellsExceptHeader;
             this.tblLec.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tblLec.Location = new System.Drawing.Point(65, 30);
             this.tblLec.Name = "tblLec";
@@ -171,12 +171,13 @@
             // 
             // txtEmpId
             // 
-            this.txtEmpId.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.txtEmpId.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txtEmpId.Location = new System.Drawing.Point(494, 75);
+            this.txtEmpId.MaxLength = 6;
             this.txtEmpId.Name = "txtEmpId";
-            this.txtEmpId.ReadOnly = true;
             this.txtEmpId.Size = new System.Drawing.Size(130, 22);
             this.txtEmpId.TabIndex = 11;
+            this.txtEmpId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEmpId_KeyPress);
             // 
             // label7
             // 
@@ -196,37 +197,11 @@
             this.label8.TabIndex = 14;
             this.label8.Text = "Center:";
             // 
-            // txtDept
-            // 
-            this.txtDept.Location = new System.Drawing.Point(494, 140);
-            this.txtDept.Name = "txtDept";
-            this.txtDept.Size = new System.Drawing.Size(278, 22);
-            this.txtDept.TabIndex = 18;
-            this.txtDept.Validating += new System.ComponentModel.CancelEventHandler(this.txtDept_Validating);
-            // 
-            // txtCenter
-            // 
-            this.txtCenter.Location = new System.Drawing.Point(494, 203);
-            this.txtCenter.Name = "txtCenter";
-            this.txtCenter.Size = new System.Drawing.Size(278, 22);
-            this.txtCenter.TabIndex = 19;
-            this.txtCenter.Validating += new System.ComponentModel.CancelEventHandler(this.txtCenter_Validating);
-            // 
-            // txtFac
-            // 
-            this.txtFac.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.txtFac.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.RecentlyUsedList;
-            this.txtFac.Location = new System.Drawing.Point(68, 141);
-            this.txtFac.Name = "txtFac";
-            this.txtFac.Size = new System.Drawing.Size(299, 22);
-            this.txtFac.TabIndex = 20;
-            this.txtFac.Validating += new System.ComponentModel.CancelEventHandler(this.txtFac_Validating);
-            // 
             // labelRank
             // 
             this.labelRank.AutoSize = true;
             this.labelRank.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelRank.Location = new System.Drawing.Point(107, 23);
+            this.labelRank.Location = new System.Drawing.Point(689, 75);
             this.labelRank.Name = "labelRank";
             this.labelRank.Size = new System.Drawing.Size(57, 20);
             this.labelRank.TabIndex = 22;
@@ -236,7 +211,7 @@
             // 
             this.lblRank.AutoSize = true;
             this.lblRank.Font = new System.Drawing.Font("Lucida Sans Typewriter", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRank.Location = new System.Drawing.Point(170, 23);
+            this.lblRank.Location = new System.Drawing.Point(752, 75);
             this.lblRank.Name = "lblRank";
             this.lblRank.Size = new System.Drawing.Size(49, 19);
             this.lblRank.TabIndex = 23;
@@ -378,12 +353,58 @@
             this.btnSubmit.UseVisualStyleBackColor = false;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
+            // cmbFac
+            // 
+            this.cmbFac.AllowDrop = true;
+            this.cmbFac.Cursor = System.Windows.Forms.Cursors.Default;
+            this.cmbFac.FormattingEnabled = true;
+            this.cmbFac.Items.AddRange(new object[] {
+            "Computing",
+            "Engineering",
+            "Business",
+            "Humanities and Sciences"});
+            this.cmbFac.Location = new System.Drawing.Point(68, 140);
+            this.cmbFac.Name = "cmbFac";
+            this.cmbFac.Size = new System.Drawing.Size(205, 24);
+            this.cmbFac.TabIndex = 30;
+            this.cmbFac.SelectedIndexChanged += new System.EventHandler(this.cmbFac_SelectedIndexChanged);
+            this.cmbFac.Validating += new System.ComponentModel.CancelEventHandler(this.cmbFac_Validating);
+            // 
+            // cmbDept
+            // 
+            this.cmbDept.FormattingEnabled = true;
+            this.cmbDept.Location = new System.Drawing.Point(494, 140);
+            this.cmbDept.Name = "cmbDept";
+            this.cmbDept.Size = new System.Drawing.Size(252, 24);
+            this.cmbDept.TabIndex = 31;
+            this.cmbDept.Validating += new System.ComponentModel.CancelEventHandler(this.cmbDept_Validating);
+            // 
+            // cmbCenter
+            // 
+            this.cmbCenter.FormattingEnabled = true;
+            this.cmbCenter.Items.AddRange(new object[] {
+            "Malabe",
+            "Kandy",
+            "Metropolitan",
+            "Matara",
+            "Kurunegala",
+            "Jaffna",
+            "SLIIT Academy"});
+            this.cmbCenter.Location = new System.Drawing.Point(494, 204);
+            this.cmbCenter.Name = "cmbCenter";
+            this.cmbCenter.Size = new System.Drawing.Size(252, 24);
+            this.cmbCenter.TabIndex = 32;
+            this.cmbCenter.Validating += new System.ComponentModel.CancelEventHandler(this.cmbCenter_Validating);
+            // 
             // LecturerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(1079, 699);
+            this.Controls.Add(this.cmbCenter);
+            this.Controls.Add(this.cmbDept);
+            this.Controls.Add(this.cmbFac);
             this.Controls.Add(this.radioProf);
             this.Controls.Add(this.radioMiss);
             this.Controls.Add(this.radioMisis);
@@ -393,10 +414,7 @@
             this.Controls.Add(this.lblRank);
             this.Controls.Add(this.labelRank);
             this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.txtFac);
             this.Controls.Add(this.btnEdit);
-            this.Controls.Add(this.txtCenter);
-            this.Controls.Add(this.txtDept);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.label8);
@@ -439,11 +457,8 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.Button btnClear;
-        private System.Windows.Forms.TextBox txtDept;
-        private System.Windows.Forms.TextBox txtCenter;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnEdit;
-        private System.Windows.Forms.TextBox txtFac;
         private System.Windows.Forms.Label labelRank;
         private System.Windows.Forms.Label lblRank;
         private System.Windows.Forms.Label labelLec;
@@ -454,5 +469,8 @@
         private System.Windows.Forms.RadioButton radioDoc;
         private System.Windows.Forms.RadioButton radioProf;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.ComboBox cmbFac;
+        private System.Windows.Forms.ComboBox cmbDept;
+        private System.Windows.Forms.ComboBox cmbCenter;
     }
 }

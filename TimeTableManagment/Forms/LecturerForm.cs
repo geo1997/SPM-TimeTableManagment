@@ -55,20 +55,10 @@ namespace TimeTableManagment.Forms
             sql_con.Close();
            
         }
-        
-        //Auto generate employee Id
-        public void EmployeeIdGenerator()
-        {
-            Random empIdGen = new Random();
-            string r = empIdGen.Next(0, 8000).ToString();
-            txtEmpId.Text = r.PadLeft(6,'0');
-
-        }
-
+       
         private void LecturerForm_Load(object sender, EventArgs e)
         {
             FillCombo();
-            EmployeeIdGenerator();
             LoadData();
             radioProf.Checked = true;
             btnEdit.Visible = false;
@@ -152,21 +142,67 @@ namespace TimeTableManagment.Forms
             }
         }
         //clear fields
-        private void clearField()
+        private void ClearField()
         {
-            labelLec.Text = "Add Subject";
+            labelLec.Text = "Add Lecturer";
             radioProf.Checked = true;
             labelRank.Visible = false;
             lblRank.Visible = false;
             txtLecName.Clear();
-            txtCenter.Clear();
-            txtDept.Clear();
-            txtFac.Clear();
+            txtEmpId.ReadOnly = false;
+            txtEmpId.Clear();
+            txtEmpId.BackColor = Color.White;
+            cmbCenter.ResetText();
+            cmbDept.ResetText();
+            cmbDept.Items.Clear();
+            cmbFac.ResetText();
             cmbBuild.ResetText();
             cmbLevel.ResetText();
             btnSubmit.Visible = true;
             btnEdit.Visible = false;
             btnDelete.Visible = false;
+        }
+        //Change the index value of Dept combo Box
+        public void DisDept()
+        {
+            if(cmbFac.Text== "Computing")
+            {
+                cmbDept.Items.Clear();
+                cmbDept.ResetText();
+                cmbDept.Items.Add("Information & Technology");
+                cmbDept.Items.Add("Computer Sciences & Software Engineering");
+                cmbDept.Items.Add("Computer System Engineering");
+            }
+            else if (cmbFac.Text == "Engineering")
+            {
+                cmbDept.Items.Clear();
+                cmbDept.ResetText();
+                cmbDept.Items.Add("Civil Engineering");
+                cmbDept.Items.Add("Electrical & Electronic Engineering");
+                cmbDept.Items.Add("Mechanical Engineering");
+                cmbDept.Items.Add("Material Engineering");
+                cmbDept.Items.Add("School of Architecture");
+                cmbDept.Items.Add("Quantity Surveying");   
+            }
+            else if (cmbFac.Text == "Business")
+            {
+                cmbDept.Items.Clear();
+                cmbDept.ResetText();
+                cmbDept.Items.Add("Information Management");
+                cmbDept.Items.Add("Business Management");
+            }
+            else if(cmbFac.Text== "Humanities and Sciences")
+            {
+                cmbDept.Items.Clear();
+                cmbDept.ResetText();
+                cmbDept.Items.Add("School of Law");
+                cmbDept.Items.Add("School of Natural Sciences");
+                cmbDept.Items.Add("English Language Teaching Unit");
+                cmbDept.Items.Add("School of Education");
+                cmbDept.Items.Add("School of Nursing ");
+                cmbDept.Items.Add("School of Psychology");
+                cmbDept.Items.Add("Mathamatics Unit");
+            }
         }
 
         //Passing the level code
@@ -222,10 +258,10 @@ namespace TimeTableManagment.Forms
             string title = TitleSelector();
             string lecturerName = txtLecName.Text;
             string employeeID = txtEmpId.Text;
-            string faculty = txtFac.Text;
-            string department = txtDept.Text;
+            string faculty = cmbFac.Text;
+            string department = cmbDept.Text;
             string building = cmbBuild.Text;
-            string center = txtCenter.Text;
+            string center = cmbCenter.Text;
             string level = cmbLevel.Text;
             int lvl = LevelPass(level);
 
@@ -248,8 +284,8 @@ namespace TimeTableManagment.Forms
                         "values('" + employeeID + "','" + title + "','" + lecturerName + "','" + faculty + "','" + department + "','" + building + "','" + center + "','" + rank + "','" + level + "')";
                     ExecuteQuery(insertLec);
                     LoadData();
-                    EmployeeIdGenerator();
-                    clearField();
+                   
+                    ClearField();
                     MessageBox.Show("Lecturer Information added succesfully", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
@@ -262,6 +298,8 @@ namespace TimeTableManagment.Forms
             labelLec.Text = "Edit/Delete Lecturer";
             labelRank.Visible = true;
             lblRank.Visible = true;
+            txtEmpId.ReadOnly = true;
+            txtEmpId.BackColor = Color.LightGray;
             btnSubmit.Visible = false;
             btnEdit.Visible = true;
             btnDelete.Visible = true;
@@ -271,10 +309,10 @@ namespace TimeTableManagment.Forms
 
             txtEmpId.Text = tblLec.SelectedRows[0].Cells[1].Value.ToString();
             txtLecName.Text = tblLec.SelectedRows[0].Cells[3].Value.ToString();
-            txtFac.Text = tblLec.SelectedRows[0].Cells[4].Value.ToString();
-            txtDept.Text = tblLec.SelectedRows[0].Cells[5].Value.ToString();
+            cmbFac.Text = tblLec.SelectedRows[0].Cells[4].Value.ToString();
+            cmbDept.Text = tblLec.SelectedRows[0].Cells[5].Value.ToString();
             cmbBuild.Text = tblLec.SelectedRows[0].Cells[6].Value.ToString();
-            txtCenter.Text = tblLec.SelectedRows[0].Cells[7].Value.ToString();
+            cmbCenter.Text = tblLec.SelectedRows[0].Cells[7].Value.ToString();
             lblRank.Text = tblLec.SelectedRows[0].Cells[8].Value.ToString();
             cmbLevel.Text = tblLec.SelectedRows[0].Cells[9].Value.ToString();
         }
@@ -285,10 +323,10 @@ namespace TimeTableManagment.Forms
             string title = TitleSelector();
             string lecturerName = txtLecName.Text;
             string employeeID = txtEmpId.Text;
-            string faculty = txtFac.Text;
-            string department = txtDept.Text;
+            string faculty = cmbFac.Text;
+            string department = cmbDept.Text;
             string building = cmbBuild.Text;
-            string center = txtCenter.Text;
+            string center = cmbCenter.Text;
             string levl = cmbLevel.Text;
 
 
@@ -312,8 +350,7 @@ namespace TimeTableManagment.Forms
                    "where EmployeeID='" + employeeID + "'";
                 ExecuteQuery(updateQuery);
                 LoadData();
-                EmployeeIdGenerator();
-                clearField();
+                ClearField();
                 MessageBox.Show("Lecturer Information Updated!", "Update Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
@@ -326,19 +363,13 @@ namespace TimeTableManagment.Forms
             String deleteQuery = "delete from Lecturer where EmployeeID='" + employeeID + "'";
             ExecuteQuery(deleteQuery);
             LoadData();
-            EmployeeIdGenerator();
-            clearField();
+            ClearField();
             MessageBox.Show("Lecturer Information Deleted", " Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            clearField();
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
+           ClearField();
         }
 
         //Validating the form
@@ -356,7 +387,6 @@ namespace TimeTableManagment.Forms
             if (string.IsNullOrEmpty(txtLecName.Text))
             {
                 e.Cancel = false;
-                txtLecName.Focus();
                 errorProvider.SetError(txtLecName, "Please Enter Lecturer's Name!");
             }
             else
@@ -371,7 +401,6 @@ namespace TimeTableManagment.Forms
             if (string.IsNullOrEmpty(txtEmpId.Text))
             {
                 e.Cancel = false;
-                txtLecName.Focus();
                 errorProvider.SetError(txtEmpId, "Please Employee ID!");
             }
             else
@@ -381,42 +410,11 @@ namespace TimeTableManagment.Forms
             }
         }
 
-        private void txtFac_Validating(object sender, CancelEventArgs e)
-        {
-            if (string.IsNullOrEmpty(txtFac.Text))
-            {
-                e.Cancel = false;
-                txtLecName.Focus();
-                errorProvider.SetError(txtFac, "Please Enter the Faculty!");
-            }
-            else
-            {
-                e.Cancel = false;
-                errorProvider.SetError(txtFac, null);
-            }
-        }
-
-        private void txtDept_Validating(object sender, CancelEventArgs e)
-        {
-            if (string.IsNullOrEmpty(txtDept.Text))
-            {
-                e.Cancel = false;
-                txtLecName.Focus();
-                errorProvider.SetError(txtDept, "Please Enter the Department!");
-            }
-            else
-            {
-                e.Cancel = false;
-                errorProvider.SetError(txtDept, null);
-            }
-        }
-
         private void cmbBuild_Validating(object sender, CancelEventArgs e)
         {
             if (string.IsNullOrEmpty(cmbBuild.Text))
             {
                 e.Cancel = false;
-                txtLecName.Focus();
                 errorProvider.SetError(cmbBuild, "Please Select the building!");
             }
             else
@@ -426,27 +424,11 @@ namespace TimeTableManagment.Forms
             }
         }
 
-        private void txtCenter_Validating(object sender, CancelEventArgs e)
-        {
-            if (string.IsNullOrEmpty(txtCenter.Text))
-            {
-                e.Cancel = false;
-                txtLecName.Focus();
-                errorProvider.SetError(txtCenter, "Please Enter the Center!");
-            }
-            else
-            {
-                e.Cancel = false;
-                errorProvider.SetError(txtCenter, null);
-            }
-        }
-
         private void cmbLevel_Validating(object sender, CancelEventArgs e)
         {
             if (string.IsNullOrEmpty(cmbLevel.Text))
             {
                 e.Cancel = false;
-                txtLecName.Focus();
                 errorProvider.SetError(cmbLevel, "Please Select the Level!");
             }
             else
@@ -454,6 +436,53 @@ namespace TimeTableManagment.Forms
                 e.Cancel = false;
                 errorProvider.SetError(cmbLevel, null);
             }
+        }
+        
+        private void cmbFac_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(cmbFac.Text))
+            {
+                e.Cancel = false;
+                errorProvider.SetError(cmbFac, "Please Select the Faculty!");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(cmbFac, null);
+            }
+        }
+       
+        private void cmbCenter_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(cmbCenter.Text))
+            {
+                e.Cancel = false;
+                errorProvider.SetError(cmbCenter, "Please Select the Center!");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(cmbCenter, null);
+            }
+        }
+
+        private void cmbDept_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(cmbDept.Text))
+            {
+                e.Cancel = false;
+                errorProvider.SetError(cmbDept, "Please Select the Department!");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(cmbDept, null);
+            }
+        }
+
+        private void cmbFac_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DisDept();
         }
 
     }
