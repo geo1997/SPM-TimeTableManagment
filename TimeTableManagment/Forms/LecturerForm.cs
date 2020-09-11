@@ -154,7 +154,7 @@ namespace TimeTableManagment.Forms
         //clear fields
         private void clearField()
         {
-            labelLec.Text = "Add Subject";
+            labelLec.Text = "Add Lecturer";
             radioProf.Checked = true;
             labelRank.Visible = false;
             lblRank.Visible = false;

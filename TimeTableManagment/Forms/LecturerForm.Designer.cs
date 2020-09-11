@@ -105,6 +105,7 @@
             this.tblLec.AllowUserToAddRows = false;
             this.tblLec.AllowUserToDeleteRows = false;
             this.tblLec.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.tblLec.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.tblLec.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tblLec.Location = new System.Drawing.Point(65, 30);
             this.tblLec.Name = "tblLec";
