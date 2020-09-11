@@ -141,12 +141,17 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(434, 277);
+            this.button1.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.button1.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.button1.Image = global::TimeTableManagment.Properties.Resources.icons8_add_new_64;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(465, 267);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(82, 31);
+            this.button1.Size = new System.Drawing.Size(130, 41);
             this.button1.TabIndex = 10;
             this.button1.Text = "Submit";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.submit__Click);
             // 
             // dataGridView1
@@ -177,22 +182,32 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(461, 563);
+            this.button2.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.button2.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.button2.Image = global::TimeTableManagment.Properties.Resources.icons8_edit_property_64;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(479, 563);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(82, 31);
+            this.button2.Size = new System.Drawing.Size(130, 41);
             this.button2.TabIndex = 13;
             this.button2.Text = "Edit";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(589, 563);
+            this.button3.BackColor = System.Drawing.Color.IndianRed;
+            this.button3.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.button3.Image = global::TimeTableManagment.Properties.Resources.icons8_delete_64;
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button3.Location = new System.Drawing.Point(621, 563);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(84, 31);
+            this.button3.Size = new System.Drawing.Size(130, 41);
             this.button3.TabIndex = 14;
             this.button3.Text = "Delete";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // numericUpDown1WorkingDays

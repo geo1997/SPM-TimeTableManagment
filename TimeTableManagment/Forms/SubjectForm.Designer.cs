@@ -56,6 +56,7 @@
             this.txtSubCode = new System.Windows.Forms.TextBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.txtDept = new System.Windows.Forms.TextBox();
+            this.txtView = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.numTuteHr)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numLecHr)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numLabHr)).BeginInit();
@@ -332,11 +333,14 @@
             // 
             // txtSubCode
             // 
-            this.txtSubCode.Location = new System.Drawing.Point(470, 79);
+            this.txtSubCode.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.txtSubCode.Location = new System.Drawing.Point(516, 79);
+            this.txtSubCode.MaxLength = 4;
             this.txtSubCode.Name = "txtSubCode";
-            this.txtSubCode.ReadOnly = true;
             this.txtSubCode.Size = new System.Drawing.Size(98, 22);
             this.txtSubCode.TabIndex = 28;
+            this.txtSubCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSubCode_KeyPress);
+            this.txtSubCode.Validating += new System.ComponentModel.CancelEventHandler(this.txtSubCode_Validating);
             // 
             // txtDept
             // 
@@ -348,8 +352,18 @@
             this.txtDept.Text = "IT/SE";
             this.toolTip1.SetToolTip(this.txtDept, "Enter Department Eg:- IT/IE/SE");
             this.txtDept.Enter += new System.EventHandler(this.txtDept_Enter);
+            this.txtDept.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDept_KeyPress);
             this.txtDept.Leave += new System.EventHandler(this.txtDept_Leave);
             this.txtDept.Validating += new System.ComponentModel.CancelEventHandler(this.txtDept_Validating);
+            // 
+            // txtView
+            // 
+            this.txtView.BackColor = System.Drawing.Color.LightGray;
+            this.txtView.Location = new System.Drawing.Point(470, 79);
+            this.txtView.Name = "txtView";
+            this.txtView.ReadOnly = true;
+            this.txtView.Size = new System.Drawing.Size(144, 22);
+            this.txtView.TabIndex = 29;
             // 
             // SubjectForm
             // 
@@ -357,6 +371,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FloralWhite;
             this.ClientSize = new System.Drawing.Size(1039, 630);
+            this.Controls.Add(this.txtView);
             this.Controls.Add(this.txtDept);
             this.Controls.Add(this.txtSubCode);
             this.Controls.Add(this.btnDelete);
@@ -422,5 +437,6 @@
         private System.Windows.Forms.TextBox txtSubCode;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.TextBox txtDept;
+        private System.Windows.Forms.TextBox txtView;
     }
 }
