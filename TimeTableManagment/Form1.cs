@@ -129,7 +129,7 @@ namespace TimeTableManagment
 
         private void session_click(object sender, EventArgs e)
         {
-            ActivateButton(sender);
+            OpenChildForm(new Forms.SessionForm(), sender);
         }
 
         private void availability_click(object sender, EventArgs e)
