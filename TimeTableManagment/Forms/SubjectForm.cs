@@ -89,10 +89,19 @@ namespace TimeTableManagment.Forms
             int evo = Convert.ToInt32(numEvoHr.Value);
 
             if (ValidateChildren(ValidationConstraints.Enabled) &&
-                subjectName == "" || txtDept.Text=="IT/SE" || subjectCode == "IT" || year == "" || sem == "" || lec == 0)
+                subjectName == "" ||txtSubCode.Text==""|| txtDept.Text=="IT/SE" || subjectCode == "IT" || year == "" || sem == "" || lec == 0)
             {
 
                 MessageBox.Show("Please fill the Empty Field(s)",
+                "Unable to Submit", MessageBoxButtons.OK,
+                                MessageBoxIcon.Exclamation,
+                                MessageBoxDefaultButton.Button1);
+            }
+
+            else if (ValidateChildren(ValidationConstraints.Enabled) && txtSubCode.Text.Length!=4)
+            {
+
+                MessageBox.Show("Invalid Subject Code!",
                 "Unable to Submit", MessageBoxButtons.OK,
                                 MessageBoxIcon.Exclamation,
                                 MessageBoxDefaultButton.Button1);
@@ -144,7 +153,7 @@ namespace TimeTableManagment.Forms
         private void btnEdit_Click(object sender, EventArgs e)
         {
             string subjectName = txtSubName.Text;
-            string subjectCode = txtSubCode.Text;
+            string subjectCode = txtView.Text;
             string year = cmbYear.Text;
             string sem = cmbSem.Text;
             int lec = Convert.ToInt32(numLecHr.Value);
@@ -243,7 +252,7 @@ namespace TimeTableManagment.Forms
         private void txtSubCode_KeyPress(object sender, KeyPressEventArgs e)
         {
             char ch = e.KeyChar;
-            if (Char.IsDigit(ch) && ch != 8)
+            if (!Char.IsDigit(ch) && ch != 8)
             {
                 e.Handled = true;
             }
@@ -268,6 +277,11 @@ namespace TimeTableManagment.Forms
             {
                 e.Cancel = false;
                 errorProvider.SetError(txtSubCode, "Please Enter the given subject Code!");
+            }
+            else if (txtSubCode.Text.Length!=4)
+            {
+                e.Cancel = false;
+                errorProvider.SetError(txtSubCode, "Subject Code Must Contains 4 Digits");
             }
             else
             {

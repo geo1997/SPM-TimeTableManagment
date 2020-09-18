@@ -211,6 +211,15 @@
     <None Include="Resources\icons8_edit_property_641.png" />
     <None Include="Resources\icons8_erase_48.png" />
     <None Include="Resources\icons8_chart_60px.png" />
+    <None Include="Resources\icons8_minus.ico" />
+    <None Include="Resources\icons8_ok_1.ico" />
+    <None Include="Resources\icons8_plus_3.ico" />
+    <None Include="Resources\icons8_collapse_arrow.ico" />
+    <None Include="Resources\icons8_expand_arrow_1.ico" />
+    <None Include="Resources\icons8_expand_arrow_2.ico" />
+    <None Include="Resources\icons8_expand_arrow_3.ico" />
+    <None Include="Resources\icons8_search.ico" />
+    <None Include="Resources\icons8_broom.ico" />
     <Content Include="TimeTable.db">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
