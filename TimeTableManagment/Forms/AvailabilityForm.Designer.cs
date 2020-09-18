@@ -31,6 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AvailabilityForm));
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
             this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
+            this.label7 = new System.Windows.Forms.Label();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
@@ -46,9 +49,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.metroTabPage2 = new MetroFramework.Controls.MetroTabPage();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.metroTabControl1.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -96,6 +96,34 @@
             this.metroTabPage1.VerticalScrollbarBarColor = true;
             this.metroTabPage1.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage1.VerticalScrollbarSize = 10;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(672, 135);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(25, 17);
+            this.label7.TabIndex = 51;
+            this.label7.Text = "To";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dateTimePicker2.Location = new System.Drawing.Point(703, 135);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(130, 22);
+            this.dateTimePicker2.TabIndex = 50;
+            this.dateTimePicker2.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(481, 135);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(40, 17);
+            this.label3.TabIndex = 49;
+            this.label3.Text = "From";
             // 
             // dateTimePicker1
             // 
@@ -182,6 +210,7 @@
             this.button3.Text = "Edit";
             this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // label1
             // 
@@ -256,34 +285,6 @@
             this.metroTabPage2.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage2.VerticalScrollbarSize = 10;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(481, 135);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(40, 17);
-            this.label3.TabIndex = 49;
-            this.label3.Text = "From";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(672, 135);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(25, 17);
-            this.label7.TabIndex = 51;
-            this.label7.Text = "To";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePicker2.Location = new System.Drawing.Point(703, 135);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(130, 22);
-            this.dateTimePicker2.TabIndex = 50;
-            this.dateTimePicker2.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
-            // 
             // AvailabilityForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -292,6 +293,7 @@
             this.Controls.Add(this.metroTabControl1);
             this.Name = "AvailabilityForm";
             this.Text = "AvailabilityForm";
+            this.Load += new System.EventHandler(this.AvailabilityForm_Load);
             this.metroTabControl1.ResumeLayout(false);
             this.metroTabPage1.ResumeLayout(false);
             this.metroTabPage1.PerformLayout();
