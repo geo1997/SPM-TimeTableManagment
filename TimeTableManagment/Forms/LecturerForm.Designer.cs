@@ -178,6 +178,7 @@
             this.txtEmpId.Size = new System.Drawing.Size(130, 22);
             this.txtEmpId.TabIndex = 11;
             this.txtEmpId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEmpId_KeyPress);
+            this.txtEmpId.Validating += new System.ComponentModel.CancelEventHandler(this.txtEmpId_Validating);
             // 
             // label7
             // 
