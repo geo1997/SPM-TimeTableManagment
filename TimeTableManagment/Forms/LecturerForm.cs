@@ -59,13 +59,13 @@ namespace TimeTableManagment.Forms
         private void LecturerForm_Load(object sender, EventArgs e)
         {
             FillCombo();
-            LoadData();
+           
             radioProf.Checked = true;
             btnEdit.Visible = false;
             labelRank.Visible = false;
             lblRank.Visible = false;
             btnDelete.Visible = false;
-
+            LoadData();
         }
 
         //Load data to combo box
@@ -303,26 +303,38 @@ namespace TimeTableManagment.Forms
         //Fill the form from selected row
         private void tblLec_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            labelLec.Text = "Edit/Delete Lecturer";
-            labelRank.Visible = true;
-            lblRank.Visible = true;
-            txtEmpId.ReadOnly = true;
-            txtEmpId.BackColor = Color.LightGray;
-            btnSubmit.Visible = false;
-            btnEdit.Visible = true;
-            btnDelete.Visible = true;
+            try
+            {
+                labelLec.Text = "Edit/Delete Lecturer";
+                labelRank.Visible = true;
+                lblRank.Visible = true;
+                txtEmpId.ReadOnly = true;
+                txtEmpId.BackColor = Color.LightGray;
+                btnSubmit.Visible = false;
+                btnEdit.Visible = true;
+                btnDelete.Visible = true;
 
-            string t = tblLec.SelectedRows[0].Cells[2].Value.ToString();
-            RadioCheck(t);
+                string t = tblLec.SelectedRows[0].Cells[2].Value.ToString();
+                RadioCheck(t);
 
-            txtEmpId.Text = tblLec.SelectedRows[0].Cells[1].Value.ToString();
-            txtLecName.Text = tblLec.SelectedRows[0].Cells[3].Value.ToString();
-            cmbFac.Text = tblLec.SelectedRows[0].Cells[4].Value.ToString();
-            cmbDept.Text = tblLec.SelectedRows[0].Cells[5].Value.ToString();
-            cmbBuild.Text = tblLec.SelectedRows[0].Cells[6].Value.ToString();
-            cmbCenter.Text = tblLec.SelectedRows[0].Cells[7].Value.ToString();
-            lblRank.Text = tblLec.SelectedRows[0].Cells[8].Value.ToString();
-            cmbLevel.Text = tblLec.SelectedRows[0].Cells[9].Value.ToString();
+                txtEmpId.Text = tblLec.SelectedRows[0].Cells[1].Value.ToString();
+                txtLecName.Text = tblLec.SelectedRows[0].Cells[3].Value.ToString();
+                cmbFac.Text = tblLec.SelectedRows[0].Cells[4].Value.ToString();
+                cmbDept.Text = tblLec.SelectedRows[0].Cells[5].Value.ToString();
+                cmbBuild.Text = tblLec.SelectedRows[0].Cells[6].Value.ToString();
+                cmbCenter.Text = tblLec.SelectedRows[0].Cells[7].Value.ToString();
+                lblRank.Text = tblLec.SelectedRows[0].Cells[8].Value.ToString();
+                cmbLevel.Text = tblLec.SelectedRows[0].Cells[9].Value.ToString();
+
+            }catch(Exception ex)
+            {
+                ClearField();
+                MessageBox.Show("There no details to view!",
+                                 "Empty Table", MessageBoxButtons.OK,
+                                                 MessageBoxIcon.Exclamation,
+                                                 MessageBoxDefaultButton.Button1);
+            }
+           
         }
       
         //edit method

@@ -131,21 +131,32 @@ namespace TimeTableManagment.Forms
         //On click the data load to the fields
         private void tblSub_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            labelSub.Text = "Edit/Delete Subject";
-            txtView.Visible = true;
-            btnSubmit.Visible = false;
-            btnEdit.Visible = true;
-            btnDelete.Visible = true;
-            txtDept.Visible = false;
+            try {
+                  labelSub.Text = "Edit/Delete Subject";
+                  txtView.Visible = true;
+                  btnSubmit.Visible = false;
+                  btnEdit.Visible = true;
+                  btnDelete.Visible = true;
+                  txtDept.Visible = false;
 
-            txtView.Text = tblSub.SelectedRows[0].Cells[0].Value.ToString();
-            txtSubName.Text = tblSub.SelectedRows[0].Cells[1].Value.ToString();
-            cmbYear.Text = tblSub.SelectedRows[0].Cells[2].Value.ToString();
-            cmbSem.Text = tblSub.SelectedRows[0].Cells[3].Value.ToString();
-            numLecHr.Value =Convert.ToInt32(tblSub.SelectedRows[0].Cells[4].Value.ToString());
-            numLabHr.Value = Convert.ToInt32(tblSub.SelectedRows[0].Cells[5].Value.ToString());
-            numTuteHr.Value = Convert.ToInt32(tblSub.SelectedRows[0].Cells[6].Value.ToString());
-            numEvoHr.Value = Convert.ToInt32(tblSub.SelectedRows[0].Cells[7].Value.ToString());
+                  txtView.Text = tblSub.SelectedRows[0].Cells[0].Value.ToString();
+                  txtSubName.Text = tblSub.SelectedRows[0].Cells[1].Value.ToString();
+                  cmbYear.Text = tblSub.SelectedRows[0].Cells[2].Value.ToString();
+                  cmbSem.Text = tblSub.SelectedRows[0].Cells[3].Value.ToString();
+                  numLecHr.Value = Convert.ToInt32(tblSub.SelectedRows[0].Cells[4].Value.ToString());
+                  numLabHr.Value = Convert.ToInt32(tblSub.SelectedRows[0].Cells[5].Value.ToString());
+                  numTuteHr.Value = Convert.ToInt32(tblSub.SelectedRows[0].Cells[6].Value.ToString());
+                  numEvoHr.Value = Convert.ToInt32(tblSub.SelectedRows[0].Cells[7].Value.ToString());
+              }
+            catch(Exception ex)
+            {
+                clearField();
+                MessageBox.Show("There no details to view!",
+                                  "Empty Table", MessageBoxButtons.OK,
+                                                  MessageBoxIcon.Exclamation,
+                                                  MessageBoxDefaultButton.Button1);
+            }
+           
         }
        
 
