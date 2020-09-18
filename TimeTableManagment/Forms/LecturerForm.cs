@@ -268,13 +268,21 @@ namespace TimeTableManagment.Forms
             if (ValidateChildren(ValidationConstraints.Enabled) &&
                 lecturerName == "" || 
                 faculty == "" || department == ""
-                || building == "" || center == "" || level == "")
+                || building == "" || center == "" || level == ""||employeeID=="")
             {
                 MessageBox.Show("All Fields are Compulsory!",
                "Unable to Submit", MessageBoxButtons.OK,
                                MessageBoxIcon.Exclamation,
                                MessageBoxDefaultButton.Button1);
             }
+            else if (ValidateChildren(ValidationConstraints.Enabled) && employeeID.Length!=6)
+            {
+                MessageBox.Show("Invalid Employee ID",
+               "Unable to Submit", MessageBoxButtons.OK,
+                               MessageBoxIcon.Exclamation,
+                               MessageBoxDefaultButton.Button1);
+            }
+
             else
             {
                
@@ -401,7 +409,12 @@ namespace TimeTableManagment.Forms
             if (string.IsNullOrEmpty(txtEmpId.Text))
             {
                 e.Cancel = false;
-                errorProvider.SetError(txtEmpId, "Please Employee ID!");
+                errorProvider.SetError(txtEmpId, "Please Enter Valid Employee ID!");
+            }
+            else if (txtEmpId.Text.Length!=6)
+            {
+                e.Cancel = false;
+                errorProvider.SetError(txtEmpId, "Employee ID must Contains 6 numbers");
             }
             else
             {
