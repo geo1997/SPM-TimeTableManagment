@@ -48,16 +48,30 @@ namespace TimeTableManagment.Forms
             sql_con.Close();
 
         }
-        //Randomly generate code for subject code
-        public int GenerateRandomNumber()
-        {
-            Random subjectId = new Random();
-            return subjectId.Next(1000,9999);
-        }
 
         private void SubjectForm_Load(object sender, EventArgs e)
         {
             LoadData();
+            txtView.Visible = false;
+            btnEdit.Visible = false;
+            btnDelete.Visible = false;
+        }
+
+        //clear fields
+        private void clearField()
+        {
+            labelSub.Text = "Add Subject";
+            txtDept.Visible = true;
+            txtSubName.Clear();
+            txtSubCode.Clear();
+            txtView.Visible = false;
+            cmbYear.ResetText();
+            cmbSem.ResetText();
+            numLecHr.Value = 0;
+            numLabHr.Value = 0;
+            numTuteHr.Value = 0;
+            numEvoHr.Value = 0;
+            btnSubmit.Visible = true;
             btnEdit.Visible = false;
             btnDelete.Visible = false;
         }
@@ -66,7 +80,7 @@ namespace TimeTableManagment.Forms
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             string subjectName = txtSubName.Text;
-            string subjectCode = txtDept.Text.ToUpper() +" "+ GenerateRandomNumber();
+            string subjectCode = txtDept.Text.ToUpper() +" "+ txtSubCode.Text;
             string year = cmbYear.Text;
             string sem = cmbSem.Text;
             int lec = Convert.ToInt32(numLecHr.Value);
@@ -93,36 +107,13 @@ namespace TimeTableManagment.Forms
                 LoadData();
                 txtDept.Text = "IT/SE";
                 txtDept.ForeColor = Color.DarkGray;
-                txtSubName.Clear();
-                cmbYear.ResetText();
-                cmbSem.ResetText();
-                numLecHr.Value = 0;
-                numLabHr.Value = 0;
-                numTuteHr.Value = 0;
-                numEvoHr.Value = 0;
+                clearField();
                 MessageBox.Show("Subject Information Added successfully", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
 
         }
 
-        //clear fields
-        private void clearField()
-        {
-            labelSub.Text = "Add Subject";
-            txtDept.Visible = true;
-            txtSubName.Clear();
-            txtSubCode.Clear();
-            cmbYear.ResetText();
-            cmbSem.ResetText();
-            numLecHr.Value = 0;
-            numLabHr.Value = 0;
-            numTuteHr.Value = 0;
-            numEvoHr.Value = 0;
-            btnSubmit.Visible = true;
-            btnEdit.Visible = false;
-            btnDelete.Visible = false;
-        }
         private void btnClear_Click(object sender, EventArgs e)
         {
             clearField();
@@ -132,12 +123,13 @@ namespace TimeTableManagment.Forms
         private void tblSub_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             labelSub.Text = "Edit/Delete Subject";
+            txtView.Visible = true;
             btnSubmit.Visible = false;
             btnEdit.Visible = true;
             btnDelete.Visible = true;
             txtDept.Visible = false;
 
-            txtSubCode.Text = tblSub.SelectedRows[0].Cells[0].Value.ToString();
+            txtView.Text = tblSub.SelectedRows[0].Cells[0].Value.ToString();
             txtSubName.Text = tblSub.SelectedRows[0].Cells[1].Value.ToString();
             cmbYear.Text = tblSub.SelectedRows[0].Cells[2].Value.ToString();
             cmbSem.Text = tblSub.SelectedRows[0].Cells[3].Value.ToString();
@@ -248,6 +240,15 @@ namespace TimeTableManagment.Forms
             }
         }
 
+        private void txtSubCode_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+            if (Char.IsDigit(ch) && ch != 8)
+            {
+                e.Handled = true;
+            }
+        }
+
         private void txtSubName_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
             if (string.IsNullOrEmpty(txtSubName.Text))
@@ -259,6 +260,19 @@ namespace TimeTableManagment.Forms
             {
                 e.Cancel = false;
                 errorProvider.SetError(txtSubName, null);
+            }
+        }
+        private void txtSubCode_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtSubCode.Text))
+            {
+                e.Cancel = false;
+                errorProvider.SetError(txtSubCode, "Please Enter the given subject Code!");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(txtSubCode, null);
             }
         }
 
@@ -330,5 +344,7 @@ namespace TimeTableManagment.Forms
                 e.Handled = true;
             }
         }
+
+       
     }
 }
