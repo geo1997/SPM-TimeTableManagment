@@ -104,15 +104,15 @@
             // 
             this.tblLec.AllowUserToAddRows = false;
             this.tblLec.AllowUserToDeleteRows = false;
-            this.tblLec.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCellsExceptHeader;
+            this.tblLec.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.tblLec.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tblLec.Location = new System.Drawing.Point(65, 30);
+            this.tblLec.Location = new System.Drawing.Point(123, 50);
             this.tblLec.Name = "tblLec";
             this.tblLec.ReadOnly = true;
             this.tblLec.RowHeadersWidth = 51;
             this.tblLec.RowTemplate.Height = 24;
             this.tblLec.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.tblLec.Size = new System.Drawing.Size(929, 246);
+            this.tblLec.Size = new System.Drawing.Size(773, 246);
             this.tblLec.TabIndex = 5;
             this.tblLec.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tblLec_CellClick);
             // 
@@ -178,6 +178,7 @@
             this.txtEmpId.Size = new System.Drawing.Size(130, 22);
             this.txtEmpId.TabIndex = 11;
             this.txtEmpId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEmpId_KeyPress);
+            this.txtEmpId.Validating += new System.ComponentModel.CancelEventHandler(this.txtEmpId_Validating);
             // 
             // label7
             // 
