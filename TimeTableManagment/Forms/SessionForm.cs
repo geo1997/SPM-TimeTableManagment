@@ -15,7 +15,7 @@ namespace TimeTableManagment.Forms
     public partial class SessionForm : Form
     {
         private bool isCollapse;
-        private bool isCollapsed;
+        
         public SessionForm()
         {
             InitializeComponent();
@@ -190,6 +190,7 @@ namespace TimeTableManagment.Forms
             cmbSubGroup.Visible = false;
         }
 
+        //Add selected lecture(s) to the text Box
         private void button1_Click(object sender, EventArgs e)
         {
             txtLecs.Text = "";
@@ -201,6 +202,7 @@ namespace TimeTableManagment.Forms
 
         }
 
+        //Animation on Lectures form
         private void timer1_Tick(object sender, EventArgs e)
         {
             if (isCollapse)
@@ -308,12 +310,65 @@ namespace TimeTableManagment.Forms
 
 
             }
-               
-            
-            
+                 
         }
 
+     //display relevant session once click
+        private void tblSessions_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                lblDisSes.Text = "";
+                string lecs = tblSessions.SelectedRows[0].Cells[1].Value.ToString();
+                string tags = tblSessions.SelectedRows[0].Cells[4].Value.ToString();
+                string sub = tblSessions.SelectedRows[0].Cells[2].Value.ToString();
+                string subCode = tblSessions.SelectedRows[0].Cells[3].Value.ToString();
+                string grp = tblSessions.SelectedRows[0].Cells[5].Value.ToString();
+                string subGroup = tblSessions.SelectedRows[0].Cells[6].Value.ToString();
+                string stNo = tblSessions.SelectedRows[0].Cells[7].Value.ToString();
+                string duration = tblSessions.SelectedRows[0].Cells[8].Value.ToString();
 
+                if (tags == "Practical" || tags == "practical")
+                {
+                    lblDisSes.Text = lecs + "\n" + sub + " (" + subCode + ")" + "\n" + tags + "\n" + subGroup + "\n" + stNo + "(" + duration + ")";
+                }
+                else
+                {
+                    lblDisSes.Text = lecs + "\n" + sub + " (" + subCode + ")" + "\n" + tags + "\n" + grp + "\n" + stNo + "(" + duration + ")";
+                }
+
+
+
+            }
+            catch(Exception ex)
+            {
+                ClearField();
+                MessageBox.Show("There no details to view!",
+                                  "Empty Table", MessageBoxButtons.OK,
+                                                  MessageBoxIcon.Exclamation,
+                                                  MessageBoxDefaultButton.Button1);
+            }
+           
+           
+        }
+
+        // Search Function
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            string searchVal = txtSearch.Text;
+            SetConnection();
+            sql_con.Open();
+            sql_cmd = sql_con.CreateCommand();
+            string queryText = "select * from Session where Lecturer LIKE '" + searchVal + "%'OR Subject LIKE'" + searchVal + "%'OR SubjectCode LIKE'" + searchVal + "%'OR GroupID LIKE'" + searchVal + "%'OR SubGID LIKE'" + searchVal + "%'OR StudentCount LIKE'" + searchVal + "%'OR Duration LIKE'" + searchVal + "%'";
+            DB = new SQLiteDataAdapter(queryText, sql_con);
+            DS.Reset();
+            DB.Fill(DS);
+            DT = DS.Tables[0];
+            tblSessions.DataSource = DT;
+            sql_con.Close();
+        }
+
+        //Validation
         private void txtStudentCount_KeyPress(object sender, KeyPressEventArgs e)
         {
             char ch = e.KeyChar;
@@ -331,44 +386,6 @@ namespace TimeTableManagment.Forms
                 e.Handled = true;
             }
         }
-
-        private void tblSessions_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            lblDisSes.Text = "";
-            string lecs = tblSessions.SelectedRows[0].Cells[1].Value.ToString();
-            string tags = tblSessions.SelectedRows[0].Cells[4].Value.ToString();
-            string sub = tblSessions.SelectedRows[0].Cells[2].Value.ToString();
-            string subCode = tblSessions.SelectedRows[0].Cells[3].Value.ToString();
-            string grp = tblSessions.SelectedRows[0].Cells[5].Value.ToString();
-            string subGroup = tblSessions.SelectedRows[0].Cells[6].Value.ToString();
-            string stNo = tblSessions.SelectedRows[0].Cells[7].Value.ToString();
-            string duration = tblSessions.SelectedRows[0].Cells[8].Value.ToString();
-
-            if (tags == "Practical"||tags=="practical") { 
-                lblDisSes.Text = lecs + "\n" + sub + " (" + subCode + ")" + "\n" + tags + "\n" + subGroup + "\n" + stNo + "(" + duration + ")";
-            }
-            else
-            {
-                lblDisSes.Text = lecs + "\n" + sub + " (" + subCode + ")" + "\n" + tags + "\n" + grp + "\n" + stNo + "(" + duration + ")";
-            }
-           
-        }
-
-        private void txtSearch_TextChanged(object sender, EventArgs e)
-        {
-            string searchVal = txtSearch.Text;
-            SetConnection();
-            sql_con.Open();
-            sql_cmd = sql_con.CreateCommand();
-            string queryText = "select * from Session where Lecturer LIKE '" + searchVal + "%'OR Subject LIKE'" + searchVal + "%'OR SubjectCode LIKE'" + searchVal + "%'OR GroupID LIKE'" + searchVal + "%'OR SubGID LIKE'" + searchVal + "%'OR StudentCount LIKE'" + searchVal + "%'OR Duration LIKE'" + searchVal + "%'";
-            DB = new SQLiteDataAdapter(queryText, sql_con);
-            DS.Reset();
-            DB.Fill(DS);
-            DT = DS.Tables[0];
-            tblSessions.DataSource = DT;
-            sql_con.Close();
-        }
-
         private void txtLecs_Validating(object sender, CancelEventArgs e)
         {
             if (string.IsNullOrEmpty(txtLecs.Text))
@@ -453,6 +470,7 @@ namespace TimeTableManagment.Forms
             }
         }
 
+        //To change the visibility of sub groups Comb Box
         private void cmbTags_SelectedValueChanged(object sender, EventArgs e)
         {
             if (cmbTags.Text == "Practical" || cmbTags.Text == "practical")
