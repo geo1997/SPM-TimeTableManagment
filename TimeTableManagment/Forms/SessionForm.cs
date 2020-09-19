@@ -69,12 +69,12 @@ namespace TimeTableManagment.Forms
             DT = DS.Tables[0];
             foreach (DataRow dr in DT.Rows)
             {
-                lecNameList.Items.Add(dr["Title"].ToString()+dr["Name"].ToString());
+                lecNameList.Items.Add(dr["Title"].ToString() + dr["Name"].ToString());
             }
             sql_con.Close();
         }
 
-       //retreive tags data from the database
+        //retreive tags data from the database
         private void LoadTags()
         {
             SetConnection();
@@ -87,7 +87,7 @@ namespace TimeTableManagment.Forms
             DT = DS.Tables[0];
             foreach (DataRow dr in DT.Rows)
             {
-               cmbTags.Items.Add(dr["TagName"].ToString());
+                cmbTags.Items.Add(dr["TagName"].ToString());
             }
             sql_con.Close();
         }
@@ -117,19 +117,19 @@ namespace TimeTableManagment.Forms
             SetConnection();
             sql_con.Open();
             sql_cmd = sql_con.CreateCommand();
-            string queryText = "select Code from Subject where Subject='" + sub+ "'";
+            string queryText = "select Code from Subject where Subject='" + sub + "'";
             DB = new SQLiteDataAdapter(queryText, sql_con);
             DS.Reset();
             DB.Fill(DS);
             DT = DS.Tables[0];
             foreach (DataRow dr in DT.Rows)
             {
-               txtSubCode.Text= dr["Code"].ToString();
+                txtSubCode.Text = dr["Code"].ToString();
             }
             sql_con.Close();
         }
 
-         //retrieve group ids from database
+        //retrieve group ids from database
         private void FillGroupIdComboBox()
         {
             SetConnection();
@@ -142,7 +142,7 @@ namespace TimeTableManagment.Forms
             DT = DS.Tables[0];
             foreach (DataRow dr in DT.Rows)
             {
-               cmbGroupId.Items.Add(dr["GroupID"].ToString());
+                cmbGroupId.Items.Add(dr["GroupID"].ToString());
             }
             sql_con.Close();
         }
@@ -175,7 +175,7 @@ namespace TimeTableManagment.Forms
             cmbSubGroup.Visible = false;
             LoadData();
         }
-       //clear the fields
+        //clear the fields
         private void ClearField()
         {
             txtLecs.Clear();
@@ -195,7 +195,7 @@ namespace TimeTableManagment.Forms
             txtLecs.Text = "";
             foreach (object lecturers in lecNameList.CheckedItems)
             {
-              txtLecs.Text += (txtLecs.Text == "" ? "" : ",") + lecturers.ToString();
+                txtLecs.Text += (txtLecs.Text == "" ? "" : ",") + lecturers.ToString();
             }
             timer1.Start();
 
@@ -205,7 +205,7 @@ namespace TimeTableManagment.Forms
         {
             if (isCollapse)
             {
-                label6.Image = Resources.icons8_minus; 
+                label6.Image = Resources.icons8_minus;
                 panelDropDown.Height += 10;
                 if (panelDropDown.Size == panelDropDown.MaximumSize)
                 {
@@ -247,19 +247,19 @@ namespace TimeTableManagment.Forms
             string lecs = txtLecs.Text;
             string tags = cmbTags.Text;
             string sub = cmbSubject.Text;
-            string subCode=txtSubCode.Text;
+            string subCode = txtSubCode.Text;
             string grp = cmbGroupId.Text;
             string subGroup = cmbSubGroup.Text;
             string stNo = txtStudentCount.Text;
-            string duration =txtDuration.Text;
+            string duration = txtDuration.Text;
 
 
             if (ValidateChildren(ValidationConstraints.Enabled) &&
                 lecs == "" ||
                 tags == "" || subCode == ""
-                || grp == "" || stNo =="" || duration == "" )
+                || grp == "" || stNo == "" || duration == "")
             {
-                if (tags == "Practical"|| tags=="practical" && subGroup == "")
+                if (tags == "Practical" || tags == "practical" && subGroup == "")
                 {
                     MessageBox.Show("Select Sub group Id!",
                                   "Unable to Submit", MessageBoxButtons.OK,
@@ -272,45 +272,45 @@ namespace TimeTableManagment.Forms
                               MessageBoxIcon.Exclamation,
                               MessageBoxDefaultButton.Button1);
 
-            } 
+            }
             else
             {
-                
-                    if (tags=="Practical"||tags=="practical" )
-                    {
-                        if(Convert.ToInt32(stNo) > 60)
-                        {
-                          MessageBox.Show("Student Count Must Not more than 60 for practicals!", "unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                         else
-                         {
-                           string ses= lecs + "\n" + sub + " (" + subCode + ")" + "\n" + tags + "\n" + subGroup + "\n" + stNo + "(" + duration + ")";
-                           string insertSes = "insert into Session(Lecturer,Subject,SubjectCode,Tag,GroupID,SubGID,StudentCount,Duration,Description)" +
-                                 "values('" + lecs + "','" + sub + "','" + subCode + "','" + tags + "','" + grp + "','" + subGroup + "','" + stNo + "','" + duration + "','"+ses+"')";
-                           ExecuteQuery(insertSes);
-                           LoadData();
-                           ClearField();
 
+                if (tags == "Practical" || tags == "practical")
+                {
+                    if (Convert.ToInt32(stNo) > 60)
+                    {
+                        MessageBox.Show("Student Count Must Not more than 60 for practicals!", "unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-                         
-                }
-                       
                     else
                     {
-                        string ses= lecs + "\n" + sub + " (" + subCode + ")" + "\n" + tags + "\n" + grp + "\n" + stNo + "(" + duration + ")";
+                        string ses = lecs + "\n" + sub + " (" + subCode + ")" + "\n" + tags + "\n" + subGroup + "\n" + stNo + "(" + duration + ")";
                         string insertSes = "insert into Session(Lecturer,Subject,SubjectCode,Tag,GroupID,SubGID,StudentCount,Duration,Description)" +
-                                        "values('" + lecs + "','" + sub + "','" + subCode + "','" + tags + "','" + grp + "','" + subGroup + "','" + stNo + "','" + duration + "','"+ses+"')";
+                              "values('" + lecs + "','" + sub + "','" + subCode + "','" + tags + "','" + grp + "','" + subGroup + "','" + stNo + "','" + duration + "','" + ses + "')";
                         ExecuteQuery(insertSes);
                         LoadData();
-
                         ClearField();
+
                     }
+
+                }
+
+                else
+                {
+                    string ses = lecs + "\n" + sub + " (" + subCode + ")" + "\n" + tags + "\n" + grp + "\n" + stNo + "(" + duration + ")";
+                    string insertSes = "insert into Session(Lecturer,Subject,SubjectCode,Tag,GroupID,SubGID,StudentCount,Duration,Description)" +
+                                    "values('" + lecs + "','" + sub + "','" + subCode + "','" + tags + "','" + grp + "','" + subGroup + "','" + stNo + "','" + duration + "','" + ses + "')";
+                    ExecuteQuery(insertSes);
+                    LoadData();
+
+                    ClearField();
+                }
 
 
             }
-               
-            
-            
+
+
+
         }
 
 
@@ -344,14 +344,15 @@ namespace TimeTableManagment.Forms
             string stNo = tblSessions.SelectedRows[0].Cells[7].Value.ToString();
             string duration = tblSessions.SelectedRows[0].Cells[8].Value.ToString();
 
-            if (tags == "Practical"||tags=="practical") { 
+            if (tags == "Practical" || tags == "practical")
+            {
                 lblDisSes.Text = lecs + "\n" + sub + " (" + subCode + ")" + "\n" + tags + "\n" + subGroup + "\n" + stNo + "(" + duration + ")";
             }
             else
             {
                 lblDisSes.Text = lecs + "\n" + sub + " (" + subCode + ")" + "\n" + tags + "\n" + grp + "\n" + stNo + "(" + duration + ")";
             }
-           
+
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
@@ -441,7 +442,7 @@ namespace TimeTableManagment.Forms
 
         private void cmbSubGroup_Validating(object sender, CancelEventArgs e)
         {
-            if (string.IsNullOrEmpty(cmbSubGroup.Text) && cmbTags.Text=="Practical"|| cmbTags.Text == "practical")
+            if (string.IsNullOrEmpty(cmbSubGroup.Text) && cmbTags.Text == "Practical" || cmbTags.Text == "practical")
             {
                 e.Cancel = false;
                 errorProvider.SetError(cmbSubGroup, "Please Select the sub-group id!");
