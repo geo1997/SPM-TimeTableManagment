@@ -16,6 +16,9 @@ namespace TimeTableManagment.Forms
         public AvailabilityForm()
         {
             InitializeComponent();
+            dateTimePicker1 = new DateTimePicker();
+            dateTimePicker1.Format = DateTimePickerFormat.Time;
+            dateTimePicker1.ShowUpDown = true;
         }
 
         private SQLiteConnection sql_con;
@@ -63,7 +66,91 @@ namespace TimeTableManagment.Forms
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (comboBox1.Text == "Lecturer")
+            {
+                comboBox2.Items.Clear();
+                sql_con.Open();
+                sql_cmd = sql_con.CreateCommand();
+                sql_cmd.CommandType = CommandType.Text;
+                sql_cmd.CommandText = "SELECT GroupID FROM Student";
+                sql_cmd.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                SQLiteDataAdapter da = new SQLiteDataAdapter(sql_cmd);
+                da.Fill(dt);
 
+                foreach (DataRow dr in dt.Rows)
+                {
+                    comboBox2.Items.Add(dr["GroupID"].ToString());
+                }
+                sql_con.Close();
+            }
+
+            else if (comboBox1.Text == "Session")
+            {
+                comboBox2.Items.Clear();
+                sql_con.Open();
+                sql_cmd = sql_con.CreateCommand();
+                sql_cmd.CommandType = CommandType.Text;
+                sql_cmd.CommandText = "SELECT SubGroupID FROM Student";
+                sql_cmd.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                SQLiteDataAdapter da = new SQLiteDataAdapter(sql_cmd);
+                da.Fill(dt);
+
+                foreach (DataRow dr in dt.Rows)
+                {
+                    comboBox2.Items.Add(dr["SubGroupID"].ToString());
+                }
+                sql_con.Close();
+            }
+
+            else if (comboBox1.Text == "Lecturer")
+            {
+                comboBox2.Items.Clear();
+                sql_con.Open();
+                sql_cmd = sql_con.CreateCommand();
+                sql_cmd.CommandType = CommandType.Text;
+                sql_cmd.CommandText = "SELECT GroupID FROM Student";
+                sql_cmd.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                SQLiteDataAdapter da = new SQLiteDataAdapter(sql_cmd);
+                da.Fill(dt);
+
+                foreach (DataRow dr in dt.Rows)
+                {
+                    comboBox2.Items.Add(dr["GroupID"].ToString());
+                }
+                sql_con.Close();
+            }
+
+            else if (comboBox1.Text == "Lecturer")
+            {
+                comboBox2.Items.Clear();
+                sql_con.Open();
+                sql_cmd = sql_con.CreateCommand();
+                sql_cmd.CommandType = CommandType.Text;
+                sql_cmd.CommandText = "SELECT GroupID FROM Student";
+                sql_cmd.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                SQLiteDataAdapter da = new SQLiteDataAdapter(sql_cmd);
+                da.Fill(dt);
+
+                foreach (DataRow dr in dt.Rows)
+                {
+                    comboBox2.Items.Add(dr["GroupID"].ToString());
+                }
+                sql_con.Close();
+            }
+        }
+
+        public void fillCombo(ComboBox combo,string query,string displayMember,string valueMember) {
+            sql_cmd = new SQLiteCommand(query, sql_con);
+            DB = new SQLiteDataAdapter(sql_cmd);
+            DT = new DataTable();
+            DB.Fill(DT);
+            combo.DataSource = DT;
+            combo.DisplayMember = displayMember;
+            combo.ValueMember = valueMember;
         }
 
         private void label7_Click(object sender, EventArgs e)
@@ -84,6 +171,11 @@ namespace TimeTableManagment.Forms
         private void AvailabilityForm_Load(object sender, EventArgs e)
         {
             LoadData();
+        }
+
+        private void dateTimePicker1_MouseDown(object sender, MouseEventArgs e)
+        {
+            dateTimePicker1.CustomFormat = "hh:mm";
         }
     }
 }
