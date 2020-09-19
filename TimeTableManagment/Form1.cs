@@ -134,7 +134,7 @@ namespace TimeTableManagment
 
         private void availability_click(object sender, EventArgs e)
         {
-            ActivateButton(sender);
+            OpenChildForm(new Forms.AvailabilityForm(), sender);
         }
 
         private void room_click(object sender, EventArgs e)
