@@ -185,6 +185,12 @@ namespace TimeTableManagment.Forms
 
         private void button3_Click(object sender, EventArgs e)
         {
+            comboBox1.ResetText();
+            comboBox2.ResetText();
+            comboBox3.ResetText();
+            dateTimePicker1.ResetText();
+            dateTimePicker2.ResetText();
+
             if (AvailabilityIDs > 0)
             {
                 button1.Visible = true;
@@ -193,7 +199,7 @@ namespace TimeTableManagment.Forms
                 labelLec.Visible = true;
                 label8.Visible = false;
 
-                String updateQuery = "update Availability set Type='" + comboBox1.Text + "',Name='" + comboBox2.Text + "',Day='" + comboBox3.Text + "',Froms='" + dateTimePicker1.Text + "',Tos='" + dateTimePicker2.Text +
+                String updateQuery = "update Availability set Type='" + comboBox1.Text + "',Name='" + comboBox2.Text + "',Day='" + comboBox3.Text + "',Froms='" + dateTimePicker1.Text + "',Tos='" + dateTimePicker2.Text + "'" +
                "where AvailabilityID='" + this.AvailabilityIDs + "'";
                 ExecuteQuery(updateQuery);
                 MessageBox.Show("Information updated successfully", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -220,9 +226,18 @@ namespace TimeTableManagment.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string insertTag = "insert into Availability (Type,Name,Day,Froms,Tos) values('" + comboBox1.Text + "','" + comboBox2.Text + "','" + comboBox3.Text + "','" + dateTimePicker1.Text + "','" + dateTimePicker2.Text + "')";
-            ExecuteQuery(insertTag);
-            LoadData();
+            if (ValidateChildren(ValidationConstraints.Enabled))
+            {
+                comboBox1.ResetText();
+                comboBox2.ResetText();
+                comboBox3.ResetText();
+                dateTimePicker1.ResetText();
+                dateTimePicker2.ResetText();
+
+                string insertTag = "insert into Availability (Type,Name,Day,Froms,Tos) values('" + comboBox1.Text + "','" + comboBox2.Text + "','" + comboBox3.Text + "','" + dateTimePicker1.Text + "','" + dateTimePicker2.Text + "')";
+                ExecuteQuery(insertTag);
+                LoadData();
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -232,6 +247,12 @@ namespace TimeTableManagment.Forms
             button4.Visible = false;
             labelLec.Visible = true;
             label8.Visible = false;
+
+            comboBox1.ResetText();
+            comboBox2.ResetText();
+            comboBox3.ResetText();
+            dateTimePicker1.ResetText();
+            dateTimePicker2.ResetText();
 
             String deleteQuery = "delete from Availability where AvailabilityID='" + this.AvailabilityIDs + "'";
             ExecuteQuery(deleteQuery);
@@ -247,6 +268,57 @@ namespace TimeTableManagment.Forms
             labelLec.Visible = true;
             label8.Visible = false;
 
+            comboBox1.ResetText();
+            comboBox2.ResetText();
+            comboBox3.ResetText();
+            dateTimePicker1.ResetText();
+            dateTimePicker2.ResetText();
+
+        }
+
+        private void comboBox1_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(comboBox1.Text))
+            {
+                e.Cancel = false;
+                comboBox1.Focus();
+                errorProvider1.SetError(comboBox1,"Please Enter Type");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(comboBox1, null);
+            }
+        }
+
+        private void comboBox2_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(comboBox2.Text))
+            {
+                e.Cancel = false;
+                comboBox2.Focus();
+                errorProvider1.SetError(comboBox2, "Please Enter Name");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(comboBox2, null);
+            }
+        }
+
+        private void comboBox3_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(comboBox3.Text))
+            {
+                e.Cancel = false;
+                comboBox3.Focus();
+                errorProvider1.SetError(comboBox3, "Please Enter Day");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(comboBox3, null);
+            }
         }
     }
 }
