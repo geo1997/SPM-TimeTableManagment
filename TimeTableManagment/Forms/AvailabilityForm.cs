@@ -26,7 +26,7 @@ namespace TimeTableManagment.Forms
         private SQLiteDataAdapter DB;
         private DataSet DS = new DataSet();
         private DataTable DT = new DataTable();
-        private int AvailabilityID = 0;
+        private int AvailabilityIDs = 0;
         private int roomID = 0;
 
         //set connection
@@ -161,19 +161,67 @@ namespace TimeTableManagment.Forms
 
         private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
         {
-
+            dateTimePicker1.CustomFormat = "hh:mm";
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            button3.Visible = true;
+            button1.Visible = false;
+            button4.Visible = true;
+            label15.Visible = true;
+            labelLec.Visible = false;
+
+            AvailabilityIDs = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
+            comboBox1.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+            comboBox2.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+            comboBox3.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
+            dateTimePicker1.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
+            dateTimePicker2.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
+
+    }
 
         private void button3_Click(object sender, EventArgs e)
         {
+            comboBox1.ResetText();
+            comboBox2.ResetText();
+            comboBox3.ResetText();
+            dateTimePicker1.ResetText();
+            dateTimePicker2.ResetText();
+
+            if (AvailabilityIDs > 0)
+            {
+                button1.Visible = true;
+                button3.Visible = false;
+                button4.Visible = false;
+                labelLec.Visible = true;
+                label15.Visible = false;
+
+                String updateQuery = "update Availability set Type='" + comboBox1.Text + "',Name='" + comboBox2.Text + "',Day='" + comboBox3.Text + "',Froms='" + dateTimePicker1.Text + "',Tos='" + dateTimePicker2.Text + "'" +
+               "where AvailabilityID='" + this.AvailabilityIDs + "'";
+                ExecuteQuery(updateQuery);
+                MessageBox.Show("Information updated successfully", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LoadData();
+            }
+            else
+            {
+                MessageBox.Show("Please select to update ", "Select", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
 
         private void AvailabilityForm_Load(object sender, EventArgs e)
         {
             LoadData();
+            button3.Visible = false;
+            button4.Visible = false;
+            label15.Visible = false;
+
             RoomAvailablityLoad();
             roomData_Fill_Combobox();
+
+          
+
         }
 
         private void dateTimePicker1_MouseDown(object sender, MouseEventArgs e)
@@ -181,10 +229,109 @@ namespace TimeTableManagment.Forms
             dateTimePicker1.CustomFormat = "hh:mm";
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (ValidateChildren(ValidationConstraints.Enabled) &&
+                comboBox1.Text == "" || comboBox2.Text == "" || comboBox3.Text == "")
+            {
+                MessageBox.Show("Please fill the Empty Field(s)",
+                "Unable to Submit", MessageBoxButtons.OK,
+                                MessageBoxIcon.Exclamation,
+                                MessageBoxDefaultButton.Button1);
+            }
+            else
+            {
+                comboBox1.ResetText();
+                comboBox2.ResetText();
+                comboBox3.ResetText();
+                dateTimePicker1.ResetText();
+                dateTimePicker2.ResetText();
+
+                string insertTag = "insert into Availability (Type,Name,Day,Froms,Tos) values('" + comboBox1.Text + "','" + comboBox2.Text + "','" + comboBox3.Text + "','" + dateTimePicker1.Text + "','" + dateTimePicker2.Text + "')";
+                ExecuteQuery(insertTag);
+                LoadData();
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            button1.Visible = true;
+            button3.Visible = false;
+            button4.Visible = false;
+            labelLec.Visible = true;
+            label15.Visible = false;
+
+            comboBox1.ResetText();
+            comboBox2.ResetText();
+            comboBox3.ResetText();
+            dateTimePicker1.ResetText();
+            dateTimePicker2.ResetText();
+
+            String deleteQuery = "delete from Availability where AvailabilityID='" + this.AvailabilityIDs + "'";
+            ExecuteQuery(deleteQuery);
+            MessageBox.Show("Information deleted successfully", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            LoadData();
+
+        }
 
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            button1.Visible = true;
+            button3.Visible = false;
+            button4.Visible = false;
+            labelLec.Visible = true;
+            label15.Visible = false;
 
+            comboBox1.ResetText();
+            comboBox2.ResetText();
+            comboBox3.ResetText();
+            dateTimePicker1.ResetText();
+            dateTimePicker2.ResetText();
 
+        }
+
+        private void comboBox1_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(comboBox1.Text))
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(comboBox1, "Please Enter Type");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(comboBox1, null);
+            }
+        }
+
+        private void comboBox2_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(comboBox2.Text))
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(comboBox2, "Please Enter Name");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(comboBox2, null);
+            }
+        }
+
+        private void comboBox3_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(comboBox3.Text))
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(comboBox3, "Please Enter Day");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(comboBox3, null);
+            }
+        }
 
 
 
@@ -370,32 +517,28 @@ namespace TimeTableManagment.Forms
         //load room data from db to combobox
         private void roomData_Fill_Combobox()
         {
-            try
-            {
-                String getBuildings = "select * from Rooms";
-                sql_con.Open();
-                SQLiteCommand command = new SQLiteCommand(getBuildings, sql_con);
 
-                SQLiteDataReader reader = command.ExecuteReader();
+                    String getBuildings = "select * from Rooms";
+                    sql_con.Open();
+                    SQLiteCommand command = new SQLiteCommand(getBuildings, sql_con);
+
+                    SQLiteDataReader reader = command.ExecuteReader();
 
 
-                while (reader.Read())
-                {
-                    string roomName = reader.GetString(1);
+                    while (reader.Read())
+                    {
+                        string roomName = reader.GetString(1);
 
-                   roomSelectComboBox.Items.Add(roomName);
-                }
-            }
-            catch (Exception e)
-            {
-                Console.Write(e + "no work");
-            }
-
+                        roomSelectComboBox.Items.Add(roomName);
+                    }
         }
+
+      
 
         //clear text field data
         private void clearData()
         {
+
             combo_startTime.SelectedItem = null;
             combo_endTime.SelectedItem = null;
             roomSelectComboBox.SelectedItem = null;
@@ -406,6 +549,7 @@ namespace TimeTableManagment.Forms
         {
             try
             {
+
                 String startTime = combo_startTime.Text;
                 String endTime = combo_endTime.Text;
                 String roomName = roomSelectComboBox.Text;
@@ -453,6 +597,7 @@ namespace TimeTableManagment.Forms
             if (roomID > 0)
             {
 
+
                 String startTime = combo_startTime.Text;
                 String endTime = combo_endTime.Text;
                 String roomName = roomSelectComboBox.Text;
@@ -477,6 +622,7 @@ namespace TimeTableManagment.Forms
                     detailsAddBtn.Enabled = true;
                 }
 
+
             }
             else
             {
@@ -489,11 +635,13 @@ namespace TimeTableManagment.Forms
         {
             if (roomID > 0)
             {
+
                 String deleteQuery = "delete from RoomAvailability where id='" + this.roomID + "'";
                 ExecuteQuery(deleteQuery);
                 MessageBox.Show("Room Availability Information deleted successfully", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 RoomAvailablityLoad();
                 detailsAddBtn.Enabled = true;
+
             }
             else
             {
