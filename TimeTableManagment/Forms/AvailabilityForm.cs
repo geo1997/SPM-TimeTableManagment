@@ -27,6 +27,7 @@ namespace TimeTableManagment.Forms
         private DataSet DS = new DataSet();
         private DataTable DT = new DataTable();
         private int AvailabilityID = 0;
+        private int roomID = 0;
 
         //set connection
         private void SetConnection()
@@ -171,11 +172,340 @@ namespace TimeTableManagment.Forms
         private void AvailabilityForm_Load(object sender, EventArgs e)
         {
             LoadData();
+            RoomAvailablityLoad();
+            roomData_Fill_Combobox();
         }
 
         private void dateTimePicker1_MouseDown(object sender, MouseEventArgs e)
         {
             dateTimePicker1.CustomFormat = "hh:mm";
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //Room availability
+
+
+        //load room avilability data on  table
+        private void RoomAvailablityLoad()
+        {
+            SetConnection();
+            sql_con.Open();
+            sql_cmd = sql_con.CreateCommand();
+            string queryText = "select r.id,r.RoomName,r.StartTime,r.EndTime from RoomAvailability r"; /*,Location l where r.BuildingID=l.BuildingID*/
+            DB = new SQLiteDataAdapter(queryText, sql_con);
+            DS.Reset();
+            DB.Fill(DS);
+            DT = DS.Tables[0];
+            roomAvailabilityTable.DataSource = DT;
+            sql_con.Close();
+        }
+
+        //load room data from db to combobox
+        private void roomData_Fill_Combobox()
+        {
+            try
+            {
+                String getBuildings = "select * from Rooms";
+                sql_con.Open();
+                SQLiteCommand command = new SQLiteCommand(getBuildings, sql_con);
+
+                SQLiteDataReader reader = command.ExecuteReader();
+
+
+                while (reader.Read())
+                {
+                    string roomName = reader.GetString(1);
+
+                   roomSelectComboBox.Items.Add(roomName);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.Write(e + "no work");
+            }
+
+        }
+
+        //clear text field data
+        private void clearData()
+        {
+            combo_startTime.SelectedItem = null;
+            combo_endTime.SelectedItem = null;
+            roomSelectComboBox.SelectedItem = null;
+
+        }
+
+        private void detailsAddBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                String startTime = combo_startTime.Text;
+                String endTime = combo_endTime.Text;
+                String roomName = roomSelectComboBox.Text;
+
+                if (ValidateChildren(ValidationConstraints.Enabled) &&
+                roomName == "" || startTime == "" || endTime == ""
+                 )
+                {
+                    MessageBox.Show("Complete All The Fields!",
+                   "Unable to Submit", MessageBoxButtons.OK,
+                                   MessageBoxIcon.Exclamation,
+                                   MessageBoxDefaultButton.Button1);
+                }
+                else
+                {
+                    string insertUnRoom = "insert into RoomAvailability (RoomName,StartTime,EndTime)values('" + roomName + "','" + startTime + "','"
+                  + endTime + "')";
+                    ExecuteQuery(insertUnRoom);
+                    RoomAvailablityLoad();
+                    MessageBox.Show("Room Availability Information added successfully", "Inserted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            clearData();
+        }
+
+        private void roomAvailabilityTable_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            roomID = Convert.ToInt32(roomAvailabilityTable.SelectedRows[0].Cells[0].Value);
+            roomSelectComboBox.Text = roomAvailabilityTable.SelectedRows[0].Cells[1].Value.ToString();
+            combo_startTime.Text = roomAvailabilityTable.SelectedRows[0].Cells[2].Value.ToString();
+            combo_endTime.Text = roomAvailabilityTable.SelectedRows[0].Cells[3].Value.ToString();
+
+            detailsAddBtn.Enabled = false;
+        }
+
+        private void detailsEditBtn_Click(object sender, EventArgs e)
+        {
+            if (roomID > 0)
+            {
+
+                String startTime = combo_startTime.Text;
+                String endTime = combo_endTime.Text;
+                String roomName = roomSelectComboBox.Text;
+
+                if (ValidateChildren(ValidationConstraints.Enabled) &&
+                roomName == "" || startTime == "" || endTime == "" 
+                 )
+                {
+                    MessageBox.Show("Complete All The Fields!",
+                   "Unable to Submit", MessageBoxButtons.OK,
+                                   MessageBoxIcon.Exclamation,
+                                   MessageBoxDefaultButton.Button1);
+                }
+                else
+                {
+                    String updateQuery = "update RoomAvailability set RoomName='" + roomName + "', " +
+                                       "StartTime='" + startTime + "',EndTime='" + endTime + "'" +
+                                  "where id='" + this.roomID + "'";
+                    ExecuteQuery(updateQuery);
+                    MessageBox.Show("Room Availability Information updated successfully", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    RoomAvailablityLoad();
+                    detailsAddBtn.Enabled = true;
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Please select a value to update ", "Select", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            clearData();
+        }
+
+        private void detailDeleteBtn_Click(object sender, EventArgs e)
+        {
+            if (roomID > 0)
+            {
+                String deleteQuery = "delete from RoomAvailability where id='" + this.roomID + "'";
+                ExecuteQuery(deleteQuery);
+                MessageBox.Show("Room Availability Information deleted successfully", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                RoomAvailablityLoad();
+                detailsAddBtn.Enabled = true;
+            }
+            else
+            {
+                MessageBox.Show("Please select a value to delete ", "Select", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            clearData();
+        }
+
+        private void clearDetailsBtn_Click(object sender, EventArgs e)
+        {
+            clearData();
+            detailsAddBtn.Enabled = true;
         }
     }
 }

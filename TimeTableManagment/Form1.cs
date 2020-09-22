@@ -139,13 +139,16 @@ namespace TimeTableManagment
 
         private void room_click(object sender, EventArgs e)
         {
-            ActivateButton(sender);
+            OpenChildForm(new Forms.RoomForm(), sender);
         }
 
         private void statistics_click(object sender, EventArgs e)
         {
             OpenChildForm(new Forms.StatisticsForm(), sender);
         }
+
+
+
 
         private void btnCloseChildForm_click(object sender, EventArgs e)
         {
