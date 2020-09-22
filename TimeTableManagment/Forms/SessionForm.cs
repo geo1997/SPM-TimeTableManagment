@@ -22,6 +22,7 @@ namespace TimeTableManagment.Forms
         private DataTable DT = new DataTable();
         private int ConsecativeID = 0;
         private int ParallelID = 0;
+        private int OverlapID = 0;
 
         //set connection
         private void SetConnection()
@@ -185,6 +186,15 @@ namespace TimeTableManagment.Forms
             FillSubjectComboBoxOver();
             Overlap_LoadData();
             FillSession2List();
+            button17.Visible = false;
+            button4.Visible = false;
+            label13.Visible = false;
+            button18.Visible = false;
+            button9.Visible = false;
+            label21.Visible = false;
+            button19.Visible = false;
+            button12.Visible = false;
+            label31.Visible = false;
         }
         //clear the fields
         private void ClearField()
@@ -513,6 +523,7 @@ namespace TimeTableManagment.Forms
                 ExecuteQuery(updateQuery);
                 MessageBox.Show("Information updated successfully", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Consec_LoadData();
+                metroComboBox4.ResetText();
             }
             else
             {
@@ -522,11 +533,21 @@ namespace TimeTableManagment.Forms
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            button4.Visible = false;
+            button17.Visible = false;
+            button13.Visible = false;
+            label30.Visible = true;
+            label13.Visible = false;
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
+            button4.Visible = false;
+            button17.Visible = false;
+            button13.Visible = false;
+            label30.Visible = true;
+            label13.Visible = false;
+
             String deleteQuery = "delete from Consecative where ConsecativeID='" + this.ConsecativeID + "'";
             ExecuteQuery(deleteQuery);
             MessageBox.Show("Information deleted successfully", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -635,6 +656,11 @@ namespace TimeTableManagment.Forms
 
         private void button5_Click(object sender, EventArgs e)
         {
+            button4.Visible = false;
+            button17.Visible = false;
+            button13.Visible = false;
+            label30.Visible = true;
+
             SetConnection();
             sql_con.Open();
             sql_cmd = sql_con.CreateCommand();
@@ -645,21 +671,92 @@ namespace TimeTableManagment.Forms
             DT = DS.Tables[0];
             dataGridView2.DataSource = DT;
             sql_con.Close();
-            Consec_LoadData();
         }
 
         private void button14_Click(object sender, EventArgs e)
         {
-            string insert = "insert into Consecative (Session1,Session2)values('" + metroComboBox4.Text + "','" + metroComboBox5.Text + "')";
-            ExecuteQuery(insert);
-            Consec_LoadData();
+            if (ValidateChildren(ValidationConstraints.Enabled) &&
+                metroComboBox4.Text == "" || metroComboBox5.Text == "")
+            {
+                MessageBox.Show("Please fill the Empty Field(s)",
+                "Unable to Submit", MessageBoxButtons.OK,
+                                MessageBoxIcon.Exclamation,
+                                MessageBoxDefaultButton.Button1);
+            }
+            else
+            {
+                string insert = "insert into Consecative (Session1,Session2)values('" + metroComboBox4.Text + "','" + metroComboBox5.Text + "')";
+                ExecuteQuery(insert);
+                Consec_LoadData();
+            }
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            button4.Visible = true;
+            button17.Visible = true;
+            button13.Visible = true;
+            label30.Visible = false;
+            label13.Visible = true;
+
             ConsecativeID = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
             metroComboBox4.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
             metroComboBox5.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+        }
+
+        private void metroTabPage2_Enter(object sender, EventArgs e)
+        {
+            Consec_LoadData();
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            if (ConsecativeID > 0)
+            {
+                button4.Visible = false;
+                button17.Visible = false;
+                button13.Visible = false;
+                label30.Visible = true;
+                label13.Visible = false;
+
+                String updateQuery = "update Consecative set Session1='" + metroComboBox4.Text + "',Session2='" + metroComboBox5.Text + "'" +
+               "where ConsecativeID='" + this.ConsecativeID + "'";
+                ExecuteQuery(updateQuery);
+                MessageBox.Show("Information updated successfully", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Consec_LoadData();
+            }
+            else
+            {
+                MessageBox.Show("Please select to update ", "Select", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void metroComboBox4_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(metroComboBox4.Text))
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(metroComboBox4, "Please Enter Session");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(metroComboBox4, null);
+            }
+        }
+
+        private void metroComboBox5_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(metroComboBox5.Text))
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(metroComboBox5, "Please Enter Session");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(metroComboBox5, null);
+            }
         }
 
         //..............................................Parallel Sessions............................................................................
@@ -793,23 +890,95 @@ namespace TimeTableManagment.Forms
 
         private void button8_Click(object sender, EventArgs e)
         {
-            string insert = "insert into Parallel (Sessions) values('" + textBox1.Text + "')";
-            ExecuteQuery(insert);
-            Parallel_LoadData();
+            if (ValidateChildren(ValidationConstraints.Enabled) &&
+                textBox1.Text == "")
+            {
+                MessageBox.Show("Please fill the Empty Field(s)",
+                "Unable to Submit", MessageBoxButtons.OK,
+                                MessageBoxIcon.Exclamation,
+                                MessageBoxDefaultButton.Button1);
+            }
+            else
+            {
+                string insert = "insert into Parallel (Sessions) values('" + textBox1.Text + "')";
+                ExecuteQuery(insert);
+                Parallel_LoadData();
+                textBox1.Clear();
+            }
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
+            button9.Visible = false;
+            button18.Visible = false;
+            label21.Visible = false;
+            label32.Visible = true;
             String deleteQuery = "delete from Parallel where ParallelID='" + this.ParallelID + "'";
             ExecuteQuery(deleteQuery);
             MessageBox.Show("Information deleted successfully", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Parallel_LoadData();
+            textBox1.Clear();
         }
 
         private void dataGridView3_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            button9.Visible = true;
+            button18.Visible = true;
+            label21.Visible = true;
+            label32.Visible = false;
+
             ParallelID = Convert.ToInt32(dataGridView3.SelectedRows[0].Cells[0].Value);
             textBox1.Text = dataGridView3.SelectedRows[0].Cells[1].Value.ToString();
+        }
+
+        private void metroTabPage3_Enter(object sender, EventArgs e)
+        {
+            Parallel_LoadData();
+        }
+
+        private void button18_Click(object sender, EventArgs e)
+        {
+            if (ParallelID > 0)
+            {
+                button9.Visible = false;
+                button18.Visible = false;
+                label21.Visible = false;
+                label32.Visible = true;
+
+                String updateQuery = "update Parallel set Sessions='" + textBox1.Text + "'" +
+               "where ParallelID='" + this.ParallelID + "'";
+                ExecuteQuery(updateQuery);
+                MessageBox.Show("Information updated successfully", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Parallel_LoadData();
+                textBox1.Clear();
+            }
+            else
+            {
+                MessageBox.Show("Please select to update ", "Select", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            textBox1.Clear();
+            button9.Visible = false;
+            button18.Visible = false;
+            label21.Visible = false;
+            label32.Visible = true;
+        }
+
+        private void textBox1_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(textBox1.Text))
+            {
+                e.Cancel = false;
+                errorProvider2.SetError(textBox1, "Please Enter Session");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider2.SetError(textBox1, null);
+            }
         }
 
         //..............................................Overlapping Sessions............................................................................
@@ -885,7 +1054,7 @@ namespace TimeTableManagment.Forms
             SetConnection();
             sql_con.Open();
             sql_cmd = sql_con.CreateCommand();
-            string queryText = "select `SessionID`,`Subject`,`Tag` from Session where Subject = '" + metroComboBox3.Text + "' AND GroupID = '" + metroComboBox2.Text + "'";
+            string queryText = "select `SessionID`,`Subject`,`Tag` from Session where Subject = '" + metroComboBox6.Text + "' AND GroupID = '" + metroComboBox7.Text + "'";
             DB = new SQLiteDataAdapter(queryText, sql_con);
             DS.Reset();
             DB.Fill(DS);
@@ -901,29 +1070,36 @@ namespace TimeTableManagment.Forms
 
         private void button13_Click(object sender, EventArgs e)
         {
-            string insert = "insert into Overlap (Sessions) values('" + textBox2.Text + "')";
-            ExecuteQuery(insert);
-            Parallel_LoadData();
+            if (ValidateChildren(ValidationConstraints.Enabled) &&
+                textBox2.Text == "")
+            {
+                MessageBox.Show("Please fill the Empty Field(s)",
+                "Unable to Submit", MessageBoxButtons.OK,
+                                MessageBoxIcon.Exclamation,
+                                MessageBoxDefaultButton.Button1);
+            }
+            else
+            {
+                string insert = "insert into Overlap (Sessions) values('" + textBox2.Text + "')";
+                ExecuteQuery(insert);
+                Overlap_LoadData();
+                textBox2.Clear();
+            }
         }
 
         private void metroTabPage4_Click(object sender, EventArgs e)
         {
-
+            Overlap_LoadData();
         }
 
         private void metroTabPage3_Click(object sender, EventArgs e)
         {
-            Parallel_LoadData();
+            Overlap_LoadData();
         }
 
         private void button16_Click(object sender, EventArgs e)
         {
-            textBox2.Text = "";
-            foreach (object sessions1 in checkedListBox2.CheckedItems)
-            {
-                textBox2.Text += (textBox2.Text == "" ? "" : ",") + sessions1.ToString();
-            }
-            timer3.Start();
+            
         }
 
         private void timer3_Tick(object sender, EventArgs e)
@@ -953,6 +1129,90 @@ namespace TimeTableManagment.Forms
         private void label28_Click(object sender, EventArgs e)
         {
             timer3.Start();
+        }
+
+        private void button16_Click_1(object sender, EventArgs e)
+        {
+            textBox2.Text = "";
+            foreach (object sessions1 in checkedListBox2.CheckedItems)
+            {
+                textBox2.Text += (textBox2.Text == "" ? "" : ",") + sessions1.ToString();
+            }
+            timer3.Start();
+        }
+
+        private void dataGridView5_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            button19.Visible = true;
+            button12.Visible = true;
+            label31.Visible = true;
+            label33.Visible = true;
+            OverlapID = Convert.ToInt32(dataGridView5.SelectedRows[0].Cells[0].Value);
+            textBox2.Text = dataGridView5.SelectedRows[0].Cells[1].Value.ToString();
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            button19.Visible = false;
+            button12.Visible = false;
+            label31.Visible = false;
+            String deleteQuery = "delete from Overlap where OverlapID='" + this.OverlapID + "'";
+            ExecuteQuery(deleteQuery);
+            MessageBox.Show("Information deleted successfully", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            Overlap_LoadData();
+            textBox2.Clear();
+        }
+
+        private void metroTabPage2_Click(object sender, EventArgs e)
+        {
+            Overlap_LoadData();
+        }
+
+        private void metroTabPage4_Enter(object sender, EventArgs e)
+        {
+            Overlap_LoadData();
+        }
+
+        private void button19_Click(object sender, EventArgs e)
+        {
+            if (OverlapID > 0)
+            {
+                button19.Visible = false;
+                button12.Visible = false;
+                label31.Visible = false;
+
+                String updateQuery = "update Overlap set Sessions='" + textBox2.Text + "'" +
+               "where OverlapID='" + this.OverlapID + "'";
+                ExecuteQuery(updateQuery);
+                MessageBox.Show("Information updated successfully", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Overlap_LoadData();
+                textBox2.Clear();
+            }
+            else
+            {
+                MessageBox.Show("Please select to update ", "Select", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void textBox2_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(textBox2.Text))
+            {
+                e.Cancel = false;
+                errorProvider3.SetError(textBox2, "Please Enter Session");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider3.SetError(textBox2, null);
+            }
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            button19.Visible = false;
+            button12.Visible = false;
+            label31.Visible = false;
         }
     }
 }

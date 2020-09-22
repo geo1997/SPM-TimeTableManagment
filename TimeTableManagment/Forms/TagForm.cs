@@ -21,6 +21,7 @@ namespace TimeTableManagment.Forms
         private SQLiteConnection sql_con;
         private SQLiteCommand sql_cmd;
         private SQLiteDataAdapter DB;
+        SQLiteDataReader DR;
         private DataSet DS = new DataSet();
         private DataTable DT = new DataTable();
         private int tagID = 0;
@@ -70,8 +71,17 @@ namespace TimeTableManagment.Forms
 
         private void buildingAddBtn_Click(object sender, EventArgs e)
         {
-            if (ValidateChildren(ValidationConstraints.Enabled))
+            if (ValidateChildren(ValidationConstraints.Enabled) &&
+                textBox1.Text == "")
             {
+                MessageBox.Show("Please fill the Empty Field(s)",
+                "Unable to Submit", MessageBoxButtons.OK,
+                                MessageBoxIcon.Exclamation,
+                                MessageBoxDefaultButton.Button1);
+            }
+            else
+            {
+
                 string insertTag = "insert into Tag (TagName)values('" + textBox1.Text + "')";
                 ExecuteQuery(insertTag);
                 LoadData();
@@ -150,7 +160,6 @@ namespace TimeTableManagment.Forms
             if (string.IsNullOrEmpty(textBox1.Text))
             {
                 e.Cancel = false;
-                textBox1.Focus();
                 errorProvider1.SetError(textBox1, "This feild should not be left blank!");
             }
             else

@@ -172,7 +172,7 @@ namespace TimeTableManagment.Forms
             button3.Visible = true;
             button1.Visible = false;
             button4.Visible = true;
-            label8.Visible = true;
+            label15.Visible = true;
             labelLec.Visible = false;
 
             AvailabilityIDs = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
@@ -197,7 +197,7 @@ namespace TimeTableManagment.Forms
                 button3.Visible = false;
                 button4.Visible = false;
                 labelLec.Visible = true;
-                label8.Visible = false;
+                label15.Visible = false;
 
                 String updateQuery = "update Availability set Type='" + comboBox1.Text + "',Name='" + comboBox2.Text + "',Day='" + comboBox3.Text + "',Froms='" + dateTimePicker1.Text + "',Tos='" + dateTimePicker2.Text + "'" +
                "where AvailabilityID='" + this.AvailabilityIDs + "'";
@@ -216,7 +216,7 @@ namespace TimeTableManagment.Forms
             LoadData();
             button3.Visible = false;
             button4.Visible = false;
-            label8.Visible = false;
+            label15.Visible = false;
         }
 
         private void dateTimePicker1_MouseDown(object sender, MouseEventArgs e)
@@ -226,7 +226,15 @@ namespace TimeTableManagment.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (ValidateChildren(ValidationConstraints.Enabled))
+            if (ValidateChildren(ValidationConstraints.Enabled) &&
+                comboBox1.Text == "" || comboBox2.Text == "" || comboBox3.Text == "")
+            {
+                MessageBox.Show("Please fill the Empty Field(s)",
+                "Unable to Submit", MessageBoxButtons.OK,
+                                MessageBoxIcon.Exclamation,
+                                MessageBoxDefaultButton.Button1);
+            }
+            else
             {
                 comboBox1.ResetText();
                 comboBox2.ResetText();
@@ -246,7 +254,7 @@ namespace TimeTableManagment.Forms
             button3.Visible = false;
             button4.Visible = false;
             labelLec.Visible = true;
-            label8.Visible = false;
+            label15.Visible = false;
 
             comboBox1.ResetText();
             comboBox2.ResetText();
@@ -266,7 +274,7 @@ namespace TimeTableManagment.Forms
             button3.Visible = false;
             button4.Visible = false;
             labelLec.Visible = true;
-            label8.Visible = false;
+            label15.Visible = false;
 
             comboBox1.ResetText();
             comboBox2.ResetText();
@@ -281,7 +289,6 @@ namespace TimeTableManagment.Forms
             if (string.IsNullOrEmpty(comboBox1.Text))
             {
                 e.Cancel = false;
-                comboBox1.Focus();
                 errorProvider1.SetError(comboBox1,"Please Enter Type");
             }
             else
@@ -296,7 +303,6 @@ namespace TimeTableManagment.Forms
             if (string.IsNullOrEmpty(comboBox2.Text))
             {
                 e.Cancel = false;
-                comboBox2.Focus();
                 errorProvider1.SetError(comboBox2, "Please Enter Name");
             }
             else
@@ -311,7 +317,6 @@ namespace TimeTableManagment.Forms
             if (string.IsNullOrEmpty(comboBox3.Text))
             {
                 e.Cancel = false;
-                comboBox3.Focus();
                 errorProvider1.SetError(comboBox3, "Please Enter Day");
             }
             else
