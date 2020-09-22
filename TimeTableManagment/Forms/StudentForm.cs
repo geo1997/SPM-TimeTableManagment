@@ -77,7 +77,15 @@ namespace TimeTableManagment.Forms
             string groupid = buildingNameTxtBx.Text + "." + textBox2.Text + "." + textBox3.Text;
             string subgroupid = buildingNameTxtBx.Text + "." + textBox2.Text + "." + textBox3.Text + "." + textBox4.Text;
 
-            if (ValidateChildren(ValidationConstraints.Enabled))
+            if (ValidateChildren(ValidationConstraints.Enabled) &&
+                buildingNameTxtBx.Text == "" || textBox2.Text == "" || textBox3.Text == "" || textBox4.Text == "")
+            {
+                MessageBox.Show("Please fill the Empty Field(s)",
+                "Unable to Submit", MessageBoxButtons.OK,
+                                MessageBoxIcon.Exclamation,
+                                MessageBoxDefaultButton.Button1);
+            }
+            else
             {
                 string insertStudent = "insert into Student (YearSem,Programme,Groups,SubGroups,GroupID,SubGroupID)values('" + buildingNameTxtBx.Text + "','" + textBox2.Text + "','" + textBox3.Text + "','" + textBox4.Text + "','" + groupid + "','" + subgroupid + "')";
                 ExecuteQuery(insertStudent);
