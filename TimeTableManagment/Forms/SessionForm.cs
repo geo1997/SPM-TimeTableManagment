@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SQLite;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TimeTableManagment.Properties;
 
@@ -15,7 +10,7 @@ namespace TimeTableManagment.Forms
     public partial class SessionForm : Form
     {
         private bool isCollapse;
-        
+
         public SessionForm()
         {
             InitializeComponent();
@@ -25,6 +20,8 @@ namespace TimeTableManagment.Forms
         private SQLiteDataAdapter DB;
         private DataSet DS = new DataSet();
         private DataTable DT = new DataTable();
+        private int ConsecativeID = 0;
+        private int ParallelID = 0;
 
         //set connection
         private void SetConnection()
@@ -56,6 +53,7 @@ namespace TimeTableManagment.Forms
             sql_con.Close();
 
         }
+
         //load lecturer names to checkboxlist from the Database
         private void FillLectureList()
         {
@@ -69,12 +67,12 @@ namespace TimeTableManagment.Forms
             DT = DS.Tables[0];
             foreach (DataRow dr in DT.Rows)
             {
-                lecNameList.Items.Add(dr["Title"].ToString()+dr["Name"].ToString());
+                lecNameList.Items.Add(dr["Title"].ToString() + dr["Name"].ToString());
             }
             sql_con.Close();
         }
 
-       //retreive tags data from the database
+        //retreive tags data from the database
         private void LoadTags()
         {
             SetConnection();
@@ -87,7 +85,7 @@ namespace TimeTableManagment.Forms
             DT = DS.Tables[0];
             foreach (DataRow dr in DT.Rows)
             {
-               cmbTags.Items.Add(dr["TagName"].ToString());
+                cmbTags.Items.Add(dr["TagName"].ToString());
             }
             sql_con.Close();
         }
@@ -117,19 +115,19 @@ namespace TimeTableManagment.Forms
             SetConnection();
             sql_con.Open();
             sql_cmd = sql_con.CreateCommand();
-            string queryText = "select Code from Subject where Subject='" + sub+ "'";
+            string queryText = "select Code from Subject where Subject='" + sub + "'";
             DB = new SQLiteDataAdapter(queryText, sql_con);
             DS.Reset();
             DB.Fill(DS);
             DT = DS.Tables[0];
             foreach (DataRow dr in DT.Rows)
             {
-               txtSubCode.Text= dr["Code"].ToString();
+                txtSubCode.Text = dr["Code"].ToString();
             }
             sql_con.Close();
         }
 
-         //retrieve group ids from database
+        //retrieve group ids from database
         private void FillGroupIdComboBox()
         {
             SetConnection();
@@ -142,7 +140,7 @@ namespace TimeTableManagment.Forms
             DT = DS.Tables[0];
             foreach (DataRow dr in DT.Rows)
             {
-               cmbGroupId.Items.Add(dr["GroupID"].ToString());
+                cmbGroupId.Items.Add(dr["GroupID"].ToString());
             }
             sql_con.Close();
         }
@@ -168,14 +166,27 @@ namespace TimeTableManagment.Forms
         private void SessionForm_Load(object sender, EventArgs e)
         {
             FillLectureList();
+            FillSessionList();
             FillSubjectComboBox();
             LoadTags();
+            Parallel_LoadData();
             FillGroupIdComboBox();
             lblSubGrp.Visible = false;
             cmbSubGroup.Visible = false;
             LoadData();
+            Consec_LoadData();
+            FillGroupIdComboBoxConsec();
+            FillSubjectComboBoxConsec();
+            FillSession1IdComboBoxConsec();
+            FillSession2IdComboBoxConsec();
+            FillGroupIdComboBoxPar();
+            FillSubjectComboBoxPar();
+            FillGroupIdComboBoxOver();
+            FillSubjectComboBoxOver();
+            Overlap_LoadData();
+            FillSession2List();
         }
-       //clear the fields
+        //clear the fields
         private void ClearField()
         {
             txtLecs.Clear();
@@ -196,7 +207,7 @@ namespace TimeTableManagment.Forms
             txtLecs.Text = "";
             foreach (object lecturers in lecNameList.CheckedItems)
             {
-              txtLecs.Text += (txtLecs.Text == "" ? "" : ",") + lecturers.ToString();
+                txtLecs.Text += (txtLecs.Text == "" ? "" : ",") + lecturers.ToString();
             }
             timer1.Start();
 
@@ -207,7 +218,7 @@ namespace TimeTableManagment.Forms
         {
             if (isCollapse)
             {
-                label6.Image = Resources.icons8_minus; 
+                label6.Image = Resources.icons8_minus;
                 panelDropDown.Height += 10;
                 if (panelDropDown.Size == panelDropDown.MaximumSize)
                 {
@@ -249,19 +260,19 @@ namespace TimeTableManagment.Forms
             string lecs = txtLecs.Text;
             string tags = cmbTags.Text;
             string sub = cmbSubject.Text;
-            string subCode=txtSubCode.Text;
+            string subCode = txtSubCode.Text;
             string grp = cmbGroupId.Text;
             string subGroup = cmbSubGroup.Text;
             string stNo = txtStudentCount.Text;
-            string duration =txtDuration.Text;
+            string duration = txtDuration.Text;
 
 
             if (ValidateChildren(ValidationConstraints.Enabled) &&
                 lecs == "" ||
                 tags == "" || subCode == ""
-                || grp == "" || stNo =="" || duration == "" )
+                || grp == "" || stNo == "" || duration == "")
             {
-                if (tags == "Practical"|| tags=="practical" && subGroup == "")
+                if (tags == "Practical" || tags == "practical" && subGroup == "")
                 {
                     MessageBox.Show("Select Sub group Id!",
                                   "Unable to Submit", MessageBoxButtons.OK,
@@ -274,46 +285,46 @@ namespace TimeTableManagment.Forms
                               MessageBoxIcon.Exclamation,
                               MessageBoxDefaultButton.Button1);
 
-            } 
+            }
             else
             {
-                
-                    if (tags=="Practical"||tags=="practical" )
-                    {
-                        if(Convert.ToInt32(stNo) > 60)
-                        {
-                          MessageBox.Show("Student Count Must Not more than 60 for practicals!", "unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                         else
-                         {
-                           string ses= lecs + "\n" + sub + " (" + subCode + ")" + "\n" + tags + "\n" + subGroup + "\n" + stNo + "(" + duration + ")";
-                           string insertSes = "insert into Session(Lecturer,Subject,SubjectCode,Tag,GroupID,SubGID,StudentCount,Duration,Description)" +
-                                 "values('" + lecs + "','" + sub + "','" + subCode + "','" + tags + "','" + grp + "','" + subGroup + "','" + stNo + "','" + duration + "','"+ses+"')";
-                           ExecuteQuery(insertSes);
-                           LoadData();
-                           ClearField();
 
+                if (tags == "Practical" || tags == "practical")
+                {
+                    if (Convert.ToInt32(stNo) > 60)
+                    {
+                        MessageBox.Show("Student Count Must Not more than 60 for practicals!", "unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-                         
-                }
-                       
                     else
                     {
-                        string ses= lecs + "\n" + sub + " (" + subCode + ")" + "\n" + tags + "\n" + grp + "\n" + stNo + "(" + duration + ")";
+                        string ses = lecs + "\n" + sub + " (" + subCode + ")" + "\n" + tags + "\n" + subGroup + "\n" + stNo + "(" + duration + ")";
                         string insertSes = "insert into Session(Lecturer,Subject,SubjectCode,Tag,GroupID,SubGID,StudentCount,Duration,Description)" +
-                                        "values('" + lecs + "','" + sub + "','" + subCode + "','" + tags + "','" + grp + "','" + subGroup + "','" + stNo + "','" + duration + "','"+ses+"')";
+                              "values('" + lecs + "','" + sub + "','" + subCode + "','" + tags + "','" + grp + "','" + subGroup + "','" + stNo + "','" + duration + "','" + ses + "')";
                         ExecuteQuery(insertSes);
                         LoadData();
-
                         ClearField();
+
                     }
+
+                }
+
+                else
+                {
+                    string ses = lecs + "\n" + sub + " (" + subCode + ")" + "\n" + tags + "\n" + grp + "\n" + stNo + "(" + duration + ")";
+                    string insertSes = "insert into Session(Lecturer,Subject,SubjectCode,Tag,GroupID,SubGID,StudentCount,Duration,Description)" +
+                                    "values('" + lecs + "','" + sub + "','" + subCode + "','" + tags + "','" + grp + "','" + subGroup + "','" + stNo + "','" + duration + "','" + ses + "')";
+                    ExecuteQuery(insertSes);
+                    LoadData();
+
+                    ClearField();
+                }
 
 
             }
-                 
+
         }
 
-     //display relevant session once click
+        //display relevant session once click
         private void tblSessions_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -340,7 +351,7 @@ namespace TimeTableManagment.Forms
 
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 ClearField();
                 MessageBox.Show("There no details to view!",
@@ -348,8 +359,8 @@ namespace TimeTableManagment.Forms
                                                   MessageBoxIcon.Exclamation,
                                                   MessageBoxDefaultButton.Button1);
             }
-           
-           
+
+
         }
 
         // Search Function
@@ -458,7 +469,7 @@ namespace TimeTableManagment.Forms
 
         private void cmbSubGroup_Validating(object sender, CancelEventArgs e)
         {
-            if (string.IsNullOrEmpty(cmbSubGroup.Text) && cmbTags.Text=="Practical"|| cmbTags.Text == "practical")
+            if (string.IsNullOrEmpty(cmbSubGroup.Text) && cmbTags.Text == "Practical" || cmbTags.Text == "practical")
             {
                 e.Cancel = false;
                 errorProvider.SetError(cmbSubGroup, "Please Select the sub-group id!");
@@ -489,6 +500,459 @@ namespace TimeTableManagment.Forms
         {
             lblDisSes.Text = "";
             txtSearch.Clear();
+        }
+
+        //..............................................Consecative Sessions............................................................................
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (ConsecativeID > 0)
+            {
+                String updateQuery = "update Consecative set Session1='" + metroComboBox4.Text + "',Session2='" + metroComboBox5.Text + "'" +
+               "where ConsecativeID='" + this.ConsecativeID + "'";
+                ExecuteQuery(updateQuery);
+                MessageBox.Show("Information updated successfully", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Consec_LoadData();
+            }
+            else
+            {
+                MessageBox.Show("Please select a session to update ", "Select", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            String deleteQuery = "delete from Consecative where ConsecativeID='" + this.ConsecativeID + "'";
+            ExecuteQuery(deleteQuery);
+            MessageBox.Show("Information deleted successfully", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            Consec_LoadData();
+        }
+
+        private void Consec_LoadData()
+        {
+            SetConnection();
+            sql_con.Open();
+            sql_cmd = sql_con.CreateCommand();
+            string queryText = "select * from Consecative";
+            DB = new SQLiteDataAdapter(queryText, sql_con);
+            DS.Reset();
+            DB.Fill(DS);
+            DT = DS.Tables[0];
+            dataGridView1.DataSource = DT;
+            sql_con.Close();
+
+        }
+
+        //retrieve group ids from database
+        private void FillGroupIdComboBoxConsec()
+        {
+            SetConnection();
+            sql_con.Open();
+            sql_cmd = sql_con.CreateCommand();
+            string queryText = "select GroupID from Student ";
+            DB = new SQLiteDataAdapter(queryText, sql_con);
+            DS.Reset();
+            DB.Fill(DS);
+            DT = DS.Tables[0];
+            foreach (DataRow dr in DT.Rows)
+            {
+                metroComboBox2.Items.Add(dr["GroupID"].ToString());
+            }
+            sql_con.Close();
+        }
+
+        //retrieve subject data from database
+        private void FillSubjectComboBoxConsec()
+        {
+            SetConnection();
+            sql_con.Open();
+            sql_cmd = sql_con.CreateCommand();
+            string queryText = "select Subject from Subject ";
+            DB = new SQLiteDataAdapter(queryText, sql_con);
+            DS.Reset();
+            DB.Fill(DS);
+            DT = DS.Tables[0];
+            foreach (DataRow dr in DT.Rows)
+            {
+                metroComboBox3.Items.Add(dr["Subject"].ToString());
+            }
+            sql_con.Close();
+        }
+
+        private void FillSession1IdComboBoxConsec()
+        {
+            SetConnection();
+            sql_con.Open();
+            sql_cmd = sql_con.CreateCommand();
+            string queryText = "select SessionID from Session";
+            DB = new SQLiteDataAdapter(queryText, sql_con);
+            DS.Reset();
+            DB.Fill(DS);
+            DT = DS.Tables[0];
+            foreach (DataRow dr in DT.Rows)
+            {
+                metroComboBox4.Items.Add(dr["SessionID"].ToString());
+            }
+            sql_con.Close();
+        }
+
+        private void FillSession2IdComboBoxConsec()
+        {
+            SetConnection();
+            sql_con.Open();
+            sql_cmd = sql_con.CreateCommand();
+            string queryText = "select SessionID from Session";
+            DB = new SQLiteDataAdapter(queryText, sql_con);
+            DS.Reset();
+            DB.Fill(DS);
+            DT = DS.Tables[0];
+            foreach (DataRow dr in DT.Rows)
+            {
+                metroComboBox5.Items.Add(dr["SessionID"].ToString());
+            }
+            sql_con.Close();
+        }
+
+        private void metroComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroComboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+
+        private void metroComboBox16_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            SetConnection();
+            sql_con.Open();
+            sql_cmd = sql_con.CreateCommand();
+            string queryText = "select `SessionID`,`Subject`,`Tag` from Session where Subject = '" + metroComboBox3.Text + "' AND GroupID = '" + metroComboBox2.Text + "'";
+            DB = new SQLiteDataAdapter(queryText, sql_con);
+            DS.Reset();
+            DB.Fill(DS);
+            DT = DS.Tables[0];
+            dataGridView2.DataSource = DT;
+            sql_con.Close();
+            Consec_LoadData();
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            string insert = "insert into Consecative (Session1,Session2)values('" + metroComboBox4.Text + "','" + metroComboBox5.Text + "')";
+            ExecuteQuery(insert);
+            Consec_LoadData();
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            ConsecativeID = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
+            metroComboBox4.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+            metroComboBox5.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+        }
+
+        //..............................................Parallel Sessions............................................................................
+
+        private void Parallel_LoadData()
+        {
+            SetConnection();
+            sql_con.Open();
+            sql_cmd = sql_con.CreateCommand();
+            string queryText = "select * from Parallel";
+            DB = new SQLiteDataAdapter(queryText, sql_con);
+            DS.Reset();
+            DB.Fill(DS);
+            DT = DS.Tables[0];
+            dataGridView3.DataSource = DT;
+            sql_con.Close();
+
+        }
+
+        //retrieve group ids from database
+        private void FillGroupIdComboBoxPar()
+        {
+            SetConnection();
+            sql_con.Open();
+            sql_cmd = sql_con.CreateCommand();
+            string queryText = "select GroupID from Student ";
+            DB = new SQLiteDataAdapter(queryText, sql_con);
+            DS.Reset();
+            DB.Fill(DS);
+            DT = DS.Tables[0];
+            foreach (DataRow dr in DT.Rows)
+            {
+                metroComboBox8.Items.Add(dr["GroupID"].ToString());
+            }
+            sql_con.Close();
+        }
+
+        //retrieve subject data from database
+        private void FillSubjectComboBoxPar()
+        {
+            SetConnection();
+            sql_con.Open();
+            sql_cmd = sql_con.CreateCommand();
+            string queryText = "select Subject from Subject ";
+            DB = new SQLiteDataAdapter(queryText, sql_con);
+            DS.Reset();
+            DB.Fill(DS);
+            DT = DS.Tables[0];
+            foreach (DataRow dr in DT.Rows)
+            {
+                metroComboBox1.Items.Add(dr["Subject"].ToString());
+            }
+            sql_con.Close();
+        }
+
+        //load lecturer names to checkboxlist from the Database
+        private void FillSessionList()
+        {
+            SetConnection();
+            sql_con.Open();
+            sql_cmd = sql_con.CreateCommand();
+            string queryText = "select SessionID,Subject from Session";
+            DB = new SQLiteDataAdapter(queryText, sql_con);
+            DS.Reset();
+            DB.Fill(DS);
+            DT = DS.Tables[0];
+            foreach (DataRow dr in DT.Rows)
+            {
+                checkedListBox1.Items.Add("Session " + dr["SessionId"].ToString());
+            }
+            sql_con.Close();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            SetConnection();
+            sql_con.Open();
+            sql_cmd = sql_con.CreateCommand();
+            string queryText = "select `SessionID`,`Subject`,`Tag` from Session where Subject = '" + metroComboBox1.Text + "' AND GroupID = '" + metroComboBox8.Text + "'";
+            DB = new SQLiteDataAdapter(queryText, sql_con);
+            DS.Reset();
+            DB.Fill(DS);
+            DT = DS.Tables[0];
+            dataGridView4.DataSource = DT;
+            sql_con.Close();
+        }
+
+        private void txtLecs_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = "";
+            foreach (object sessions in checkedListBox1.CheckedItems)
+            {
+                textBox1.Text += (textBox1.Text == "" ? "" : ",") + sessions.ToString();
+            }
+            timer2.Start();
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            if (isCollapse)
+            {
+                label22.Image = Resources.icons8_minus;
+                panel7.Height += 10;
+                if (panel7.Size == panel7.MaximumSize)
+                {
+                    timer2.Stop();
+                    isCollapse = false;
+                }
+            }
+            else
+            {
+                label22.Image = Resources.icons8_plus_3;
+                panel7.Height -= 10;
+                if (panel7.Size == panel7.MinimumSize)
+                {
+                    timer2.Stop();
+                    isCollapse = true;
+                }
+            }
+        }
+
+        private void label22_Click(object sender, EventArgs e)
+        {
+            timer2.Start();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            string insert = "insert into Parallel (Sessions) values('" + textBox1.Text + "')";
+            ExecuteQuery(insert);
+            Parallel_LoadData();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            String deleteQuery = "delete from Parallel where ParallelID='" + this.ParallelID + "'";
+            ExecuteQuery(deleteQuery);
+            MessageBox.Show("Information deleted successfully", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            Parallel_LoadData();
+        }
+
+        private void dataGridView3_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            ParallelID = Convert.ToInt32(dataGridView3.SelectedRows[0].Cells[0].Value);
+            textBox1.Text = dataGridView3.SelectedRows[0].Cells[1].Value.ToString();
+        }
+
+        //..............................................Overlapping Sessions............................................................................
+        private void Overlap_LoadData()
+        {
+            SetConnection();
+            sql_con.Open();
+            sql_cmd = sql_con.CreateCommand();
+            string queryText = "select * from Overlap";
+            DB = new SQLiteDataAdapter(queryText, sql_con);
+            DS.Reset();
+            DB.Fill(DS);
+            DT = DS.Tables[0];
+            dataGridView5.DataSource = DT;
+            sql_con.Close();
+
+        }
+
+        private void FillSession2List()
+        {
+            SetConnection();
+            sql_con.Open();
+            sql_cmd = sql_con.CreateCommand();
+            string queryText = "select SessionID,Subject from Session";
+            DB = new SQLiteDataAdapter(queryText, sql_con);
+            DS.Reset();
+            DB.Fill(DS);
+            DT = DS.Tables[0];
+            foreach (DataRow dr in DT.Rows)
+            {
+                checkedListBox2.Items.Add("Session " + dr["SessionId"].ToString());
+            }
+            sql_con.Close();
+        }
+
+        private void FillGroupIdComboBoxOver()
+        {
+            SetConnection();
+            sql_con.Open();
+            sql_cmd = sql_con.CreateCommand();
+            string queryText = "select GroupID from Student ";
+            DB = new SQLiteDataAdapter(queryText, sql_con);
+            DS.Reset();
+            DB.Fill(DS);
+            DT = DS.Tables[0];
+            foreach (DataRow dr in DT.Rows)
+            {
+                metroComboBox7.Items.Add(dr["GroupID"].ToString());
+            }
+            sql_con.Close();
+        }
+
+        //retrieve subject data from database
+        private void FillSubjectComboBoxOver()
+        {
+            SetConnection();
+            sql_con.Open();
+            sql_cmd = sql_con.CreateCommand();
+            string queryText = "select Subject from Subject ";
+            DB = new SQLiteDataAdapter(queryText, sql_con);
+            DS.Reset();
+            DB.Fill(DS);
+            DT = DS.Tables[0];
+            foreach (DataRow dr in DT.Rows)
+            {
+                metroComboBox6.Items.Add(dr["Subject"].ToString());
+            }
+            sql_con.Close();
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            SetConnection();
+            sql_con.Open();
+            sql_cmd = sql_con.CreateCommand();
+            string queryText = "select `SessionID`,`Subject`,`Tag` from Session where Subject = '" + metroComboBox3.Text + "' AND GroupID = '" + metroComboBox2.Text + "'";
+            DB = new SQLiteDataAdapter(queryText, sql_con);
+            DS.Reset();
+            DB.Fill(DS);
+            DT = DS.Tables[0];
+            dataGridView6.DataSource = DT;
+            sql_con.Close();
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            string insert = "insert into Overlap (Sessions) values('" + textBox2.Text + "')";
+            ExecuteQuery(insert);
+            Parallel_LoadData();
+        }
+
+        private void metroTabPage4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroTabPage3_Click(object sender, EventArgs e)
+        {
+            Parallel_LoadData();
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            textBox2.Text = "";
+            foreach (object sessions1 in checkedListBox2.CheckedItems)
+            {
+                textBox2.Text += (textBox2.Text == "" ? "" : ",") + sessions1.ToString();
+            }
+            timer3.Start();
+        }
+
+        private void timer3_Tick(object sender, EventArgs e)
+        {
+            if (isCollapse)
+            {
+                label28.Image = Resources.icons8_minus;
+                panel8.Height += 8;
+                if (panel8.Size == panel8.MaximumSize)
+                {
+                    timer3.Stop();
+                    isCollapse = false;
+                }
+            }
+            else
+            {
+                label28.Image = Resources.icons8_plus_3;
+                panel8.Height -= 8;
+                if (panel8.Size == panel8.MinimumSize)
+                {
+                    timer3.Stop();
+                    isCollapse = true;
+                }
+            }
+        }
+
+        private void label28_Click(object sender, EventArgs e)
+        {
+            timer3.Start();
         }
     }
 }

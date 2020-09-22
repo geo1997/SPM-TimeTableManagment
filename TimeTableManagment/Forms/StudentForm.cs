@@ -170,7 +170,7 @@ namespace TimeTableManagment.Forms
         {
             if (string.IsNullOrEmpty(buildingNameTxtBx.Text))
             {
-                e.Cancel = true;
+                e.Cancel = false;
                 buildingNameTxtBx.Focus();
                 errorProvider1.SetError(buildingNameTxtBx, "This feild should not be left blank!");
             }
@@ -185,7 +185,7 @@ namespace TimeTableManagment.Forms
         {
             if (string.IsNullOrEmpty(textBox2.Text))
             {
-                e.Cancel = true;
+                e.Cancel = false;
                 textBox2.Focus();
                 errorProvider1.SetError(textBox2, "This feild should not be left blank!");
             }
@@ -200,7 +200,7 @@ namespace TimeTableManagment.Forms
         {
             if (string.IsNullOrEmpty(textBox2.Text))
             {
-                e.Cancel = true;
+                e.Cancel = false;
                 textBox3.Focus();
                 errorProvider1.SetError(textBox3, "This feild should not be left blank!");
             }

@@ -149,7 +149,7 @@ namespace TimeTableManagment.Forms
         {
             if (string.IsNullOrEmpty(textBox1.Text))
             {
-                e.Cancel = true;
+                e.Cancel = false;
                 textBox1.Focus();
                 errorProvider1.SetError(textBox1, "This feild should not be left blank!");
             }
