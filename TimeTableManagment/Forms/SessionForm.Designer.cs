@@ -85,6 +85,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.metroTabPage3 = new MetroFramework.Controls.MetroTabPage();
+            this.button9 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label22 = new System.Windows.Forms.Label();
@@ -104,6 +105,7 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.metroTabPage4 = new MetroFramework.Controls.MetroTabPage();
+            this.button13 = new System.Windows.Forms.Button();
             this.metroComboBox6 = new MetroFramework.Controls.MetroComboBox();
             this.metroComboBox7 = new MetroFramework.Controls.MetroComboBox();
             this.label25 = new System.Windows.Forms.Label();
@@ -126,9 +128,7 @@
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.button9 = new System.Windows.Forms.Button();
             this.timer3 = new System.Windows.Forms.Timer(this.components);
-            this.button13 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -547,7 +547,7 @@
             this.metroTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.metroTabControl1.Location = new System.Drawing.Point(0, 0);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 3;
+            this.metroTabControl1.SelectedIndex = 0;
             this.metroTabControl1.Size = new System.Drawing.Size(1079, 699);
             this.metroTabControl1.TabIndex = 2;
             this.metroTabControl1.UseSelectable = true;
@@ -824,6 +824,21 @@
             this.metroTabPage3.VerticalScrollbarSize = 10;
             this.metroTabPage3.Click += new System.EventHandler(this.metroTabPage3_Click);
             // 
+            // button9
+            // 
+            this.button9.BackColor = System.Drawing.Color.IndianRed;
+            this.button9.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.button9.Image = ((System.Drawing.Image)(resources.GetObject("button9.Image")));
+            this.button9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button9.Location = new System.Drawing.Point(880, 311);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(130, 41);
+            this.button9.TabIndex = 76;
+            this.button9.Text = "Delete";
+            this.button9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button9.UseVisualStyleBackColor = false;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
             // button8
             // 
             this.button8.BackColor = System.Drawing.Color.CornflowerBlue;
@@ -1057,6 +1072,21 @@
             this.metroTabPage4.VerticalScrollbarSize = 10;
             this.metroTabPage4.Click += new System.EventHandler(this.metroTabPage4_Click);
             // 
+            // button13
+            // 
+            this.button13.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.button13.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.button13.Image = ((System.Drawing.Image)(resources.GetObject("button13.Image")));
+            this.button13.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button13.Location = new System.Drawing.Point(610, 308);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(130, 41);
+            this.button13.TabIndex = 92;
+            this.button13.Text = "Submit";
+            this.button13.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button13.UseVisualStyleBackColor = false;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
+            // 
             // metroComboBox6
             // 
             this.metroComboBox6.FormattingEnabled = true;
@@ -1274,39 +1304,9 @@
             // 
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
-            // button9
-            // 
-            this.button9.BackColor = System.Drawing.Color.IndianRed;
-            this.button9.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
-            this.button9.Image = ((System.Drawing.Image)(resources.GetObject("button9.Image")));
-            this.button9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button9.Location = new System.Drawing.Point(880, 311);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(130, 41);
-            this.button9.TabIndex = 76;
-            this.button9.Text = "Delete";
-            this.button9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button9.UseVisualStyleBackColor = false;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
-            // 
             // timer3
             // 
             this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
-            // 
-            // button13
-            // 
-            this.button13.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.button13.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
-            this.button13.Image = ((System.Drawing.Image)(resources.GetObject("button13.Image")));
-            this.button13.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button13.Location = new System.Drawing.Point(610, 308);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(130, 41);
-            this.button13.TabIndex = 92;
-            this.button13.Text = "Submit";
-            this.button13.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button13.UseVisualStyleBackColor = false;
-            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // SessionForm
             // 

@@ -165,6 +165,7 @@ namespace TimeTableManagment.Forms
 
         private void SessionForm_Load(object sender, EventArgs e)
         {
+           
             FillLectureList();
             FillSessionList();
             FillSubjectComboBox();
@@ -173,7 +174,7 @@ namespace TimeTableManagment.Forms
             FillGroupIdComboBox();
             lblSubGrp.Visible = false;
             cmbSubGroup.Visible = false;
-            LoadData();
+          
             Consec_LoadData();
             FillGroupIdComboBoxConsec();
             FillSubjectComboBoxConsec();
@@ -185,6 +186,7 @@ namespace TimeTableManagment.Forms
             FillSubjectComboBoxOver();
             Overlap_LoadData();
             FillSession2List();
+            LoadData();
         }
         //clear the fields
         private void ClearField()
