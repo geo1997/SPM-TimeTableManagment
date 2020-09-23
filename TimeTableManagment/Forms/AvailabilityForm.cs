@@ -44,8 +44,12 @@ namespace TimeTableManagment.Forms
             sql_cmd.ExecuteNonQuery();
             sql_con.Close();
         }
+        /*
+         **BUILDING TAB****
+         */
 
-        //load data
+        //load building data
+
         private void LoadData()
         {
             SetConnection();
@@ -67,7 +71,46 @@ namespace TimeTableManagment.Forms
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            SetConnection();
             if (comboBox1.Text == "Lecturer")
+            {
+                comboBox2.Items.Clear();
+                sql_con.Open();
+                sql_cmd = sql_con.CreateCommand();
+                sql_cmd.CommandType = CommandType.Text;
+                sql_cmd.CommandText = "SELECT Name FROM Lecturer";
+                sql_cmd.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                SQLiteDataAdapter da = new SQLiteDataAdapter(sql_cmd);
+                da.Fill(dt);
+
+                foreach (DataRow dr in dt.Rows)
+                {
+                    comboBox2.Items.Add(dr["Name"].ToString());
+                }
+                sql_con.Close();
+            }
+
+            else if (comboBox1.Text == "Session")
+            {
+                comboBox2.Items.Clear();
+                sql_con.Open();
+                sql_cmd = sql_con.CreateCommand();
+                sql_cmd.CommandType = CommandType.Text;
+                sql_cmd.CommandText = "SELECT SessionID FROM Session";
+                sql_cmd.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                SQLiteDataAdapter da = new SQLiteDataAdapter(sql_cmd);
+                da.Fill(dt);
+
+                foreach (DataRow dr in dt.Rows)
+                {
+                    comboBox2.Items.Add(dr["SessionID"].ToString());
+                }
+                sql_con.Close();
+            }
+
+            else if (comboBox1.Text == "Group")
             {
                 comboBox2.Items.Clear();
                 sql_con.Open();
@@ -86,7 +129,7 @@ namespace TimeTableManagment.Forms
                 sql_con.Close();
             }
 
-            else if (comboBox1.Text == "Session")
+            else if (comboBox1.Text == "Sub-Group")
             {
                 comboBox2.Items.Clear();
                 sql_con.Open();
@@ -104,45 +147,8 @@ namespace TimeTableManagment.Forms
                 }
                 sql_con.Close();
             }
-
-            else if (comboBox1.Text == "Lecturer")
-            {
-                comboBox2.Items.Clear();
-                sql_con.Open();
-                sql_cmd = sql_con.CreateCommand();
-                sql_cmd.CommandType = CommandType.Text;
-                sql_cmd.CommandText = "SELECT GroupID FROM Student";
-                sql_cmd.ExecuteNonQuery();
-                DataTable dt = new DataTable();
-                SQLiteDataAdapter da = new SQLiteDataAdapter(sql_cmd);
-                da.Fill(dt);
-
-                foreach (DataRow dr in dt.Rows)
-                {
-                    comboBox2.Items.Add(dr["GroupID"].ToString());
-                }
-                sql_con.Close();
-            }
-
-            else if (comboBox1.Text == "Lecturer")
-            {
-                comboBox2.Items.Clear();
-                sql_con.Open();
-                sql_cmd = sql_con.CreateCommand();
-                sql_cmd.CommandType = CommandType.Text;
-                sql_cmd.CommandText = "SELECT GroupID FROM Student";
-                sql_cmd.ExecuteNonQuery();
-                DataTable dt = new DataTable();
-                SQLiteDataAdapter da = new SQLiteDataAdapter(sql_cmd);
-                da.Fill(dt);
-
-                foreach (DataRow dr in dt.Rows)
-                {
-                    comboBox2.Items.Add(dr["GroupID"].ToString());
-                }
-                sql_con.Close();
-            }
         }
+
 
         public void fillCombo(ComboBox combo,string query,string displayMember,string valueMember) {
             sql_cmd = new SQLiteCommand(query, sql_con);
@@ -212,15 +218,15 @@ namespace TimeTableManagment.Forms
 
         private void AvailabilityForm_Load(object sender, EventArgs e)
         {
-            LoadData();
+          
             button3.Visible = false;
             button4.Visible = false;
             label15.Visible = false;
 
-            RoomAvailablityLoad();
-            roomData_Fill_Combobox();
 
-          
+            LoadData();
+
+
 
         }
 
@@ -654,6 +660,28 @@ namespace TimeTableManagment.Forms
         {
             clearData();
             detailsAddBtn.Enabled = true;
+        }
+
+        private void metroTabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (metroTabControl1.SelectedTab == metroTabControl1.TabPages[0])
+            {
+                LoadData();
+            }
+            else
+           if (metroTabControl1.SelectedTab == metroTabControl1.TabPages[1])
+            {
+                RoomAvailablityLoad();
+                roomSelectComboBox.Items.Clear();
+                roomData_Fill_Combobox();
+
+
+            }
+        }
+
+        private void label15_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
