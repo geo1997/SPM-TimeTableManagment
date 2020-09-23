@@ -109,7 +109,6 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.metroTabPage4 = new MetroFramework.Controls.MetroTabPage();
-            this.label31 = new System.Windows.Forms.Label();
             this.button19 = new System.Windows.Forms.Button();
             this.label33 = new System.Windows.Forms.Label();
             this.button13 = new System.Windows.Forms.Button();
@@ -130,6 +129,7 @@
             this.button12 = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.dataGridView5 = new System.Windows.Forms.DataGridView();
+            this.label31 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
@@ -559,7 +559,7 @@
             this.metroTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.metroTabControl1.Location = new System.Drawing.Point(0, 0);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 3;
+            this.metroTabControl1.SelectedIndex = 0;
             this.metroTabControl1.Size = new System.Drawing.Size(1079, 699);
             this.metroTabControl1.TabIndex = 2;
             this.metroTabControl1.UseSelectable = true;
@@ -1149,16 +1149,6 @@
             this.metroTabPage4.Click += new System.EventHandler(this.metroTabPage4_Click);
             this.metroTabPage4.Enter += new System.EventHandler(this.metroTabPage4_Enter);
             // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.Location = new System.Drawing.Point(321, 13);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(523, 32);
-            this.label31.TabIndex = 86;
-            this.label31.Text = "Edit/Delete Non-Overlapping Session";
-            // 
             // button19
             // 
             this.button19.BackColor = System.Drawing.Color.CornflowerBlue;
@@ -1397,6 +1387,16 @@
             this.dataGridView5.Size = new System.Drawing.Size(948, 217);
             this.dataGridView5.TabIndex = 0;
             this.dataGridView5.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView5_CellClick);
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.Location = new System.Drawing.Point(321, 13);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(523, 32);
+            this.label31.TabIndex = 86;
+            this.label31.Text = "Edit/Delete Non-Overlapping Session";
             // 
             // timer1
             // 

@@ -33,8 +33,6 @@
             this.combo_endTime = new System.Windows.Forms.ComboBox();
             this.btn_add = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lbl_hour = new System.Windows.Forms.Label();
-            this.lbl_nohours = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btn_edit = new System.Windows.Forms.Button();
             this.btn_delete = new System.Windows.Forms.Button();
@@ -130,33 +128,11 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.lbl_hour);
-            this.panel1.Controls.Add(this.lbl_nohours);
             this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Location = new System.Drawing.Point(272, 262);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(705, 346);
             this.panel1.TabIndex = 6;
-            // 
-            // lbl_hour
-            // 
-            this.lbl_hour.AutoSize = true;
-            this.lbl_hour.Location = new System.Drawing.Point(378, 13);
-            this.lbl_hour.Name = "lbl_hour";
-            this.lbl_hour.Size = new System.Drawing.Size(46, 17);
-            this.lbl_hour.TabIndex = 2;
-            this.lbl_hour.Text = "Hours";
-            this.lbl_hour.Visible = false;
-            // 
-            // lbl_nohours
-            // 
-            this.lbl_nohours.AutoSize = true;
-            this.lbl_nohours.Location = new System.Drawing.Point(271, 13);
-            this.lbl_nohours.Name = "lbl_nohours";
-            this.lbl_nohours.Size = new System.Drawing.Size(100, 17);
-            this.lbl_nohours.TabIndex = 1;
-            this.lbl_nohours.Text = "No. of Hours : ";
-            this.lbl_nohours.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // dataGridView1
             // 
@@ -221,7 +197,6 @@
             this.Text = "Working Hours";
             this.Load += new System.EventHandler(this.workingHoursForm_Load);
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -237,7 +212,5 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btn_edit;
         private System.Windows.Forms.Button btn_delete;
-        private System.Windows.Forms.Label lbl_nohours;
-        private System.Windows.Forms.Label lbl_hour;
     }
 }
