@@ -28,15 +28,18 @@ namespace TimeTableManagment.Forms
         string stuSubject = "";
         string globalGroupId = "";
         string globalSubjectID = "";
+
         string lLecture = "";
         string lSubject = "";
         string lTag = "";
         string lGroupID = "";
+        int lsessionID = 0;
        
         string tLecture = "";
         string tSubject = "";
         string tTag = "";
         string tGroupID = "";
+        int tsessionID =0;
        
 
         private void SetConnection()
@@ -210,7 +213,7 @@ namespace TimeTableManagment.Forms
                 string sub = subjectComboBox.Text;
 
                 SetConnection();
-                String getGroupids = "select SubGID from Session where GroupID='" + gId + "' and Subject='" + sub + "' and SubGID != ''";
+                String getGroupids = "select SubGID from Session where GroupID='" + gId + "' and Subject='" + sub + "' and SubGID != 'N/A' ";
                 sql_con.Open();
                 SQLiteCommand command = new SQLiteCommand(getGroupids, sql_con);
                 SQLiteDataReader reader = command.ExecuteReader();
@@ -226,12 +229,14 @@ namespace TimeTableManagment.Forms
             {
                 Console.Write("no work");
             }
+
+            sql_con.Close();
         }
 
 
         private void subjectComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
+            subGroupcomboBox.Items.Clear();
             sessionSubGID_Fill_Combobox();
         }
 
@@ -299,7 +304,7 @@ namespace TimeTableManagment.Forms
 
 
                     SetConnection();
-                    String lectureDet = "select Lecturer,Subject,Tag,GroupID from Session where GroupID='" + globalGroupId + "' and Subject='" + globalSubjectID + "'and Tag='Lecture'";
+                    String lectureDet = "select Lecturer,Subject,Tag,GroupID,SessionID  from Session where GroupID='" + globalGroupId + "' and Subject='" + globalSubjectID + "'and Tag='Lecture'";
 
                     sql_con.Open();
                     SQLiteCommand command = new SQLiteCommand(lectureDet, sql_con);
@@ -313,13 +318,15 @@ namespace TimeTableManagment.Forms
                         lSubject = reader.GetString(1);
                         lTag = reader.GetString(2);
                         lGroupID = reader.GetString(3);
+                        lsessionID = reader.GetInt32(4);
 
 
-                        lecSessionlabel.Text = lLecture + "\n" + lSubject + "\n" + lTag + "\n" + lGroupID;
+
+                        lecSessionlabel.Text = lLecture + "\n" + lSubject + "\n" + lTag + "\n" + lGroupID+"\n Session ID "+lsessionID;
                     }
 
                     sql_con.Close();
-                    String tutDet = "select Lecturer,Subject,Tag,GroupID from Session where GroupID='" + globalGroupId + "' and Subject='" + globalSubjectID + "'and Tag='Tutorial'";
+                    String tutDet = "select Lecturer,Subject,Tag,GroupID,SessionID from Session where GroupID='" + globalGroupId + "' and Subject='" + globalSubjectID + "'and Tag='Tutorial'";
                     sql_con.Open();
                     SQLiteCommand command1 = new SQLiteCommand(tutDet, sql_con);
                     SQLiteDataReader reader1 = command1.ExecuteReader();
@@ -330,9 +337,10 @@ namespace TimeTableManagment.Forms
                         tSubject = reader1.GetString(1);
                         tTag = reader1.GetString(2);
                         tGroupID = reader1.GetString(3);
+                        tsessionID = reader1.GetInt32(4);
 
 
-                        tuteSessionlabel.Text = tLecture + "\n" + tSubject + "\n" + tTag + "\n" + tGroupID;
+                        tuteSessionlabel.Text = tLecture + "\n" + tSubject + "\n" + tTag + "\n" + tGroupID + "\n Session ID " + tsessionID;
                     }
 
                 }
@@ -384,11 +392,11 @@ namespace TimeTableManagment.Forms
                     {
 
 
-                        string insertConsecForLec = "insert into RoomAllocation (RoomName,Subject,Tag,Lecturer,GroupID,SubGroup)values('" + room + "','" + lSubject + "','"
-                      + lTag + "','" + lLecture + "','" + lGroupID + "','N/A')";
+                        string insertConsecForLec = "insert into RoomAllocation (RoomName,Subject,Tag,Lecturer,GroupID,SubGroup,sessionID)values('" + room + "','" + lSubject + "','"
+                      + lTag + "','" + lLecture + "','" + lGroupID + "','N/A' ,'"+lsessionID+"')";
 
-                        string insertConsecForTut = "insert into RoomAllocation (RoomName,Subject,Tag,Lecturer,GroupID,SubGroup)values('" + room + "','" + tSubject + "','"
-                      + tTag + "','" + tLecture + "','" + tGroupID + "','N/A')";
+                        string insertConsecForTut = "insert into RoomAllocation (RoomName,Subject,Tag,Lecturer,GroupID,SubGroup,sessionID)values('" + room + "','" + tSubject + "','"
+                      + tTag + "','" + tLecture + "','" + tGroupID + "','N/A' ,'" + tsessionID + "')";
 
 
                         ExecuteQuery(insertConsecForLec);
@@ -414,13 +422,14 @@ namespace TimeTableManagment.Forms
                     {
                         string sessionTag = "";
                         string Lect = "";
+                        int sID = 0;
 
                         try
                         {
                             
 
                             SetConnection();
-                            String getGroupids = "select Tag,Lecturer from Session where GroupID='" + gId + "' and Subject='" + sub + "' and SubGID='"+subgID+"' ";
+                            String getGroupids = "select Tag,Lecturer,SessionID from Session where GroupID='" + gId + "' and Subject='" + sub + "' and SubGID='"+subgID+"' ";
                             sql_con.Open();
                             SQLiteCommand command = new SQLiteCommand(getGroupids, sql_con);
                             SQLiteDataReader reader = command.ExecuteReader();
@@ -430,6 +439,7 @@ namespace TimeTableManagment.Forms
                             {
                                  sessionTag = reader.GetString(0);
                                  Lect = reader.GetString(1);
+                                sID = reader.GetInt32(2);
                             }
                         }
                         catch (Exception)
@@ -437,8 +447,8 @@ namespace TimeTableManagment.Forms
                             Console.Write("no work");
                         }
 
-                        string insertForPrac = "insert into RoomAllocation (RoomName,Subject,Tag,Lecturer,GroupID,SubGroup)values('" + room + "','" + sub + "','"
-                      + sessionTag + "','" + Lect + "','" + gId + "','"+subgID+"')";
+                        string insertForPrac = "insert into RoomAllocation (RoomName,Subject,Tag,Lecturer,GroupID,SubGroup,sessionID)values('" + room + "','" + sub + "','"
+                      + sessionTag + "','" + Lect + "','" + gId + "','"+subgID+"','"+sID+"')";
 
                         
 

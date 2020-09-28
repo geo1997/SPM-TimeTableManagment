@@ -145,10 +145,13 @@ namespace TimeTableManagment
 
         private void statistics_click(object sender, EventArgs e)
         {
-            OpenChildForm(new Forms.StatisticsForm(), sender);
+            OpenChildForm(new Forms.AssignTimeAndDay(), sender);
         }
 
-
+        private void button10_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Forms.StatisticsForm(), sender);
+        }
 
 
         private void btnCloseChildForm_click(object sender, EventArgs e)
@@ -162,7 +165,7 @@ namespace TimeTableManagment
         {
             DisableButton();
             lblTitle.Text = "Home";
-            titleBarPanel.BackColor = Color.FromArgb(0, 150, 136);
+            titleBarPanel.BackColor = Color.FromArgb(50, 50, 70);
             currentButton = null;
             btnClose.Visible = false;
         }
@@ -205,6 +208,16 @@ namespace TimeTableManagment
 
 
 
+        }
+
+        private void AssignDayandTimebutton_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Forms.test(), sender);
         }
     }
 }

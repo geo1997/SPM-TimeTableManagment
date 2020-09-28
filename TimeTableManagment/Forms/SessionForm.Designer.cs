@@ -563,6 +563,7 @@
             this.metroTabControl1.Size = new System.Drawing.Size(1079, 699);
             this.metroTabControl1.TabIndex = 2;
             this.metroTabControl1.UseSelectable = true;
+            this.metroTabControl1.SelectedIndexChanged += new System.EventHandler(this.metroTabControl1_SelectedIndexChanged);
             // 
             // metroTabPage1
             // 
@@ -1410,10 +1411,12 @@
             // 
             // timer2
             // 
+            this.timer2.Interval = 15;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
             // timer3
             // 
+            this.timer3.Interval = 15;
             this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
             // 
             // errorProvider1
