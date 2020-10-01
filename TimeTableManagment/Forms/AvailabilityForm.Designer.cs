@@ -53,6 +53,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.metroTabPage2 = new MetroFramework.Controls.MetroTabPage();
+            this.label13 = new System.Windows.Forms.Label();
+            this.daycomboBox = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.combo_endTime = new System.Windows.Forms.ComboBox();
@@ -68,8 +70,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.label13 = new System.Windows.Forms.Label();
-            this.daycomboBox = new System.Windows.Forms.ComboBox();
             this.metroTabControl1.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -88,7 +88,7 @@
             this.metroTabControl1.Location = new System.Drawing.Point(0, 0);
             this.metroTabControl1.Name = "metroTabControl1";
             this.metroTabControl1.SelectedIndex = 0;
-            this.metroTabControl1.Size = new System.Drawing.Size(982, 653);
+            this.metroTabControl1.Size = new System.Drawing.Size(1186, 653);
             this.metroTabControl1.TabIndex = 0;
             this.metroTabControl1.UseSelectable = true;
             this.metroTabControl1.SelectedIndexChanged += new System.EventHandler(this.metroTabControl1_SelectedIndexChanged);
@@ -119,7 +119,7 @@
             this.metroTabPage1.HorizontalScrollbarSize = 10;
             this.metroTabPage1.Location = new System.Drawing.Point(4, 38);
             this.metroTabPage1.Name = "metroTabPage1";
-            this.metroTabPage1.Size = new System.Drawing.Size(974, 611);
+            this.metroTabPage1.Size = new System.Drawing.Size(1178, 611);
             this.metroTabPage1.TabIndex = 0;
             this.metroTabPage1.Text = "Availability";
             this.metroTabPage1.VerticalScrollbarBarColor = true;
@@ -129,9 +129,9 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.dataGridView1);
-            this.panel1.Location = new System.Drawing.Point(71, 326);
+            this.panel1.Location = new System.Drawing.Point(112, 340);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(838, 253);
+            this.panel1.Size = new System.Drawing.Size(980, 253);
             this.panel1.TabIndex = 59;
             // 
             // dataGridView1
@@ -140,7 +140,7 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(31, 20);
+            this.dataGridView1.Location = new System.Drawing.Point(113, 18);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
@@ -153,7 +153,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(44, 150);
+            this.label1.Location = new System.Drawing.Point(198, 163);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(105, 17);
             this.label1.TabIndex = 58;
@@ -162,7 +162,7 @@
             // sessionDetailslabel
             // 
             this.sessionDetailslabel.AutoSize = true;
-            this.sessionDetailslabel.Location = new System.Drawing.Point(49, 177);
+            this.sessionDetailslabel.Location = new System.Drawing.Point(203, 190);
             this.sessionDetailslabel.MaximumSize = new System.Drawing.Size(500, 100);
             this.sessionDetailslabel.MinimumSize = new System.Drawing.Size(100, 100);
             this.sessionDetailslabel.Name = "sessionDetailslabel";
@@ -194,7 +194,7 @@
             "18.00",
             "18.30",
             "19.00"});
-            this.endTimecomboBox.Location = new System.Drawing.Point(703, 179);
+            this.endTimecomboBox.Location = new System.Drawing.Point(857, 192);
             this.endTimecomboBox.Name = "endTimecomboBox";
             this.endTimecomboBox.Size = new System.Drawing.Size(121, 24);
             this.endTimecomboBox.TabIndex = 56;
@@ -226,7 +226,7 @@
             "18.00",
             "18.30",
             "19.00"});
-            this.startTimecomboBox.Location = new System.Drawing.Point(527, 179);
+            this.startTimecomboBox.Location = new System.Drawing.Point(681, 192);
             this.startTimecomboBox.Name = "startTimecomboBox";
             this.startTimecomboBox.Size = new System.Drawing.Size(121, 24);
             this.startTimecomboBox.TabIndex = 55;
@@ -235,7 +235,7 @@
             // 
             this.labelLec.AutoSize = true;
             this.labelLec.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelLec.Location = new System.Drawing.Point(350, 9);
+            this.labelLec.Location = new System.Drawing.Point(504, 22);
             this.labelLec.Name = "labelLec";
             this.labelLec.Size = new System.Drawing.Size(314, 32);
             this.labelLec.TabIndex = 54;
@@ -245,7 +245,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(293, 9);
+            this.label15.Location = new System.Drawing.Point(447, 22);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(395, 32);
             this.label15.TabIndex = 53;
@@ -257,7 +257,7 @@
             this.button1.BackColor = System.Drawing.Color.CornflowerBlue;
             this.button1.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(484, 236);
+            this.button1.Location = new System.Drawing.Point(638, 249);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(130, 41);
             this.button1.TabIndex = 52;
@@ -269,7 +269,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(672, 182);
+            this.label7.Location = new System.Drawing.Point(826, 195);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(25, 17);
             this.label7.TabIndex = 51;
@@ -279,7 +279,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(481, 182);
+            this.label3.Location = new System.Drawing.Point(635, 195);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(40, 17);
             this.label3.TabIndex = 49;
@@ -297,7 +297,7 @@
             "Friday",
             "Saturday",
             "Sunday"});
-            this.comboBox3.Location = new System.Drawing.Point(491, 100);
+            this.comboBox3.Location = new System.Drawing.Point(645, 113);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(299, 24);
             this.comboBox3.TabIndex = 47;
@@ -307,7 +307,7 @@
             // 
             this.loadSessioncomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.loadSessioncomboBox.FormattingEnabled = true;
-            this.loadSessioncomboBox.Location = new System.Drawing.Point(43, 100);
+            this.loadSessioncomboBox.Location = new System.Drawing.Point(206, 113);
             this.loadSessioncomboBox.Name = "loadSessioncomboBox";
             this.loadSessioncomboBox.Size = new System.Drawing.Size(299, 24);
             this.loadSessioncomboBox.TabIndex = 46;
@@ -331,7 +331,7 @@
             this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(620, 236);
+            this.button2.Location = new System.Drawing.Point(774, 249);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(130, 41);
             this.button2.TabIndex = 43;
@@ -346,7 +346,7 @@
             this.button4.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
             this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(756, 236);
+            this.button4.Location = new System.Drawing.Point(910, 249);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(130, 41);
             this.button4.TabIndex = 42;
@@ -361,7 +361,7 @@
             this.button3.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(484, 236);
+            this.button3.Location = new System.Drawing.Point(638, 249);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(130, 41);
             this.button3.TabIndex = 41;
@@ -373,7 +373,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(481, 150);
+            this.label6.Location = new System.Drawing.Point(635, 163);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(39, 17);
             this.label6.TabIndex = 38;
@@ -382,7 +382,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(488, 71);
+            this.label5.Location = new System.Drawing.Point(642, 84);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(33, 17);
             this.label5.TabIndex = 36;
@@ -391,7 +391,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(40, 71);
+            this.label4.Location = new System.Drawing.Point(203, 82);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(101, 17);
             this.label4.TabIndex = 34;
@@ -419,12 +419,37 @@
             this.metroTabPage2.HorizontalScrollbarSize = 10;
             this.metroTabPage2.Location = new System.Drawing.Point(4, 38);
             this.metroTabPage2.Name = "metroTabPage2";
-            this.metroTabPage2.Size = new System.Drawing.Size(974, 611);
+            this.metroTabPage2.Size = new System.Drawing.Size(1178, 611);
             this.metroTabPage2.TabIndex = 1;
             this.metroTabPage2.Text = "Room Availability";
             this.metroTabPage2.VerticalScrollbarBarColor = true;
             this.metroTabPage2.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage2.VerticalScrollbarSize = 10;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(587, 102);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(84, 17);
+            this.label13.TabIndex = 26;
+            this.label13.Text = " Select Day:";
+            // 
+            // daycomboBox
+            // 
+            this.daycomboBox.FormattingEnabled = true;
+            this.daycomboBox.Items.AddRange(new object[] {
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday"});
+            this.daycomboBox.Location = new System.Drawing.Point(687, 99);
+            this.daycomboBox.Name = "daycomboBox";
+            this.daycomboBox.Size = new System.Drawing.Size(121, 24);
+            this.daycomboBox.TabIndex = 25;
             // 
             // label12
             // 
@@ -629,36 +654,11 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(587, 102);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(84, 17);
-            this.label13.TabIndex = 26;
-            this.label13.Text = " Select Day:";
-            // 
-            // daycomboBox
-            // 
-            this.daycomboBox.FormattingEnabled = true;
-            this.daycomboBox.Items.AddRange(new object[] {
-            "Monday",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
-            "Friday",
-            "Saturday",
-            "Sunday"});
-            this.daycomboBox.Location = new System.Drawing.Point(687, 99);
-            this.daycomboBox.Name = "daycomboBox";
-            this.daycomboBox.Size = new System.Drawing.Size(121, 24);
-            this.daycomboBox.TabIndex = 25;
-            // 
             // AvailabilityForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(982, 653);
+            this.ClientSize = new System.Drawing.Size(1186, 653);
             this.Controls.Add(this.metroTabControl1);
             this.Name = "AvailabilityForm";
             this.Text = "Availability";
