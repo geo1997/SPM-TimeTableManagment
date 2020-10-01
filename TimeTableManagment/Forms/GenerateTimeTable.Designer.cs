@@ -47,19 +47,19 @@
             this.GroupIDcomboBox = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.weekDayradioButton = new System.Windows.Forms.RadioButton();
+            this.weekEndradioButton = new System.Windows.Forms.RadioButton();
             this.closeTabbutton1 = new System.Windows.Forms.Button();
             this.clearFieldsbutton = new System.Windows.Forms.Button();
             this.generateTimeTblebutton = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.dataGridView7 = new System.Windows.Forms.DataGridView();
             this.printTimebutton = new System.Windows.Forms.Button();
-            this.weekDayradioButton = new System.Windows.Forms.RadioButton();
-            this.weekEndradioButton = new System.Windows.Forms.RadioButton();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView7)).BeginInit();
-            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -243,6 +243,39 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Select An Option";
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.weekDayradioButton);
+            this.groupBox2.Controls.Add(this.weekEndradioButton);
+            this.groupBox2.Location = new System.Drawing.Point(80, 228);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(316, 100);
+            this.groupBox2.TabIndex = 97;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Select Type";
+            // 
+            // weekDayradioButton
+            // 
+            this.weekDayradioButton.AutoSize = true;
+            this.weekDayradioButton.Location = new System.Drawing.Point(7, 41);
+            this.weekDayradioButton.Name = "weekDayradioButton";
+            this.weekDayradioButton.Size = new System.Drawing.Size(88, 21);
+            this.weekDayradioButton.TabIndex = 95;
+            this.weekDayradioButton.TabStop = true;
+            this.weekDayradioButton.Text = "Weekday";
+            this.weekDayradioButton.UseVisualStyleBackColor = true;
+            // 
+            // weekEndradioButton
+            // 
+            this.weekEndradioButton.AutoSize = true;
+            this.weekEndradioButton.Location = new System.Drawing.Point(167, 41);
+            this.weekEndradioButton.Name = "weekEndradioButton";
+            this.weekEndradioButton.Size = new System.Drawing.Size(89, 21);
+            this.weekEndradioButton.TabIndex = 96;
+            this.weekEndradioButton.TabStop = true;
+            this.weekEndradioButton.Text = "Weekend";
+            this.weekEndradioButton.UseVisualStyleBackColor = true;
+            // 
             // closeTabbutton1
             // 
             this.closeTabbutton1.Image = global::TimeTableManagment.Properties.Resources.icons8_macos_close_32;
@@ -328,39 +361,6 @@
             this.printTimebutton.UseVisualStyleBackColor = true;
             this.printTimebutton.Click += new System.EventHandler(this.printTimebutton_Click);
             // 
-            // weekDayradioButton
-            // 
-            this.weekDayradioButton.AutoSize = true;
-            this.weekDayradioButton.Location = new System.Drawing.Point(7, 41);
-            this.weekDayradioButton.Name = "weekDayradioButton";
-            this.weekDayradioButton.Size = new System.Drawing.Size(88, 21);
-            this.weekDayradioButton.TabIndex = 95;
-            this.weekDayradioButton.TabStop = true;
-            this.weekDayradioButton.Text = "Weekday";
-            this.weekDayradioButton.UseVisualStyleBackColor = true;
-            // 
-            // weekEndradioButton
-            // 
-            this.weekEndradioButton.AutoSize = true;
-            this.weekEndradioButton.Location = new System.Drawing.Point(167, 41);
-            this.weekEndradioButton.Name = "weekEndradioButton";
-            this.weekEndradioButton.Size = new System.Drawing.Size(89, 21);
-            this.weekEndradioButton.TabIndex = 96;
-            this.weekEndradioButton.TabStop = true;
-            this.weekEndradioButton.Text = "Weekend";
-            this.weekEndradioButton.UseVisualStyleBackColor = true;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.weekDayradioButton);
-            this.groupBox2.Controls.Add(this.weekEndradioButton);
-            this.groupBox2.Location = new System.Drawing.Point(80, 228);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(316, 100);
-            this.groupBox2.TabIndex = 97;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Select Type";
-            // 
             // GenerateTimeTable
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -378,13 +378,14 @@
             this.Name = "GenerateTimeTable";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GenerateTimeTable";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.GenerateTimeTable_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.panel7.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView7)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView7)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
