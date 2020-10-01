@@ -54,7 +54,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(225, 33);
+            this.label1.Location = new System.Drawing.Point(351, 71);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(281, 17);
             this.label1.TabIndex = 0;
@@ -63,7 +63,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(225, 79);
+            this.label2.Location = new System.Drawing.Point(351, 117);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(157, 17);
             this.label2.TabIndex = 2;
@@ -72,7 +72,7 @@
             // check_mon
             // 
             this.check_mon.AutoSize = true;
-            this.check_mon.Location = new System.Drawing.Point(279, 99);
+            this.check_mon.Location = new System.Drawing.Point(405, 137);
             this.check_mon.Name = "check_mon";
             this.check_mon.Size = new System.Drawing.Size(80, 21);
             this.check_mon.TabIndex = 3;
@@ -82,7 +82,7 @@
             // check_tue
             // 
             this.check_tue.AutoSize = true;
-            this.check_tue.Location = new System.Drawing.Point(279, 126);
+            this.check_tue.Location = new System.Drawing.Point(405, 164);
             this.check_tue.Name = "check_tue";
             this.check_tue.Size = new System.Drawing.Size(85, 21);
             this.check_tue.TabIndex = 4;
@@ -92,7 +92,7 @@
             // check_wed
             // 
             this.check_wed.AutoSize = true;
-            this.check_wed.Location = new System.Drawing.Point(279, 153);
+            this.check_wed.Location = new System.Drawing.Point(405, 191);
             this.check_wed.Name = "check_wed";
             this.check_wed.Size = new System.Drawing.Size(105, 21);
             this.check_wed.TabIndex = 5;
@@ -102,7 +102,7 @@
             // check_thurs
             // 
             this.check_thurs.AutoSize = true;
-            this.check_thurs.Location = new System.Drawing.Point(279, 180);
+            this.check_thurs.Location = new System.Drawing.Point(405, 218);
             this.check_thurs.Name = "check_thurs";
             this.check_thurs.Size = new System.Drawing.Size(90, 21);
             this.check_thurs.TabIndex = 6;
@@ -112,7 +112,7 @@
             // check_fri
             // 
             this.check_fri.AutoSize = true;
-            this.check_fri.Location = new System.Drawing.Point(279, 207);
+            this.check_fri.Location = new System.Drawing.Point(405, 245);
             this.check_fri.Name = "check_fri";
             this.check_fri.Size = new System.Drawing.Size(69, 21);
             this.check_fri.TabIndex = 7;
@@ -122,7 +122,7 @@
             // check_sat
             // 
             this.check_sat.AutoSize = true;
-            this.check_sat.Location = new System.Drawing.Point(279, 234);
+            this.check_sat.Location = new System.Drawing.Point(405, 272);
             this.check_sat.Name = "check_sat";
             this.check_sat.Size = new System.Drawing.Size(87, 21);
             this.check_sat.TabIndex = 8;
@@ -132,7 +132,7 @@
             // check_sun
             // 
             this.check_sun.AutoSize = true;
-            this.check_sun.Location = new System.Drawing.Point(279, 261);
+            this.check_sun.Location = new System.Drawing.Point(405, 299);
             this.check_sun.Name = "check_sun";
             this.check_sun.Size = new System.Drawing.Size(78, 21);
             this.check_sun.TabIndex = 9;
@@ -145,7 +145,7 @@
             this.btn_add.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.btn_add.Image = global::TimeTableManagment.Properties.Resources.icons8_add_new_64;
             this.btn_add.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_add.Location = new System.Drawing.Point(465, 267);
+            this.btn_add.Location = new System.Drawing.Point(629, 322);
             this.btn_add.Name = "btn_add";
             this.btn_add.Size = new System.Drawing.Size(130, 41);
             this.btn_add.TabIndex = 10;
@@ -186,7 +186,7 @@
             this.btn_edit.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.btn_edit.Image = global::TimeTableManagment.Properties.Resources.icons8_edit_property_64;
             this.btn_edit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_edit.Location = new System.Drawing.Point(395, 267);
+            this.btn_edit.Location = new System.Drawing.Point(559, 322);
             this.btn_edit.Name = "btn_edit";
             this.btn_edit.Size = new System.Drawing.Size(130, 41);
             this.btn_edit.TabIndex = 13;
@@ -201,7 +201,7 @@
             this.btn_delete.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.btn_delete.Image = global::TimeTableManagment.Properties.Resources.icons8_delete_64;
             this.btn_delete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_delete.Location = new System.Drawing.Point(591, 267);
+            this.btn_delete.Location = new System.Drawing.Point(755, 322);
             this.btn_delete.Name = "btn_delete";
             this.btn_delete.Size = new System.Drawing.Size(130, 41);
             this.btn_delete.TabIndex = 14;
@@ -212,7 +212,7 @@
             // 
             // numericUpDown1WorkingDays
             // 
-            this.numericUpDown1WorkingDays.Location = new System.Drawing.Point(279, 53);
+            this.numericUpDown1WorkingDays.Location = new System.Drawing.Point(405, 91);
             this.numericUpDown1WorkingDays.Maximum = new decimal(new int[] {
             7,
             0,
@@ -225,7 +225,7 @@
             // numericUpDown1WorkingHours
             // 
             this.numericUpDown1WorkingHours.DecimalPlaces = 2;
-            this.numericUpDown1WorkingHours.Location = new System.Drawing.Point(690, 53);
+            this.numericUpDown1WorkingHours.Location = new System.Drawing.Point(816, 91);
             this.numericUpDown1WorkingHours.Maximum = new decimal(new int[] {
             24,
             0,
@@ -238,7 +238,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(618, 33);
+            this.label3.Location = new System.Drawing.Point(744, 71);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(278, 17);
             this.label3.TabIndex = 17;
