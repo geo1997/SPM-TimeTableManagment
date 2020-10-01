@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TimeTableManagment.Forms;
+using System.Data.SQLite;
 
 namespace TimeTableManagment
 {
@@ -24,6 +25,131 @@ namespace TimeTableManagment
             InitializeComponent();
             random = new Random();
             btnClose.Visible = false;
+        }
+
+        private SQLiteConnection sql_con;
+        private SQLiteCommand sql_cmd;
+        private SQLiteDataAdapter DB;
+        private DataSet DS = new DataSet();
+        private DataTable DT = new DataTable();
+
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            LoadRoomData();
+        }
+
+        //set connection
+        private void SetConnection()
+        {
+            sql_con = new SQLiteConnection("Data Source=TimeTable.db;version=3;");
+        }
+
+        private void ExecuteQuery(string txtQuery)
+        {
+            SetConnection();
+            sql_con.Open();
+            sql_cmd = sql_con.CreateCommand();
+            sql_cmd.CommandText = txtQuery;
+            sql_cmd.ExecuteNonQuery();
+            sql_con.Close();
+        }
+
+        //load data
+        private void LoadRoomData()
+        {
+            try
+            {
+                SetConnection();
+                
+                String getLes = "select count(*) from Lecturer";
+                String getPro =  "select count(*) from Session";
+                String getStudents = "select count(*) from Student";
+                String getSub = "select count(*) from Subject";
+                String getDays = "select count(*) from Days";
+                String getHours = "select count(*) from Hours";
+                String getBuilding = "select count(*) from Location";
+                String getRooms = "select count(*) from Rooms";
+
+                sql_con.Open();
+                
+                SQLiteCommand command1 = new SQLiteCommand(getLes, sql_con);
+                SQLiteCommand command2 = new SQLiteCommand(getPro, sql_con);
+                SQLiteCommand command3 = new SQLiteCommand(getStudents, sql_con);
+                SQLiteCommand command4 = new SQLiteCommand(getSub, sql_con);
+                SQLiteCommand command5 = new SQLiteCommand(getDays, sql_con);
+                SQLiteCommand command6 = new SQLiteCommand(getHours, sql_con);
+                SQLiteCommand command7 = new SQLiteCommand(getBuilding, sql_con);
+                SQLiteCommand command8 = new SQLiteCommand(getRooms, sql_con);
+
+                SQLiteDataReader reader1 = command1.ExecuteReader();
+                SQLiteDataReader reader2 = command2.ExecuteReader();
+                SQLiteDataReader reader3 = command3.ExecuteReader();
+                SQLiteDataReader reader4 = command4.ExecuteReader();
+                SQLiteDataReader reader5 = command5.ExecuteReader();
+                SQLiteDataReader reader6 = command6.ExecuteReader();
+                SQLiteDataReader reader7 = command7.ExecuteReader();
+                SQLiteDataReader reader8 = command8.ExecuteReader();
+     
+                
+                while (reader1.Read())
+                {
+                    int lecCount = reader1.GetInt32(0);
+                    lblLec.Text = lecCount.ToString();
+                }
+
+                while (reader2.Read())
+                {
+                    int proCount = reader2.GetInt32(0);
+                    lblPro.Text = proCount.ToString();
+                }
+
+                while (reader3.Read())
+                {
+                    int stuCount = reader3.GetInt32(0);
+                    lblStu.Text = stuCount.ToString();
+                }
+
+                while (reader4.Read())
+                {
+                    int subCount = reader4.GetInt32(0);
+                    lblSub.Text = subCount.ToString();
+                }
+
+                while (reader5.Read())
+                {
+                    int dayCount = reader5.GetInt32(0);
+                    lblDays.Text = dayCount.ToString();
+                }
+
+                while (reader6.Read())
+                {
+                    int hourCount = reader6.GetInt32(0);
+                    lblHours.Text = hourCount.ToString();
+                }
+
+                while (reader7.Read())
+                {
+                    int buildinCount = reader7.GetInt32(0);
+                    lblBuild.Text = buildinCount.ToString();
+                }
+
+
+                while (reader8.Read())
+                {
+                    int roomCount = reader8.GetInt32(0);
+                    lblRoom.Text = roomCount.ToString();
+                }
+
+
+                sql_con.Close();
+            }
+
+
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
         }
 
 
@@ -85,8 +211,8 @@ namespace TimeTableManagment
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
             childForm.Dock = DockStyle.Fill;
-            this.panelDekstopPane.Controls.Add(childForm);
-            this.panelDekstopPane.Tag = childForm;
+            this.home.Controls.Add(childForm);
+            this.home.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
             lblTitle.Text = childForm.Text;
@@ -215,6 +341,9 @@ namespace TimeTableManagment
            
         }
 
-       
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

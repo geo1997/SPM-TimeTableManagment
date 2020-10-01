@@ -175,7 +175,7 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.dataGridView1);
-            this.panel1.Location = new System.Drawing.Point(41, 314);
+            this.panel1.Location = new System.Drawing.Point(210, 401);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(938, 251);
             this.panel1.TabIndex = 12;
@@ -248,7 +248,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1015, 622);
+            this.ClientSize = new System.Drawing.Size(1391, 729);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.numericUpDown1WorkingHours);
             this.Controls.Add(this.numericUpDown1WorkingDays);
