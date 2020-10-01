@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GenerateTimeTable));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.LecturerradioButton = new System.Windows.Forms.RadioButton();
             this.StudentGroupradioButton = new System.Windows.Forms.RadioButton();
@@ -50,12 +50,12 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.weekDayradioButton = new System.Windows.Forms.RadioButton();
             this.weekEndradioButton = new System.Windows.Forms.RadioButton();
-            this.closeTabbutton1 = new System.Windows.Forms.Button();
             this.clearFieldsbutton = new System.Windows.Forms.Button();
             this.generateTimeTblebutton = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.dataGridView7 = new System.Windows.Forms.DataGridView();
             this.printTimebutton = new System.Windows.Forms.Button();
+            this.topicForTimeTable = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -276,16 +276,6 @@
             this.weekEndradioButton.Text = "Weekend";
             this.weekEndradioButton.UseVisualStyleBackColor = true;
             // 
-            // closeTabbutton1
-            // 
-            this.closeTabbutton1.Image = global::TimeTableManagment.Properties.Resources.icons8_macos_close_32;
-            this.closeTabbutton1.Location = new System.Drawing.Point(910, 0);
-            this.closeTabbutton1.Name = "closeTabbutton1";
-            this.closeTabbutton1.Size = new System.Drawing.Size(75, 35);
-            this.closeTabbutton1.TabIndex = 92;
-            this.closeTabbutton1.UseVisualStyleBackColor = true;
-            this.closeTabbutton1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // clearFieldsbutton
             // 
             this.clearFieldsbutton.BackColor = System.Drawing.Color.SteelBlue;
@@ -319,27 +309,27 @@
             // panel7
             // 
             this.panel7.Controls.Add(this.dataGridView7);
-            this.panel7.Location = new System.Drawing.Point(18, 12);
+            this.panel7.Location = new System.Drawing.Point(1, 2);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(886, 622);
+            this.panel7.Size = new System.Drawing.Size(984, 658);
             this.panel7.TabIndex = 118;
             // 
             // dataGridView7
             // 
             this.dataGridView7.AllowUserToAddRows = false;
             this.dataGridView7.AllowUserToDeleteRows = false;
-            this.dataGridView7.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridView7.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView7.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView7.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView7.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView7.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView7.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView7.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dataGridView7.Location = new System.Drawing.Point(3, 3);
             this.dataGridView7.Name = "dataGridView7";
@@ -348,33 +338,44 @@
             this.dataGridView7.RowHeadersWidth = 51;
             this.dataGridView7.RowTemplate.Height = 24;
             this.dataGridView7.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView7.Size = new System.Drawing.Size(883, 616);
+            this.dataGridView7.Size = new System.Drawing.Size(978, 652);
             this.dataGridView7.TabIndex = 6;
             // 
             // printTimebutton
             // 
-            this.printTimebutton.Location = new System.Drawing.Point(774, 641);
+            this.printTimebutton.BackColor = System.Drawing.SystemColors.Highlight;
+            this.printTimebutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.printTimebutton.Location = new System.Drawing.Point(806, 666);
             this.printTimebutton.Name = "printTimebutton";
-            this.printTimebutton.Size = new System.Drawing.Size(75, 23);
+            this.printTimebutton.Size = new System.Drawing.Size(110, 31);
             this.printTimebutton.TabIndex = 119;
             this.printTimebutton.Text = "Print";
-            this.printTimebutton.UseVisualStyleBackColor = true;
+            this.printTimebutton.UseVisualStyleBackColor = false;
             this.printTimebutton.Click += new System.EventHandler(this.printTimebutton_Click);
+            // 
+            // topicForTimeTable
+            // 
+            this.topicForTimeTable.AutoSize = true;
+            this.topicForTimeTable.Location = new System.Drawing.Point(18, 17);
+            this.topicForTimeTable.MinimumSize = new System.Drawing.Size(50, 0);
+            this.topicForTimeTable.Name = "topicForTimeTable";
+            this.topicForTimeTable.Size = new System.Drawing.Size(50, 17);
+            this.topicForTimeTable.TabIndex = 120;
             // 
             // GenerateTimeTable
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(984, 675);
+            this.ClientSize = new System.Drawing.Size(988, 701);
+            this.Controls.Add(this.panel7);
             this.Controls.Add(this.printTimebutton);
+            this.Controls.Add(this.topicForTimeTable);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.closeTabbutton1);
             this.Controls.Add(this.clearFieldsbutton);
             this.Controls.Add(this.generateTimeTblebutton);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.panel7);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MaximizeBox = false;
             this.Name = "GenerateTimeTable";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GenerateTimeTable";
@@ -392,7 +393,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button closeTabbutton1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RadioButton LecturerradioButton;
         private System.Windows.Forms.RadioButton StudentGroupradioButton;
@@ -418,5 +418,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.RadioButton weekDayradioButton;
         private System.Windows.Forms.RadioButton weekEndradioButton;
+        private System.Windows.Forms.Label topicForTimeTable;
     }
 }

@@ -257,38 +257,38 @@ namespace TimeTableManagment
         private void generate_timetable_Click(object sender, EventArgs e)
         {
 
-            //GenerateTimeTable g = new GenerateTimeTable();
-            //g.ShowDialog();
+            GenerateTimeTable g = new GenerateTimeTable();
+            g.ShowDialog();
 
-            Form formBackground = new Form();
+            //Form formBackground = new Form();
 
-            try
-            {
-                using (GenerateTimeTable g = new GenerateTimeTable())
-                {
-                    formBackground.StartPosition = FormStartPosition.Manual;
-                    formBackground.FormBorderStyle = FormBorderStyle.None;
-                    formBackground.Opacity = .70d;
-                    formBackground.BackColor = Color.Black;
-                    formBackground.WindowState = FormWindowState.Maximized;
-                    formBackground.TopMost = true;
-                    formBackground.Location = this.Location;
-                    formBackground.ShowInTaskbar = false;
-                    formBackground.Show();
+            //try
+            //{
+            //    using (GenerateTimeTable g = new GenerateTimeTable())
+            //    {
+            //        formBackground.StartPosition = FormStartPosition.Manual;
+            //        formBackground.FormBorderStyle = FormBorderStyle.None;
+            //        formBackground.Opacity = .30d;
+            //        formBackground.BackColor = Color.Black;
+            //        formBackground.WindowState = FormWindowState.Maximized;
+            //        formBackground.TopMost = true;
+            //        formBackground.Location = this.Location;
+            //        formBackground.ShowInTaskbar = false;
+            //        formBackground.Show();
 
-                    g.Owner = formBackground;
-                    g.ShowDialog();
-                    formBackground.Dispose();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                formBackground.Dispose();
-            }
+            //        g.Owner = formBackground;
+            //        g.ShowDialog();
+            //        formBackground.Dispose();
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
+            //finally
+            //{
+            //    formBackground.Dispose();
+            //}
 
 
 

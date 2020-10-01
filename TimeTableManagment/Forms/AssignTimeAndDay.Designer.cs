@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AssignTimeAndDay));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AssignTimeAndDay));
             this.semcomboBox = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.subjectComboBox = new System.Windows.Forms.ComboBox();
@@ -49,6 +49,8 @@
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
             this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
+            this.buildingDeleteBtn = new System.Windows.Forms.Button();
+            this.ClearFieldsbuttoPrac = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -96,6 +98,9 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
             this.metroTabPage3 = new MetroFramework.Controls.MetroTabPage();
+            this.sessionDetailslblParAndOvr = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.addDatabuttonParallAndNonOver = new System.Windows.Forms.Button();
             this.panel12 = new System.Windows.Forms.Panel();
             this.dataGridView12 = new System.Windows.Forms.DataGridView();
             this.groupBox13 = new System.Windows.Forms.GroupBox();
@@ -108,12 +113,14 @@
             this.label25 = new System.Windows.Forms.Label();
             this.startTimecomboBoxParAndOvr = new System.Windows.Forms.ComboBox();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.label27 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
             this.dataGridView10 = new System.Windows.Forms.DataGridView();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.label26 = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
             this.dataGridView11 = new System.Windows.Forms.DataGridView();
             this.label20 = new System.Windows.Forms.Label();
@@ -124,13 +131,6 @@
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.panel8 = new System.Windows.Forms.Panel();
             this.dataGridView8 = new System.Windows.Forms.DataGridView();
-            this.ClearFieldsbuttoPrac = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.addDatabuttonParallAndNonOver = new System.Windows.Forms.Button();
-            this.sessionDetailslblParAndOvr = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.buildingDeleteBtn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -332,7 +332,7 @@
             this.metroTabControl1.Controls.Add(this.metroTabPage3);
             this.metroTabControl1.Location = new System.Drawing.Point(3, 0);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 1;
+            this.metroTabControl1.SelectedIndex = 0;
             this.metroTabControl1.Size = new System.Drawing.Size(1317, 735);
             this.metroTabControl1.TabIndex = 108;
             this.metroTabControl1.UseSelectable = true;
@@ -361,6 +361,37 @@
             this.metroTabPage1.VerticalScrollbarBarColor = true;
             this.metroTabPage1.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage1.VerticalScrollbarSize = 10;
+            // 
+            // buildingDeleteBtn
+            // 
+            this.buildingDeleteBtn.BackColor = System.Drawing.Color.IndianRed;
+            this.buildingDeleteBtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.buildingDeleteBtn.Image = global::TimeTableManagment.Properties.Resources.icons8_delete_64;
+            this.buildingDeleteBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buildingDeleteBtn.Location = new System.Drawing.Point(9, 544);
+            this.buildingDeleteBtn.Name = "buildingDeleteBtn";
+            this.buildingDeleteBtn.Size = new System.Drawing.Size(162, 81);
+            this.buildingDeleteBtn.TabIndex = 116;
+            this.buildingDeleteBtn.Text = "Delete All Practical Records   ";
+            this.buildingDeleteBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buildingDeleteBtn.UseVisualStyleBackColor = false;
+            this.buildingDeleteBtn.Click += new System.EventHandler(this.buildingDeleteBtn_Click);
+            // 
+            // ClearFieldsbuttoPrac
+            // 
+            this.ClearFieldsbuttoPrac.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.ClearFieldsbuttoPrac.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.ClearFieldsbuttoPrac.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ClearFieldsbuttoPrac.Image = ((System.Drawing.Image)(resources.GetObject("ClearFieldsbuttoPrac.Image")));
+            this.ClearFieldsbuttoPrac.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ClearFieldsbuttoPrac.Location = new System.Drawing.Point(9, 485);
+            this.ClearFieldsbuttoPrac.Name = "ClearFieldsbuttoPrac";
+            this.ClearFieldsbuttoPrac.Size = new System.Drawing.Size(130, 41);
+            this.ClearFieldsbuttoPrac.TabIndex = 115;
+            this.ClearFieldsbuttoPrac.Text = "Clear Fields";
+            this.ClearFieldsbuttoPrac.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ClearFieldsbuttoPrac.UseVisualStyleBackColor = false;
+            this.ClearFieldsbuttoPrac.Click += new System.EventHandler(this.ClearFieldsbuttoPrac_Click);
             // 
             // panel1
             // 
@@ -1017,6 +1048,45 @@
             this.metroTabPage3.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage3.VerticalScrollbarSize = 10;
             // 
+            // sessionDetailslblParAndOvr
+            // 
+            this.sessionDetailslblParAndOvr.AutoSize = true;
+            this.sessionDetailslblParAndOvr.Location = new System.Drawing.Point(377, 275);
+            this.sessionDetailslblParAndOvr.Name = "sessionDetailslblParAndOvr";
+            this.sessionDetailslblParAndOvr.Size = new System.Drawing.Size(0, 17);
+            this.sessionDetailslblParAndOvr.TabIndex = 121;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.button1.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(9, 496);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(130, 41);
+            this.button1.TabIndex = 120;
+            this.button1.Text = "Clear Fields";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // addDatabuttonParallAndNonOver
+            // 
+            this.addDatabuttonParallAndNonOver.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.addDatabuttonParallAndNonOver.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.addDatabuttonParallAndNonOver.Image = global::TimeTableManagment.Properties.Resources.icons8_add_new_64;
+            this.addDatabuttonParallAndNonOver.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.addDatabuttonParallAndNonOver.Location = new System.Drawing.Point(9, 449);
+            this.addDatabuttonParallAndNonOver.Name = "addDatabuttonParallAndNonOver";
+            this.addDatabuttonParallAndNonOver.Size = new System.Drawing.Size(130, 41);
+            this.addDatabuttonParallAndNonOver.TabIndex = 119;
+            this.addDatabuttonParallAndNonOver.Text = "Add";
+            this.addDatabuttonParallAndNonOver.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.addDatabuttonParallAndNonOver.UseVisualStyleBackColor = false;
+            this.addDatabuttonParallAndNonOver.Click += new System.EventHandler(this.addDatabuttonParallAndNonOver_Click);
+            // 
             // panel12
             // 
             this.panel12.Controls.Add(this.dataGridView12);
@@ -1205,6 +1275,15 @@
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "Session Unavailability";
             // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(9, 27);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(210, 17);
+            this.label27.TabIndex = 114;
+            this.label27.Text = "Unavailable Times For Sessions";
+            // 
             // label17
             // 
             this.label17.AutoSize = true;
@@ -1267,6 +1346,15 @@
             this.groupBox12.TabIndex = 115;
             this.groupBox12.TabStop = false;
             this.groupBox12.Text = "Room Data";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(16, 27);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(197, 17);
+            this.label26.TabIndex = 113;
+            this.label26.Text = "Unavailable Times For Rooms";
             // 
             // panel11
             // 
@@ -1390,94 +1478,6 @@
             this.dataGridView8.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView8.Size = new System.Drawing.Size(333, 200);
             this.dataGridView8.TabIndex = 5;
-            // 
-            // ClearFieldsbuttoPrac
-            // 
-            this.ClearFieldsbuttoPrac.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.ClearFieldsbuttoPrac.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
-            this.ClearFieldsbuttoPrac.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClearFieldsbuttoPrac.Image = ((System.Drawing.Image)(resources.GetObject("ClearFieldsbuttoPrac.Image")));
-            this.ClearFieldsbuttoPrac.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ClearFieldsbuttoPrac.Location = new System.Drawing.Point(9, 485);
-            this.ClearFieldsbuttoPrac.Name = "ClearFieldsbuttoPrac";
-            this.ClearFieldsbuttoPrac.Size = new System.Drawing.Size(130, 41);
-            this.ClearFieldsbuttoPrac.TabIndex = 115;
-            this.ClearFieldsbuttoPrac.Text = "Clear Fields";
-            this.ClearFieldsbuttoPrac.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.ClearFieldsbuttoPrac.UseVisualStyleBackColor = false;
-            this.ClearFieldsbuttoPrac.Click += new System.EventHandler(this.ClearFieldsbuttoPrac_Click);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.button1.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(9, 496);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(130, 41);
-            this.button1.TabIndex = 120;
-            this.button1.Text = "Clear Fields";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
-            // 
-            // addDatabuttonParallAndNonOver
-            // 
-            this.addDatabuttonParallAndNonOver.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.addDatabuttonParallAndNonOver.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
-            this.addDatabuttonParallAndNonOver.Image = global::TimeTableManagment.Properties.Resources.icons8_add_new_64;
-            this.addDatabuttonParallAndNonOver.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.addDatabuttonParallAndNonOver.Location = new System.Drawing.Point(9, 449);
-            this.addDatabuttonParallAndNonOver.Name = "addDatabuttonParallAndNonOver";
-            this.addDatabuttonParallAndNonOver.Size = new System.Drawing.Size(130, 41);
-            this.addDatabuttonParallAndNonOver.TabIndex = 119;
-            this.addDatabuttonParallAndNonOver.Text = "Add";
-            this.addDatabuttonParallAndNonOver.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.addDatabuttonParallAndNonOver.UseVisualStyleBackColor = false;
-            this.addDatabuttonParallAndNonOver.Click += new System.EventHandler(this.addDatabuttonParallAndNonOver_Click);
-            // 
-            // sessionDetailslblParAndOvr
-            // 
-            this.sessionDetailslblParAndOvr.AutoSize = true;
-            this.sessionDetailslblParAndOvr.Location = new System.Drawing.Point(377, 275);
-            this.sessionDetailslblParAndOvr.Name = "sessionDetailslblParAndOvr";
-            this.sessionDetailslblParAndOvr.Size = new System.Drawing.Size(0, 17);
-            this.sessionDetailslblParAndOvr.TabIndex = 121;
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(16, 27);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(197, 17);
-            this.label26.TabIndex = 113;
-            this.label26.Text = "Unavailable Times For Rooms";
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(9, 27);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(210, 17);
-            this.label27.TabIndex = 114;
-            this.label27.Text = "Unavailable Times For Sessions";
-            // 
-            // buildingDeleteBtn
-            // 
-            this.buildingDeleteBtn.BackColor = System.Drawing.Color.IndianRed;
-            this.buildingDeleteBtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
-            this.buildingDeleteBtn.Image = global::TimeTableManagment.Properties.Resources.icons8_delete_64;
-            this.buildingDeleteBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buildingDeleteBtn.Location = new System.Drawing.Point(9, 544);
-            this.buildingDeleteBtn.Name = "buildingDeleteBtn";
-            this.buildingDeleteBtn.Size = new System.Drawing.Size(162, 81);
-            this.buildingDeleteBtn.TabIndex = 116;
-            this.buildingDeleteBtn.Text = "Delete All Practical Records   ";
-            this.buildingDeleteBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buildingDeleteBtn.UseVisualStyleBackColor = false;
-            this.buildingDeleteBtn.Click += new System.EventHandler(this.buildingDeleteBtn_Click);
             // 
             // AssignTimeAndDay
             // 
