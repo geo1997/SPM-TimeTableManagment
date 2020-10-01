@@ -33,8 +33,6 @@
             this.combo_endTime = new System.Windows.Forms.ComboBox();
             this.btn_add = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lbl_hour = new System.Windows.Forms.Label();
-            this.lbl_nohours = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btn_edit = new System.Windows.Forms.Button();
             this.btn_delete = new System.Windows.Forms.Button();
@@ -45,7 +43,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(423, 64);
+            this.label2.Location = new System.Drawing.Point(345, 64);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(96, 17);
             this.label2.TabIndex = 2;
@@ -78,7 +76,7 @@
             "18.00",
             "18.30",
             "19.00"});
-            this.combo_startTime.Location = new System.Drawing.Point(426, 114);
+            this.combo_startTime.Location = new System.Drawing.Point(348, 95);
             this.combo_startTime.Name = "combo_startTime";
             this.combo_startTime.Size = new System.Drawing.Size(121, 24);
             this.combo_startTime.TabIndex = 3;
@@ -108,7 +106,7 @@
             "18.00",
             "18.30",
             "19.00"});
-            this.combo_endTime.Location = new System.Drawing.Point(575, 114);
+            this.combo_endTime.Location = new System.Drawing.Point(493, 95);
             this.combo_endTime.Name = "combo_endTime";
             this.combo_endTime.Size = new System.Drawing.Size(121, 24);
             this.combo_endTime.TabIndex = 4;
@@ -119,7 +117,7 @@
             this.btn_add.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.btn_add.Image = global::TimeTableManagment.Properties.Resources.icons8_add_new_64;
             this.btn_add.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_add.Location = new System.Drawing.Point(536, 206);
+            this.btn_add.Location = new System.Drawing.Point(421, 139);
             this.btn_add.Name = "btn_add";
             this.btn_add.Size = new System.Drawing.Size(130, 41);
             this.btn_add.TabIndex = 5;
@@ -130,33 +128,11 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.lbl_hour);
-            this.panel1.Controls.Add(this.lbl_nohours);
             this.panel1.Controls.Add(this.dataGridView1);
-            this.panel1.Location = new System.Drawing.Point(272, 262);
+            this.panel1.Location = new System.Drawing.Point(194, 238);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(705, 346);
             this.panel1.TabIndex = 6;
-            // 
-            // lbl_hour
-            // 
-            this.lbl_hour.AutoSize = true;
-            this.lbl_hour.Location = new System.Drawing.Point(378, 13);
-            this.lbl_hour.Name = "lbl_hour";
-            this.lbl_hour.Size = new System.Drawing.Size(46, 17);
-            this.lbl_hour.TabIndex = 2;
-            this.lbl_hour.Text = "Hours";
-            this.lbl_hour.Visible = false;
-            // 
-            // lbl_nohours
-            // 
-            this.lbl_nohours.AutoSize = true;
-            this.lbl_nohours.Location = new System.Drawing.Point(271, 13);
-            this.lbl_nohours.Name = "lbl_nohours";
-            this.lbl_nohours.Size = new System.Drawing.Size(100, 17);
-            this.lbl_nohours.TabIndex = 1;
-            this.lbl_nohours.Text = "No. of Hours : ";
-            this.lbl_nohours.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // dataGridView1
             // 
@@ -165,7 +141,7 @@
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(71, 49);
+            this.dataGridView1.Location = new System.Drawing.Point(71, 28);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
@@ -181,7 +157,7 @@
             this.btn_edit.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.btn_edit.Image = global::TimeTableManagment.Properties.Resources.icons8_edit_property_64;
             this.btn_edit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_edit.Location = new System.Drawing.Point(366, 206);
+            this.btn_edit.Location = new System.Drawing.Point(348, 139);
             this.btn_edit.Name = "btn_edit";
             this.btn_edit.Size = new System.Drawing.Size(130, 41);
             this.btn_edit.TabIndex = 8;
@@ -196,7 +172,7 @@
             this.btn_delete.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.btn_delete.Image = global::TimeTableManagment.Properties.Resources.icons8_delete_64;
             this.btn_delete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_delete.Location = new System.Drawing.Point(685, 206);
+            this.btn_delete.Location = new System.Drawing.Point(484, 139);
             this.btn_delete.Name = "btn_delete";
             this.btn_delete.Size = new System.Drawing.Size(130, 41);
             this.btn_delete.TabIndex = 9;
@@ -221,7 +197,6 @@
             this.Text = "Working Hours";
             this.Load += new System.EventHandler(this.workingHoursForm_Load);
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -237,7 +212,5 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btn_edit;
         private System.Windows.Forms.Button btn_delete;
-        private System.Windows.Forms.Label lbl_nohours;
-        private System.Windows.Forms.Label lbl_hour;
     }
 }

@@ -37,11 +37,11 @@
             this.check_fri = new System.Windows.Forms.CheckBox();
             this.check_sat = new System.Windows.Forms.CheckBox();
             this.check_sun = new System.Windows.Forms.CheckBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_add = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btn_edit = new System.Windows.Forms.Button();
+            this.btn_delete = new System.Windows.Forms.Button();
             this.numericUpDown1WorkingDays = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown1WorkingHours = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
@@ -139,20 +139,20 @@
             this.check_sun.Text = "Sunday";
             this.check_sun.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btn_add
             // 
-            this.button1.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.button1.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
-            this.button1.Image = global::TimeTableManagment.Properties.Resources.icons8_add_new_64;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(465, 267);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(130, 41);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Submit";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.submit__Click);
+            this.btn_add.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btn_add.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.btn_add.Image = global::TimeTableManagment.Properties.Resources.icons8_add_new_64;
+            this.btn_add.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_add.Location = new System.Drawing.Point(465, 267);
+            this.btn_add.Name = "btn_add";
+            this.btn_add.Size = new System.Drawing.Size(130, 41);
+            this.btn_add.TabIndex = 10;
+            this.btn_add.Text = "Submit";
+            this.btn_add.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_add.UseVisualStyleBackColor = false;
+            this.btn_add.Click += new System.EventHandler(this.submit__Click);
             // 
             // dataGridView1
             // 
@@ -180,35 +180,35 @@
             this.panel1.Size = new System.Drawing.Size(938, 251);
             this.panel1.TabIndex = 12;
             // 
-            // button2
+            // btn_edit
             // 
-            this.button2.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.button2.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
-            this.button2.Image = global::TimeTableManagment.Properties.Resources.icons8_edit_property_64;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(479, 563);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(130, 41);
-            this.button2.TabIndex = 13;
-            this.button2.Text = "Edit";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btn_edit.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btn_edit.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.btn_edit.Image = global::TimeTableManagment.Properties.Resources.icons8_edit_property_64;
+            this.btn_edit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_edit.Location = new System.Drawing.Point(395, 267);
+            this.btn_edit.Name = "btn_edit";
+            this.btn_edit.Size = new System.Drawing.Size(130, 41);
+            this.btn_edit.TabIndex = 13;
+            this.btn_edit.Text = "Edit";
+            this.btn_edit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_edit.UseVisualStyleBackColor = false;
+            this.btn_edit.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button3
+            // btn_delete
             // 
-            this.button3.BackColor = System.Drawing.Color.IndianRed;
-            this.button3.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
-            this.button3.Image = global::TimeTableManagment.Properties.Resources.icons8_delete_64;
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(621, 563);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(130, 41);
-            this.button3.TabIndex = 14;
-            this.button3.Text = "Delete";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btn_delete.BackColor = System.Drawing.Color.IndianRed;
+            this.btn_delete.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.btn_delete.Image = global::TimeTableManagment.Properties.Resources.icons8_delete_64;
+            this.btn_delete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_delete.Location = new System.Drawing.Point(591, 267);
+            this.btn_delete.Name = "btn_delete";
+            this.btn_delete.Size = new System.Drawing.Size(130, 41);
+            this.btn_delete.TabIndex = 14;
+            this.btn_delete.Text = "Delete";
+            this.btn_delete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_delete.UseVisualStyleBackColor = false;
+            this.btn_delete.Click += new System.EventHandler(this.button3_Click);
             // 
             // numericUpDown1WorkingDays
             // 
@@ -252,10 +252,10 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.numericUpDown1WorkingHours);
             this.Controls.Add(this.numericUpDown1WorkingDays);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btn_delete);
+            this.Controls.Add(this.btn_edit);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_add);
             this.Controls.Add(this.check_sun);
             this.Controls.Add(this.check_sat);
             this.Controls.Add(this.check_fri);
@@ -288,11 +288,11 @@
         private System.Windows.Forms.CheckBox check_fri;
         private System.Windows.Forms.CheckBox check_sat;
         private System.Windows.Forms.CheckBox check_sun;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_add;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btn_edit;
+        private System.Windows.Forms.Button btn_delete;
         private System.Windows.Forms.NumericUpDown numericUpDown1WorkingDays;
         private System.Windows.Forms.NumericUpDown numericUpDown1WorkingHours;
         private System.Windows.Forms.Label label3;
