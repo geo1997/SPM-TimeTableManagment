@@ -167,25 +167,26 @@ namespace TimeTableManagment.Forms
         private void SessionForm_Load(object sender, EventArgs e)
         {
             FillLectureList();
-            FillSessionList();
             FillSubjectComboBox();
             LoadTags();
-            Parallel_LoadData();
+            LoadData();
             FillGroupIdComboBox();
+            
+           
+            //Consec_LoadData();
+            //FillGroupIdComboBoxConsec();
+            //FillSubjectComboBoxConsec();
+            //FillSession1IdComboBoxConsec();
+            //FillSession2IdComboBoxConsec();
+            //FillGroupIdComboBoxPar();
+            //FillSubjectComboBoxPar();
+            //FillGroupIdComboBoxOver();
+            //FillSubjectComboBoxOver();
+            //Overlap_LoadData();
+            //Parallel_LoadData();
+
             lblSubGrp.Visible = false;
             cmbSubGroup.Visible = false;
-            LoadData();
-            Consec_LoadData();
-            FillGroupIdComboBoxConsec();
-            FillSubjectComboBoxConsec();
-            FillSession1IdComboBoxConsec();
-            FillSession2IdComboBoxConsec();
-            FillGroupIdComboBoxPar();
-            FillSubjectComboBoxPar();
-            FillGroupIdComboBoxOver();
-            FillSubjectComboBoxOver();
-            Overlap_LoadData();
-            FillSession2List();
             button17.Visible = false;
             button4.Visible = false;
             label13.Visible = false;
@@ -195,6 +196,8 @@ namespace TimeTableManagment.Forms
             button19.Visible = false;
             button12.Visible = false;
             label31.Visible = false;
+
+            LoadData();
         }
         //clear the fields
         private void ClearField()
@@ -320,9 +323,10 @@ namespace TimeTableManagment.Forms
 
                 else
                 {
+                 
                     string ses = lecs + "\n" + sub + " (" + subCode + ")" + "\n" + tags + "\n" + grp + "\n" + stNo + "(" + duration + ")";
                     string insertSes = "insert into Session(Lecturer,Subject,SubjectCode,Tag,GroupID,SubGID,StudentCount,Duration,Description)" +
-                                    "values('" + lecs + "','" + sub + "','" + subCode + "','" + tags + "','" + grp + "','" + subGroup + "','" + stNo + "','" + duration + "','" + ses + "')";
+                                    "values('" + lecs + "','" + sub + "','" + subCode + "','" + tags + "','" + grp + "', 'N/A' , '" + stNo + "','" + duration + "','" + ses + "')";
                     ExecuteQuery(insertSes);
                     LoadData();
 
@@ -1213,6 +1217,68 @@ namespace TimeTableManagment.Forms
             button19.Visible = false;
             button12.Visible = false;
             label31.Visible = false;
+        }
+
+        private void metroTabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (metroTabControl1.SelectedTab == metroTabControl1.TabPages[0])
+            {
+                lecNameList.Items.Clear();
+                cmbSubject.Items.Clear();
+                cmbTags.Items.Clear();
+                cmbGroupId.Items.Clear();
+                FillLectureList();
+                FillSubjectComboBox();
+                LoadTags();
+                FillGroupIdComboBox();
+                LoadData();
+            }
+            else
+          if (metroTabControl1.SelectedTab == metroTabControl1.TabPages[1])
+            {
+                metroComboBox3.Items.Clear();
+                metroComboBox2.Items.Clear();
+                metroComboBox4.Items.Clear();
+                metroComboBox5.Items.Clear();
+
+                FillSubjectComboBoxConsec();
+                FillGroupIdComboBoxConsec();
+                FillSession1IdComboBoxConsec();
+                FillSession2IdComboBoxConsec();
+               
+                Consec_LoadData();
+
+
+            }
+            else
+                if (metroTabControl1.SelectedTab == metroTabControl1.TabPages[2])
+            {
+                metroComboBox8.Items.Clear();
+                metroComboBox1.Items.Clear();
+                checkedListBox1.Items.Clear();
+                FillGroupIdComboBoxPar();
+                FillSubjectComboBoxPar();
+                FillSessionList();
+                Parallel_LoadData();
+
+            }
+            else
+                if (metroTabControl1.SelectedTab == metroTabControl1.TabPages[3])
+            {
+
+                metroComboBox7.Items.Clear();
+                metroComboBox6.Items.Clear();
+                checkedListBox2.Items.Clear();
+                FillGroupIdComboBoxOver();
+                FillSubjectComboBoxOver();
+                FillSession2List();
+                Overlap_LoadData();
+
+
+            }
+
+
+
         }
     }
 }

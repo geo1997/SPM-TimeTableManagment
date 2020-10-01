@@ -32,6 +32,7 @@
             this.titleBarPanel = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
             this.panelDekstopPane = new System.Windows.Forms.Panel();
+            this.generate_timetable = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -50,6 +51,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
+            this.button100 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
@@ -60,7 +62,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnWorkingDays = new System.Windows.Forms.Button();
-            this.generate_timetable = new System.Windows.Forms.Button();
+            this.button11 = new System.Windows.Forms.Button();
             this.sideMenuPanel.SuspendLayout();
             this.titleBarPanel.SuspendLayout();
             this.panelDekstopPane.SuspendLayout();
@@ -78,6 +80,7 @@
             // 
             this.sideMenuPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
             this.sideMenuPanel.Controls.Add(this.button10);
+            this.sideMenuPanel.Controls.Add(this.button100);
             this.sideMenuPanel.Controls.Add(this.button9);
             this.sideMenuPanel.Controls.Add(this.button8);
             this.sideMenuPanel.Controls.Add(this.button7);
@@ -91,7 +94,7 @@
             this.sideMenuPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.sideMenuPanel.Location = new System.Drawing.Point(0, 0);
             this.sideMenuPanel.Name = "sideMenuPanel";
-            this.sideMenuPanel.Size = new System.Drawing.Size(220, 738);
+            this.sideMenuPanel.Size = new System.Drawing.Size(220, 753);
             this.sideMenuPanel.TabIndex = 0;
             // 
             // titleBarPanel
@@ -102,7 +105,7 @@
             this.titleBarPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.titleBarPanel.Location = new System.Drawing.Point(220, 0);
             this.titleBarPanel.Name = "titleBarPanel";
-            this.titleBarPanel.Size = new System.Drawing.Size(1027, 80);
+            this.titleBarPanel.Size = new System.Drawing.Size(1062, 80);
             this.titleBarPanel.TabIndex = 1;
             // 
             // lblTitle
@@ -111,7 +114,7 @@
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Engravers MT", 15F);
             this.lblTitle.ForeColor = System.Drawing.Color.White;
-            this.lblTitle.Location = new System.Drawing.Point(461, 31);
+            this.lblTitle.Location = new System.Drawing.Point(479, 31);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(111, 29);
             this.lblTitle.TabIndex = 0;
@@ -119,6 +122,7 @@
             // 
             // panelDekstopPane
             // 
+            this.panelDekstopPane.Controls.Add(this.button11);
             this.panelDekstopPane.Controls.Add(this.generate_timetable);
             this.panelDekstopPane.Controls.Add(this.panel8);
             this.panelDekstopPane.Controls.Add(this.panel7);
@@ -131,8 +135,18 @@
             this.panelDekstopPane.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDekstopPane.Location = new System.Drawing.Point(220, 80);
             this.panelDekstopPane.Name = "panelDekstopPane";
-            this.panelDekstopPane.Size = new System.Drawing.Size(1027, 658);
+            this.panelDekstopPane.Size = new System.Drawing.Size(1062, 673);
             this.panelDekstopPane.TabIndex = 2;
+            // 
+            // generate_timetable
+            // 
+            this.generate_timetable.Location = new System.Drawing.Point(312, 520);
+            this.generate_timetable.Name = "generate_timetable";
+            this.generate_timetable.Size = new System.Drawing.Size(420, 54);
+            this.generate_timetable.TabIndex = 3;
+            this.generate_timetable.Text = "Generate Time Table";
+            this.generate_timetable.UseVisualStyleBackColor = true;
+            this.generate_timetable.Click += new System.EventHandler(this.generate_timetable_Click);
             // 
             // panel8
             // 
@@ -299,16 +313,35 @@
             this.button10.ForeColor = System.Drawing.Color.Gainsboro;
             this.button10.Image = global::TimeTableManagment.Properties.Resources.icons8_statistics_32;
             this.button10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button10.Location = new System.Drawing.Point(0, 600);
+            this.button10.Location = new System.Drawing.Point(0, 660);
             this.button10.Name = "button10";
             this.button10.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.button10.Size = new System.Drawing.Size(220, 60);
-            this.button10.TabIndex = 11;
+            this.button10.TabIndex = 12;
             this.button10.Text = "  Statistics";
             this.button10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button10.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.statistics_click);
+            this.button10.Click += new System.EventHandler(this.button10_Click);
+            // 
+            // button100
+            // 
+            this.button100.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button100.FlatAppearance.BorderSize = 0;
+            this.button100.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button100.ForeColor = System.Drawing.Color.Gainsboro;
+            this.button100.Image = global::TimeTableManagment.Properties.Resources.icons8_time_machine_32px_1;
+            this.button100.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button100.Location = new System.Drawing.Point(0, 600);
+            this.button100.Name = "button100";
+            this.button100.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.button100.Size = new System.Drawing.Size(220, 60);
+            this.button100.TabIndex = 11;
+            this.button100.Text = "  Day And Time";
+            this.button100.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button100.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button100.UseVisualStyleBackColor = true;
+            this.button100.Click += new System.EventHandler(this.statistics_click);
             // 
             // button9
             // 
@@ -501,21 +534,21 @@
             this.btnWorkingDays.UseVisualStyleBackColor = true;
             this.btnWorkingDays.Click += new System.EventHandler(this.workingDays_click);
             // 
-            // generate_timetable
+            // button11
             // 
-            this.generate_timetable.Location = new System.Drawing.Point(353, 377);
-            this.generate_timetable.Name = "generate_timetable";
-            this.generate_timetable.Size = new System.Drawing.Size(420, 54);
-            this.generate_timetable.TabIndex = 3;
-            this.generate_timetable.Text = "Generate Time Table";
-            this.generate_timetable.UseVisualStyleBackColor = true;
-            this.generate_timetable.Click += new System.EventHandler(this.generate_timetable_Click);
+            this.button11.Location = new System.Drawing.Point(431, 411);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(75, 23);
+            this.button11.TabIndex = 4;
+            this.button11.Text = "button11";
+            this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1247, 738);
+            this.ClientSize = new System.Drawing.Size(1282, 753);
             this.Controls.Add(this.panelDekstopPane);
             this.Controls.Add(this.titleBarPanel);
             this.Controls.Add(this.sideMenuPanel);
@@ -524,6 +557,7 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.sideMenuPanel.ResumeLayout(false);
             this.titleBarPanel.ResumeLayout(false);
             this.titleBarPanel.PerformLayout();
@@ -561,7 +595,7 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button button100;
         private System.Windows.Forms.Panel titleBarPanel;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Panel panelDekstopPane;
@@ -583,6 +617,8 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button generate_timetable;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button button11;
     }
 }
 
