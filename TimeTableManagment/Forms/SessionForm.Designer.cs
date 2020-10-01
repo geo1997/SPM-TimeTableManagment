@@ -67,6 +67,7 @@
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
             this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
             this.metroTabPage2 = new MetroFramework.Controls.MetroTabPage();
+            this.button5 = new System.Windows.Forms.Button();
             this.button17 = new System.Windows.Forms.Button();
             this.label30 = new System.Windows.Forms.Label();
             this.button14 = new System.Windows.Forms.Button();
@@ -74,7 +75,6 @@
             this.metroComboBox4 = new MetroFramework.Controls.MetroComboBox();
             this.metroComboBox3 = new MetroFramework.Controls.MetroComboBox();
             this.metroComboBox2 = new MetroFramework.Controls.MetroComboBox();
-            this.button5 = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.label13 = new System.Windows.Forms.Label();
@@ -169,7 +169,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(444, 9);
+            this.label1.Location = new System.Drawing.Point(496, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(160, 29);
             this.label1.TabIndex = 0;
@@ -201,13 +201,13 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(-15, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1098, 661);
+            this.panel1.Size = new System.Drawing.Size(1334, 699);
             this.panel1.TabIndex = 1;
             // 
             // cmbTags
             // 
             this.cmbTags.FormattingEnabled = true;
-            this.cmbTags.Location = new System.Drawing.Point(919, 45);
+            this.cmbTags.Location = new System.Drawing.Point(971, 45);
             this.cmbTags.Name = "cmbTags";
             this.cmbTags.Size = new System.Drawing.Size(85, 24);
             this.cmbTags.TabIndex = 21;
@@ -217,7 +217,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(600, 146);
+            this.label12.Location = new System.Drawing.Point(652, 146);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(308, 34);
             this.label12.TabIndex = 20;
@@ -231,9 +231,9 @@
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.txtSearch);
             this.panel2.Controls.Add(this.tblSessions);
-            this.panel2.Location = new System.Drawing.Point(-19, 308);
+            this.panel2.Location = new System.Drawing.Point(41, 312);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1109, 350);
+            this.panel2.Size = new System.Drawing.Size(1266, 350);
             this.panel2.TabIndex = 19;
             // 
             // label9
@@ -242,7 +242,7 @@
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Image = global::TimeTableManagment.Properties.Resources.icons8_search;
             this.label9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label9.Location = new System.Drawing.Point(59, 34);
+            this.label9.Location = new System.Drawing.Point(177, 31);
             this.label9.MaximumSize = new System.Drawing.Size(150, 25);
             this.label9.MinimumSize = new System.Drawing.Size(105, 25);
             this.label9.Name = "label9";
@@ -255,7 +255,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(723, 30);
+            this.label14.Location = new System.Drawing.Point(889, 30);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(195, 29);
             this.label14.TabIndex = 3;
@@ -265,7 +265,7 @@
             // 
             this.panel3.Controls.Add(this.btnClr);
             this.panel3.Controls.Add(this.lblDisSes);
-            this.panel3.Location = new System.Drawing.Point(645, 70);
+            this.panel3.Location = new System.Drawing.Point(838, 79);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(377, 198);
             this.panel3.TabIndex = 2;
@@ -298,11 +298,11 @@
             // txtSearch
             // 
             this.txtSearch.ForeColor = System.Drawing.Color.Black;
-            this.txtSearch.Location = new System.Drawing.Point(169, 33);
+            this.txtSearch.Location = new System.Drawing.Point(300, 30);
             this.txtSearch.MaximumSize = new System.Drawing.Size(374, 26);
             this.txtSearch.MinimumSize = new System.Drawing.Size(374, 26);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(374, 22);
+            this.txtSearch.Size = new System.Drawing.Size(374, 26);
             this.txtSearch.TabIndex = 1;
             this.toolTip1.SetToolTip(this.txtSearch, "Search by Lecturer/Subject/Subject Code/Group ID/Sub Group ID/No. of Students/Dur" +
         "ation");
@@ -314,13 +314,13 @@
             this.tblSessions.AllowUserToDeleteRows = false;
             this.tblSessions.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.tblSessions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tblSessions.Location = new System.Drawing.Point(58, 70);
+            this.tblSessions.Location = new System.Drawing.Point(94, 79);
             this.tblSessions.Name = "tblSessions";
             this.tblSessions.ReadOnly = true;
             this.tblSessions.RowHeadersWidth = 51;
             this.tblSessions.RowTemplate.Height = 24;
             this.tblSessions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.tblSessions.Size = new System.Drawing.Size(500, 198);
+            this.tblSessions.Size = new System.Drawing.Size(629, 198);
             this.tblSessions.TabIndex = 0;
             this.tblSessions.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tblSessions_CellClick);
             // 
@@ -331,7 +331,7 @@
             this.btnClear.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnClear.Image = global::TimeTableManagment.Properties.Resources.icons8_erase_48;
             this.btnClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClear.Location = new System.Drawing.Point(884, 196);
+            this.btnClear.Location = new System.Drawing.Point(936, 196);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(110, 45);
             this.btnClear.TabIndex = 18;
@@ -345,7 +345,7 @@
             this.btnSubmit.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.btnSubmit.Image = global::TimeTableManagment.Properties.Resources.icons8_add_new_64;
             this.btnSubmit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSubmit.Location = new System.Drawing.Point(737, 196);
+            this.btnSubmit.Location = new System.Drawing.Point(789, 196);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(132, 45);
             this.btnSubmit.TabIndex = 17;
@@ -356,7 +356,7 @@
             // 
             // txtDuration
             // 
-            this.txtDuration.Location = new System.Drawing.Point(557, 196);
+            this.txtDuration.Location = new System.Drawing.Point(609, 196);
             this.txtDuration.Name = "txtDuration";
             this.txtDuration.Size = new System.Drawing.Size(100, 22);
             this.txtDuration.TabIndex = 16;
@@ -366,7 +366,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(357, 196);
+            this.label11.Location = new System.Drawing.Point(409, 196);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(195, 17);
             this.label11.TabIndex = 15;
@@ -374,7 +374,7 @@
             // 
             // txtStudentCount
             // 
-            this.txtStudentCount.Location = new System.Drawing.Point(472, 154);
+            this.txtStudentCount.Location = new System.Drawing.Point(524, 154);
             this.txtStudentCount.Name = "txtStudentCount";
             this.txtStudentCount.Size = new System.Drawing.Size(100, 22);
             this.txtStudentCount.TabIndex = 14;
@@ -384,7 +384,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(355, 154);
+            this.label10.Location = new System.Drawing.Point(407, 154);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(110, 17);
             this.label10.TabIndex = 13;
@@ -393,7 +393,7 @@
             // cmbSubGroup
             // 
             this.cmbSubGroup.FormattingEnabled = true;
-            this.cmbSubGroup.Location = new System.Drawing.Point(748, 101);
+            this.cmbSubGroup.Location = new System.Drawing.Point(800, 101);
             this.cmbSubGroup.Name = "cmbSubGroup";
             this.cmbSubGroup.Size = new System.Drawing.Size(121, 24);
             this.cmbSubGroup.TabIndex = 12;
@@ -402,7 +402,7 @@
             // cmbGroupId
             // 
             this.cmbGroupId.FormattingEnabled = true;
-            this.cmbGroupId.Location = new System.Drawing.Point(457, 97);
+            this.cmbGroupId.Location = new System.Drawing.Point(509, 97);
             this.cmbGroupId.Name = "cmbGroupId";
             this.cmbGroupId.Size = new System.Drawing.Size(121, 24);
             this.cmbGroupId.TabIndex = 11;
@@ -412,7 +412,7 @@
             // lblSubGrp
             // 
             this.lblSubGrp.AutoSize = true;
-            this.lblSubGrp.Location = new System.Drawing.Point(642, 104);
+            this.lblSubGrp.Location = new System.Drawing.Point(694, 104);
             this.lblSubGrp.Name = "lblSubGrp";
             this.lblSubGrp.Size = new System.Drawing.Size(100, 17);
             this.lblSubGrp.TabIndex = 10;
@@ -421,7 +421,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(353, 101);
+            this.label8.Location = new System.Drawing.Point(409, 101);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(73, 17);
             this.label8.TabIndex = 9;
@@ -430,7 +430,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(869, 49);
+            this.label7.Location = new System.Drawing.Point(924, 49);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(44, 17);
             this.label7.TabIndex = 7;
@@ -438,7 +438,7 @@
             // 
             // txtSubCode
             // 
-            this.txtSubCode.Location = new System.Drawing.Point(748, 49);
+            this.txtSubCode.Location = new System.Drawing.Point(800, 49);
             this.txtSubCode.Name = "txtSubCode";
             this.txtSubCode.ReadOnly = true;
             this.txtSubCode.Size = new System.Drawing.Size(115, 22);
@@ -447,7 +447,7 @@
             // cmbSubject
             // 
             this.cmbSubject.FormattingEnabled = true;
-            this.cmbSubject.Location = new System.Drawing.Point(455, 49);
+            this.cmbSubject.Location = new System.Drawing.Point(507, 49);
             this.cmbSubject.Name = "cmbSubject";
             this.cmbSubject.Size = new System.Drawing.Size(172, 24);
             this.cmbSubject.TabIndex = 5;
@@ -457,7 +457,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(648, 49);
+            this.label5.Location = new System.Drawing.Point(700, 49);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(96, 17);
             this.label5.TabIndex = 4;
@@ -466,7 +466,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(357, 52);
+            this.label4.Location = new System.Drawing.Point(409, 52);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(63, 17);
             this.label4.TabIndex = 3;
@@ -481,7 +481,7 @@
             this.panelDropDown.Controls.Add(this.label3);
             this.panelDropDown.Controls.Add(this.label2);
             this.panelDropDown.Controls.Add(this.lecNameList);
-            this.panelDropDown.Location = new System.Drawing.Point(38, 40);
+            this.panelDropDown.Location = new System.Drawing.Point(76, 45);
             this.panelDropDown.MaximumSize = new System.Drawing.Size(297, 261);
             this.panelDropDown.MinimumSize = new System.Drawing.Size(297, 60);
             this.panelDropDown.Name = "panelDropDown";
@@ -560,7 +560,7 @@
             this.metroTabControl1.Location = new System.Drawing.Point(0, 0);
             this.metroTabControl1.Name = "metroTabControl1";
             this.metroTabControl1.SelectedIndex = 0;
-            this.metroTabControl1.Size = new System.Drawing.Size(1079, 699);
+            this.metroTabControl1.Size = new System.Drawing.Size(1327, 715);
             this.metroTabControl1.TabIndex = 2;
             this.metroTabControl1.UseSelectable = true;
             this.metroTabControl1.SelectedIndexChanged += new System.EventHandler(this.metroTabControl1_SelectedIndexChanged);
@@ -574,7 +574,7 @@
             this.metroTabPage1.HorizontalScrollbarSize = 10;
             this.metroTabPage1.Location = new System.Drawing.Point(4, 38);
             this.metroTabPage1.Name = "metroTabPage1";
-            this.metroTabPage1.Size = new System.Drawing.Size(1071, 657);
+            this.metroTabPage1.Size = new System.Drawing.Size(1319, 673);
             this.metroTabPage1.TabIndex = 0;
             this.metroTabPage1.Text = "Normal Session";
             this.metroTabPage1.VerticalScrollbarBarColor = true;
@@ -583,6 +583,7 @@
             // 
             // metroTabPage2
             // 
+            this.metroTabPage2.Controls.Add(this.button5);
             this.metroTabPage2.Controls.Add(this.button17);
             this.metroTabPage2.Controls.Add(this.label30);
             this.metroTabPage2.Controls.Add(this.button14);
@@ -590,7 +591,6 @@
             this.metroTabPage2.Controls.Add(this.metroComboBox4);
             this.metroTabPage2.Controls.Add(this.metroComboBox3);
             this.metroTabPage2.Controls.Add(this.metroComboBox2);
-            this.metroTabPage2.Controls.Add(this.button5);
             this.metroTabPage2.Controls.Add(this.label19);
             this.metroTabPage2.Controls.Add(this.dataGridView2);
             this.metroTabPage2.Controls.Add(this.label13);
@@ -606,7 +606,7 @@
             this.metroTabPage2.HorizontalScrollbarSize = 10;
             this.metroTabPage2.Location = new System.Drawing.Point(4, 38);
             this.metroTabPage2.Name = "metroTabPage2";
-            this.metroTabPage2.Size = new System.Drawing.Size(1071, 657);
+            this.metroTabPage2.Size = new System.Drawing.Size(1362, 657);
             this.metroTabPage2.TabIndex = 1;
             this.metroTabPage2.Text = "Consecutive Sessions";
             this.metroTabPage2.VerticalScrollbarBarColor = true;
@@ -615,13 +615,28 @@
             this.metroTabPage2.Click += new System.EventHandler(this.metroTabPage2_Click);
             this.metroTabPage2.Enter += new System.EventHandler(this.metroTabPage2_Enter);
             // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.button5.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.button5.Image = global::TimeTableManagment.Properties.Resources.icons8_search;
+            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button5.Location = new System.Drawing.Point(512, 309);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(130, 41);
+            this.button5.TabIndex = 47;
+            this.button5.Text = "Search";
+            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // button17
             // 
             this.button17.BackColor = System.Drawing.Color.CornflowerBlue;
             this.button17.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.button17.Image = ((System.Drawing.Image)(resources.GetObject("button17.Image")));
             this.button17.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button17.Location = new System.Drawing.Point(609, 311);
+            this.button17.Location = new System.Drawing.Point(768, 311);
             this.button17.Name = "button17";
             this.button17.Size = new System.Drawing.Size(130, 41);
             this.button17.TabIndex = 57;
@@ -634,7 +649,7 @@
             // 
             this.label30.AutoSize = true;
             this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label30.Location = new System.Drawing.Point(377, 12);
+            this.label30.Location = new System.Drawing.Point(536, 10);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(362, 32);
             this.label30.TabIndex = 56;
@@ -646,7 +661,7 @@
             this.button14.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.button14.Image = ((System.Drawing.Image)(resources.GetObject("button14.Image")));
             this.button14.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button14.Location = new System.Drawing.Point(609, 311);
+            this.button14.Location = new System.Drawing.Point(768, 311);
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(130, 41);
             this.button14.TabIndex = 55;
@@ -659,7 +674,7 @@
             // 
             this.metroComboBox5.FormattingEnabled = true;
             this.metroComboBox5.ItemHeight = 24;
-            this.metroComboBox5.Location = new System.Drawing.Point(609, 181);
+            this.metroComboBox5.Location = new System.Drawing.Point(768, 179);
             this.metroComboBox5.Name = "metroComboBox5";
             this.metroComboBox5.Size = new System.Drawing.Size(299, 30);
             this.metroComboBox5.TabIndex = 52;
@@ -670,7 +685,7 @@
             // 
             this.metroComboBox4.FormattingEnabled = true;
             this.metroComboBox4.ItemHeight = 24;
-            this.metroComboBox4.Location = new System.Drawing.Point(609, 99);
+            this.metroComboBox4.Location = new System.Drawing.Point(768, 97);
             this.metroComboBox4.Name = "metroComboBox4";
             this.metroComboBox4.Size = new System.Drawing.Size(299, 30);
             this.metroComboBox4.TabIndex = 51;
@@ -681,7 +696,7 @@
             // 
             this.metroComboBox3.FormattingEnabled = true;
             this.metroComboBox3.ItemHeight = 24;
-            this.metroComboBox3.Location = new System.Drawing.Point(248, 99);
+            this.metroComboBox3.Location = new System.Drawing.Point(407, 97);
             this.metroComboBox3.Name = "metroComboBox3";
             this.metroComboBox3.Size = new System.Drawing.Size(299, 30);
             this.metroComboBox3.TabIndex = 50;
@@ -691,32 +706,17 @@
             // 
             this.metroComboBox2.FormattingEnabled = true;
             this.metroComboBox2.ItemHeight = 24;
-            this.metroComboBox2.Location = new System.Drawing.Point(248, 181);
+            this.metroComboBox2.Location = new System.Drawing.Point(407, 179);
             this.metroComboBox2.Name = "metroComboBox2";
             this.metroComboBox2.Size = new System.Drawing.Size(303, 30);
             this.metroComboBox2.TabIndex = 49;
             this.metroComboBox2.UseSelectable = true;
             this.metroComboBox2.SelectedIndexChanged += new System.EventHandler(this.metroComboBox2_SelectedIndexChanged);
             // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.button5.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
-            this.button5.Image = global::TimeTableManagment.Properties.Resources.icons8_search;
-            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(353, 311);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(130, 41);
-            this.button5.TabIndex = 47;
-            this.button5.Text = "Search";
-            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(245, 74);
+            this.label19.Location = new System.Drawing.Point(404, 72);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(92, 17);
             this.label19.TabIndex = 46;
@@ -726,7 +726,7 @@
             // 
             this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(8, 74);
+            this.dataGridView2.Location = new System.Drawing.Point(167, 72);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowHeadersWidth = 51;
@@ -739,7 +739,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(347, 12);
+            this.label13.Location = new System.Drawing.Point(506, 10);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(460, 32);
             this.label13.TabIndex = 44;
@@ -752,7 +752,7 @@
             this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(745, 311);
+            this.button2.Location = new System.Drawing.Point(904, 309);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(130, 41);
             this.button2.TabIndex = 43;
@@ -767,7 +767,7 @@
             this.button4.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
             this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(881, 311);
+            this.button4.Location = new System.Drawing.Point(1040, 309);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(130, 41);
             this.button4.TabIndex = 42;
@@ -782,7 +782,7 @@
             this.button3.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(609, 311);
+            this.button3.Location = new System.Drawing.Point(768, 309);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(130, 41);
             this.button3.TabIndex = 41;
@@ -794,7 +794,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(606, 152);
+            this.label16.Location = new System.Drawing.Point(765, 150);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(87, 17);
             this.label16.TabIndex = 38;
@@ -803,7 +803,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(245, 152);
+            this.label17.Location = new System.Drawing.Point(404, 150);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(102, 17);
             this.label17.TabIndex = 36;
@@ -812,7 +812,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(606, 70);
+            this.label18.Location = new System.Drawing.Point(765, 68);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(87, 17);
             this.label18.TabIndex = 34;
@@ -822,16 +822,16 @@
             // 
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Controls.Add(this.dataGridView1);
-            this.panel4.Location = new System.Drawing.Point(-87, 372);
+            this.panel4.Location = new System.Drawing.Point(72, 372);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1239, 321);
+            this.panel4.Size = new System.Drawing.Size(1212, 319);
             this.panel4.TabIndex = 40;
             // 
             // dataGridView1
             // 
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(119, 20);
+            this.dataGridView1.Location = new System.Drawing.Point(117, 45);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
@@ -877,7 +877,7 @@
             this.button18.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.button18.Image = ((System.Drawing.Image)(resources.GetObject("button18.Image")));
             this.button18.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button18.Location = new System.Drawing.Point(608, 311);
+            this.button18.Location = new System.Drawing.Point(711, 315);
             this.button18.Name = "button18";
             this.button18.Size = new System.Drawing.Size(130, 41);
             this.button18.TabIndex = 78;
@@ -890,7 +890,7 @@
             // 
             this.label32.AutoSize = true;
             this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label32.Location = new System.Drawing.Point(405, 11);
+            this.label32.Location = new System.Drawing.Point(508, 15);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(299, 32);
             this.label32.TabIndex = 77;
@@ -902,7 +902,7 @@
             this.button9.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.button9.Image = ((System.Drawing.Image)(resources.GetObject("button9.Image")));
             this.button9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button9.Location = new System.Drawing.Point(880, 311);
+            this.button9.Location = new System.Drawing.Point(983, 315);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(130, 41);
             this.button9.TabIndex = 76;
@@ -917,7 +917,7 @@
             this.button8.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.button8.Image = ((System.Drawing.Image)(resources.GetObject("button8.Image")));
             this.button8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button8.Location = new System.Drawing.Point(608, 311);
+            this.button8.Location = new System.Drawing.Point(711, 315);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(130, 41);
             this.button8.TabIndex = 75;
@@ -935,7 +935,7 @@
             this.panel7.Controls.Add(this.label23);
             this.panel7.Controls.Add(this.label24);
             this.panel7.Controls.Add(this.checkedListBox1);
-            this.panel7.Location = new System.Drawing.Point(608, 73);
+            this.panel7.Location = new System.Drawing.Point(711, 77);
             this.panel7.MaximumSize = new System.Drawing.Size(297, 231);
             this.panel7.MinimumSize = new System.Drawing.Size(297, 60);
             this.panel7.Name = "panel7";
@@ -1009,7 +1009,7 @@
             // 
             this.metroComboBox1.FormattingEnabled = true;
             this.metroComboBox1.ItemHeight = 24;
-            this.metroComboBox1.Location = new System.Drawing.Point(261, 103);
+            this.metroComboBox1.Location = new System.Drawing.Point(364, 107);
             this.metroComboBox1.Name = "metroComboBox1";
             this.metroComboBox1.Size = new System.Drawing.Size(299, 30);
             this.metroComboBox1.TabIndex = 73;
@@ -1019,7 +1019,7 @@
             // 
             this.metroComboBox8.FormattingEnabled = true;
             this.metroComboBox8.ItemHeight = 24;
-            this.metroComboBox8.Location = new System.Drawing.Point(261, 180);
+            this.metroComboBox8.Location = new System.Drawing.Point(364, 184);
             this.metroComboBox8.Name = "metroComboBox8";
             this.metroComboBox8.Size = new System.Drawing.Size(303, 30);
             this.metroComboBox8.TabIndex = 72;
@@ -1028,7 +1028,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(258, 73);
+            this.label15.Location = new System.Drawing.Point(361, 77);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(96, 17);
             this.label15.TabIndex = 71;
@@ -1037,7 +1037,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(258, 151);
+            this.label20.Location = new System.Drawing.Point(361, 155);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(102, 17);
             this.label20.TabIndex = 70;
@@ -1049,7 +1049,7 @@
             this.button6.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.button6.Image = global::TimeTableManagment.Properties.Resources.icons8_search;
             this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.Location = new System.Drawing.Point(359, 311);
+            this.button6.Location = new System.Drawing.Point(462, 315);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(130, 41);
             this.button6.TabIndex = 64;
@@ -1062,7 +1062,7 @@
             // 
             this.dataGridView4.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Location = new System.Drawing.Point(14, 73);
+            this.dataGridView4.Location = new System.Drawing.Point(117, 77);
             this.dataGridView4.Name = "dataGridView4";
             this.dataGridView4.ReadOnly = true;
             this.dataGridView4.RowHeadersWidth = 51;
@@ -1075,7 +1075,7 @@
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(367, 11);
+            this.label21.Location = new System.Drawing.Point(470, 15);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(397, 32);
             this.label21.TabIndex = 62;
@@ -1088,7 +1088,7 @@
             this.button7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button7.Image = ((System.Drawing.Image)(resources.GetObject("button7.Image")));
             this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button7.Location = new System.Drawing.Point(744, 311);
+            this.button7.Location = new System.Drawing.Point(847, 315);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(130, 41);
             this.button7.TabIndex = 61;
@@ -1101,16 +1101,16 @@
             // 
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel5.Controls.Add(this.dataGridView3);
-            this.panel5.Location = new System.Drawing.Point(-81, 371);
+            this.panel5.Location = new System.Drawing.Point(22, 375);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1239, 321);
+            this.panel5.Size = new System.Drawing.Size(1212, 321);
             this.panel5.TabIndex = 58;
             // 
             // dataGridView3
             // 
             this.dataGridView3.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(119, 20);
+            this.dataGridView3.Location = new System.Drawing.Point(119, 43);
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.ReadOnly = true;
             this.dataGridView3.RowHeadersWidth = 51;
@@ -1156,7 +1156,7 @@
             this.button19.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.button19.Image = ((System.Drawing.Image)(resources.GetObject("button19.Image")));
             this.button19.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button19.Location = new System.Drawing.Point(610, 308);
+            this.button19.Location = new System.Drawing.Point(735, 309);
             this.button19.Name = "button19";
             this.button19.Size = new System.Drawing.Size(130, 41);
             this.button19.TabIndex = 94;
@@ -1169,7 +1169,7 @@
             // 
             this.label33.AutoSize = true;
             this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label33.Location = new System.Drawing.Point(408, 13);
+            this.label33.Location = new System.Drawing.Point(533, 14);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(360, 32);
             this.label33.TabIndex = 93;
@@ -1181,7 +1181,7 @@
             this.button13.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.button13.Image = ((System.Drawing.Image)(resources.GetObject("button13.Image")));
             this.button13.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button13.Location = new System.Drawing.Point(610, 308);
+            this.button13.Location = new System.Drawing.Point(735, 309);
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(130, 41);
             this.button13.TabIndex = 92;
@@ -1194,7 +1194,7 @@
             // 
             this.metroComboBox6.FormattingEnabled = true;
             this.metroComboBox6.ItemHeight = 24;
-            this.metroComboBox6.Location = new System.Drawing.Point(261, 101);
+            this.metroComboBox6.Location = new System.Drawing.Point(386, 102);
             this.metroComboBox6.Name = "metroComboBox6";
             this.metroComboBox6.Size = new System.Drawing.Size(299, 30);
             this.metroComboBox6.TabIndex = 90;
@@ -1204,7 +1204,7 @@
             // 
             this.metroComboBox7.FormattingEnabled = true;
             this.metroComboBox7.ItemHeight = 24;
-            this.metroComboBox7.Location = new System.Drawing.Point(261, 178);
+            this.metroComboBox7.Location = new System.Drawing.Point(386, 179);
             this.metroComboBox7.Name = "metroComboBox7";
             this.metroComboBox7.Size = new System.Drawing.Size(303, 30);
             this.metroComboBox7.TabIndex = 89;
@@ -1213,7 +1213,7 @@
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(258, 71);
+            this.label25.Location = new System.Drawing.Point(383, 72);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(92, 17);
             this.label25.TabIndex = 88;
@@ -1222,7 +1222,7 @@
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(258, 149);
+            this.label26.Location = new System.Drawing.Point(383, 150);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(102, 17);
             this.label26.TabIndex = 87;
@@ -1237,7 +1237,7 @@
             this.panel8.Controls.Add(this.label27);
             this.panel8.Controls.Add(this.label29);
             this.panel8.Controls.Add(this.checkedListBox2);
-            this.panel8.Location = new System.Drawing.Point(608, 71);
+            this.panel8.Location = new System.Drawing.Point(733, 72);
             this.panel8.MaximumSize = new System.Drawing.Size(297, 231);
             this.panel8.MinimumSize = new System.Drawing.Size(297, 60);
             this.panel8.Name = "panel8";
@@ -1313,7 +1313,7 @@
             this.button10.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.button10.Image = global::TimeTableManagment.Properties.Resources.icons8_search;
             this.button10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button10.Location = new System.Drawing.Point(356, 309);
+            this.button10.Location = new System.Drawing.Point(481, 310);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(130, 41);
             this.button10.TabIndex = 80;
@@ -1326,7 +1326,7 @@
             // 
             this.dataGridView6.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView6.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView6.Location = new System.Drawing.Point(11, 71);
+            this.dataGridView6.Location = new System.Drawing.Point(136, 72);
             this.dataGridView6.Name = "dataGridView6";
             this.dataGridView6.ReadOnly = true;
             this.dataGridView6.RowHeadersWidth = 51;
@@ -1342,7 +1342,7 @@
             this.button11.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button11.Image = ((System.Drawing.Image)(resources.GetObject("button11.Image")));
             this.button11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button11.Location = new System.Drawing.Point(746, 308);
+            this.button11.Location = new System.Drawing.Point(871, 309);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(130, 41);
             this.button11.TabIndex = 78;
@@ -1357,7 +1357,7 @@
             this.button12.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.button12.Image = ((System.Drawing.Image)(resources.GetObject("button12.Image")));
             this.button12.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button12.Location = new System.Drawing.Point(882, 308);
+            this.button12.Location = new System.Drawing.Point(1007, 309);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(130, 41);
             this.button12.TabIndex = 77;
@@ -1370,7 +1370,7 @@
             // 
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel6.Controls.Add(this.dataGridView5);
-            this.panel6.Location = new System.Drawing.Point(-84, 369);
+            this.panel6.Location = new System.Drawing.Point(41, 370);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(1239, 321);
             this.panel6.TabIndex = 75;
@@ -1379,7 +1379,7 @@
             // 
             this.dataGridView5.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView5.Location = new System.Drawing.Point(119, 20);
+            this.dataGridView5.Location = new System.Drawing.Point(117, 45);
             this.dataGridView5.Name = "dataGridView5";
             this.dataGridView5.ReadOnly = true;
             this.dataGridView5.RowHeadersWidth = 51;
@@ -1393,7 +1393,7 @@
             // 
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.Location = new System.Drawing.Point(321, 13);
+            this.label31.Location = new System.Drawing.Point(446, 14);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(523, 32);
             this.label31.TabIndex = 86;
@@ -1436,7 +1436,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PaleGoldenrod;
-            this.ClientSize = new System.Drawing.Size(1079, 699);
+            this.ClientSize = new System.Drawing.Size(1327, 715);
             this.Controls.Add(this.metroTabControl1);
             this.Name = "SessionForm";
             this.Text = "Session";
