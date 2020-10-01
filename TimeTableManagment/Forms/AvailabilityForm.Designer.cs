@@ -53,6 +53,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.metroTabPage2 = new MetroFramework.Controls.MetroTabPage();
+            this.label13 = new System.Windows.Forms.Label();
+            this.daycomboBox = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.combo_endTime = new System.Windows.Forms.ComboBox();
@@ -68,8 +70,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.label13 = new System.Windows.Forms.Label();
-            this.daycomboBox = new System.Windows.Forms.ComboBox();
             this.metroTabControl1.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -87,8 +87,8 @@
             this.metroTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.metroTabControl1.Location = new System.Drawing.Point(0, 0);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 0;
-            this.metroTabControl1.Size = new System.Drawing.Size(982, 653);
+            this.metroTabControl1.SelectedIndex = 1;
+            this.metroTabControl1.Size = new System.Drawing.Size(1006, 653);
             this.metroTabControl1.TabIndex = 0;
             this.metroTabControl1.UseSelectable = true;
             this.metroTabControl1.SelectedIndexChanged += new System.EventHandler(this.metroTabControl1_SelectedIndexChanged);
@@ -119,7 +119,7 @@
             this.metroTabPage1.HorizontalScrollbarSize = 10;
             this.metroTabPage1.Location = new System.Drawing.Point(4, 38);
             this.metroTabPage1.Name = "metroTabPage1";
-            this.metroTabPage1.Size = new System.Drawing.Size(974, 611);
+            this.metroTabPage1.Size = new System.Drawing.Size(998, 611);
             this.metroTabPage1.TabIndex = 0;
             this.metroTabPage1.Text = "Availability";
             this.metroTabPage1.VerticalScrollbarBarColor = true;
@@ -399,6 +399,7 @@
             // 
             // metroTabPage2
             // 
+            this.metroTabPage2.BackColor = System.Drawing.Color.PowderBlue;
             this.metroTabPage2.Controls.Add(this.label13);
             this.metroTabPage2.Controls.Add(this.daycomboBox);
             this.metroTabPage2.Controls.Add(this.label12);
@@ -419,17 +420,42 @@
             this.metroTabPage2.HorizontalScrollbarSize = 10;
             this.metroTabPage2.Location = new System.Drawing.Point(4, 38);
             this.metroTabPage2.Name = "metroTabPage2";
-            this.metroTabPage2.Size = new System.Drawing.Size(974, 611);
+            this.metroTabPage2.Size = new System.Drawing.Size(998, 611);
             this.metroTabPage2.TabIndex = 1;
             this.metroTabPage2.Text = "Room Availability";
             this.metroTabPage2.VerticalScrollbarBarColor = true;
             this.metroTabPage2.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage2.VerticalScrollbarSize = 10;
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(682, 100);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(84, 17);
+            this.label13.TabIndex = 26;
+            this.label13.Text = " Select Day:";
+            // 
+            // daycomboBox
+            // 
+            this.daycomboBox.FormattingEnabled = true;
+            this.daycomboBox.Items.AddRange(new object[] {
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday"});
+            this.daycomboBox.Location = new System.Drawing.Point(782, 97);
+            this.daycomboBox.Name = "daycomboBox";
+            this.daycomboBox.Size = new System.Drawing.Size(121, 24);
+            this.daycomboBox.TabIndex = 25;
+            // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(312, 105);
+            this.label12.Location = new System.Drawing.Point(407, 103);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(94, 17);
             this.label12.TabIndex = 24;
@@ -438,7 +464,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(73, 105);
+            this.label11.Location = new System.Drawing.Point(168, 103);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(77, 17);
             this.label11.TabIndex = 23;
@@ -469,7 +495,7 @@
             "18.00",
             "18.30",
             "19.00"});
-            this.combo_endTime.Location = new System.Drawing.Point(412, 102);
+            this.combo_endTime.Location = new System.Drawing.Point(507, 100);
             this.combo_endTime.Name = "combo_endTime";
             this.combo_endTime.Size = new System.Drawing.Size(121, 24);
             this.combo_endTime.TabIndex = 22;
@@ -501,7 +527,7 @@
             "18.00",
             "18.30",
             "19.00"});
-            this.combo_startTime.Location = new System.Drawing.Point(156, 102);
+            this.combo_startTime.Location = new System.Drawing.Point(251, 100);
             this.combo_startTime.Name = "combo_startTime";
             this.combo_startTime.Size = new System.Drawing.Size(121, 24);
             this.combo_startTime.TabIndex = 21;
@@ -512,7 +538,7 @@
             this.clearDetailsBtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.clearDetailsBtn.Image = ((System.Drawing.Image)(resources.GetObject("clearDetailsBtn.Image")));
             this.clearDetailsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.clearDetailsBtn.Location = new System.Drawing.Point(771, 209);
+            this.clearDetailsBtn.Location = new System.Drawing.Point(847, 275);
             this.clearDetailsBtn.Name = "clearDetailsBtn";
             this.clearDetailsBtn.Size = new System.Drawing.Size(130, 41);
             this.clearDetailsBtn.TabIndex = 20;
@@ -523,8 +549,9 @@
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.SystemColors.Control;
             this.panel2.Controls.Add(this.roomAvailabilityTable);
-            this.panel2.Location = new System.Drawing.Point(65, 287);
+            this.panel2.Location = new System.Drawing.Point(171, 350);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(838, 253);
             this.panel2.TabIndex = 19;
@@ -534,6 +561,7 @@
             this.roomAvailabilityTable.AllowUserToAddRows = false;
             this.roomAvailabilityTable.AllowUserToDeleteRows = false;
             this.roomAvailabilityTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.roomAvailabilityTable.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.roomAvailabilityTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.roomAvailabilityTable.Location = new System.Drawing.Point(31, 20);
             this.roomAvailabilityTable.Name = "roomAvailabilityTable";
@@ -551,7 +579,7 @@
             this.detailDeleteBtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.detailDeleteBtn.Image = ((System.Drawing.Image)(resources.GetObject("detailDeleteBtn.Image")));
             this.detailDeleteBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.detailDeleteBtn.Location = new System.Drawing.Point(640, 209);
+            this.detailDeleteBtn.Location = new System.Drawing.Point(716, 275);
             this.detailDeleteBtn.Name = "detailDeleteBtn";
             this.detailDeleteBtn.Size = new System.Drawing.Size(130, 41);
             this.detailDeleteBtn.TabIndex = 19;
@@ -563,7 +591,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(73, 146);
+            this.label10.Location = new System.Drawing.Point(168, 161);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(100, 17);
             this.label10.TabIndex = 6;
@@ -575,7 +603,7 @@
             this.detailsEditBtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.detailsEditBtn.Image = ((System.Drawing.Image)(resources.GetObject("detailsEditBtn.Image")));
             this.detailsEditBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.detailsEditBtn.Location = new System.Drawing.Point(509, 209);
+            this.detailsEditBtn.Location = new System.Drawing.Point(585, 275);
             this.detailsEditBtn.Name = "detailsEditBtn";
             this.detailsEditBtn.Size = new System.Drawing.Size(130, 41);
             this.detailsEditBtn.TabIndex = 18;
@@ -587,7 +615,7 @@
             // roomSelectComboBox
             // 
             this.roomSelectComboBox.FormattingEnabled = true;
-            this.roomSelectComboBox.Location = new System.Drawing.Point(76, 166);
+            this.roomSelectComboBox.Location = new System.Drawing.Point(171, 181);
             this.roomSelectComboBox.Name = "roomSelectComboBox";
             this.roomSelectComboBox.Size = new System.Drawing.Size(259, 24);
             this.roomSelectComboBox.TabIndex = 5;
@@ -598,7 +626,7 @@
             this.detailsAddBtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.detailsAddBtn.Image = ((System.Drawing.Image)(resources.GetObject("detailsAddBtn.Image")));
             this.detailsAddBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.detailsAddBtn.Location = new System.Drawing.Point(378, 209);
+            this.detailsAddBtn.Location = new System.Drawing.Point(454, 275);
             this.detailsAddBtn.Name = "detailsAddBtn";
             this.detailsAddBtn.Size = new System.Drawing.Size(130, 41);
             this.detailsAddBtn.TabIndex = 17;
@@ -610,7 +638,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(73, 76);
+            this.label9.Location = new System.Drawing.Point(168, 74);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(94, 17);
             this.label9.TabIndex = 4;
@@ -619,9 +647,10 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(73, 29);
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(440, 17);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(262, 17);
+            this.label8.Size = new System.Drawing.Size(386, 24);
             this.label8.TabIndex = 2;
             this.label8.Text = "Select the Unavailable Time For a Room";
             // 
@@ -629,36 +658,11 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(587, 102);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(84, 17);
-            this.label13.TabIndex = 26;
-            this.label13.Text = " Select Day:";
-            // 
-            // daycomboBox
-            // 
-            this.daycomboBox.FormattingEnabled = true;
-            this.daycomboBox.Items.AddRange(new object[] {
-            "Monday",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
-            "Friday",
-            "Saturday",
-            "Sunday"});
-            this.daycomboBox.Location = new System.Drawing.Point(687, 99);
-            this.daycomboBox.Name = "daycomboBox";
-            this.daycomboBox.Size = new System.Drawing.Size(121, 24);
-            this.daycomboBox.TabIndex = 25;
-            // 
             // AvailabilityForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(982, 653);
+            this.ClientSize = new System.Drawing.Size(1006, 653);
             this.Controls.Add(this.metroTabControl1);
             this.Name = "AvailabilityForm";
             this.Text = "Availability";

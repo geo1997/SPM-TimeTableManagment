@@ -62,7 +62,7 @@
             "Y2",
             "Y3",
             "Y4"});
-            this.StudentYearComboBox.Location = new System.Drawing.Point(58, 48);
+            this.StudentYearComboBox.Location = new System.Drawing.Point(111, 65);
             this.StudentYearComboBox.Name = "StudentYearComboBox";
             this.StudentYearComboBox.Size = new System.Drawing.Size(137, 24);
             this.StudentYearComboBox.TabIndex = 10;
@@ -72,7 +72,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(55, 23);
+            this.label3.Location = new System.Drawing.Point(108, 40);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(85, 17);
             this.label3.TabIndex = 9;
@@ -81,7 +81,7 @@
             // subjectComboBox
             // 
             this.subjectComboBox.FormattingEnabled = true;
-            this.subjectComboBox.Location = new System.Drawing.Point(58, 163);
+            this.subjectComboBox.Location = new System.Drawing.Point(111, 180);
             this.subjectComboBox.Name = "subjectComboBox";
             this.subjectComboBox.Size = new System.Drawing.Size(137, 24);
             this.subjectComboBox.TabIndex = 12;
@@ -91,7 +91,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(55, 143);
+            this.label1.Location = new System.Drawing.Point(108, 160);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(102, 17);
             this.label1.TabIndex = 11;
@@ -100,7 +100,7 @@
             // conSeccheckBox
             // 
             this.conSeccheckBox.AutoSize = true;
-            this.conSeccheckBox.Location = new System.Drawing.Point(58, 210);
+            this.conSeccheckBox.Location = new System.Drawing.Point(111, 227);
             this.conSeccheckBox.Name = "conSeccheckBox";
             this.conSeccheckBox.Size = new System.Drawing.Size(168, 21);
             this.conSeccheckBox.TabIndex = 13;
@@ -111,7 +111,7 @@
             // subGroupcomboBox
             // 
             this.subGroupcomboBox.FormattingEnabled = true;
-            this.subGroupcomboBox.Location = new System.Drawing.Point(58, 286);
+            this.subGroupcomboBox.Location = new System.Drawing.Point(111, 303);
             this.subGroupcomboBox.Name = "subGroupcomboBox";
             this.subGroupcomboBox.Size = new System.Drawing.Size(137, 24);
             this.subGroupcomboBox.TabIndex = 15;
@@ -120,7 +120,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(55, 256);
+            this.label2.Location = new System.Drawing.Point(108, 273);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(124, 17);
             this.label2.TabIndex = 14;
@@ -129,7 +129,7 @@
             // fillRoomcomboBox
             // 
             this.fillRoomcomboBox.FormattingEnabled = true;
-            this.fillRoomcomboBox.Location = new System.Drawing.Point(562, 256);
+            this.fillRoomcomboBox.Location = new System.Drawing.Point(645, 273);
             this.fillRoomcomboBox.Name = "fillRoomcomboBox";
             this.fillRoomcomboBox.Size = new System.Drawing.Size(137, 24);
             this.fillRoomcomboBox.TabIndex = 17;
@@ -137,7 +137,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(559, 227);
+            this.label4.Location = new System.Drawing.Point(642, 244);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(92, 17);
             this.label4.TabIndex = 18;
@@ -149,7 +149,7 @@
             this.clearDetailsBtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.clearDetailsBtn.Image = global::TimeTableManagment.Properties.Resources.icons8_erase_48;
             this.clearDetailsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.clearDetailsBtn.Location = new System.Drawing.Point(736, 286);
+            this.clearDetailsBtn.Location = new System.Drawing.Point(878, 391);
             this.clearDetailsBtn.Name = "clearDetailsBtn";
             this.clearDetailsBtn.Size = new System.Drawing.Size(130, 41);
             this.clearDetailsBtn.TabIndex = 22;
@@ -164,7 +164,7 @@
             this.roomAllocatebtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.roomAllocatebtn.Image = global::TimeTableManagment.Properties.Resources.icons8_add_new_64;
             this.roomAllocatebtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.roomAllocatebtn.Location = new System.Drawing.Point(562, 286);
+            this.roomAllocatebtn.Location = new System.Drawing.Point(704, 391);
             this.roomAllocatebtn.Name = "roomAllocatebtn";
             this.roomAllocatebtn.Size = new System.Drawing.Size(143, 41);
             this.roomAllocatebtn.TabIndex = 19;
@@ -175,32 +175,34 @@
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.SystemColors.Control;
             this.panel2.Controls.Add(this.dataGridView2);
-            this.panel2.Location = new System.Drawing.Point(145, 344);
+            this.panel2.Location = new System.Drawing.Point(199, 438);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(838, 253);
+            this.panel2.Size = new System.Drawing.Size(815, 253);
             this.panel2.TabIndex = 23;
             // 
             // dataGridView2
             // 
             this.dataGridView2.AllowUserToAddRows = false;
             this.dataGridView2.AllowUserToDeleteRows = false;
-            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridView2.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(3, 20);
+            this.dataGridView2.Location = new System.Drawing.Point(13, 20);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowHeadersVisible = false;
             this.dataGridView2.RowHeadersWidth = 51;
             this.dataGridView2.RowTemplate.Height = 24;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(832, 217);
+            this.dataGridView2.Size = new System.Drawing.Size(785, 217);
             this.dataGridView2.TabIndex = 11;
             // 
             // groupIDcomboBox
             // 
             this.groupIDcomboBox.FormattingEnabled = true;
-            this.groupIDcomboBox.Location = new System.Drawing.Point(58, 105);
+            this.groupIDcomboBox.Location = new System.Drawing.Point(111, 122);
             this.groupIDcomboBox.Name = "groupIDcomboBox";
             this.groupIDcomboBox.Size = new System.Drawing.Size(137, 24);
             this.groupIDcomboBox.TabIndex = 25;
@@ -209,7 +211,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(55, 85);
+            this.label5.Location = new System.Drawing.Point(108, 102);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(112, 17);
             this.label5.TabIndex = 24;
@@ -218,7 +220,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(227, 23);
+            this.label6.Location = new System.Drawing.Point(280, 40);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(115, 17);
             this.label6.TabIndex = 26;
@@ -230,7 +232,7 @@
             this.semcomboBox.Items.AddRange(new object[] {
             "1",
             "2"});
-            this.semcomboBox.Location = new System.Drawing.Point(230, 48);
+            this.semcomboBox.Location = new System.Drawing.Point(283, 65);
             this.semcomboBox.Name = "semcomboBox";
             this.semcomboBox.Size = new System.Drawing.Size(137, 24);
             this.semcomboBox.TabIndex = 27;
@@ -239,7 +241,7 @@
             // lblsessionDet
             // 
             this.lblsessionDet.AutoSize = true;
-            this.lblsessionDet.Location = new System.Drawing.Point(559, 23);
+            this.lblsessionDet.Location = new System.Drawing.Point(642, 40);
             this.lblsessionDet.Name = "lblsessionDet";
             this.lblsessionDet.Size = new System.Drawing.Size(186, 17);
             this.lblsessionDet.TabIndex = 28;
@@ -248,7 +250,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(559, 55);
+            this.label7.Location = new System.Drawing.Point(642, 72);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(56, 17);
             this.label7.TabIndex = 29;
@@ -257,7 +259,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(776, 51);
+            this.label8.Location = new System.Drawing.Point(859, 68);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(56, 17);
             this.label8.TabIndex = 30;
@@ -266,7 +268,7 @@
             // lecSessionlabel
             // 
             this.lecSessionlabel.AutoSize = true;
-            this.lecSessionlabel.Location = new System.Drawing.Point(559, 94);
+            this.lecSessionlabel.Location = new System.Drawing.Point(642, 111);
             this.lecSessionlabel.Name = "lecSessionlabel";
             this.lecSessionlabel.Size = new System.Drawing.Size(0, 17);
             this.lecSessionlabel.TabIndex = 31;
@@ -274,7 +276,7 @@
             // tuteSessionlabel
             // 
             this.tuteSessionlabel.AutoSize = true;
-            this.tuteSessionlabel.Location = new System.Drawing.Point(776, 94);
+            this.tuteSessionlabel.Location = new System.Drawing.Point(859, 111);
             this.tuteSessionlabel.Name = "tuteSessionlabel";
             this.tuteSessionlabel.Size = new System.Drawing.Size(0, 17);
             this.tuteSessionlabel.TabIndex = 32;
@@ -283,7 +285,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1109, 598);
+            this.BackColor = System.Drawing.Color.LightBlue;
+            this.ClientSize = new System.Drawing.Size(1184, 712);
             this.Controls.Add(this.tuteSessionlabel);
             this.Controls.Add(this.lecSessionlabel);
             this.Controls.Add(this.label8);

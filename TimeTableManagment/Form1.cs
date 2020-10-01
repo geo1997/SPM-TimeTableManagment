@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TimeTableManagment.Forms;
+using System.Data.SQLite;
 
 namespace TimeTableManagment
 {
@@ -24,6 +25,89 @@ namespace TimeTableManagment
             InitializeComponent();
             random = new Random();
             btnClose.Visible = false;
+        }
+
+
+        private SQLiteConnection sql_con;
+        private SQLiteCommand sql_cmd;
+        private SQLiteDataAdapter DB;
+        private DataSet DS = new DataSet();
+        private DataTable DT = new DataTable();
+
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            LoadRoomData();
+        }
+
+        private void SetConnection()
+        {
+            sql_con = new SQLiteConnection("Data Source=TimeTable.db;version=3;");
+        }
+
+        private void ExecuteQuery(string txtQuery)
+        {
+            SetConnection();
+            sql_con.Open();
+            sql_cmd = sql_con.CreateCommand();
+            sql_cmd.CommandText = txtQuery;
+            sql_cmd.ExecuteNonQuery();
+            sql_con.Close();
+        }
+
+
+
+
+
+        private void LoadRoomData()
+        {
+            try
+            {
+                SetConnection();
+                String getBuildings = "select count(*) from Location";
+                String getLes = "select count(*) from Lecturer";
+
+
+
+
+                sql_con.Open();
+                SQLiteCommand command = new SQLiteCommand(getBuildings, sql_con);
+                SQLiteCommand comman1 = new SQLiteCommand(getLes, sql_con);
+
+
+
+
+
+                SQLiteDataReader reader = command.ExecuteReader();
+                SQLiteDataReader reader1 = comman1.ExecuteReader();
+
+
+
+
+
+
+
+                while (reader.Read())
+                {
+                    int buildingName = reader.GetInt32(0);
+
+                    lblRoom.Text = buildingName.ToString();
+                }
+
+                while (reader1.Read())
+                {
+                    int lecCount = reader1.GetInt32(0);
+                    Lecslbl.Text = lecCount.ToString();
+                }
+
+                sql_con.Close();
+            }
+
+
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
         }
 
 

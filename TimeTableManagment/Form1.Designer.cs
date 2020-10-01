@@ -62,6 +62,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.lblRoom = new System.Windows.Forms.Label();
+            this.Lecslbl = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.sideMenuPanel.SuspendLayout();
             this.titleBarPanel.SuspendLayout();
             this.panelDekstopPane.SuspendLayout();
@@ -380,7 +387,7 @@
             // 
             // generate_timetable
             // 
-            this.generate_timetable.Location = new System.Drawing.Point(312, 520);
+            this.generate_timetable.Location = new System.Drawing.Point(317, 466);
             this.generate_timetable.Name = "generate_timetable";
             this.generate_timetable.Size = new System.Drawing.Size(420, 54);
             this.generate_timetable.TabIndex = 3;
@@ -445,6 +452,8 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.panel4.Controls.Add(this.lblRoom);
+            this.panel4.Controls.Add(this.label9);
             this.panel4.Controls.Add(this.label4);
             this.panel4.Location = new System.Drawing.Point(854, 204);
             this.panel4.Name = "panel4";
@@ -463,6 +472,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.panel3.Controls.Add(this.label13);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Location = new System.Drawing.Point(854, 54);
             this.panel3.Name = "panel3";
@@ -481,6 +491,7 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.panel5.Controls.Add(this.label12);
             this.panel5.Controls.Add(this.label5);
             this.panel5.Location = new System.Drawing.Point(612, 54);
             this.panel5.Name = "panel5";
@@ -499,6 +510,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.panel2.Controls.Add(this.label11);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Location = new System.Drawing.Point(355, 54);
             this.panel2.Name = "panel2";
@@ -517,6 +529,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.panel1.Controls.Add(this.label10);
+            this.panel1.Controls.Add(this.Lecslbl);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(58, 54);
             this.panel1.Name = "panel1";
@@ -532,6 +546,74 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Lecturers";
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Image = global::TimeTableManagment.Properties.Resources.icons8_room_32;
+            this.label9.Location = new System.Drawing.Point(113, 66);
+            this.label9.MinimumSize = new System.Drawing.Size(20, 20);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(20, 20);
+            this.label9.TabIndex = 1;
+            // 
+            // lblRoom
+            // 
+            this.lblRoom.AutoSize = true;
+            this.lblRoom.Location = new System.Drawing.Point(41, 66);
+            this.lblRoom.Name = "lblRoom";
+            this.lblRoom.Size = new System.Drawing.Size(62, 20);
+            this.lblRoom.TabIndex = 2;
+            this.lblRoom.Text = "label10";
+            // 
+            // Lecslbl
+            // 
+            this.Lecslbl.AutoSize = true;
+            this.Lecslbl.Location = new System.Drawing.Point(48, 57);
+            this.Lecslbl.Name = "Lecslbl";
+            this.Lecslbl.Size = new System.Drawing.Size(62, 20);
+            this.Lecslbl.TabIndex = 1;
+            this.Lecslbl.Text = "label10";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Image = global::TimeTableManagment.Properties.Resources.icons8_teacher_32;
+            this.label10.Location = new System.Drawing.Point(117, 57);
+            this.label10.MinimumSize = new System.Drawing.Size(25, 25);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(25, 25);
+            this.label10.TabIndex = 2;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Image = global::TimeTableManagment.Properties.Resources.icons8_more_details_32;
+            this.label11.Location = new System.Drawing.Point(115, 64);
+            this.label11.MinimumSize = new System.Drawing.Size(25, 25);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(25, 25);
+            this.label11.TabIndex = 1;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Image = global::TimeTableManagment.Properties.Resources.icons8_student_male_32;
+            this.label12.Location = new System.Drawing.Point(113, 59);
+            this.label12.MinimumSize = new System.Drawing.Size(25, 25);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(25, 25);
+            this.label12.TabIndex = 1;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Image = global::TimeTableManagment.Properties.Resources.icons8_physics_book_32;
+            this.label13.Location = new System.Drawing.Point(99, 66);
+            this.label13.MinimumSize = new System.Drawing.Size(0, 25);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(0, 25);
+            this.label13.TabIndex = 1;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
@@ -542,10 +624,12 @@
             this.Controls.Add(this.sideMenuPanel);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.sideMenuPanel.ResumeLayout(false);
             this.titleBarPanel.ResumeLayout(false);
             this.titleBarPanel.PerformLayout();
@@ -606,6 +690,13 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button generate_timetable;
         private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Label lblRoom;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label Lecslbl;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
     }
 }
 

@@ -28,6 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AssignTimeAndDay));
             this.semcomboBox = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -96,13 +100,13 @@
             this.dataGridView12 = new System.Windows.Forms.DataGridView();
             this.groupBox13 = new System.Windows.Forms.GroupBox();
             this.label22 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.sessionIDcomboBoxParAndNon = new System.Windows.Forms.ComboBox();
             this.label23 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.endTimecomboBoxParAndOvr = new System.Windows.Forms.ComboBox();
             this.label24 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.daycomboBoxParAndOvr = new System.Windows.Forms.ComboBox();
             this.label25 = new System.Windows.Forms.Label();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.startTimecomboBoxParAndOvr = new System.Windows.Forms.ComboBox();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
@@ -110,6 +114,8 @@
             this.panel10 = new System.Windows.Forms.Panel();
             this.dataGridView10 = new System.Windows.Forms.DataGridView();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.dataGridView11 = new System.Windows.Forms.DataGridView();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
@@ -118,8 +124,13 @@
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.panel8 = new System.Windows.Forms.Panel();
             this.dataGridView8 = new System.Windows.Forms.DataGridView();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.dataGridView11 = new System.Windows.Forms.DataGridView();
+            this.ClearFieldsbuttoPrac = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.addDatabuttonParallAndNonOver = new System.Windows.Forms.Button();
+            this.sessionDetailslblParAndOvr = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.buildingDeleteBtn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -153,14 +164,14 @@
             this.panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView10)).BeginInit();
             this.groupBox12.SuspendLayout();
+            this.panel11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView11)).BeginInit();
             this.groupBox10.SuspendLayout();
             this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView9)).BeginInit();
             this.groupBox9.SuspendLayout();
             this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView8)).BeginInit();
-            this.panel11.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView11)).BeginInit();
             this.SuspendLayout();
             // 
             // semcomboBox
@@ -273,9 +284,9 @@
             // 
             this.groupBox2.Controls.Add(this.roomNamelbl);
             this.groupBox2.Controls.Add(this.panel2);
-            this.groupBox2.Location = new System.Drawing.Point(533, 6);
+            this.groupBox2.Location = new System.Drawing.Point(577, 6);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(247, 302);
+            this.groupBox2.Size = new System.Drawing.Size(277, 302);
             this.groupBox2.TabIndex = 111;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Room Data";
@@ -293,7 +304,7 @@
             this.panel2.Controls.Add(this.dataGridView2);
             this.panel2.Location = new System.Drawing.Point(6, 72);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(232, 204);
+            this.panel2.Size = new System.Drawing.Size(265, 204);
             this.panel2.TabIndex = 109;
             // 
             // dataGridView2
@@ -311,7 +322,7 @@
             this.dataGridView2.RowHeadersWidth = 51;
             this.dataGridView2.RowTemplate.Height = 24;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(217, 168);
+            this.dataGridView2.Size = new System.Drawing.Size(256, 168);
             this.dataGridView2.TabIndex = 5;
             // 
             // metroTabControl1
@@ -321,7 +332,7 @@
             this.metroTabControl1.Controls.Add(this.metroTabPage3);
             this.metroTabControl1.Location = new System.Drawing.Point(3, 0);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 2;
+            this.metroTabControl1.SelectedIndex = 1;
             this.metroTabControl1.Size = new System.Drawing.Size(1317, 735);
             this.metroTabControl1.TabIndex = 108;
             this.metroTabControl1.UseSelectable = true;
@@ -329,6 +340,8 @@
             // 
             // metroTabPage1
             // 
+            this.metroTabPage1.Controls.Add(this.buildingDeleteBtn);
+            this.metroTabPage1.Controls.Add(this.ClearFieldsbuttoPrac);
             this.metroTabPage1.Controls.Add(this.panel1);
             this.metroTabPage1.Controls.Add(this.groupBox4);
             this.metroTabPage1.Controls.Add(this.groupBox3);
@@ -352,27 +365,35 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.dataGridView1);
-            this.panel1.Location = new System.Drawing.Point(207, 414);
+            this.panel1.Location = new System.Drawing.Point(239, 379);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(913, 221);
+            this.panel1.Size = new System.Drawing.Size(974, 246);
             this.panel1.TabIndex = 114;
             // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 16);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(907, 211);
+            this.dataGridView1.Size = new System.Drawing.Size(946, 214);
             this.dataGridView1.TabIndex = 5;
             // 
             // groupBox4
@@ -380,9 +401,9 @@
             this.groupBox4.Controls.Add(this.sessionUnlabel);
             this.groupBox4.Controls.Add(this.label8);
             this.groupBox4.Controls.Add(this.panel3);
-            this.groupBox4.Location = new System.Drawing.Point(786, 6);
+            this.groupBox4.Location = new System.Drawing.Point(889, 3);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(247, 302);
+            this.groupBox4.Size = new System.Drawing.Size(275, 302);
             this.groupBox4.TabIndex = 112;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Session Unavailability";
@@ -408,7 +429,7 @@
             this.panel3.Controls.Add(this.dataGridView3);
             this.panel3.Location = new System.Drawing.Point(6, 72);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(232, 204);
+            this.panel3.Size = new System.Drawing.Size(263, 204);
             this.panel3.TabIndex = 109;
             // 
             // dataGridView3
@@ -426,7 +447,7 @@
             this.dataGridView3.RowHeadersWidth = 51;
             this.dataGridView3.RowTemplate.Height = 24;
             this.dataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView3.Size = new System.Drawing.Size(217, 168);
+            this.dataGridView3.Size = new System.Drawing.Size(254, 168);
             this.dataGridView3.TabIndex = 5;
             // 
             // groupBox3
@@ -555,9 +576,9 @@
             this.buildingAddBtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.buildingAddBtn.Image = global::TimeTableManagment.Properties.Resources.icons8_add_new_64;
             this.buildingAddBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buildingAddBtn.Location = new System.Drawing.Point(10, 414);
+            this.buildingAddBtn.Location = new System.Drawing.Point(10, 438);
             this.buildingAddBtn.Name = "buildingAddBtn";
-            this.buildingAddBtn.Size = new System.Drawing.Size(130, 31);
+            this.buildingAddBtn.Size = new System.Drawing.Size(130, 41);
             this.buildingAddBtn.TabIndex = 6;
             this.buildingAddBtn.Text = "Add";
             this.buildingAddBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -604,7 +625,7 @@
             this.clearFieldsbuttonCS.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.clearFieldsbuttonCS.Image = ((System.Drawing.Image)(resources.GetObject("clearFieldsbuttonCS.Image")));
             this.clearFieldsbuttonCS.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.clearFieldsbuttonCS.Location = new System.Drawing.Point(9, 568);
+            this.clearFieldsbuttonCS.Location = new System.Drawing.Point(27, 538);
             this.clearFieldsbuttonCS.Name = "clearFieldsbuttonCS";
             this.clearFieldsbuttonCS.Size = new System.Drawing.Size(130, 41);
             this.clearFieldsbuttonCS.TabIndex = 29;
@@ -616,20 +637,28 @@
             // panel7
             // 
             this.panel7.Controls.Add(this.dataGridView7);
-            this.panel7.Location = new System.Drawing.Point(412, 449);
+            this.panel7.Location = new System.Drawing.Point(363, 436);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(894, 221);
+            this.panel7.Size = new System.Drawing.Size(918, 234);
             this.panel7.TabIndex = 117;
             // 
             // dataGridView7
             // 
             this.dataGridView7.AllowUserToAddRows = false;
             this.dataGridView7.AllowUserToDeleteRows = false;
-            this.dataGridView7.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView7.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView7.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView7.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView7.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView7.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dataGridView7.Location = new System.Drawing.Point(3, 14);
+            this.dataGridView7.Location = new System.Drawing.Point(16, 14);
             this.dataGridView7.Name = "dataGridView7";
             this.dataGridView7.ReadOnly = true;
             this.dataGridView7.RowHeadersVisible = false;
@@ -649,9 +678,9 @@
             this.groupBox8.Controls.Add(this.selectDaycomboBoxCS);
             this.groupBox8.Controls.Add(this.label15);
             this.groupBox8.Controls.Add(this.startTimecomboBoxCS);
-            this.groupBox8.Location = new System.Drawing.Point(3, 290);
+            this.groupBox8.Location = new System.Drawing.Point(3, 274);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(403, 187);
+            this.groupBox8.Size = new System.Drawing.Size(360, 156);
             this.groupBox8.TabIndex = 116;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Select Date and Time";
@@ -659,7 +688,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(30, 42);
+            this.label16.Location = new System.Drawing.Point(14, 31);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(122, 17);
             this.label16.TabIndex = 112;
@@ -668,7 +697,7 @@
             // loadSessionIDcomboBoxCS
             // 
             this.loadSessionIDcomboBoxCS.FormattingEnabled = true;
-            this.loadSessionIDcomboBoxCS.Location = new System.Drawing.Point(33, 63);
+            this.loadSessionIDcomboBoxCS.Location = new System.Drawing.Point(17, 52);
             this.loadSessionIDcomboBoxCS.Name = "loadSessionIDcomboBoxCS";
             this.loadSessionIDcomboBoxCS.Size = new System.Drawing.Size(137, 24);
             this.loadSessionIDcomboBoxCS.TabIndex = 113;
@@ -676,7 +705,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(220, 116);
+            this.label13.Location = new System.Drawing.Point(203, 89);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(64, 17);
             this.label13.TabIndex = 110;
@@ -707,7 +736,7 @@
             "18.00",
             "18.30",
             "19.00"});
-            this.endTimecomboBoxCS.Location = new System.Drawing.Point(223, 136);
+            this.endTimecomboBoxCS.Location = new System.Drawing.Point(206, 109);
             this.endTimecomboBoxCS.Name = "endTimecomboBoxCS";
             this.endTimecomboBoxCS.Size = new System.Drawing.Size(137, 24);
             this.endTimecomboBoxCS.TabIndex = 111;
@@ -715,7 +744,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(220, 42);
+            this.label14.Location = new System.Drawing.Point(204, 31);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(80, 17);
             this.label14.TabIndex = 106;
@@ -732,7 +761,7 @@
             "Friday",
             "Saturday",
             "Sunday"});
-            this.selectDaycomboBoxCS.Location = new System.Drawing.Point(223, 63);
+            this.selectDaycomboBoxCS.Location = new System.Drawing.Point(207, 52);
             this.selectDaycomboBoxCS.Name = "selectDaycomboBoxCS";
             this.selectDaycomboBoxCS.Size = new System.Drawing.Size(137, 24);
             this.selectDaycomboBoxCS.TabIndex = 107;
@@ -740,7 +769,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(31, 116);
+            this.label15.Location = new System.Drawing.Point(14, 89);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(79, 17);
             this.label15.TabIndex = 108;
@@ -773,7 +802,7 @@
             "18.00",
             "18.30",
             "19.00"});
-            this.startTimecomboBoxCS.Location = new System.Drawing.Point(33, 136);
+            this.startTimecomboBoxCS.Location = new System.Drawing.Point(16, 109);
             this.startTimecomboBoxCS.Name = "startTimecomboBoxCS";
             this.startTimecomboBoxCS.Size = new System.Drawing.Size(137, 24);
             this.startTimecomboBoxCS.TabIndex = 109;
@@ -784,9 +813,9 @@
             this.addDatabuttonCS.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.addDatabuttonCS.Image = global::TimeTableManagment.Properties.Resources.icons8_add_new_64;
             this.addDatabuttonCS.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.addDatabuttonCS.Location = new System.Drawing.Point(9, 505);
+            this.addDatabuttonCS.Location = new System.Drawing.Point(27, 481);
             this.addDatabuttonCS.Name = "addDatabuttonCS";
-            this.addDatabuttonCS.Size = new System.Drawing.Size(130, 31);
+            this.addDatabuttonCS.Size = new System.Drawing.Size(130, 41);
             this.addDatabuttonCS.TabIndex = 115;
             this.addDatabuttonCS.Text = "Add";
             this.addDatabuttonCS.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -799,9 +828,9 @@
             this.groupBox5.Controls.Add(this.label10);
             this.groupBox5.Controls.Add(this.label11);
             this.groupBox5.Controls.Add(this.panel5);
-            this.groupBox5.Location = new System.Drawing.Point(579, 3);
+            this.groupBox5.Location = new System.Drawing.Point(657, 3);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(292, 265);
+            this.groupBox5.Size = new System.Drawing.Size(353, 265);
             this.groupBox5.TabIndex = 114;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Session Unavailability";
@@ -835,7 +864,7 @@
             this.panel5.Controls.Add(this.dataGridView5);
             this.panel5.Location = new System.Drawing.Point(6, 55);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(280, 187);
+            this.panel5.Size = new System.Drawing.Size(341, 187);
             this.panel5.TabIndex = 109;
             // 
             // dataGridView5
@@ -853,7 +882,7 @@
             this.dataGridView5.RowHeadersWidth = 51;
             this.dataGridView5.RowTemplate.Height = 24;
             this.dataGridView5.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView5.Size = new System.Drawing.Size(271, 168);
+            this.dataGridView5.Size = new System.Drawing.Size(332, 168);
             this.dataGridView5.TabIndex = 5;
             // 
             // groupBox7
@@ -861,9 +890,9 @@
             this.groupBox7.Controls.Add(this.roomNamelblCS);
             this.groupBox7.Controls.Add(this.label12);
             this.groupBox7.Controls.Add(this.panel6);
-            this.groupBox7.Location = new System.Drawing.Point(329, 3);
+            this.groupBox7.Location = new System.Drawing.Point(351, 3);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(247, 265);
+            this.groupBox7.Size = new System.Drawing.Size(291, 265);
             this.groupBox7.TabIndex = 113;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Room Data";
@@ -889,7 +918,7 @@
             this.panel6.Controls.Add(this.dataGridView6);
             this.panel6.Location = new System.Drawing.Point(12, 52);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(232, 187);
+            this.panel6.Size = new System.Drawing.Size(273, 187);
             this.panel6.TabIndex = 109;
             // 
             // dataGridView6
@@ -907,25 +936,25 @@
             this.dataGridView6.RowHeadersWidth = 51;
             this.dataGridView6.RowTemplate.Height = 24;
             this.dataGridView6.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView6.Size = new System.Drawing.Size(217, 168);
+            this.dataGridView6.Size = new System.Drawing.Size(264, 168);
             this.dataGridView6.TabIndex = 5;
             // 
             // session1labelCS
             // 
             this.session1labelCS.AutoSize = true;
-            this.session1labelCS.Location = new System.Drawing.Point(895, 5);
-            this.session1labelCS.MinimumSize = new System.Drawing.Size(50, 50);
+            this.session1labelCS.Location = new System.Drawing.Point(1016, 3);
+            this.session1labelCS.MinimumSize = new System.Drawing.Size(120, 120);
             this.session1labelCS.Name = "session1labelCS";
-            this.session1labelCS.Size = new System.Drawing.Size(50, 50);
+            this.session1labelCS.Size = new System.Drawing.Size(120, 120);
             this.session1labelCS.TabIndex = 4;
             // 
             // session2labelCS
             // 
             this.session2labelCS.AutoSize = true;
-            this.session2labelCS.Location = new System.Drawing.Point(895, 154);
-            this.session2labelCS.MinimumSize = new System.Drawing.Size(50, 50);
+            this.session2labelCS.Location = new System.Drawing.Point(1016, 147);
+            this.session2labelCS.MinimumSize = new System.Drawing.Size(120, 120);
             this.session2labelCS.Name = "session2labelCS";
-            this.session2labelCS.Size = new System.Drawing.Size(50, 50);
+            this.session2labelCS.Size = new System.Drawing.Size(120, 120);
             this.session2labelCS.TabIndex = 5;
             // 
             // groupBox6
@@ -967,6 +996,9 @@
             // 
             // metroTabPage3
             // 
+            this.metroTabPage3.Controls.Add(this.sessionDetailslblParAndOvr);
+            this.metroTabPage3.Controls.Add(this.button1);
+            this.metroTabPage3.Controls.Add(this.addDatabuttonParallAndNonOver);
             this.metroTabPage3.Controls.Add(this.panel12);
             this.metroTabPage3.Controls.Add(this.groupBox13);
             this.metroTabPage3.Controls.Add(this.groupBox11);
@@ -997,9 +1029,17 @@
             // 
             this.dataGridView12.AllowUserToAddRows = false;
             this.dataGridView12.AllowUserToDeleteRows = false;
-            this.dataGridView12.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView12.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView12.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView12.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView12.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView12.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dataGridView12.Location = new System.Drawing.Point(3, 14);
             this.dataGridView12.Name = "dataGridView12";
@@ -1014,13 +1054,13 @@
             // groupBox13
             // 
             this.groupBox13.Controls.Add(this.label22);
-            this.groupBox13.Controls.Add(this.comboBox1);
+            this.groupBox13.Controls.Add(this.sessionIDcomboBoxParAndNon);
             this.groupBox13.Controls.Add(this.label23);
-            this.groupBox13.Controls.Add(this.comboBox2);
+            this.groupBox13.Controls.Add(this.endTimecomboBoxParAndOvr);
             this.groupBox13.Controls.Add(this.label24);
-            this.groupBox13.Controls.Add(this.comboBox3);
+            this.groupBox13.Controls.Add(this.daycomboBoxParAndOvr);
             this.groupBox13.Controls.Add(this.label25);
-            this.groupBox13.Controls.Add(this.comboBox4);
+            this.groupBox13.Controls.Add(this.startTimecomboBoxParAndOvr);
             this.groupBox13.Location = new System.Drawing.Point(5, 274);
             this.groupBox13.Name = "groupBox13";
             this.groupBox13.Size = new System.Drawing.Size(356, 159);
@@ -1037,13 +1077,14 @@
             this.label22.TabIndex = 112;
             this.label22.Text = "Select Session ID:";
             // 
-            // comboBox1
+            // sessionIDcomboBoxParAndNon
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(15, 62);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(137, 24);
-            this.comboBox1.TabIndex = 113;
+            this.sessionIDcomboBoxParAndNon.FormattingEnabled = true;
+            this.sessionIDcomboBoxParAndNon.Location = new System.Drawing.Point(15, 62);
+            this.sessionIDcomboBoxParAndNon.Name = "sessionIDcomboBoxParAndNon";
+            this.sessionIDcomboBoxParAndNon.Size = new System.Drawing.Size(137, 24);
+            this.sessionIDcomboBoxParAndNon.TabIndex = 113;
+            this.sessionIDcomboBoxParAndNon.SelectedIndexChanged += new System.EventHandler(this.sessionIDcomboBoxParAndNon_SelectedIndexChanged);
             // 
             // label23
             // 
@@ -1054,10 +1095,10 @@
             this.label23.TabIndex = 110;
             this.label23.Text = "Time To:";
             // 
-            // comboBox2
+            // endTimecomboBoxParAndOvr
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.endTimecomboBoxParAndOvr.FormattingEnabled = true;
+            this.endTimecomboBoxParAndOvr.Items.AddRange(new object[] {
             "9.00",
             "9.30",
             "10.00",
@@ -1079,10 +1120,10 @@
             "18.00",
             "18.30",
             "19.00"});
-            this.comboBox2.Location = new System.Drawing.Point(204, 118);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(137, 24);
-            this.comboBox2.TabIndex = 111;
+            this.endTimecomboBoxParAndOvr.Location = new System.Drawing.Point(204, 118);
+            this.endTimecomboBoxParAndOvr.Name = "endTimecomboBoxParAndOvr";
+            this.endTimecomboBoxParAndOvr.Size = new System.Drawing.Size(137, 24);
+            this.endTimecomboBoxParAndOvr.TabIndex = 111;
             // 
             // label24
             // 
@@ -1093,10 +1134,10 @@
             this.label24.TabIndex = 106;
             this.label24.Text = "Select Day:";
             // 
-            // comboBox3
+            // daycomboBoxParAndOvr
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
+            this.daycomboBoxParAndOvr.FormattingEnabled = true;
+            this.daycomboBoxParAndOvr.Items.AddRange(new object[] {
             "Monday",
             "Tuesday",
             "Wednesday",
@@ -1104,10 +1145,10 @@
             "Friday",
             "Saturday",
             "Sunday"});
-            this.comboBox3.Location = new System.Drawing.Point(205, 62);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(137, 24);
-            this.comboBox3.TabIndex = 107;
+            this.daycomboBoxParAndOvr.Location = new System.Drawing.Point(205, 62);
+            this.daycomboBoxParAndOvr.Name = "daycomboBoxParAndOvr";
+            this.daycomboBoxParAndOvr.Size = new System.Drawing.Size(137, 24);
+            this.daycomboBoxParAndOvr.TabIndex = 107;
             // 
             // label25
             // 
@@ -1118,10 +1159,10 @@
             this.label25.TabIndex = 108;
             this.label25.Text = "Time From:";
             // 
-            // comboBox4
+            // startTimecomboBoxParAndOvr
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Items.AddRange(new object[] {
+            this.startTimecomboBoxParAndOvr.FormattingEnabled = true;
+            this.startTimecomboBoxParAndOvr.Items.AddRange(new object[] {
             "8.00",
             "8.30",
             "9.00",
@@ -1145,20 +1186,21 @@
             "18.00",
             "18.30",
             "19.00"});
-            this.comboBox4.Location = new System.Drawing.Point(14, 118);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(137, 24);
-            this.comboBox4.TabIndex = 109;
+            this.startTimecomboBoxParAndOvr.Location = new System.Drawing.Point(14, 118);
+            this.startTimecomboBoxParAndOvr.Name = "startTimecomboBoxParAndOvr";
+            this.startTimecomboBoxParAndOvr.Size = new System.Drawing.Size(137, 24);
+            this.startTimecomboBoxParAndOvr.TabIndex = 109;
             // 
             // groupBox11
             // 
+            this.groupBox11.Controls.Add(this.label27);
             this.groupBox11.Controls.Add(this.label17);
             this.groupBox11.Controls.Add(this.label18);
             this.groupBox11.Controls.Add(this.label19);
             this.groupBox11.Controls.Add(this.panel10);
-            this.groupBox11.Location = new System.Drawing.Point(910, 3);
+            this.groupBox11.Location = new System.Drawing.Point(1014, 3);
             this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(292, 265);
+            this.groupBox11.Size = new System.Drawing.Size(299, 262);
             this.groupBox11.TabIndex = 116;
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "Session Unavailability";
@@ -1203,27 +1245,54 @@
             this.dataGridView10.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView10.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView10.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dataGridView10.Location = new System.Drawing.Point(6, 14);
+            this.dataGridView10.Location = new System.Drawing.Point(0, 14);
             this.dataGridView10.Name = "dataGridView10";
             this.dataGridView10.ReadOnly = true;
             this.dataGridView10.RowHeadersVisible = false;
             this.dataGridView10.RowHeadersWidth = 51;
             this.dataGridView10.RowTemplate.Height = 24;
             this.dataGridView10.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView10.Size = new System.Drawing.Size(271, 168);
+            this.dataGridView10.Size = new System.Drawing.Size(277, 168);
             this.dataGridView10.TabIndex = 5;
             // 
             // groupBox12
             // 
+            this.groupBox12.Controls.Add(this.label26);
             this.groupBox12.Controls.Add(this.panel11);
             this.groupBox12.Controls.Add(this.label20);
             this.groupBox12.Controls.Add(this.label21);
-            this.groupBox12.Location = new System.Drawing.Point(660, 3);
+            this.groupBox12.Location = new System.Drawing.Point(688, 3);
             this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(247, 265);
+            this.groupBox12.Size = new System.Drawing.Size(322, 265);
             this.groupBox12.TabIndex = 115;
             this.groupBox12.TabStop = false;
             this.groupBox12.Text = "Room Data";
+            // 
+            // panel11
+            // 
+            this.panel11.Controls.Add(this.dataGridView11);
+            this.panel11.Location = new System.Drawing.Point(0, 54);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(320, 187);
+            this.panel11.TabIndex = 112;
+            // 
+            // dataGridView11
+            // 
+            this.dataGridView11.AllowUserToAddRows = false;
+            this.dataGridView11.AllowUserToDeleteRows = false;
+            this.dataGridView11.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView11.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dataGridView11.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView11.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.dataGridView11.Location = new System.Drawing.Point(3, 15);
+            this.dataGridView11.Name = "dataGridView11";
+            this.dataGridView11.ReadOnly = true;
+            this.dataGridView11.RowHeadersVisible = false;
+            this.dataGridView11.RowHeadersWidth = 51;
+            this.dataGridView11.RowTemplate.Height = 24;
+            this.dataGridView11.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView11.Size = new System.Drawing.Size(313, 168);
+            this.dataGridView11.TabIndex = 5;
             // 
             // label20
             // 
@@ -1244,9 +1313,9 @@
             // groupBox10
             // 
             this.groupBox10.Controls.Add(this.panel9);
-            this.groupBox10.Location = new System.Drawing.Point(325, 3);
+            this.groupBox10.Location = new System.Drawing.Point(347, 3);
             this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(314, 265);
+            this.groupBox10.Size = new System.Drawing.Size(342, 265);
             this.groupBox10.TabIndex = 111;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Non - Overlapping Session Details";
@@ -1256,7 +1325,7 @@
             this.panel9.Controls.Add(this.dataGridView9);
             this.panel9.Location = new System.Drawing.Point(9, 27);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(285, 221);
+            this.panel9.Size = new System.Drawing.Size(330, 221);
             this.panel9.TabIndex = 110;
             // 
             // dataGridView9
@@ -1267,14 +1336,14 @@
             this.dataGridView9.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView9.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView9.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dataGridView9.Location = new System.Drawing.Point(6, 14);
+            this.dataGridView9.Location = new System.Drawing.Point(3, 14);
             this.dataGridView9.Name = "dataGridView9";
             this.dataGridView9.ReadOnly = true;
             this.dataGridView9.RowHeadersVisible = false;
             this.dataGridView9.RowHeadersWidth = 51;
             this.dataGridView9.RowTemplate.Height = 24;
             this.dataGridView9.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView9.Size = new System.Drawing.Size(269, 200);
+            this.dataGridView9.Size = new System.Drawing.Size(323, 200);
             this.dataGridView9.TabIndex = 5;
             // 
             // groupBox9
@@ -1282,7 +1351,7 @@
             this.groupBox9.Controls.Add(this.panel8);
             this.groupBox9.Location = new System.Drawing.Point(5, 3);
             this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(314, 265);
+            this.groupBox9.Size = new System.Drawing.Size(342, 265);
             this.groupBox9.TabIndex = 4;
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "Parallel Session Details";
@@ -1290,9 +1359,9 @@
             // panel8
             // 
             this.panel8.Controls.Add(this.dataGridView8);
-            this.panel8.Location = new System.Drawing.Point(9, 27);
+            this.panel8.Location = new System.Drawing.Point(0, 27);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(285, 221);
+            this.panel8.Size = new System.Drawing.Size(336, 221);
             this.panel8.TabIndex = 110;
             // 
             // dataGridView8
@@ -1300,44 +1369,115 @@
             this.dataGridView8.AllowUserToAddRows = false;
             this.dataGridView8.AllowUserToDeleteRows = false;
             this.dataGridView8.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView8.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView8.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView8.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView8.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView8.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dataGridView8.Location = new System.Drawing.Point(6, 14);
+            this.dataGridView8.Location = new System.Drawing.Point(3, 14);
             this.dataGridView8.Name = "dataGridView8";
             this.dataGridView8.ReadOnly = true;
             this.dataGridView8.RowHeadersVisible = false;
             this.dataGridView8.RowHeadersWidth = 51;
             this.dataGridView8.RowTemplate.Height = 24;
             this.dataGridView8.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView8.Size = new System.Drawing.Size(269, 200);
+            this.dataGridView8.Size = new System.Drawing.Size(333, 200);
             this.dataGridView8.TabIndex = 5;
             // 
-            // panel11
+            // ClearFieldsbuttoPrac
             // 
-            this.panel11.Controls.Add(this.dataGridView11);
-            this.panel11.Location = new System.Drawing.Point(12, 54);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(232, 187);
-            this.panel11.TabIndex = 112;
+            this.ClearFieldsbuttoPrac.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.ClearFieldsbuttoPrac.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.ClearFieldsbuttoPrac.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ClearFieldsbuttoPrac.Image = ((System.Drawing.Image)(resources.GetObject("ClearFieldsbuttoPrac.Image")));
+            this.ClearFieldsbuttoPrac.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ClearFieldsbuttoPrac.Location = new System.Drawing.Point(9, 485);
+            this.ClearFieldsbuttoPrac.Name = "ClearFieldsbuttoPrac";
+            this.ClearFieldsbuttoPrac.Size = new System.Drawing.Size(130, 41);
+            this.ClearFieldsbuttoPrac.TabIndex = 115;
+            this.ClearFieldsbuttoPrac.Text = "Clear Fields";
+            this.ClearFieldsbuttoPrac.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ClearFieldsbuttoPrac.UseVisualStyleBackColor = false;
+            this.ClearFieldsbuttoPrac.Click += new System.EventHandler(this.ClearFieldsbuttoPrac_Click);
             // 
-            // dataGridView11
+            // button1
             // 
-            this.dataGridView11.AllowUserToAddRows = false;
-            this.dataGridView11.AllowUserToDeleteRows = false;
-            this.dataGridView11.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView11.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dataGridView11.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView11.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dataGridView11.Location = new System.Drawing.Point(6, 14);
-            this.dataGridView11.Name = "dataGridView11";
-            this.dataGridView11.ReadOnly = true;
-            this.dataGridView11.RowHeadersVisible = false;
-            this.dataGridView11.RowHeadersWidth = 51;
-            this.dataGridView11.RowTemplate.Height = 24;
-            this.dataGridView11.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView11.Size = new System.Drawing.Size(217, 168);
-            this.dataGridView11.TabIndex = 5;
+            this.button1.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.button1.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(9, 496);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(130, 41);
+            this.button1.TabIndex = 120;
+            this.button1.Text = "Clear Fields";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // addDatabuttonParallAndNonOver
+            // 
+            this.addDatabuttonParallAndNonOver.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.addDatabuttonParallAndNonOver.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.addDatabuttonParallAndNonOver.Image = global::TimeTableManagment.Properties.Resources.icons8_add_new_64;
+            this.addDatabuttonParallAndNonOver.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.addDatabuttonParallAndNonOver.Location = new System.Drawing.Point(9, 449);
+            this.addDatabuttonParallAndNonOver.Name = "addDatabuttonParallAndNonOver";
+            this.addDatabuttonParallAndNonOver.Size = new System.Drawing.Size(130, 41);
+            this.addDatabuttonParallAndNonOver.TabIndex = 119;
+            this.addDatabuttonParallAndNonOver.Text = "Add";
+            this.addDatabuttonParallAndNonOver.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.addDatabuttonParallAndNonOver.UseVisualStyleBackColor = false;
+            this.addDatabuttonParallAndNonOver.Click += new System.EventHandler(this.addDatabuttonParallAndNonOver_Click);
+            // 
+            // sessionDetailslblParAndOvr
+            // 
+            this.sessionDetailslblParAndOvr.AutoSize = true;
+            this.sessionDetailslblParAndOvr.Location = new System.Drawing.Point(377, 275);
+            this.sessionDetailslblParAndOvr.Name = "sessionDetailslblParAndOvr";
+            this.sessionDetailslblParAndOvr.Size = new System.Drawing.Size(0, 17);
+            this.sessionDetailslblParAndOvr.TabIndex = 121;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(16, 27);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(197, 17);
+            this.label26.TabIndex = 113;
+            this.label26.Text = "Unavailable Times For Rooms";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(9, 27);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(210, 17);
+            this.label27.TabIndex = 114;
+            this.label27.Text = "Unavailable Times For Sessions";
+            // 
+            // buildingDeleteBtn
+            // 
+            this.buildingDeleteBtn.BackColor = System.Drawing.Color.IndianRed;
+            this.buildingDeleteBtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.buildingDeleteBtn.Image = global::TimeTableManagment.Properties.Resources.icons8_delete_64;
+            this.buildingDeleteBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buildingDeleteBtn.Location = new System.Drawing.Point(9, 544);
+            this.buildingDeleteBtn.Name = "buildingDeleteBtn";
+            this.buildingDeleteBtn.Size = new System.Drawing.Size(162, 81);
+            this.buildingDeleteBtn.TabIndex = 116;
+            this.buildingDeleteBtn.Text = "Delete All Practical Records   ";
+            this.buildingDeleteBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buildingDeleteBtn.UseVisualStyleBackColor = false;
+            this.buildingDeleteBtn.Click += new System.EventHandler(this.buildingDeleteBtn_Click);
             // 
             // AssignTimeAndDay
             // 
@@ -1384,6 +1524,7 @@
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
             this.metroTabPage3.ResumeLayout(false);
+            this.metroTabPage3.PerformLayout();
             this.panel12.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView12)).EndInit();
             this.groupBox13.ResumeLayout(false);
@@ -1394,14 +1535,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView10)).EndInit();
             this.groupBox12.ResumeLayout(false);
             this.groupBox12.PerformLayout();
+            this.panel11.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView11)).EndInit();
             this.groupBox10.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView9)).EndInit();
             this.groupBox9.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView8)).EndInit();
-            this.panel11.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView11)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1480,13 +1621,13 @@
         private System.Windows.Forms.DataGridView dataGridView12;
         private System.Windows.Forms.GroupBox groupBox13;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox sessionIDcomboBoxParAndNon;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox endTimecomboBoxParAndOvr;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox daycomboBoxParAndOvr;
         private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox startTimecomboBoxParAndOvr;
         private System.Windows.Forms.GroupBox groupBox11;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
@@ -1498,5 +1639,12 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.DataGridView dataGridView11;
+        private System.Windows.Forms.Button ClearFieldsbuttoPrac;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button addDatabuttonParallAndNonOver;
+        private System.Windows.Forms.Label sessionDetailslblParAndOvr;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Button buildingDeleteBtn;
     }
 }

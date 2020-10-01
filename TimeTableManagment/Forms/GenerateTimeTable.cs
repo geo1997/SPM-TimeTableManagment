@@ -284,6 +284,7 @@ namespace TimeTableManagment.Forms
                         changeVisibility();
                         generateTimeTableForRoomWeekEnd(room);
                         }
+                        else
                     {
                         MessageBox.Show("Please Select WeekDay or Weekend", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         type = false;
@@ -317,6 +318,7 @@ namespace TimeTableManagment.Forms
                         changeVisibility();
                         generateTimeTableForGroupWeekEnd(groupID);
                         }
+                        else
                     {
                         MessageBox.Show("Please Select WeekDay or Weekend", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         type = false;
@@ -382,6 +384,8 @@ namespace TimeTableManagment.Forms
         {
             DataTable dt = new DataTable(title);
 
+          
+
             DataColumn cltime = new DataColumn("Time");
             dt.Columns.Add(cltime);
 
@@ -401,6 +405,8 @@ namespace TimeTableManagment.Forms
             dt.Columns.Add(cl5);
 
 
+            DataRow d0 = dt.NewRow();
+            d0[""] =title ;
 
             DataRow dr1 = dt.NewRow();
             dr1["Time"] = "8.30";
@@ -627,7 +633,7 @@ namespace TimeTableManagment.Forms
                 try
                 {
                     SetConnection();
-                    String getlecData = "select SubjectCode,Room,SubjectName,GroupID,SubGroupID,Tag,Lecturers from allData where Lecturers='" + lec + "'  and StartTime='" + time + "' and Day='" + date + "'";
+                    String getlecData = "select SubjectCode,Room,SubjectName,GroupID,SubGroupID,Tag,Lecturers from allData where Lecturers LIKE'" + lec + "%'  and StartTime='" + time + "' and Day='" + date + "'";
                     sql_con.Open();
                     SQLiteCommand command = new SQLiteCommand(getlecData, sql_con);
 
