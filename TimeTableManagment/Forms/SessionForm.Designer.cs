@@ -109,7 +109,6 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.metroTabPage4 = new MetroFramework.Controls.MetroTabPage();
-            this.label31 = new System.Windows.Forms.Label();
             this.button19 = new System.Windows.Forms.Button();
             this.label33 = new System.Windows.Forms.Label();
             this.button13 = new System.Windows.Forms.Button();
@@ -130,6 +129,7 @@
             this.button12 = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.dataGridView5 = new System.Windows.Forms.DataGridView();
+            this.label31 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
@@ -563,6 +563,7 @@
             this.metroTabControl1.Size = new System.Drawing.Size(1079, 699);
             this.metroTabControl1.TabIndex = 2;
             this.metroTabControl1.UseSelectable = true;
+            this.metroTabControl1.SelectedIndexChanged += new System.EventHandler(this.metroTabControl1_SelectedIndexChanged);
             // 
             // metroTabPage1
             // 
@@ -582,6 +583,7 @@
             // 
             // metroTabPage2
             // 
+            this.metroTabPage2.Controls.Add(this.button5);
             this.metroTabPage2.Controls.Add(this.button17);
             this.metroTabPage2.Controls.Add(this.label30);
             this.metroTabPage2.Controls.Add(this.button14);
@@ -589,7 +591,6 @@
             this.metroTabPage2.Controls.Add(this.metroComboBox4);
             this.metroTabPage2.Controls.Add(this.metroComboBox3);
             this.metroTabPage2.Controls.Add(this.metroComboBox2);
-            this.metroTabPage2.Controls.Add(this.button5);
             this.metroTabPage2.Controls.Add(this.label19);
             this.metroTabPage2.Controls.Add(this.dataGridView2);
             this.metroTabPage2.Controls.Add(this.label13);
@@ -620,7 +621,7 @@
             this.button17.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.button17.Image = ((System.Drawing.Image)(resources.GetObject("button17.Image")));
             this.button17.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button17.Location = new System.Drawing.Point(609, 311);
+            this.button17.Location = new System.Drawing.Point(768, 311);
             this.button17.Name = "button17";
             this.button17.Size = new System.Drawing.Size(130, 41);
             this.button17.TabIndex = 57;
@@ -633,7 +634,7 @@
             // 
             this.label30.AutoSize = true;
             this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label30.Location = new System.Drawing.Point(377, 12);
+            this.label30.Location = new System.Drawing.Point(536, 10);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(362, 32);
             this.label30.TabIndex = 56;
@@ -645,7 +646,7 @@
             this.button14.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.button14.Image = ((System.Drawing.Image)(resources.GetObject("button14.Image")));
             this.button14.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button14.Location = new System.Drawing.Point(609, 311);
+            this.button14.Location = new System.Drawing.Point(768, 311);
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(130, 41);
             this.button14.TabIndex = 55;
@@ -658,7 +659,7 @@
             // 
             this.metroComboBox5.FormattingEnabled = true;
             this.metroComboBox5.ItemHeight = 24;
-            this.metroComboBox5.Location = new System.Drawing.Point(609, 181);
+            this.metroComboBox5.Location = new System.Drawing.Point(768, 179);
             this.metroComboBox5.Name = "metroComboBox5";
             this.metroComboBox5.Size = new System.Drawing.Size(299, 30);
             this.metroComboBox5.TabIndex = 52;
@@ -669,7 +670,7 @@
             // 
             this.metroComboBox4.FormattingEnabled = true;
             this.metroComboBox4.ItemHeight = 24;
-            this.metroComboBox4.Location = new System.Drawing.Point(609, 99);
+            this.metroComboBox4.Location = new System.Drawing.Point(768, 97);
             this.metroComboBox4.Name = "metroComboBox4";
             this.metroComboBox4.Size = new System.Drawing.Size(299, 30);
             this.metroComboBox4.TabIndex = 51;
@@ -680,7 +681,7 @@
             // 
             this.metroComboBox3.FormattingEnabled = true;
             this.metroComboBox3.ItemHeight = 24;
-            this.metroComboBox3.Location = new System.Drawing.Point(248, 99);
+            this.metroComboBox3.Location = new System.Drawing.Point(407, 97);
             this.metroComboBox3.Name = "metroComboBox3";
             this.metroComboBox3.Size = new System.Drawing.Size(299, 30);
             this.metroComboBox3.TabIndex = 50;
@@ -690,7 +691,7 @@
             // 
             this.metroComboBox2.FormattingEnabled = true;
             this.metroComboBox2.ItemHeight = 24;
-            this.metroComboBox2.Location = new System.Drawing.Point(248, 181);
+            this.metroComboBox2.Location = new System.Drawing.Point(407, 179);
             this.metroComboBox2.Name = "metroComboBox2";
             this.metroComboBox2.Size = new System.Drawing.Size(303, 30);
             this.metroComboBox2.TabIndex = 49;
@@ -703,7 +704,7 @@
             this.button5.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.button5.Image = global::TimeTableManagment.Properties.Resources.icons8_search;
             this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(353, 311);
+            this.button5.Location = new System.Drawing.Point(512, 309);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(130, 41);
             this.button5.TabIndex = 47;
@@ -715,7 +716,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(245, 74);
+            this.label19.Location = new System.Drawing.Point(404, 72);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(92, 17);
             this.label19.TabIndex = 46;
@@ -725,7 +726,7 @@
             // 
             this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(8, 74);
+            this.dataGridView2.Location = new System.Drawing.Point(167, 72);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowHeadersWidth = 51;
@@ -738,7 +739,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(347, 12);
+            this.label13.Location = new System.Drawing.Point(506, 10);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(460, 32);
             this.label13.TabIndex = 44;
@@ -751,7 +752,7 @@
             this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(745, 311);
+            this.button2.Location = new System.Drawing.Point(904, 309);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(130, 41);
             this.button2.TabIndex = 43;
@@ -766,7 +767,7 @@
             this.button4.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
             this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(881, 311);
+            this.button4.Location = new System.Drawing.Point(1040, 309);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(130, 41);
             this.button4.TabIndex = 42;
@@ -781,7 +782,7 @@
             this.button3.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(609, 311);
+            this.button3.Location = new System.Drawing.Point(768, 309);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(130, 41);
             this.button3.TabIndex = 41;
@@ -793,7 +794,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(606, 152);
+            this.label16.Location = new System.Drawing.Point(765, 150);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(87, 17);
             this.label16.TabIndex = 38;
@@ -802,7 +803,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(245, 152);
+            this.label17.Location = new System.Drawing.Point(404, 150);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(102, 17);
             this.label17.TabIndex = 36;
@@ -811,7 +812,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(606, 70);
+            this.label18.Location = new System.Drawing.Point(765, 68);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(87, 17);
             this.label18.TabIndex = 34;
@@ -821,16 +822,16 @@
             // 
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Controls.Add(this.dataGridView1);
-            this.panel4.Location = new System.Drawing.Point(-87, 372);
+            this.panel4.Location = new System.Drawing.Point(72, 372);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1239, 321);
+            this.panel4.Size = new System.Drawing.Size(1212, 319);
             this.panel4.TabIndex = 40;
             // 
             // dataGridView1
             // 
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(119, 20);
+            this.dataGridView1.Location = new System.Drawing.Point(117, 45);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
@@ -876,7 +877,7 @@
             this.button18.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.button18.Image = ((System.Drawing.Image)(resources.GetObject("button18.Image")));
             this.button18.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button18.Location = new System.Drawing.Point(608, 311);
+            this.button18.Location = new System.Drawing.Point(711, 315);
             this.button18.Name = "button18";
             this.button18.Size = new System.Drawing.Size(130, 41);
             this.button18.TabIndex = 78;
@@ -889,7 +890,7 @@
             // 
             this.label32.AutoSize = true;
             this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label32.Location = new System.Drawing.Point(405, 11);
+            this.label32.Location = new System.Drawing.Point(508, 15);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(299, 32);
             this.label32.TabIndex = 77;
@@ -901,7 +902,7 @@
             this.button9.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.button9.Image = ((System.Drawing.Image)(resources.GetObject("button9.Image")));
             this.button9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button9.Location = new System.Drawing.Point(880, 311);
+            this.button9.Location = new System.Drawing.Point(983, 315);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(130, 41);
             this.button9.TabIndex = 76;
@@ -916,7 +917,7 @@
             this.button8.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.button8.Image = ((System.Drawing.Image)(resources.GetObject("button8.Image")));
             this.button8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button8.Location = new System.Drawing.Point(608, 311);
+            this.button8.Location = new System.Drawing.Point(711, 315);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(130, 41);
             this.button8.TabIndex = 75;
@@ -934,7 +935,7 @@
             this.panel7.Controls.Add(this.label23);
             this.panel7.Controls.Add(this.label24);
             this.panel7.Controls.Add(this.checkedListBox1);
-            this.panel7.Location = new System.Drawing.Point(608, 73);
+            this.panel7.Location = new System.Drawing.Point(711, 77);
             this.panel7.MaximumSize = new System.Drawing.Size(297, 231);
             this.panel7.MinimumSize = new System.Drawing.Size(297, 60);
             this.panel7.Name = "panel7";
@@ -1008,7 +1009,7 @@
             // 
             this.metroComboBox1.FormattingEnabled = true;
             this.metroComboBox1.ItemHeight = 24;
-            this.metroComboBox1.Location = new System.Drawing.Point(261, 103);
+            this.metroComboBox1.Location = new System.Drawing.Point(364, 107);
             this.metroComboBox1.Name = "metroComboBox1";
             this.metroComboBox1.Size = new System.Drawing.Size(299, 30);
             this.metroComboBox1.TabIndex = 73;
@@ -1018,7 +1019,7 @@
             // 
             this.metroComboBox8.FormattingEnabled = true;
             this.metroComboBox8.ItemHeight = 24;
-            this.metroComboBox8.Location = new System.Drawing.Point(261, 180);
+            this.metroComboBox8.Location = new System.Drawing.Point(364, 184);
             this.metroComboBox8.Name = "metroComboBox8";
             this.metroComboBox8.Size = new System.Drawing.Size(303, 30);
             this.metroComboBox8.TabIndex = 72;
@@ -1027,7 +1028,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(258, 73);
+            this.label15.Location = new System.Drawing.Point(361, 77);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(96, 17);
             this.label15.TabIndex = 71;
@@ -1036,7 +1037,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(258, 151);
+            this.label20.Location = new System.Drawing.Point(361, 155);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(102, 17);
             this.label20.TabIndex = 70;
@@ -1048,7 +1049,7 @@
             this.button6.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.button6.Image = global::TimeTableManagment.Properties.Resources.icons8_search;
             this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.Location = new System.Drawing.Point(359, 311);
+            this.button6.Location = new System.Drawing.Point(462, 315);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(130, 41);
             this.button6.TabIndex = 64;
@@ -1061,7 +1062,7 @@
             // 
             this.dataGridView4.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Location = new System.Drawing.Point(14, 73);
+            this.dataGridView4.Location = new System.Drawing.Point(117, 77);
             this.dataGridView4.Name = "dataGridView4";
             this.dataGridView4.ReadOnly = true;
             this.dataGridView4.RowHeadersWidth = 51;
@@ -1074,7 +1075,7 @@
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(367, 11);
+            this.label21.Location = new System.Drawing.Point(470, 15);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(397, 32);
             this.label21.TabIndex = 62;
@@ -1087,7 +1088,7 @@
             this.button7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button7.Image = ((System.Drawing.Image)(resources.GetObject("button7.Image")));
             this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button7.Location = new System.Drawing.Point(744, 311);
+            this.button7.Location = new System.Drawing.Point(847, 315);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(130, 41);
             this.button7.TabIndex = 61;
@@ -1100,16 +1101,16 @@
             // 
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel5.Controls.Add(this.dataGridView3);
-            this.panel5.Location = new System.Drawing.Point(-81, 371);
+            this.panel5.Location = new System.Drawing.Point(22, 375);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1239, 321);
+            this.panel5.Size = new System.Drawing.Size(1212, 321);
             this.panel5.TabIndex = 58;
             // 
             // dataGridView3
             // 
             this.dataGridView3.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(119, 20);
+            this.dataGridView3.Location = new System.Drawing.Point(119, 43);
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.ReadOnly = true;
             this.dataGridView3.RowHeadersWidth = 51;
@@ -1149,23 +1150,13 @@
             this.metroTabPage4.Click += new System.EventHandler(this.metroTabPage4_Click);
             this.metroTabPage4.Enter += new System.EventHandler(this.metroTabPage4_Enter);
             // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.Location = new System.Drawing.Point(321, 13);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(523, 32);
-            this.label31.TabIndex = 86;
-            this.label31.Text = "Edit/Delete Non-Overlapping Session";
-            // 
             // button19
             // 
             this.button19.BackColor = System.Drawing.Color.CornflowerBlue;
             this.button19.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.button19.Image = ((System.Drawing.Image)(resources.GetObject("button19.Image")));
             this.button19.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button19.Location = new System.Drawing.Point(610, 308);
+            this.button19.Location = new System.Drawing.Point(735, 309);
             this.button19.Name = "button19";
             this.button19.Size = new System.Drawing.Size(130, 41);
             this.button19.TabIndex = 94;
@@ -1178,7 +1169,7 @@
             // 
             this.label33.AutoSize = true;
             this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label33.Location = new System.Drawing.Point(408, 13);
+            this.label33.Location = new System.Drawing.Point(533, 14);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(360, 32);
             this.label33.TabIndex = 93;
@@ -1190,7 +1181,7 @@
             this.button13.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.button13.Image = ((System.Drawing.Image)(resources.GetObject("button13.Image")));
             this.button13.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button13.Location = new System.Drawing.Point(610, 308);
+            this.button13.Location = new System.Drawing.Point(735, 309);
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(130, 41);
             this.button13.TabIndex = 92;
@@ -1203,7 +1194,7 @@
             // 
             this.metroComboBox6.FormattingEnabled = true;
             this.metroComboBox6.ItemHeight = 24;
-            this.metroComboBox6.Location = new System.Drawing.Point(261, 101);
+            this.metroComboBox6.Location = new System.Drawing.Point(386, 102);
             this.metroComboBox6.Name = "metroComboBox6";
             this.metroComboBox6.Size = new System.Drawing.Size(299, 30);
             this.metroComboBox6.TabIndex = 90;
@@ -1213,7 +1204,7 @@
             // 
             this.metroComboBox7.FormattingEnabled = true;
             this.metroComboBox7.ItemHeight = 24;
-            this.metroComboBox7.Location = new System.Drawing.Point(261, 178);
+            this.metroComboBox7.Location = new System.Drawing.Point(386, 179);
             this.metroComboBox7.Name = "metroComboBox7";
             this.metroComboBox7.Size = new System.Drawing.Size(303, 30);
             this.metroComboBox7.TabIndex = 89;
@@ -1222,7 +1213,7 @@
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(258, 71);
+            this.label25.Location = new System.Drawing.Point(383, 72);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(92, 17);
             this.label25.TabIndex = 88;
@@ -1231,7 +1222,7 @@
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(258, 149);
+            this.label26.Location = new System.Drawing.Point(383, 150);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(102, 17);
             this.label26.TabIndex = 87;
@@ -1246,7 +1237,7 @@
             this.panel8.Controls.Add(this.label27);
             this.panel8.Controls.Add(this.label29);
             this.panel8.Controls.Add(this.checkedListBox2);
-            this.panel8.Location = new System.Drawing.Point(608, 71);
+            this.panel8.Location = new System.Drawing.Point(733, 72);
             this.panel8.MaximumSize = new System.Drawing.Size(297, 231);
             this.panel8.MinimumSize = new System.Drawing.Size(297, 60);
             this.panel8.Name = "panel8";
@@ -1322,7 +1313,7 @@
             this.button10.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.button10.Image = global::TimeTableManagment.Properties.Resources.icons8_search;
             this.button10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button10.Location = new System.Drawing.Point(356, 309);
+            this.button10.Location = new System.Drawing.Point(481, 310);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(130, 41);
             this.button10.TabIndex = 80;
@@ -1335,7 +1326,7 @@
             // 
             this.dataGridView6.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView6.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView6.Location = new System.Drawing.Point(11, 71);
+            this.dataGridView6.Location = new System.Drawing.Point(136, 72);
             this.dataGridView6.Name = "dataGridView6";
             this.dataGridView6.ReadOnly = true;
             this.dataGridView6.RowHeadersWidth = 51;
@@ -1351,7 +1342,7 @@
             this.button11.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button11.Image = ((System.Drawing.Image)(resources.GetObject("button11.Image")));
             this.button11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button11.Location = new System.Drawing.Point(746, 308);
+            this.button11.Location = new System.Drawing.Point(871, 309);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(130, 41);
             this.button11.TabIndex = 78;
@@ -1366,7 +1357,7 @@
             this.button12.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.button12.Image = ((System.Drawing.Image)(resources.GetObject("button12.Image")));
             this.button12.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button12.Location = new System.Drawing.Point(882, 308);
+            this.button12.Location = new System.Drawing.Point(1007, 309);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(130, 41);
             this.button12.TabIndex = 77;
@@ -1379,7 +1370,7 @@
             // 
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel6.Controls.Add(this.dataGridView5);
-            this.panel6.Location = new System.Drawing.Point(-84, 369);
+            this.panel6.Location = new System.Drawing.Point(41, 370);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(1239, 321);
             this.panel6.TabIndex = 75;
@@ -1388,7 +1379,7 @@
             // 
             this.dataGridView5.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView5.Location = new System.Drawing.Point(119, 20);
+            this.dataGridView5.Location = new System.Drawing.Point(117, 45);
             this.dataGridView5.Name = "dataGridView5";
             this.dataGridView5.ReadOnly = true;
             this.dataGridView5.RowHeadersWidth = 51;
@@ -1397,6 +1388,16 @@
             this.dataGridView5.Size = new System.Drawing.Size(948, 217);
             this.dataGridView5.TabIndex = 0;
             this.dataGridView5.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView5_CellClick);
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.Location = new System.Drawing.Point(446, 14);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(523, 32);
+            this.label31.TabIndex = 86;
+            this.label31.Text = "Edit/Delete Non-Overlapping Session";
             // 
             // timer1
             // 
@@ -1410,10 +1411,12 @@
             // 
             // timer2
             // 
+            this.timer2.Interval = 15;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
             // timer3
             // 
+            this.timer3.Interval = 15;
             this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
             // 
             // errorProvider1

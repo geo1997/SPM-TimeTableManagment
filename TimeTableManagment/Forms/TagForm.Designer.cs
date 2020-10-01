@@ -49,7 +49,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(42, 65);
+            this.label1.Location = new System.Drawing.Point(332, 68);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(33, 17);
             this.label1.TabIndex = 0;
@@ -58,7 +58,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(45, 99);
+            this.textBox1.Location = new System.Drawing.Point(335, 102);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(299, 22);
             this.textBox1.TabIndex = 1;
@@ -70,7 +70,7 @@
             this.buildingAddBtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.buildingAddBtn.Image = ((System.Drawing.Image)(resources.GetObject("buildingAddBtn.Image")));
             this.buildingAddBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buildingAddBtn.Location = new System.Drawing.Point(45, 163);
+            this.buildingAddBtn.Location = new System.Drawing.Point(336, 166);
             this.buildingAddBtn.Name = "buildingAddBtn";
             this.buildingAddBtn.Size = new System.Drawing.Size(130, 41);
             this.buildingAddBtn.TabIndex = 7;
@@ -85,7 +85,7 @@
             this.button1.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(45, 163);
+            this.button1.Location = new System.Drawing.Point(335, 166);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(130, 41);
             this.button1.TabIndex = 9;
@@ -100,7 +100,7 @@
             this.button2.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(317, 163);
+            this.button2.Location = new System.Drawing.Point(607, 166);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(130, 41);
             this.button2.TabIndex = 10;
@@ -113,16 +113,16 @@
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.dataGridView2);
-            this.panel1.Location = new System.Drawing.Point(-113, 346);
+            this.panel1.Location = new System.Drawing.Point(114, 349);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1239, 351);
+            this.panel1.Size = new System.Drawing.Size(1142, 351);
             this.panel1.TabIndex = 27;
             // 
             // dataGridView2
             // 
             this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(158, 40);
+            this.dataGridView2.Location = new System.Drawing.Point(56, 44);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowHeadersWidth = 51;
@@ -143,7 +143,7 @@
             this.button3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(181, 163);
+            this.button3.Location = new System.Drawing.Point(471, 166);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(130, 41);
             this.button3.TabIndex = 28;
@@ -156,7 +156,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(442, 9);
+            this.label2.Location = new System.Drawing.Point(624, 12);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(129, 32);
             this.label2.TabIndex = 32;
@@ -167,7 +167,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(407, 9);
+            this.label3.Location = new System.Drawing.Point(575, 12);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(227, 32);
             this.label3.TabIndex = 33;
