@@ -309,7 +309,7 @@
             this.Controls.Add(this.StudentYearComboBox);
             this.Controls.Add(this.label3);
             this.Name = "RoomForm";
-            this.Text = "RoomForm";
+            this.Text = "Assign Rooms For A Session";
             this.Load += new System.EventHandler(this.RoomForm_Load);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();

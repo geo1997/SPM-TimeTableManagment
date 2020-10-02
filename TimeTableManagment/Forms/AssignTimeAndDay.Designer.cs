@@ -1487,7 +1487,7 @@
             this.ClientSize = new System.Drawing.Size(1333, 756);
             this.Controls.Add(this.metroTabControl1);
             this.Name = "AssignTimeAndDay";
-            this.Text = "AssignTimeAndDay";
+            this.Text = "Assign Time And Day";
             this.Load += new System.EventHandler(this.AssignTimeAndDay_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

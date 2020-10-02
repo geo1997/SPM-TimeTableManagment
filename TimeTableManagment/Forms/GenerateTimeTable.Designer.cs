@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GenerateTimeTable));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.LecturerradioButton = new System.Windows.Forms.RadioButton();
             this.StudentGroupradioButton = new System.Windows.Forms.RadioButton();
@@ -309,9 +309,9 @@
             // panel7
             // 
             this.panel7.Controls.Add(this.dataGridView7);
-            this.panel7.Location = new System.Drawing.Point(1, 2);
+            this.panel7.Location = new System.Drawing.Point(1, 37);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(984, 658);
+            this.panel7.Size = new System.Drawing.Size(984, 623);
             this.panel7.TabIndex = 118;
             // 
             // dataGridView7
@@ -322,14 +322,14 @@
             this.dataGridView7.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView7.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView7.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView7.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView7.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView7.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dataGridView7.Location = new System.Drawing.Point(3, 3);
             this.dataGridView7.Name = "dataGridView7";
@@ -338,7 +338,7 @@
             this.dataGridView7.RowHeadersWidth = 51;
             this.dataGridView7.RowTemplate.Height = 24;
             this.dataGridView7.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView7.Size = new System.Drawing.Size(978, 652);
+            this.dataGridView7.Size = new System.Drawing.Size(978, 617);
             this.dataGridView7.TabIndex = 6;
             // 
             // printTimebutton
@@ -379,7 +379,6 @@
             this.Name = "GenerateTimeTable";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GenerateTimeTable";
-            this.TopMost = true;
             this.Load += new System.EventHandler(this.GenerateTimeTable_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

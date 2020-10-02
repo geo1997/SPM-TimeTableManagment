@@ -61,9 +61,9 @@ namespace TimeTableManagment
             try
             {
                 SetConnection();
-                
+
                 String getLes = "select count(*) from Lecturer";
-                String getPro =  "select count(*) from Session";
+                String getPro = "select count(*) from Session";
                 String getStudents = "select count(*) from Student";
                 String getSub = "select count(*) from Subject";
                 String getDays = "select count(*) from Days";
@@ -72,7 +72,7 @@ namespace TimeTableManagment
                 String getRooms = "select count(*) from Rooms";
 
                 sql_con.Open();
-                
+
                 SQLiteCommand command1 = new SQLiteCommand(getLes, sql_con);
                 SQLiteCommand command2 = new SQLiteCommand(getPro, sql_con);
                 SQLiteCommand command3 = new SQLiteCommand(getStudents, sql_con);
@@ -90,8 +90,8 @@ namespace TimeTableManagment
                 SQLiteDataReader reader6 = command6.ExecuteReader();
                 SQLiteDataReader reader7 = command7.ExecuteReader();
                 SQLiteDataReader reader8 = command8.ExecuteReader();
-     
-                
+
+
                 while (reader1.Read())
                 {
                     int lecCount = reader1.GetInt32(0);
@@ -153,97 +153,14 @@ namespace TimeTableManagment
         }
 
 
-        private SQLiteConnection sql_con;
-        private SQLiteCommand sql_cmd;
-        private SQLiteDataAdapter DB;
-        private DataSet DS = new DataSet();
-        private DataTable DT = new DataTable();
-
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            LoadRoomData();
-        }
-
-        private void SetConnection()
-        {
-            sql_con = new SQLiteConnection("Data Source=TimeTable.db;version=3;");
-        }
-
-        private void ExecuteQuery(string txtQuery)
-        {
-            SetConnection();
-            sql_con.Open();
-            sql_cmd = sql_con.CreateCommand();
-            sql_cmd.CommandText = txtQuery;
-            sql_cmd.ExecuteNonQuery();
-            sql_con.Close();
-        }
-
-
-
-
-
-        private void LoadRoomData()
-        {
-            try
-            {
-                SetConnection();
-                String getBuildings = "select count(*) from Location";
-                String getLes = "select count(*) from Lecturer";
-
-
-
-
-                sql_con.Open();
-                SQLiteCommand command = new SQLiteCommand(getBuildings, sql_con);
-                SQLiteCommand comman1 = new SQLiteCommand(getLes, sql_con);
-
-
-
-
-
-                SQLiteDataReader reader = command.ExecuteReader();
-                SQLiteDataReader reader1 = comman1.ExecuteReader();
-
-
-
-
-
-
-
-                while (reader.Read())
-                {
-                    int buildingName = reader.GetInt32(0);
-
-                    lblRoom.Text = buildingName.ToString();
-                }
-
-                while (reader1.Read())
-                {
-                    int lecCount = reader1.GetInt32(0);
-                    Lecslbl.Text = lecCount.ToString();
-                }
-
-                sql_con.Close();
-            }
-
-
-            catch (Exception e)
-            {
-                Console.WriteLine(e.ToString());
-            }
-        }
-
-
         //Methods
         private Color SelectThemeColor()
         {
             int index = random.Next(ThemeColor.ColorList.Count);
 
-            while(tempIndex == index)
+            while (tempIndex == index)
             {
-               index= random.Next(ThemeColor.ColorList.Count);
+                index = random.Next(ThemeColor.ColorList.Count);
             }
             tempIndex = index;
             string color = ThemeColor.ColorList[index];
@@ -254,7 +171,7 @@ namespace TimeTableManagment
         {
             if (btnSender != null)
             {
-                if(currentButton != (Button)btnSender)
+                if (currentButton != (Button)btnSender)
                 {
                     DisableButton();
                     Color color = SelectThemeColor();
@@ -270,7 +187,7 @@ namespace TimeTableManagment
 
         private void DisableButton()
         {
-            foreach(Control previousBtn in sideMenuPanel.Controls)
+            foreach (Control previousBtn in sideMenuPanel.Controls)
             {
                 if (previousBtn.GetType() == typeof(Button))
                 {
@@ -282,9 +199,9 @@ namespace TimeTableManagment
             }
         }
 
-         private void OpenChildForm(Form childForm , object btnSender)
+        private void OpenChildForm(Form childForm, object btnSender)
         {
-            if(activeForm != null)
+            if (activeForm != null)
             {
                 activeForm.Close();
             }
@@ -368,6 +285,7 @@ namespace TimeTableManagment
             if (activeForm != null)
                 activeForm.Close();
             Reset();
+            LoadRoomData();
         }
 
         private void Reset()
@@ -393,7 +311,7 @@ namespace TimeTableManagment
             //    {
             //        formBackground.StartPosition = FormStartPosition.Manual;
             //        formBackground.FormBorderStyle = FormBorderStyle.None;
-            //        formBackground.Opacity = .30d;
+            //        formBackground.Opacity = .70d;
             //        formBackground.BackColor = Color.Black;
             //        formBackground.WindowState = FormWindowState.Maximized;
             //        formBackground.TopMost = true;
@@ -421,12 +339,21 @@ namespace TimeTableManagment
 
         private void AssignDayandTimebutton_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void label7_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void deleteRecords_Click(object sender, EventArgs e)
+        {
+
+            String deleteQuery = "delete from allData";
+            ExecuteQuery(deleteQuery);
+            
+            MessageBox.Show("Records Sucessfully Deleted", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }
