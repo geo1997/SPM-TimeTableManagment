@@ -392,6 +392,10 @@ namespace TimeTableManagment.Forms
             tblSessions.DataSource = DT;
             sql_con.Close();
         }
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            ClearField();
+        }
 
         //Validation
         private void txtStudentCount_KeyPress(object sender, KeyPressEventArgs e)
@@ -1067,10 +1071,7 @@ namespace TimeTableManagment.Forms
             sql_con.Close();
         }
 
-        private void btnClear_Click(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void button13_Click(object sender, EventArgs e)
         {
