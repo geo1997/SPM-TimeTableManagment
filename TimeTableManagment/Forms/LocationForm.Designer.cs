@@ -30,6 +30,7 @@
         {
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
             this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
+            this.button1buildingDataClear = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.buildingDeleteBtn = new System.Windows.Forms.Button();
@@ -52,7 +53,6 @@
             this.roomNameTxtBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.button1buildingDataClear = new System.Windows.Forms.Button();
             this.metroTabControl1.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -70,7 +70,7 @@
             this.metroTabControl1.Location = new System.Drawing.Point(0, 0);
             this.metroTabControl1.Name = "metroTabControl1";
             this.metroTabControl1.SelectedIndex = 0;
-            this.metroTabControl1.Size = new System.Drawing.Size(982, 653);
+            this.metroTabControl1.Size = new System.Drawing.Size(1124, 653);
             this.metroTabControl1.TabIndex = 0;
             this.metroTabControl1.UseSelectable = true;
             this.metroTabControl1.SelectedIndexChanged += new System.EventHandler(this.metroTabControl1_SelectedIndexChanged);
@@ -90,17 +90,32 @@
             this.metroTabPage1.HorizontalScrollbarSize = 10;
             this.metroTabPage1.Location = new System.Drawing.Point(4, 38);
             this.metroTabPage1.Name = "metroTabPage1";
-            this.metroTabPage1.Size = new System.Drawing.Size(974, 611);
+            this.metroTabPage1.Size = new System.Drawing.Size(1116, 611);
             this.metroTabPage1.TabIndex = 0;
             this.metroTabPage1.Text = "Building Details";
             this.metroTabPage1.VerticalScrollbarBarColor = true;
             this.metroTabPage1.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage1.VerticalScrollbarSize = 10;
             // 
+            // button1buildingDataClear
+            // 
+            this.button1buildingDataClear.BackColor = System.Drawing.Color.SteelBlue;
+            this.button1buildingDataClear.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.button1buildingDataClear.Image = global::TimeTableManagment.Properties.Resources.icons8_erase_48;
+            this.button1buildingDataClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1buildingDataClear.Location = new System.Drawing.Point(841, 539);
+            this.button1buildingDataClear.Name = "button1buildingDataClear";
+            this.button1buildingDataClear.Size = new System.Drawing.Size(130, 41);
+            this.button1buildingDataClear.TabIndex = 17;
+            this.button1buildingDataClear.Text = "Clear";
+            this.button1buildingDataClear.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1buildingDataClear.UseVisualStyleBackColor = false;
+            this.button1buildingDataClear.Click += new System.EventHandler(this.button1buildingDataClear_Click);
+            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.dataGridView1);
-            this.panel1.Location = new System.Drawing.Point(169, 217);
+            this.panel1.Location = new System.Drawing.Point(296, 229);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(646, 263);
             this.panel1.TabIndex = 8;
@@ -129,7 +144,7 @@
             this.buildingDeleteBtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.buildingDeleteBtn.Image = global::TimeTableManagment.Properties.Resources.icons8_delete_64;
             this.buildingDeleteBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buildingDeleteBtn.Location = new System.Drawing.Point(542, 499);
+            this.buildingDeleteBtn.Location = new System.Drawing.Point(705, 539);
             this.buildingDeleteBtn.Name = "buildingDeleteBtn";
             this.buildingDeleteBtn.Size = new System.Drawing.Size(130, 41);
             this.buildingDeleteBtn.TabIndex = 7;
@@ -144,7 +159,7 @@
             this.buildingEditBtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.buildingEditBtn.Image = global::TimeTableManagment.Properties.Resources.icons8_edit_property_641;
             this.buildingEditBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buildingEditBtn.Location = new System.Drawing.Point(406, 499);
+            this.buildingEditBtn.Location = new System.Drawing.Point(569, 539);
             this.buildingEditBtn.Name = "buildingEditBtn";
             this.buildingEditBtn.Size = new System.Drawing.Size(130, 41);
             this.buildingEditBtn.TabIndex = 6;
@@ -204,7 +219,7 @@
             this.metroTabPage2.HorizontalScrollbarSize = 10;
             this.metroTabPage2.Location = new System.Drawing.Point(4, 38);
             this.metroTabPage2.Name = "metroTabPage2";
-            this.metroTabPage2.Size = new System.Drawing.Size(974, 611);
+            this.metroTabPage2.Size = new System.Drawing.Size(1116, 611);
             this.metroTabPage2.TabIndex = 1;
             this.metroTabPage2.Text = "Room Details";
             this.metroTabPage2.VerticalScrollbarBarColor = true;
@@ -217,7 +232,7 @@
             this.clearDetailsBtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.clearDetailsBtn.Image = global::TimeTableManagment.Properties.Resources.icons8_erase_48;
             this.clearDetailsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.clearDetailsBtn.Location = new System.Drawing.Point(752, 254);
+            this.clearDetailsBtn.Location = new System.Drawing.Point(942, 276);
             this.clearDetailsBtn.Name = "clearDetailsBtn";
             this.clearDetailsBtn.Size = new System.Drawing.Size(130, 41);
             this.clearDetailsBtn.TabIndex = 16;
@@ -232,7 +247,7 @@
             this.detailDeleteBtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.detailDeleteBtn.Image = global::TimeTableManagment.Properties.Resources.icons8_delete_64;
             this.detailDeleteBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.detailDeleteBtn.Location = new System.Drawing.Point(621, 254);
+            this.detailDeleteBtn.Location = new System.Drawing.Point(811, 276);
             this.detailDeleteBtn.Name = "detailDeleteBtn";
             this.detailDeleteBtn.Size = new System.Drawing.Size(130, 41);
             this.detailDeleteBtn.TabIndex = 15;
@@ -247,7 +262,7 @@
             this.detailsEditBtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.detailsEditBtn.Image = global::TimeTableManagment.Properties.Resources.icons8_edit_property_64;
             this.detailsEditBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.detailsEditBtn.Location = new System.Drawing.Point(490, 254);
+            this.detailsEditBtn.Location = new System.Drawing.Point(680, 276);
             this.detailsEditBtn.Name = "detailsEditBtn";
             this.detailsEditBtn.Size = new System.Drawing.Size(130, 41);
             this.detailsEditBtn.TabIndex = 14;
@@ -262,7 +277,7 @@
             this.detailsAddBtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.detailsAddBtn.Image = global::TimeTableManagment.Properties.Resources.icons8_add_new_64;
             this.detailsAddBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.detailsAddBtn.Location = new System.Drawing.Point(359, 254);
+            this.detailsAddBtn.Location = new System.Drawing.Point(549, 276);
             this.detailsAddBtn.Name = "detailsAddBtn";
             this.detailsAddBtn.Size = new System.Drawing.Size(130, 41);
             this.detailsAddBtn.TabIndex = 13;
@@ -274,7 +289,7 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.dataGridView2);
-            this.panel2.Location = new System.Drawing.Point(76, 327);
+            this.panel2.Location = new System.Drawing.Point(236, 338);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(838, 253);
             this.panel2.TabIndex = 12;
@@ -301,7 +316,7 @@
             this.roomTypeComboBox.Items.AddRange(new object[] {
             "Lecture Hall",
             "Laboratory"});
-            this.roomTypeComboBox.Location = new System.Drawing.Point(89, 201);
+            this.roomTypeComboBox.Location = new System.Drawing.Point(194, 194);
             this.roomTypeComboBox.Name = "roomTypeComboBox";
             this.roomTypeComboBox.Size = new System.Drawing.Size(137, 24);
             this.roomTypeComboBox.TabIndex = 10;
@@ -309,7 +324,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(86, 181);
+            this.label6.Location = new System.Drawing.Point(191, 174);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(81, 17);
             this.label6.TabIndex = 9;
@@ -318,14 +333,14 @@
             // buildingNameComboBox
             // 
             this.buildingNameComboBox.FormattingEnabled = true;
-            this.buildingNameComboBox.Location = new System.Drawing.Point(89, 62);
+            this.buildingNameComboBox.Location = new System.Drawing.Point(194, 55);
             this.buildingNameComboBox.Name = "buildingNameComboBox";
             this.buildingNameComboBox.Size = new System.Drawing.Size(137, 24);
             this.buildingNameComboBox.TabIndex = 8;
             // 
             // roomCapacityTxtBox
             // 
-            this.roomCapacityTxtBox.Location = new System.Drawing.Point(89, 273);
+            this.roomCapacityTxtBox.Location = new System.Drawing.Point(194, 266);
             this.roomCapacityTxtBox.Name = "roomCapacityTxtBox";
             this.roomCapacityTxtBox.Size = new System.Drawing.Size(137, 22);
             this.roomCapacityTxtBox.TabIndex = 7;
@@ -334,7 +349,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(86, 253);
+            this.label5.Location = new System.Drawing.Point(191, 246);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(103, 17);
             this.label5.TabIndex = 6;
@@ -342,7 +357,7 @@
             // 
             // roomNameTxtBox
             // 
-            this.roomNameTxtBox.Location = new System.Drawing.Point(89, 131);
+            this.roomNameTxtBox.Location = new System.Drawing.Point(194, 124);
             this.roomNameTxtBox.Name = "roomNameTxtBox";
             this.roomNameTxtBox.Size = new System.Drawing.Size(137, 22);
             this.roomNameTxtBox.TabIndex = 5;
@@ -350,7 +365,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(86, 111);
+            this.label4.Location = new System.Drawing.Point(191, 104);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(86, 17);
             this.label4.TabIndex = 4;
@@ -359,33 +374,18 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(86, 42);
+            this.label3.Location = new System.Drawing.Point(191, 35);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(103, 17);
             this.label3.TabIndex = 2;
             this.label3.Text = "Building Name:";
-            // 
-            // button1buildingDataClear
-            // 
-            this.button1buildingDataClear.BackColor = System.Drawing.Color.SteelBlue;
-            this.button1buildingDataClear.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
-            this.button1buildingDataClear.Image = global::TimeTableManagment.Properties.Resources.icons8_erase_48;
-            this.button1buildingDataClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1buildingDataClear.Location = new System.Drawing.Point(678, 499);
-            this.button1buildingDataClear.Name = "button1buildingDataClear";
-            this.button1buildingDataClear.Size = new System.Drawing.Size(130, 41);
-            this.button1buildingDataClear.TabIndex = 17;
-            this.button1buildingDataClear.Text = "Clear";
-            this.button1buildingDataClear.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1buildingDataClear.UseVisualStyleBackColor = false;
-            this.button1buildingDataClear.Click += new System.EventHandler(this.button1buildingDataClear_Click);
             // 
             // LocationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
-            this.ClientSize = new System.Drawing.Size(982, 653);
+            this.ClientSize = new System.Drawing.Size(1124, 653);
             this.Controls.Add(this.metroTabControl1);
             this.Name = "LocationForm";
             this.Text = "Location";

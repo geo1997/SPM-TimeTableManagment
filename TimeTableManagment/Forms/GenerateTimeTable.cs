@@ -44,6 +44,7 @@ namespace TimeTableManagment.Forms
             panel7.Visible = false;
             dataGridView7.Visible = false;
             printTimebutton.Visible = false;
+            topicForTimeTable.Visible = false;
 
         }
 
@@ -182,6 +183,7 @@ namespace TimeTableManagment.Forms
             AcademicSemcomboBox.Visible = false;
             AcademicYearcomboBox.Visible = false;
             clearFieldsbutton.Visible = false;
+            topicForTimeTable.Visible = true;
           
             generateTimeTblebutton.Visible = false;
             groupBox1.Visible = false;
@@ -284,6 +286,7 @@ namespace TimeTableManagment.Forms
                         changeVisibility();
                         generateTimeTableForRoomWeekEnd(room);
                         }
+                        else
                     {
                         MessageBox.Show("Please Select WeekDay or Weekend", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         type = false;
@@ -317,6 +320,7 @@ namespace TimeTableManagment.Forms
                         changeVisibility();
                         generateTimeTableForGroupWeekEnd(groupID);
                         }
+                        else
                     {
                         MessageBox.Show("Please Select WeekDay or Weekend", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         type = false;
@@ -382,6 +386,8 @@ namespace TimeTableManagment.Forms
         {
             DataTable dt = new DataTable(title);
 
+            topicForTimeTable.Text = title;
+
             DataColumn cltime = new DataColumn("Time");
             dt.Columns.Add(cltime);
 
@@ -401,6 +407,7 @@ namespace TimeTableManagment.Forms
             dt.Columns.Add(cl5);
 
 
+  
 
             DataRow dr1 = dt.NewRow();
             dr1["Time"] = "8.30";
@@ -501,7 +508,11 @@ namespace TimeTableManagment.Forms
 
         private void creeateWeekEndDataTable(string title, string lName)
         {
+
+            topicForTimeTable.Text = title;
+
             DataTable dt = new DataTable(title);
+
 
             DataColumn cltime = new DataColumn("Time");
             dt.Columns.Add(cltime);
@@ -627,7 +638,7 @@ namespace TimeTableManagment.Forms
                 try
                 {
                     SetConnection();
-                    String getlecData = "select SubjectCode,Room,SubjectName,GroupID,SubGroupID,Tag,Lecturers from allData where Lecturers='" + lec + "'  and StartTime='" + time + "' and Day='" + date + "'";
+                    String getlecData = "select SubjectCode,Room,SubjectName,GroupID,SubGroupID,Tag,Lecturers from allData where Lecturers LIKE'" + lec + "%'  and StartTime='" + time + "' and Day='" + date + "'";
                     sql_con.Open();
                     SQLiteCommand command = new SQLiteCommand(getlecData, sql_con);
 
@@ -663,6 +674,7 @@ namespace TimeTableManagment.Forms
 
         private void createDataTableForWeekDayRoom(string room)
         {
+            topicForTimeTable.Text = room;
             DataTable dt = new DataTable(room);
 
             DataColumn cltime = new DataColumn("Time");
@@ -781,6 +793,7 @@ namespace TimeTableManagment.Forms
 
         private void createDataTableForWeekEndRoom(string room)
         {
+            topicForTimeTable.Text = room;
             DataTable dt = new DataTable(room);
 
             DataColumn cltime = new DataColumn("Time");
@@ -939,6 +952,7 @@ namespace TimeTableManagment.Forms
 
         private void createDataTableForWeekDayGroup(string gid)
         {
+            topicForTimeTable.Text = gid;
             DataTable dt = new DataTable(gid);
 
             DataColumn cltime = new DataColumn("Time");
@@ -1057,6 +1071,7 @@ namespace TimeTableManagment.Forms
 
         private void createDataTableForWeekEndGroup(string gid)
         {
+            topicForTimeTable.Text = gid;
             DataTable dt = new DataTable(gid);
 
             DataColumn cltime = new DataColumn("Time");
@@ -1216,9 +1231,15 @@ namespace TimeTableManagment.Forms
 
         private void printTimebutton_Click(object sender, EventArgs e)
         {
+
             DGVPrinter printer = new DGVPrinter();
+            printer.Title = "Time Table";
+            printer.SubTitle = topicForTimeTable.Text;
+
             printer.Footer = string.Format("Date :{0}", DateTime.Now.Date);
             printer.PrintDataGridView(dataGridView7);
+
+           
 
         }
     }

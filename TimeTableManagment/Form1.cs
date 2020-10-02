@@ -61,9 +61,9 @@ namespace TimeTableManagment
             try
             {
                 SetConnection();
-                
+
                 String getLes = "select count(*) from Lecturer";
-                String getPro =  "select count(*) from Session";
+                String getPro = "select count(*) from Session";
                 String getStudents = "select count(*) from Student";
                 String getSub = "select count(*) from Subject";
                 String getDays = "select count(*) from Days";
@@ -72,7 +72,7 @@ namespace TimeTableManagment
                 String getRooms = "select count(*) from Rooms";
 
                 sql_con.Open();
-                
+
                 SQLiteCommand command1 = new SQLiteCommand(getLes, sql_con);
                 SQLiteCommand command2 = new SQLiteCommand(getPro, sql_con);
                 SQLiteCommand command3 = new SQLiteCommand(getStudents, sql_con);
@@ -90,8 +90,8 @@ namespace TimeTableManagment
                 SQLiteDataReader reader6 = command6.ExecuteReader();
                 SQLiteDataReader reader7 = command7.ExecuteReader();
                 SQLiteDataReader reader8 = command8.ExecuteReader();
-     
-                
+
+
                 while (reader1.Read())
                 {
                     int lecCount = reader1.GetInt32(0);
@@ -158,9 +158,9 @@ namespace TimeTableManagment
         {
             int index = random.Next(ThemeColor.ColorList.Count);
 
-            while(tempIndex == index)
+            while (tempIndex == index)
             {
-               index= random.Next(ThemeColor.ColorList.Count);
+                index = random.Next(ThemeColor.ColorList.Count);
             }
             tempIndex = index;
             string color = ThemeColor.ColorList[index];
@@ -171,7 +171,7 @@ namespace TimeTableManagment
         {
             if (btnSender != null)
             {
-                if(currentButton != (Button)btnSender)
+                if (currentButton != (Button)btnSender)
                 {
                     DisableButton();
                     Color color = SelectThemeColor();
@@ -187,7 +187,7 @@ namespace TimeTableManagment
 
         private void DisableButton()
         {
-            foreach(Control previousBtn in sideMenuPanel.Controls)
+            foreach (Control previousBtn in sideMenuPanel.Controls)
             {
                 if (previousBtn.GetType() == typeof(Button))
                 {
@@ -199,9 +199,9 @@ namespace TimeTableManagment
             }
         }
 
-         private void OpenChildForm(Form childForm , object btnSender)
+        private void OpenChildForm(Form childForm, object btnSender)
         {
-            if(activeForm != null)
+            if (activeForm != null)
             {
                 activeForm.Close();
             }
@@ -285,6 +285,7 @@ namespace TimeTableManagment
             if (activeForm != null)
                 activeForm.Close();
             Reset();
+            LoadRoomData();
         }
 
         private void Reset()
@@ -299,38 +300,38 @@ namespace TimeTableManagment
         private void generate_timetable_Click(object sender, EventArgs e)
         {
 
-            //GenerateTimeTable g = new GenerateTimeTable();
-            //g.ShowDialog();
+            GenerateTimeTable g = new GenerateTimeTable();
+            g.ShowDialog();
 
-            Form formBackground = new Form();
+            //Form formBackground = new Form();
 
-            try
-            {
-                using (GenerateTimeTable g = new GenerateTimeTable())
-                {
-                    formBackground.StartPosition = FormStartPosition.Manual;
-                    formBackground.FormBorderStyle = FormBorderStyle.None;
-                    formBackground.Opacity = .70d;
-                    formBackground.BackColor = Color.Black;
-                    formBackground.WindowState = FormWindowState.Maximized;
-                    formBackground.TopMost = true;
-                    formBackground.Location = this.Location;
-                    formBackground.ShowInTaskbar = false;
-                    formBackground.Show();
+            //try
+            //{
+            //    using (GenerateTimeTable g = new GenerateTimeTable())
+            //    {
+            //        formBackground.StartPosition = FormStartPosition.Manual;
+            //        formBackground.FormBorderStyle = FormBorderStyle.None;
+            //        formBackground.Opacity = .70d;
+            //        formBackground.BackColor = Color.Black;
+            //        formBackground.WindowState = FormWindowState.Maximized;
+            //        formBackground.TopMost = true;
+            //        formBackground.Location = this.Location;
+            //        formBackground.ShowInTaskbar = false;
+            //        formBackground.Show();
 
-                    g.Owner = formBackground;
-                    g.ShowDialog();
-                    formBackground.Dispose();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                formBackground.Dispose();
-            }
+            //        g.Owner = formBackground;
+            //        g.ShowDialog();
+            //        formBackground.Dispose();
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
+            //finally
+            //{
+            //    formBackground.Dispose();
+            //}
 
 
 
@@ -338,12 +339,21 @@ namespace TimeTableManagment
 
         private void AssignDayandTimebutton_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void label7_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void deleteRecords_Click(object sender, EventArgs e)
+        {
+
+            String deleteQuery = "delete from allData";
+            ExecuteQuery(deleteQuery);
+            
+            MessageBox.Show("Records Sucessfully Deleted", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }
