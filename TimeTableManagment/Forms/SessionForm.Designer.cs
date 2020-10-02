@@ -302,7 +302,7 @@
             this.txtSearch.MaximumSize = new System.Drawing.Size(374, 26);
             this.txtSearch.MinimumSize = new System.Drawing.Size(374, 26);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(374, 26);
+            this.txtSearch.Size = new System.Drawing.Size(374, 22);
             this.txtSearch.TabIndex = 1;
             this.toolTip1.SetToolTip(this.txtSearch, "Search by Lecturer/Subject/Subject Code/Group ID/Sub Group ID/No. of Students/Dur" +
         "ation");
@@ -606,7 +606,7 @@
             this.metroTabPage2.HorizontalScrollbarSize = 10;
             this.metroTabPage2.Location = new System.Drawing.Point(4, 38);
             this.metroTabPage2.Name = "metroTabPage2";
-            this.metroTabPage2.Size = new System.Drawing.Size(1362, 657);
+            this.metroTabPage2.Size = new System.Drawing.Size(1319, 673);
             this.metroTabPage2.TabIndex = 1;
             this.metroTabPage2.Text = "Consecutive Sessions";
             this.metroTabPage2.VerticalScrollbarBarColor = true;
@@ -862,7 +862,7 @@
             this.metroTabPage3.HorizontalScrollbarSize = 10;
             this.metroTabPage3.Location = new System.Drawing.Point(4, 38);
             this.metroTabPage3.Name = "metroTabPage3";
-            this.metroTabPage3.Size = new System.Drawing.Size(1071, 657);
+            this.metroTabPage3.Size = new System.Drawing.Size(1319, 673);
             this.metroTabPage3.TabIndex = 2;
             this.metroTabPage3.Text = "Parallel Session";
             this.metroTabPage3.VerticalScrollbarBarColor = true;
@@ -1141,7 +1141,7 @@
             this.metroTabPage4.HorizontalScrollbarSize = 10;
             this.metroTabPage4.Location = new System.Drawing.Point(4, 38);
             this.metroTabPage4.Name = "metroTabPage4";
-            this.metroTabPage4.Size = new System.Drawing.Size(1071, 657);
+            this.metroTabPage4.Size = new System.Drawing.Size(1319, 673);
             this.metroTabPage4.TabIndex = 3;
             this.metroTabPage4.Text = "Non-Overlapping Sessions";
             this.metroTabPage4.VerticalScrollbarBarColor = true;

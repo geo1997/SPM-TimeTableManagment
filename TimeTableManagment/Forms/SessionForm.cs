@@ -58,6 +58,7 @@ namespace TimeTableManagment.Forms
         //load lecturer names to checkboxlist from the Database
         private void FillLectureList()
         {
+            lecNameList.Items.Clear();
             SetConnection();
             sql_con.Open();
             sql_cmd = sql_con.CreateCommand();
@@ -212,6 +213,8 @@ namespace TimeTableManagment.Forms
             txtDuration.Clear();
             lblSubGrp.Visible = false;
             cmbSubGroup.Visible = false;
+            FillLectureList();
+            LoadData();
         }
 
         //Add selected lecture(s) to the text Box
@@ -391,6 +394,10 @@ namespace TimeTableManagment.Forms
             DT = DS.Tables[0];
             tblSessions.DataSource = DT;
             sql_con.Close();
+        }
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            ClearField();
         }
 
         //Validation
@@ -1067,10 +1074,7 @@ namespace TimeTableManagment.Forms
             sql_con.Close();
         }
 
-        private void btnClear_Click(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void button13_Click(object sender, EventArgs e)
         {
