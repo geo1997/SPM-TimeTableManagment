@@ -43,7 +43,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(423, 64);
+            this.label2.Location = new System.Drawing.Point(516, 79);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(96, 17);
             this.label2.TabIndex = 2;
@@ -76,7 +76,7 @@
             "18.00",
             "18.30",
             "19.00"});
-            this.combo_startTime.Location = new System.Drawing.Point(426, 114);
+            this.combo_startTime.Location = new System.Drawing.Point(519, 110);
             this.combo_startTime.Name = "combo_startTime";
             this.combo_startTime.Size = new System.Drawing.Size(121, 24);
             this.combo_startTime.TabIndex = 3;
@@ -106,7 +106,7 @@
             "18.00",
             "18.30",
             "19.00"});
-            this.combo_endTime.Location = new System.Drawing.Point(575, 114);
+            this.combo_endTime.Location = new System.Drawing.Point(664, 110);
             this.combo_endTime.Name = "combo_endTime";
             this.combo_endTime.Size = new System.Drawing.Size(121, 24);
             this.combo_endTime.TabIndex = 4;
@@ -117,7 +117,7 @@
             this.btn_add.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.btn_add.Image = global::TimeTableManagment.Properties.Resources.icons8_add_new_64;
             this.btn_add.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_add.Location = new System.Drawing.Point(536, 206);
+            this.btn_add.Location = new System.Drawing.Point(592, 154);
             this.btn_add.Name = "btn_add";
             this.btn_add.Size = new System.Drawing.Size(130, 41);
             this.btn_add.TabIndex = 5;
@@ -129,7 +129,7 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.dataGridView1);
-            this.panel1.Location = new System.Drawing.Point(272, 262);
+            this.panel1.Location = new System.Drawing.Point(304, 279);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(705, 346);
             this.panel1.TabIndex = 6;
@@ -141,7 +141,7 @@
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(71, 49);
+            this.dataGridView1.Location = new System.Drawing.Point(71, 28);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
@@ -157,7 +157,7 @@
             this.btn_edit.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.btn_edit.Image = global::TimeTableManagment.Properties.Resources.icons8_edit_property_64;
             this.btn_edit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_edit.Location = new System.Drawing.Point(366, 206);
+            this.btn_edit.Location = new System.Drawing.Point(519, 154);
             this.btn_edit.Name = "btn_edit";
             this.btn_edit.Size = new System.Drawing.Size(130, 41);
             this.btn_edit.TabIndex = 8;
@@ -172,7 +172,7 @@
             this.btn_delete.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.btn_delete.Image = global::TimeTableManagment.Properties.Resources.icons8_delete_64;
             this.btn_delete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_delete.Location = new System.Drawing.Point(685, 206);
+            this.btn_delete.Location = new System.Drawing.Point(655, 154);
             this.btn_delete.Name = "btn_delete";
             this.btn_delete.Size = new System.Drawing.Size(130, 41);
             this.btn_delete.TabIndex = 9;

@@ -28,9 +28,9 @@ namespace TimeTableManagment.Forms
 
         private void workingHoursForm_Load(object sender, EventArgs e)
         {
+            btn_delete.Visible = false;
+            btn_edit.Visible = false;
             LoadData();
-            //btn_delete.Visible = false;
-            //btn_edit.Visible = false;
             //lbl_nohours.Visible = false;
         }
 
@@ -76,11 +76,12 @@ namespace TimeTableManagment.Forms
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-           
+            btn_delete.Visible = true;
+            btn_edit.Visible = true;
             hourId = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
             combo_startTime.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
             combo_endTime.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
-            
+            btn_add.Visible = false;
         }
 
         private void click_editBtn(object sender, EventArgs e)

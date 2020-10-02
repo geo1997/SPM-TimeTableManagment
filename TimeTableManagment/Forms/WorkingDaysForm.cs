@@ -28,6 +28,8 @@ namespace TimeTableManagment.Forms
 
         private void WorkingDaysForm_Load(object sender, EventArgs e)
         {
+            btn_delete.Visible = false;
+            btn_edit.Visible = false;
             LoadData();
         }
 
@@ -140,6 +142,9 @@ namespace TimeTableManagment.Forms
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            btn_delete.Visible = true;
+            btn_edit.Visible = true;
+            btn_add.Visible = false;
             ClearCheckBoxes();
             String dayNames = "";
             workingDayId = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
