@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SQLite;
 using System.Windows.Forms;
+using System.Drawing.Text;
 
 namespace TimeTableManagment.Forms
 {
@@ -148,7 +149,7 @@ namespace TimeTableManagment.Forms
 
 
                 SetConnection();
-                String sub = "select SessionID from Session ";
+                String sub = "select s.SessionID from Session s, RoomAllocation ra where s.SessionID=ra.sessionID order by s.SessionID";
 
                 sql_con.Open();
                 SQLiteCommand command = new SQLiteCommand(sub, sql_con);
@@ -161,7 +162,10 @@ namespace TimeTableManagment.Forms
 
                     int subj = reader.GetInt32(0);
 
+                    
+
                     loadSessionIDcomboBoxCS.Items.Add(subj);
+                    sessionIDcomboBoxParAndNon.Items.Add(subj);
 
 
                 }
@@ -296,62 +300,7 @@ namespace TimeTableManagment.Forms
                 MessageBox.Show(ex.ToString());
             }
         }
-        //else
-        //{
-        //    try
-        //    {
-        //        string subjct = subjectComboBox.Text;
-        //        string gid = groupIDcomboBox.Text;
-
-
-        //        SetConnection(); 
-        //        String lectureDet = "select s.Lecturer,s.Subject,s.Tag,s.SubjectCode,s.GroupID,s.SessionID,s.Duration,ra.RoomName " +
-        //            "from Session s inner join RoomAllocation ra on s.SessionID=ra.sessionID " +
-        //            " where s.GroupID='" + gid + "' and s.Subject='" + subjct + "'and s.Tag='" + tag + "'";
-
-        //        sql_con.Open();
-        //        SQLiteCommand command = new SQLiteCommand(lectureDet, sql_con);
-        //        SQLiteDataReader reader = command.ExecuteReader();
-
-
-
-        //        while (reader.Read())
-        //        {
-        //            lecturer = reader.GetString(0);
-        //            subject = reader.GetString(1);
-        //            tag = reader.GetString(2);
-        //            subCode = reader.GetString(3);
-        //            grpID = reader.GetString(4);
-        //            sessionID = reader.GetInt32(5);
-        //            duration = reader.GetString(6);
-        //            roomName = reader.GetString(7);
-
-
-
-
-        //            allDatalabel.Text = "Lecturer Names: " + lecturer + "\nSubject Name: " + subject + "\nSubject Code: " + subCode + "\nSubject Tag: " + tag + "\nGroup ID: " +
-        //                grpID + "\nSession ID: " + sessionID + "\nSession Duration: " + duration + "\nRoom Allocated: " + roomName;
-        //        }
-
-        //        roomNamelbl.Text = "Unavailable Time For room :" + roomName;
-
-
-        //        LoadRoomData(roomName);
-
-        //        sql_con.Close();
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.ToString());
-        //    }
-        //}
-
-
-
-
-        // }
-
+    
 
         private void LoadRoomData(String roomName)
         {
@@ -417,6 +366,7 @@ namespace TimeTableManagment.Forms
                     MessageBox.Show("Time and Date Information Added For Practical Session", "Inserted", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
+                resetPracData();
 
             }
             catch (Exception ex)
@@ -599,7 +549,7 @@ namespace TimeTableManagment.Forms
 
 
                 if (ValidateChildren(ValidationConstraints.Enabled) &&
-                sID == 0 || startTime == "" || endTime == "" || day == ""
+                 startTime == "" || endTime == "" || day == "" || sID == 0 
                  )
                 {
                     MessageBox.Show("Complete All The Fields!",
@@ -712,6 +662,7 @@ namespace TimeTableManagment.Forms
             if (metroTabControl1.SelectedTab == metroTabControl1.TabPages[1])
             {
                 loadConsecSessions();
+                loadSessionIDcomboBoxCS.Items.Clear();
                 loadSessionIDs();
                 loadAllDataCS();
             }
@@ -723,6 +674,8 @@ namespace TimeTableManagment.Forms
                 LoadAllRoomData();
                 LoadAllsessionUnavailableTime();
                 loadAllDataPAndNonOver();
+                sessionIDcomboBoxParAndNon.Items.Clear();
+                loadSessionIDs();
             }
         }
 
@@ -774,7 +727,7 @@ namespace TimeTableManagment.Forms
             SetConnection();
             sql_con.Open();
             sql_cmd = sql_con.CreateCommand();
-            string queryText = "select StartTime,EndTime,Day from RoomAvailability  ";
+            string queryText = "select RoomName,StartTime,EndTime,Day from RoomAvailability  ";
             DB = new SQLiteDataAdapter(queryText, sql_con);
             DS7.Reset();
             DB.Fill(DS7);
@@ -791,7 +744,7 @@ namespace TimeTableManagment.Forms
             SetConnection();
             sql_con.Open();
             sql_cmd = sql_con.CreateCommand();
-            string queryText = "select Froms,Tos,Day from Availability  ";
+            string queryText = "select sessionID,Froms,Tos,Day from Availability  ";
             DB = new SQLiteDataAdapter(queryText, sql_con);
             DS6.Reset();
             DB.Fill(DS6);
@@ -816,7 +769,189 @@ namespace TimeTableManagment.Forms
             dataGridView12.DataSource = DT8;
             sql_con.Close();
         }
+
+        private void ClearFieldsbuttoPrac_Click(object sender, EventArgs e)
+        {
+
+            resetPracData();
+        }
+
+
+        private void resetPracData()
+        {
+            StudentYearComboBox.SelectedItem = null;
+            semcomboBox.SelectedItem = null;
+            subGroupcomboBox.SelectedItem = null;
+            subjectComboBox.SelectedItem = null;
+            daySelectcomboBoxP.SelectedItem = null;
+            timeStartSelectcomboBoxP.SelectedItem = null;
+            timeEndSelectcomboBoxP.SelectedItem = null;
+            allDatalabel.Text = "";
+            dataGridView2.DataSource = null;
+            dataGridView3.DataSource = null;
+        }
+
+        private void addDatabuttonParallAndNonOver_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int sID = int.Parse(sessionIDcomboBoxParAndNon.Text);
+                string startTime = startTimecomboBoxParAndOvr.Text;
+                string endTime = endTimecomboBoxParAndOvr.Text;
+                string day = daycomboBoxParAndOvr.Text;
+                string groupID = "";
+                string Lecs = "";
+                string tgs = "";
+                string subjcode = "";
+                string Roomname = "";
+                string subName = "";
+
+
+                if (ValidateChildren(ValidationConstraints.Enabled) &&
+                sID == 0 || startTime == "" || endTime == "" || day == ""
+                 )
+                {
+                    MessageBox.Show("Complete All The Fields!",
+                   "Unable to Submit", MessageBoxButtons.OK,
+                                   MessageBoxIcon.Exclamation,
+                                   MessageBoxDefaultButton.Button1);
+                }
+                else
+                {
+
+
+
+                    String sessionDet = "select s.GroupID,s.Lecturer,s.Tag,s.SubjectCode,ra.RoomName,s.Subject " +
+                 "from Session s inner join RoomAllocation ra on s.SessionID=ra.sessionID  " +
+                 "where s.SessionID='" + sID + "'";
+                    sql_con.Open();
+                    SQLiteCommand command1 = new SQLiteCommand(sessionDet, sql_con);
+                    SQLiteDataReader reader1 = command1.ExecuteReader();
+
+                    while (reader1.Read())
+                    {
+                        groupID = reader1.GetString(0);
+                        Lecs = reader1.GetString(1);
+                        tgs = reader1.GetString(2);
+                        subjcode = reader1.GetString(3);
+                        Roomname = reader1.GetString(4);
+                        subName = reader1.GetString(5);
+
+
+                    }
+
+
+
+                    string insertallDataCS = "insert into allData (GroupID,SubGroupID,StartTime,EndTime,Day,Lecturers,SubjectName,Room,Tag,SubjectCode,sessionID)values('" + groupID + "','N/A','"
+                  + startTime + "','" + endTime + "','" + day + "','" + Lecs + "','" + subName + "','" + Roomname + "','" + tgs + "','" + subjcode + "','" + sID + "')";
+                    ExecuteQuery(insertallDataCS);
+                    loadAllDataPAndNonOver();
+                    clearAllParAndOverData();
+                    MessageBox.Show("Time and Date Information Added For Parallel & Non Overlapping sessions", "Inserted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                //MessageBox.Show(ex.ToString(),"Error" , MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+        
+
+        }
+
+
+        private void clearAllParAndOverData()
+        {
+            sessionIDcomboBoxParAndNon.SelectedItem = null;
+            daycomboBoxParAndOvr.SelectedItem = null;
+            startTimecomboBoxParAndOvr.SelectedItem = null;
+            endTimecomboBoxParAndOvr.SelectedItem = null;
+        }
+
+        private void sessionIDcomboBoxParAndNon_SelectedIndexChanged(object sender, EventArgs e)
+        {
+         
+            try
+            {
+               
+                int sid = int.Parse(sessionIDcomboBoxParAndNon.Text);
+
+
+                SetConnection();
+                String lectureDet = "select s.Lecturer,s.Subject,s.Tag,s.SubjectCode,s.SubGID,s.SessionID,s.Duration,ra.RoomName " +
+                    "from Session s inner join RoomAllocation ra on s.SessionID=ra.sessionID " +
+                    " where s.SessionID='" + sid + "'";
+
+                sql_con.Open();
+                SQLiteCommand command = new SQLiteCommand(lectureDet, sql_con);
+                SQLiteDataReader reader = command.ExecuteReader();
+               
+
+
+                while (reader.Read())
+                {
+                    if (reader.HasRows)
+
+                        lecturer = reader.GetString(0);
+                        subject = reader.GetString(1);
+                        tag = reader.GetString(2);
+                        subCode = reader.GetString(3);
+                        subGrpID = reader.GetString(4);
+                        sessionID = reader.GetInt32(5);
+                        duration = reader.GetString(6);
+                        roomName = reader.GetString(7);
+
+
+
+                        sessionDetailslblParAndOvr.Text = "Lecturer Names: " + lecturer + "\nSubject Name: " + subject + "\nSubject Code: " + subCode + "\nSubject Tag:"+tag+" \nSub Group ID: " +
+                       subGrpID + "\nSession ID: " + sessionID + "\nSession Duration: " + duration + "\nRoom Allocated: " + roomName;
+                    
+
+
+                }
+
+                
+
+                sql_con.Close();
+
+
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            clearAllParAndOverData();
+        }
+
+        private void buildingDeleteBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                String deleteQuery = "delete from allData where Tag = 'Practical'";
+                ExecuteQuery(deleteQuery);
+                MessageBox.Show("Practical records deleted successfully", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                loadAllData();
+
+
+            }
+            catch (Exception ex)
+            {
+                Console.Write(ex.ToString());
+            }
+
+
+        }
     }
+    
 }
     
         

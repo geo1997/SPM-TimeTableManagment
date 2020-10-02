@@ -123,6 +123,16 @@ namespace TimeTableManagment.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_content_32px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_content_32px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_day_view_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8-day-view-32", resourceCulture);

@@ -251,6 +251,7 @@
     <None Include="Resources\icons8_broom.ico" />
     <None Include="Resources\icons8_time_machine_32px.png" />
     <None Include="Resources\icons8_time_machine_32px_1.png" />
+    <Content Include="Resources\icons8_content_32px.png" />
     <Content Include="TimeTable.db">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

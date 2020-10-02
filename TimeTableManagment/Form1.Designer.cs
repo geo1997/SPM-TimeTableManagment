@@ -45,6 +45,7 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
             this.home = new System.Windows.Forms.Panel();
+            this.deleteRecords = new System.Windows.Forms.Button();
             this.generate_timetable = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
             this.lblDays = new System.Windows.Forms.Label();
@@ -380,6 +381,7 @@
             // home
             // 
             this.home.BackColor = System.Drawing.Color.BurlyWood;
+            this.home.Controls.Add(this.deleteRecords);
             this.home.Controls.Add(this.generate_timetable);
             this.home.Controls.Add(this.panel8);
             this.home.Controls.Add(this.panel7);
@@ -394,6 +396,19 @@
             this.home.Name = "home";
             this.home.Size = new System.Drawing.Size(1243, 673);
             this.home.TabIndex = 2;
+            // 
+            // deleteRecords
+            // 
+            this.deleteRecords.BackColor = System.Drawing.Color.Red;
+            this.deleteRecords.Font = new System.Drawing.Font("Palatino Linotype", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deleteRecords.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.deleteRecords.Location = new System.Drawing.Point(447, 563);
+            this.deleteRecords.Name = "deleteRecords";
+            this.deleteRecords.Size = new System.Drawing.Size(420, 54);
+            this.deleteRecords.TabIndex = 4;
+            this.deleteRecords.Text = "Delete All Records";
+            this.deleteRecords.UseVisualStyleBackColor = false;
+            this.deleteRecords.Click += new System.EventHandler(this.deleteRecords_Click);
             // 
             // generate_timetable
             // 
@@ -559,9 +574,10 @@
             // 
             this.lblRoom.AutoSize = true;
             this.lblRoom.BackColor = System.Drawing.Color.SandyBrown;
+            this.lblRoom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.lblRoom.Location = new System.Drawing.Point(59, 56);
             this.lblRoom.Name = "lblRoom";
-            this.lblRoom.Size = new System.Drawing.Size(53, 20);
+            this.lblRoom.Size = new System.Drawing.Size(70, 25);
             this.lblRoom.TabIndex = 1;
             this.lblRoom.Text = "label9";
             // 
@@ -590,9 +606,10 @@
             // 
             this.lblSub.AutoSize = true;
             this.lblSub.BackColor = System.Drawing.Color.Tan;
+            this.lblSub.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.lblSub.Location = new System.Drawing.Point(65, 57);
             this.lblSub.Name = "lblSub";
-            this.lblSub.Size = new System.Drawing.Size(53, 20);
+            this.lblSub.Size = new System.Drawing.Size(70, 25);
             this.lblSub.TabIndex = 3;
             this.lblSub.Text = "label9";
             // 
@@ -833,6 +850,6 @@
         private System.Windows.Forms.Label lblStu;
         private System.Windows.Forms.Label lblPro;
         private System.Windows.Forms.Label lblLec;
+        private System.Windows.Forms.Button deleteRecords;
     }
 }
-

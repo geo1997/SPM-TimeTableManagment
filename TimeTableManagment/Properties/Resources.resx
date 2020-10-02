@@ -136,8 +136,8 @@
   <data name="icons8-tag-window-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-tag-window-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8_erase_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8_erase_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icons8_time_machine_32px_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8_time_machine_32px_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8-macos-close-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-macos-close-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -166,11 +166,11 @@
   <data name="icons8-hourglass-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-hourglass-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="icons8_collapse_arrow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8_collapse_arrow.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="icons8-teacher-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-teacher-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icons8-more-details-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8-more-details-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8_ok_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8_ok_1.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -181,8 +181,14 @@
   <data name="icons8_delete_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8_delete_64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="icons8_expand_arrow_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8_expand_arrow_3.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="icons8-day-view-32 (2)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-day-view-32 (2)1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-student-male-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-student-male-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8-day-view-32 (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-day-view-32 (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -190,31 +196,28 @@
   <data name="icons8_expand_arrow_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8_expand_arrow_2.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8_chart_60px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8_chart_60px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="icons8-marker-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-marker-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8-available-updates-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-available-updates-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8_collapse_arrow" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8_collapse_arrow.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icons8_chart_60px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8_chart_60px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8_broom" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8_broom.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8_expand_arrow_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8_expand_arrow_3.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icons8_erase_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8_erase_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8-student-male-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8-student-male-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icons8-more-details-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-more-details-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8_minus" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8_minus.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8_time_machine_32px_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8_time_machine_32px_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icons8_content_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8_content_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
